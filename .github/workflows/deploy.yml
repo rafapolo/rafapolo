@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # Or your default branch
+      - main # Change this to your default branch if different
 
 permissions:
   contents: read
@@ -21,10 +21,9 @@ jobs:
         uses: actions/configure-pages@v4
 
       - name: Upload site folder
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
-         path: './projeto'  # This is your custom folder
+          path: "./projeto" # Your custom folder for GitHub Pages
 
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v3
-
+        uses: actions/deploy-pages@v4
