@@ -1,0 +1,67 @@
+
+<!-- saved from url=(0036)http://extrapolo.com/projeto/comuna/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>menu | versão 3</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js" type="text/javascript"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.js" type="text/javascript"></script>
+	<script>
+	$(document).ready(function(){
+		$("#menu").draggable();
+		var colors = ["red", "white", "yellow", "#00CC00", "blue", "#FF0099", "orange"];
+		var random = Math.floor(Math.random()*colors.length);
+		var random_color = colors[random];
+		$(".random-color").css("backgroundColor", random_color);
+		$("a").css("color", random_color);
+	})
+	</script>
+	<style>
+	#menu{
+		position: fixed;
+		left: 50px;
+		top: 100px;
+		width: 182px;
+		font-family: Helvetica;
+		cursor: move;
+		font-size: 12px;
+		font-size:15px;
+		line-height:19px;
+		z-index:1;
+	}
+	#back{
+		background-color: black; 
+		opacity: 0.3; 
+		height: 158px; 
+		width: 181px; 
+		position:absolute; 
+		z-index:-1;
+		margin: 0px;
+	}
+	a{font-weight:bold; text-decoration:none}
+	a:hover{text-decoration:underline}
+	</style>
+</head>
+
+<body style="margin:0px; height:100%; width:100%">
+	<iframe id="p2" style="border:0px; height:100%; width:100%" src="http://maps.google.com.br/maps?f=q&amp;source=s_q&amp;hl=pt-BR&amp;geocode=&amp;q=Rua+Sorocaba,+Rio+de+Janeiro&amp;aq=0&amp;sll=-14.239424,-53.186502&amp;sspn=46.299676,78.310547&amp;vpsrc=6&amp;ie=UTF8&amp;hq=&amp;hnear=R.+Sorocaba+-+Botafogo,+Rio+de+Janeiro,+22271-110&amp;ll=-22.953321,-43.189801&amp;spn=0.002756,0.00478&amp;t=h&amp;z=14&amp;output=embed"></iframe>
+
+		<div id="menu" style="padding-bottom: 8px">
+			<div style="height:8px; margin-left:10px; margin-right:10px" class="random-color"></div>						
+			<div style="width:8px; height:148px; margin-top:5px; float:left; margin-bottom:5px" class="random-color"></div>
+<div style="float:left; top:10px; margin-left: 13px">
+			<a target="p2" href="http://www.google.com/calendar/embed?showTitle=0&amp;showDate=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=2&amp;hl=en&amp;bgcolor=%23ffffff&amp;src=lhlos2s5itt56btp5q7ek03ti4%40group.calendar.google.com&amp;color=%232952A3&amp;ctz=Europe%2FStockholm">AGENDA</a><br>
+
+			<a target="p2" href="http://maps.google.com.br/maps?f=q&amp;source=s_q&amp;hl=pt-BR&amp;geocode=&amp;q=Rua+Sorocaba,+Rio+de+Janeiro&amp;aq=0&amp;sll=-14.239424,-53.186502&amp;sspn=46.299676,78.310547&amp;vpsrc=6&amp;ie=UTF8&amp;hq=&amp;hnear=R.+Sorocaba+-+Botafogo,+Rio+de+Janeiro,+22271-110&amp;ll=-22.953321,-43.189801&amp;spn=0.002756,0.00478&amp;t=h&amp;z=14&amp;output=embed">MAPA</a><br/>
+
+			<a target="p2" href="http://etaoinshrdlu.net/">COMUNA</a><br/>
+			<a target="p2" href="http://yahoo.com/">QUEM SOMOS</a><br/>
+			<a target="p2" href="http://google.com/">ASSOCIADOS</a><br/>
+			<a target="p2"href="http://g1.com.br/">GALERIA</a><br/>
+			<a target="p2" href="http://bbc.co.uk/">SALA DE ESTAR</a><br/>
+			<a target="p2" href="http://cnn.com/">SERVIÇOS</a><br/>
+			</div>
+				<div style="width:8px; height:148px; margin-top:5px; float:right; margin-bottom:5px" class="random-color"></div>
+			<div style="width:90%; height:8px; margin-left:10px; margin-right:10px; position: absolute; bottom:0px" class="random-color"></div>
+			<div id="back"></div>
+		</div>
+	</body>
+	</html>

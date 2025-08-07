@@ -1,0 +1,83 @@
+<html lang="en" class=" wf-active"><!--
+	********************************************************************************
+
+	Based on Our Solar System by Alex Giron
+	http://neography.com/journal/our-solar-system-in-css3/
+
+	********************************************************************************
+    -->
+	<span class="wf-font-watcher" style="position:absolute;left:-999px;font-size:200px;font-family:NONE,NONE">Mm</span><span class="wf-font-watcher" style="position:absolute;left:-999px;font-size:200px;font-family:&quot;proxima-nova-extra-condensed-1&quot;,&quot;proxima-nova-extra-condensed-2&quot;,&quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,&quot;Sans-serif&quot;,NONE">Mm</span><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+    <title>Vênus | Terra</title> 
+
+    <link rel="shortcut icon" href="http://neography.com/_base/img/favicon.ico" type="image/x-icon"> 
+    <link rel="stylesheet" type="text/css" media="screen,projection" href="./index_files/styles.css">
+    
+
+        </script><script src="./index_files/jquery.min.js" type="text/javascript"></script>
+        <script type="text/javascript" charset="utf-8">
+		$(document).ready(function(){
+			function doIt(classe){
+				$(classe).css("border-style", "dashed").animate({
+				    borderTopLeftRadius: 0, 
+				    borderTopRightRadius: 0, 
+				    borderBottomLeftRadius: 0, 
+				    borderBottomRightRadius: 0,
+				    WebkitBorderTopLeftRadius: 0, 
+				    WebkitBorderTopRightRadius: 0, 
+				    WebkitBorderBottomLeftRadius: 0, 
+				    WebkitBorderBottomRightRadius: 0
+			  		}, 5000, 			
+					function(){
+						$(classe).animate({
+					    borderTopLeftRadius: 140, 
+					    borderTopRightRadius: 140, 
+					    borderBottomLeftRadius: 140, 
+					    borderBottomRightRadius: 140,
+					    WebkitBorderTopLeftRadius: 140, 
+					    WebkitBorderTopRightRadius: 140, 
+					    WebkitBorderBottomLeftRadius: 140, 
+					    WebkitBorderBottomRightRadius: 140
+					}, 5000, function(){						
+							doIt(classe)
+						});
+				});
+			}
+			doIt(".earth");
+			doIt(".venus");	
+			
+			setInterval(function(){
+	//			$("li").css("border-color", "#394057");
+	//			$($("li")[Math.floor(Math.random()*($("li").size()+1))]).css("border-color", "blue");
+			}, 1000);		
+		})
+        </script>
+
+      
+ 
+  </head> 
+  
+  <body>
+  
+  <div class="wrap clearfix">
+  
+    <section class="clearfix">
+  
+        <ul class="solarsystem">
+          <li class="sun"><a href="http://neography.com/experiment/circles/solarsystem/#sun"><span>Sun</span></a></li>
+          <li class="mercury"><a href="http://neography.com/experiment/circles/solarsystem/#mercury"><span>Mercury</span></a></li>
+          <li class="venus"><a href=""><span>Venus</span></a></li>
+          <li class="earth"><a href=""><span>Earth<span class="moon"> &amp; Moon</span></span></a></li>
+          <li class="mars"><a href="http://neography.com/experiment/circles/solarsystem/#mars"><span>Mars</span></a></li>
+          <li class="jupiter"><a href="http://neography.com/experiment/circles/solarsystem/#jupiter"><span>Jupiter</span></a></li>
+          <li class="saturn"><a href="http://neography.com/experiment/circles/solarsystem/#saturn"><span>Saturn &amp; <span class="ring">Ring</span></span></a></li>
+          <li class="uranus"><a href="http://neography.com/experiment/circles/solarsystem/#uranus"><span>Uranus</span></a></li>
+          <li class="neptune"><a href="http://neography.com/experiment/circles/solarsystem/#neptune"><span>Neptune</span></a></li>
+          <li class="pluto"><a href="http://neography.com/experiment/circles/solarsystem/#pluto"><span>Pluto</span></a></li>
+        </ul>
+        
+    </section>
+  
+  </div>
+  
+  
+  </body></html>

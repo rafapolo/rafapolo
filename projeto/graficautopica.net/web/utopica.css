@@ -1,0 +1,13 @@
+body {color:white; overflow:hidden; font-family:arial;}
+@font-face { font-family: kremlin; src: url('kremlin.ttf'); } 
+#menu{font-size:17px; visibility:hidden;}
+#download {position:fixed; bottom:10px; left:90%; visibility:hidden;}
+.video{border: 4px solid gray; position:absolute; cursor:move; background: white url('load.gif') no-repeat center; opacity:0.3;}
+.torrent {text-decoration: none; color: white}
+.loader {position:absolute; border: 5px solid gray; z-index:5; opacity:0.5; background: white url('load.gif') no-repeat center;}
+img{opacity:0.4; position:absolute; top: 10px; left: 40px;}
+span{font-family: "kremlin";}
+span:hover{text-shadow: 5px 6px 2px gray; cursor:pointer;}
+iframe {width:450px; height:231px; visibility:hidden;}	
+p {position:absolute; color:gray; font-size:12px; z-index:-1;text-shadow: 5px 5px 1px white; opacity: 0.2; 
+	-webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -o-user-select: none; user-select: none;}

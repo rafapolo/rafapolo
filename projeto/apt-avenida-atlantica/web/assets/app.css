@@ -1,0 +1,291 @@
+@font-face {
+    font-family: 'apercubold';
+    src: url('fonts/apercu-bold-webfont.eot');
+    src: url('fonts/apercu-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/apercu-bold-webfont.woff') format('woff'),
+         url('fonts/apercu-bold-webfont.ttf') format('truetype'),
+         url('fonts/apercu-bold-webfont.svg#apercubold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'apercuregular';
+    src: url('fonts/apercu-webfont.eot');
+    src: url('fonts/apercu-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/apercu-webfont.woff') format('woff'),
+         url('fonts/apercu-webfont.ttf') format('truetype'),
+         url('fonts/apercu-webfont.svg#apercuregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'arnhemregular';
+    src: url('fonts/arnhem-normal-webfont.eot');
+    src: url('fonts/arnhem-normal-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/arnhem-normal-webfont.woff') format('woff'),
+         url('fonts/arnhem-normal-webfont.ttf') format('truetype'),
+         url('fonts/arnhem-normal-webfont.svg#arnhemregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html{ height: 100% }
+* {padding: 0px; margin: 0px }
+body {height:100%; width: 100%; font-size: 16px; font-family: arnhemregular }
+video { width: 100%; margin-bottom:15px; object-fit: cover; overflow:hidden;}
+a, p {color: #baa772}
+
+.texto {color: #ffffff}
+.centro{width: 25px; position: absolute; left: 50%;}
+.seta{width: 25px; cursor: pointer; margin: 15px; opacity: 0.4}
+.seta.intro{margin: 0px 0px 10px 0px;}
+.seta:hover{opacity: 1}
+
+.home-video { margin: 15px }
+.home {width: 70%; margin: 0px auto; text-align: justify;}
+
+.fixo{ position: fixed; top: 5px }
+.absoluto{ position: absolute }
+.muda{ color: white; font-family: apercubold }
+.muda.info{ font-family: apercuregular; font-size: 13px; padding-bottom: 15px}
+
+.num { float: left; margin-left: 20px; color: #dcd390 }
+.separator { border-bottom: 1px solid #d5cbb1; width: 150px; margin: 20px }
+.map-separator { border-bottom: 1px solid #baa772; width: 380px; margin: 20px 0px 20px 0px; }
+
+.fechar-btn{ cursor: pointer }
+.bold{font-family: apercubold}
+.seta-nav{ z-index: 1; height:25px; position: fixed; cursor: pointer; opacity: 0.4}
+.seta-nav:hover{opacity: 1}
+
+#video-container{overflow: hidden; margin-bottom: 15px;}
+#todo{height: 100%; width: 100%; min-width: 720px; background-color: #ffffff; top: 0px; position: absolute;}
+#uhr {position: fixed; width: 70px; right:30px; top:30px; cursor: pointer; z-index: 100}
+#uhr-dia{padding-left: 13px; padding-right: 14px; opacity:0.5}
+#uhr-noite{opacity:0.5;}
+#galeria{display: none; visibility: hidden}
+#tour{display:none; text-align: center; padding-top: 60px;}
+#contato{display: none; padding: 35px; margin-top: 35px; font-family:apercuregular; font-size: 14px}
+#home {margin: 0px auto; padding-bottom:25px;}
+#home-text{vertical-align: middle; display: table-cell; width: 100%;}
+#web-video{height:100%;}
+#map{ width:378px; height:300px; border: 1px solid #baa772; background-color: lightgray }
+#map-float{ float: right; margin-right: 100px; width: 380px;}
+#lightbox{ width: 100%; height:100%; display: none }
+#fechar-planta{ position: fixed; cursor: pointer; z-index: 1; top: 145px; right: 40px; }
+#prev{ left: 5px;}
+#next{ right: 15px;}
+#links {position: fixed;}
+#msg>input,textarea {border: 1px solid #baa772; color: #baa772; margin-bottom: 10px; padding: 3px; width: 370px;}
+#msg>input{ height: 17px; }
+#enviar-email{float: right; background-color: #baa772; padding: 5px; cursor: pointer; margin-bottom: 10px;}
+
+::-webkit-input-placeholder {color: #baa772}
+:-ms-input-placeholder {color: #baa772;}
+:-moz-placeholder {color: #baa772; opacity: 1}
+::-moz-placeholder {color: #baa772; opacity: 1}
+
+#links>a{
+  text-decoration: none;
+}
+#links>a:hover{
+  color: #d5cbb1;
+}
+
+#menu-topo{
+  margin: 15px;
+  display: none;
+  position: fixed;
+  z-index: 50;
+}
+#menu-topo>a{
+  margin-left: 20px;
+  text-decoration: none;
+}
+#menu-topo>a:hover{
+  color: #d5cbb1;
+  cursor: pointer;
+}
+
+#menu-nav{
+  float: left;
+  margin: 20px;
+  font-size: 13px;
+  font-family: apercuregular;
+  padding-top: 60px;
+}
+#menu-nav>p{
+  padding-left: 40px;
+  margin: 20px;
+  color: #d5cbb1;
+  width: 150px;
+  cursor: pointer;
+}
+
+#planta {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 190px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+#fotos{
+  position: absolute;
+  width: 600px;
+  font-size: 13px;
+  font-family: apercuregular;
+  margin: 5px 15px 15px 15px;
+  margin-left: 265px;
+}
+
+img.foto{
+  margin-left: 150px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+img.foto:hover{opacity: 0.4}
+
+.comodo{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 120px;
+  height: 31px;
+}
+
+.full{
+  display: none;
+  position: fixed;
+  top: 35px;
+  left: 20px;
+  margin: 15px;
+}
+
+#planta-geral{
+  display: none;
+  position: fixed;
+  cursor: pointer;
+  text-align: center;
+  z-index: 1;
+  left: 225px;
+  top: 16px;
+}
+
+#planta-img{
+  max-height: 675px;
+  max-width: 960px;
+  width: 100%; height: 100%;
+}
+
+#lightbox>p.label{
+  position: fixed;
+  left: 35px;
+  font-size: 13px;
+  bottom: 15px;
+  font-family: apercuregular;
+}
+
+#clock {
+  fill: transparent;
+  stroke: rgb(187, 165, 125);
+  background-image: url('images/uhr-border.png');
+  background-repeat: round;
+}
+#surface{ stroke-width: 0px }
+#h_pointer { stroke-width: 4px }
+#s_pointer { stroke-width: 1px }
+#m_pointer { stroke-width: 3px; border-radius: 25px;}
+
+/*!
+ * Polyfill CSS object-fit
+ * http://helloanselm.com/object-fit
+ *
+ * @author: Anselm Hannemann <hello@anselm-hannemann.com>
+ * @author: Christian "Schepp" Schaefer <schaepp@gmx.de>
+ * @version: 0.3.0
+ *
+ */
+
+x-object-fit {
+  position: relative !important;
+  display: inline-block !important;
+  width: 100%;
+  opacity:1;
+}
+
+x-object-fit > .x-object-fit-taller,
+x-object-fit > .x-object-fit-wider {
+  position: absolute !important;
+  left: -100% !important;
+  right: -100% !important;
+  top: -100% !important;
+  bottom: -100% !important;
+  margin: auto !important;
+}
+
+.x-object-fit-none > .x-object-fit-taller,
+.x-object-fit-none > .x-object-fit-wider {
+  width: auto !important;
+  height: auto !important;
+}
+
+.x-object-fit-fill > .x-object-fit-taller,
+.x-object-fit-fill > .x-object-fit-wider {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.x-object-fit-contain > .x-object-fit-taller {
+  width: auto !important;
+  height: 100% !important;
+}
+
+.x-object-fit-contain > .x-object-fit-wider {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.x-object-fit-cover > .x-object-fit-taller,
+.x-object-fit-cover > .x-object-fit-wider {
+  max-width: none !important;
+  max-height: none !implayerportant;
+}
+
+.x-object-fit-cover > .x-object-fit-taller {
+  width: 100% !important;
+  height: auto !important;
+  max-width: none !important;
+}
+
+.x-object-fit-cover > .x-object-fit-wider {
+  width: auto !important;
+  height: 100% !important;
+  max-width: none !important;
+}
+
+.x-object-position-top > .x-object-fit-taller,
+.x-object-position-top > .x-object-fit-wider {
+  top: 0 !important;
+  bottom: auto !important;
+}
+
+.x-object-position-right > .x-object-fit-taller,
+.x-object-position-right > .x-object-fit-wider {
+  left: auto !important;
+  right: 0 !important;
+}
+
+.x-object-position-bottom > .x-object-fit-taller,
+.x-object-position-bottom > .x-object-fit-wider {
+  top: auto !important;
+  bottom: 0 !important;
+}
+
+.x-object-position-left > .x-object-fit-taller,
+.x-object-position-left > .x-object-fit-wider {
+  left: 0 !important;
+  right: auto !important;
+}

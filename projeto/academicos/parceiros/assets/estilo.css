@@ -1,0 +1,261 @@
+@font-face { font-family: Eurostile; src: url("Eurostile.ttf") }
+
+body {
+    margin: 15px;
+    background-image: url(images/fundo.jpg);
+    font-family: Eurostile;
+}
+
+input, textarea {font-family: "Eurostile"; font-size: 17px; width: 100%;}
+
+#container {
+    margin: 0px auto;
+    width: 1100px;
+}
+
+#logo {
+    float: left;
+    height: 100px;
+}
+
+#menu {
+     padding-top: 70px;
+     float: right;
+}
+
+#papel {
+    background-image: url(images/inicio_papel.png); 
+    background-repeat: repeat-y;
+    width: 245px;
+    height: 375px;
+    float: left;
+}
+
+#over {
+    width: 244px;
+    height: 292px;
+    overflow: auto;
+    margin-top: 20px;
+}
+
+#tela{
+    position: fixed;
+    margin-top:135px;
+    width: inherit;
+}
+
+#moldura{
+    margin-left: 265px;
+    background-image: url(images/molduravermelha.png);
+    width: 843px;
+    height: 496px;
+}
+
+.subtela{
+    display: none;
+}
+
+#moldura-deck{
+    padding: 18px 0px 21px 19px;
+    margin-left: 350px;
+    background-image: url(images/molduravermelha_deck.png);
+    width: 550px;
+    height: 470px;
+}
+
+.deck {
+    width: 530px;
+    height: 473px;
+    border-top-left-radius: 5px; 
+    border-top-right-radius: 5px; 
+    border-bottom-right-radius: 5px; 
+    border-bottom-left-radius: 5px; 
+    border: 0px; 
+    background-color: transparent; 
+    margin: 0px; padding: 0px; 
+    background-position: initial initial; 
+    background-repeat: initial initial;
+}
+
+.btn {
+    float: left;
+    margin-left: 10px;
+    vertical-align: middle; 
+    cursor: pointer;
+}
+
+#fone{
+    position: fixed;
+    left: 92%;
+    top: 0px;
+    width: 42px;
+}
+
+#teclado{
+    position: absolute;
+    top: 52px;
+    margin-left: 919px;
+    width: 150px;   
+}
+
+#cel {
+    position: absolute;
+    top: 300px;
+    margin-left: 918px;
+    width: 85px;
+}
+
+#ipad {
+    background-image: url(images/plataforma_ipad.png);
+    height: 396px;
+    width: 310px;
+    float: left;
+}
+
+#fts1{
+    position: absolute;
+    margin-left: 910px;
+    top: 327px;
+}
+
+#jovens{
+    position: absolute;
+    margin-left: 99px;
+    margin-top: 375px;
+    width: 90px;
+}
+
+#fundo_tenda{
+    position: absolute;
+    width: 100%;
+    z-index: -1;    
+}
+
+#acordeon{
+    float: left;
+    margin-top:15px;
+}
+
+.acordeon-btn{
+    position:absolute;
+    cursor: pointer;
+}
+
+.acordeon-text {    
+    overflow: auto;
+    width: 276px;
+    height: 305px;
+    background-color: white;
+    display: none;
+}
+
+.acordeon-text>p{
+    padding: 3px 27px 10px 18px;
+}
+
+.ipad-over{
+    overflow: auto;
+    padding: 6px 15px 46px 50px;
+    margin-top: 50px;
+    height: 172px;  
+    margin-right:36px;
+}
+
+#video {
+    height: 430px;
+    width: 770px;
+    padding: 33px;  
+}
+
+#calc{
+    float: left;
+    margin-top: 91px;
+    margin-left: 65px;
+    width: 209px;
+}
+
+#fts2{
+    position: absolute;
+    margin-left: 919px;
+    top: 176px;
+}
+
+#clips1{
+    width: 140px;
+    position: absolute; 
+    margin-top: 8px; 
+    margin-left: 91px;
+}
+
+#clips2{
+    width: 140px;   
+    position: absolute; 
+    margin-top: 174px; 
+    margin-left: 0px;   
+}
+
+#clips3{
+    width: 140px;   
+    position: absolute; 
+    margin-top: 354px; 
+    margin-left: 63px;  
+}
+
+#fichario{
+    position: absolute; 
+    margin-top: 8px; 
+    margin-left: 251px;
+}
+
+#objetos{
+    float: left;
+    margin-top: 145px;
+    margin-left: 50px;
+    width: 167px;
+}
+
+#downloads-papel{   
+    float: left;
+    margin-top: 31px;
+    margin-left: 97px;
+    width: 717px;
+}
+
+#links-downloads{
+	width: 600px;
+	position: absolute;
+	margin-top: 137px;
+	margin-left: 517px;
+}
+
+#note-text{
+	position: absolute;
+	margin-left: 330px;
+	margin-top: 102px;
+	z-index: 1;
+	font-size: 13px;
+	text-align: center;
+}
+
+#contato-cafe{
+	position: absolute;
+	margin-top: 256px;
+	margin-left: 1015px;
+}
+
+#contato-form{
+	position: absolute;
+	margin-left: 316px;
+}
+
+#contato-notebook{
+	position: absolute;
+	margin-top: 222px;
+	margin-left: 15px;
+}
+
+#form-contato{
+	position: absolute;
+	margin-top: 30px;
+	margin-left: 536px;
+}

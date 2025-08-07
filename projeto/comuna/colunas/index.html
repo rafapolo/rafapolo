@@ -1,0 +1,30 @@
+
+<!-- saved from url=(0036)http://extrapolo.com/projeto/comuna/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>div/4 | versão 5</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js" type="text/javascript"></script>
+	<script>
+		$(document).ready(function(){
+			$("frame").hover(function(){
+				var id = this.id;
+				if (id=="p1"){$("#p").attr("cols", "15%,*,*,*%")};
+				if (id=="p2"){$("#p").attr("cols", "15%,75%,5%,5%")};
+				if (id=="p3"){$("#p").attr("cols", "15%,5%,75%,5%")};
+				if (id=="p4"){$("#p").attr("cols", "15%,5%,5%,75%")};				
+			});
+			$("frame").mouseout(function(){
+//				$("#p").attr("cols", "*,*,*,*");
+			});
+		})
+	</script>
+	</head>
+
+<frameset id="p" cols="15%,*,*,*">
+	<frame id="p1" src="menu.html">
+	<frame id="p2" src="doc_frame.html">
+	<frame id="p3" src="http://www.google.com/calendar/embed?showTitle=0&amp;showDate=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=2&amp;hl=en&amp;bgcolor=%23ffffff&amp;src=lhlos2s5itt56btp5q7ek03ti4%40group.calendar.google.com&amp;color=%232952A3&amp;ctz=Europe%2FStockholm">
+	<frame id="p4" 	
+	src="http://maps.google.com.br/maps?f=q&amp;source=s_q&amp;hl=pt-BR&amp;geocode=&amp;q=Rua+Sorocaba,+Rio+de+Janeiro&amp;aq=0&amp;sll=-14.239424,-53.186502&amp;sspn=46.299676,78.310547&amp;vpsrc=6&amp;ie=UTF8&amp;hq=&amp;hnear=R.+Sorocaba+-+Botafogo,+Rio+de+Janeiro,+22271-110&amp;ll=-22.953321,-43.189801&amp;spn=0.002756,0.00478&amp;t=h&amp;z=14&amp;output=embed"></iframe><br /><small><a href="http://maps.google.com.br/maps?f=q&amp;source=embed&amp;hl=pt-BR&amp;geocode=&amp;q=Rua+Sorocaba,+Rio+de+Janeiro&amp;aq=0&amp;sll=-14.239424,-53.186502&amp;sspn=46.299676,78.310547&amp;vpsrc=6&amp;ie=UTF8&amp;hq=&amp;hnear=R.+Sorocaba+-+Botafogo,+Rio+de+Janeiro,+22271-110&amp;ll=-22.953321,-43.189801&amp;spn=0.002756,0.00478&amp;t=h&amp;z=14" style="color:#0000FF;text-align:left">
+	</frameset>
+
+</html>

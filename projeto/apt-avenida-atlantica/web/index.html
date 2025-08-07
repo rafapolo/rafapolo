@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Av. Atlântica 1101</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta content="extrapolo.com" name="author">
+        <link href="assets/favicon.ico" rel="icon" type="image/x-icon">
+        <script src="assets/js/core.js" type="text/javascript"></script>
+        <script src="assets/js/app.js" type="text/javascript"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=&sensor=false"></script>
+        <link href="assets/app.css" media="screen" rel="stylesheet" type="text/css">
+        <meta content="width=device-1100, initial-scale=1.0, minimum-scale=1.0 maximum-scale=1.0" name="viewport">
+    </head>
+    <body>
+        <div id='todo'>
+            <div id="uhr" dia='true'>
+                <svg id='clock' viewBox='0 0 100 100' width='70' height='70'>
+                <circle id='surface' cx='50' cy='50' r='45'/>
+                <g id='pointers'>
+                  <line id='h_pointer' x1='50' y1='50' x2='50' y2='16' />
+                  <line id='m_pointer' x1='50' y1='50' x2='50' y2='11' />
+                  <line id='s_pointer' x1='50' y1='50' x2='50' y2='15' />
+                </g>
+              </svg>
+              <div style='padding-top: 8px'>
+                <img id='uhr-dia' src='assets/images/sol.png'>
+                <img id='uhr-noite' src='assets/images/lua.png'>
+              </div>
+            </div>
+
+            <div id="home">
+                <div class='home-video'>
+                    <div id='video-container'>
+                        <video id="web-video" loop>
+                          <source src="assets/videos/intro_dia.mp4">
+                          <source src="assets/videos/intro_dia.ogv">
+                          <source src="assets/videos/intro_dia.webm">
+                        </video>
+                    </div>
+                    <div id='home-text'>
+                        <p class='home'>
+                            Prédio Anos 50, localizado na Av. Atlântica entre as ruas Bolivar e Xavier da Silveira. 12 Pavimentos; 2 apartamentos por andar, com Hall Social privativo p/ cada Apto. Apartamento Duplex com 500m2 e Duas Vagas na Garagem.
+                            <br/><br/>
+                            Primeiro andar - Hall Social; Mezanino; Três amplas Salas (Estar; TV Refeições);  Circulação;  Lavabo Social;  Copa/Cozinha Gourmet; Quarto Despensa; Lavandeira; Dormitórios e Banheiro de Serviço.
+                            Segundo andar  -  Hall; Circulação;  Quatro Dormitórios (3 suítes e 1 Quarto/Escritório) e 1 Banheiro Social.
+                        </p>
+                    </div>
+                </div>
+                <div class='centro'>
+                    <img id='sair-home' class='seta intro' src="assets/images/down.png">
+                </div>
+            </div>
+
+            <div id='menu-topo'>
+                <a id='nav-galeria' href="#" style='text-decoration: underline'>Galeria</a>
+                <a id="nav-tour" href='#'>Tour</a>
+                <a id="nav-contato" href='#'>Contato</a>
+            </div>
+
+            <div id="galeria">
+                <div id='menu-nav'>
+                    <div id='a1' class='num'>1º</div>
+                    <p comodo='1' ref='a1' style='margin-top: 0px'>Sala de estar</p>
+                    <p comodo='2' ref='a1'>Mezanino / Galeria</p>
+                    <p comodo='3' ref='a1'>Sala de TV</p>
+                    <p comodo='4' ref='a1'>Sala de Jantar</p>
+                    <p comodo='5' ref='a1'>Cozinha</p>
+                    <p comodo='6' ref='a1'>Lavabo</p>
+                    <div class='separator'></div>
+                    <div id='a2' class='num'>2º</div>
+                    <p comodo='7' ref='a2'>Suite 01</p>
+                    <p comodo='8' ref='a2'>Suite 02</p>
+                    <p comodo='9' ref='a2'>Suite 03</p>
+                    <p comodo='10' ref='a2'>Banheiro</p>
+                </div>
+
+                <img id="planta" src="assets/images/planta/thumb.png">
+
+                <div id='planta-geral'>
+                    <img id='planta-img' src="assets/images/planta/geral-dia.png">
+                    <img id='fechar-planta' class='fechar-btn' src="assets/images/fecha_btn.png">
+                </div>
+
+                <div id='fotos' style="right: 120px">
+                    <div class='comodo absoluto' id='comodo-1'>
+                        <p fixo='true' class='muda'>Sala de estar</p>
+                        <p>1º andar</p>
+                    </div>
+                    <img full='false' src='assets/images/fotos/dia/1_1_p.jpg' class='foto'/>
+                    <img full='false' src='assets/images/fotos/dia/1_2_p.jpg' class='foto'/>
+                    <img full='false' src='assets/images/fotos/dia/1_3_p.jpg' class='foto'/>
+                    <img full='false' src='assets/images/fotos/dia/1_4_p.jpg' class='foto'/>
+                    <div class='comodo absoluto' id='comodo-2'>
+                        <p fixo='false' class='muda'>Mezanino / Galeria</p>
+                        <p>1º andar</p>
+                    </div>
+                    <img full='false' src='assets/images/fotos/dia/2_6_p.jpg' class='foto'/>
+                    <img full='false' src='assets/images/fotos/dia/2_7_p.jpg' class='foto'/>
+                    <img full='false' src='assets/images/fotos/dia/2_8_p.jpg' class='foto'/>
+                    <img full='false' src='assets/images/fotos/dia/2_9_p.jpg' class='foto'/>
+                    <img full='false' src='assets/images/fotos/dia/2_10_p.jpg' class='foto'/>
+                    <div class='comodo absoluto' id='comodo-3'>
+                        <p fixo='false' class='muda'>Sala de TV</p>
+                        <p>1º andar</p>
+                    </div>
+                    <img full='false' src='assets/images/fotos/dia/3_11_p.jpg' class='foto'/>
+                    <img full='false' src='assets/images/fotos/dia/3_12_p.jpg' class='foto'/>
+                    <div class='comodo absoluto' id='comodo-4'>
+                        <p fixo='false' class='muda'>Sala de Jantar</p>
+                        <p>1º andar</p>
+                    </div>
+                    <img full='false' src='assets/images/fotos/dia/4_13_p.jpg' class='foto'/>
+                    <img full='false' src='assets/images/fotos/dia/4_14_p.jpg' class='foto'/>
+                    <div class='comodo absoluto' id='comodo-5'>
+                        <p fixo='false' class='muda'>Cozinha</p>
+                        <p>1º andar</p>
+                    </div>
+                    <img full='false' src='assets/images/fotos/dia/5_15_p.jpg' class='foto'/>
+                    <img full='false' src='assets/images/fotos/dia/5_16_p.jpg' class='foto'/>
+                    <img full='false' src='assets/images/fotos/dia/5_17_p.jpg' class='foto'/>
+                    <img full='false' src='assets/images/fotos/dia/5_18_p.jpg' class='foto'/>
+                    <img full='false' src='assets/images/fotos/dia/5_19_p.jpg' class='foto'/>
+                    <div class='comodo absoluto' id='comodo-6'>
+                        <p fixo='false' class='muda'>Lavabo</p>
+                        <p>1º andar</p>
+                    </div>
+                    <img full='false' src='assets/images/fotos/dia/6_20_p.jpg' class='foto'/>
+                    <div class='comodo absoluto' id='comodo-7'>
+                        <p fixo='false' class='muda'>Suite 01</p>
+                        <p>2º andar</p>
+                    </div>
+                    <img full='false' src='assets/images/fotos/dia/7_21_p.jpg' class='foto'/>
+                    <img full='false' src='assets/images/fotos/dia/7_22_p.jpg' class='foto'/>
+                    <img full='false' src='assets/images/fotos/dia/7_23_p.jpg' class='foto'/>
+                    <img full='false' src='assets/images/fotos/dia/7_24_p.jpg' class='foto'/>
+                    <img full='false' src='assets/images/fotos/dia/7_25_p.jpg' class='foto'/>
+                    <img full='false' src='assets/images/fotos/dia/7_26_p.jpg' class='foto'/>
+                    <img full='false' src='assets/images/fotos/dia/7_27_p.jpg' class='foto'/>
+                    <img full='false' src='assets/images/fotos/dia/7_28_p.jpg' class='foto'/>
+                    <img full='false' src='assets/images/fotos/dia/7_29_p.jpg' class='foto'/>
+                    <div class='comodo absoluto' id='comodo-8'>
+                        <p fixo='false' class='muda'>Suite 02</p>
+                        <p>2º andar</p>
+                    </div>
+                    <img full='false' src='assets/images/fotos/dia/8_30_p.jpg' class='foto'/>
+                    <img full='false' src='assets/images/fotos/dia/8_31_p.jpg' class='foto'/>
+                    <div class='comodo absoluto' id='comodo-9'>
+                        <p fixo='false' class='muda'>Suite 03</p>
+                        <p>2º andar</p>
+                    </div>
+                    <img full='false' src='assets/images/fotos/dia/9_32_p.jpg' class='foto'/>
+                    <img full='false' src='assets/images/fotos/dia/9_33_p.jpg' class='foto'/>
+                    <img full='false' src='assets/images/fotos/dia/9_35_p.jpg' class='foto'/>
+                    <img full='false' src='assets/images/fotos/dia/9_36_p.jpg' class='foto'/>
+                    <img full='false' src='assets/images/fotos/dia/9_37_p.jpg' class='foto'/>
+                    <div class='comodo absoluto' id='comodo-10'>
+                        <p fixo='false' class='muda'>Banheiro</p>
+                        <p>2º andar</p>
+                    </div>
+                    <img full='false' src='assets/images/fotos/dia/10_38_p.jpg' class='foto'/>
+                </div>
+
+            </div>
+
+            <div id='tour'>
+                <iframe id='player' src="http://player.vimeo.com/video/95433404?title=0&amp;byline=0&amp;portrait=0&amp;color=baa772&api=1&player_id=player" width="1000" height="562" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                <p class='home' style='padding: 15px; max-width: 1000px'>
+                    Prédio Anos 50, localizado na Av. Atlântica entre as ruas Bolivar e Xavier da Silveira. 12 Pavimentos; 2 apartamentos por andar, com Hall Social privativo p/ cada Apto. Apartamento Duplex com 500m2 e Duas Vagas na Garagem.
+                    <br/><br/>
+                    Primeiro andar - Hall Social; Mezanino; Três amplas Salas (Estar; TV Refeições);  Circulação;  Lavabo Social;  Copa/Cozinha Gourmet; Quarto Despensa; Lavandeira; Dormitórios e Banheiro de Serviço.
+                    Segundo andar  -  Hall; Circulação;  Quatro Dormitórios (3 suítes e 1 Quarto/Escritório) e 1 Banheiro Social.
+                </p>
+            </div>
+
+            <div id="contato">
+                <div id='links'>
+                    <p class='muda'>Administração e Gerenciamento</p>
+                    <a target='blank' href='mailto:laineper@uol.com.br'>Laine Pereira</a>
+                </div>
+                <div id='map-float'>
+                    <div id='map'></div>
+                    <div class='map-separator'></div>
+                    <p class='muda info'>Para mais informações, envie-nos uma mensagem.</p>
+                    <form id="msg" action="mailto:laineper@uol.com.br?subject=Contato" enctype="text/plain" method="post" accept-charset="UTF8">
+                      <input type="text" name="nome" placeholder="Seu nome"/>
+                      <textarea id="mail-text" name="contato" rows="12"></textarea>
+                      <div id="enviar-email">Enviar</div>
+                    </form>
+                    <br/>
+                </div>
+            </div>
+
+            <div id='lightbox'>
+                <img id='prev' class='seta-nav' src='assets/images/prev.png'>
+                <img id='next' class='seta-nav' src='assets/images/next.png'>
+                <p class="muda label"></p>
+                <img id='fechar-lightbox' class='fechar-btn' style='margin-top: 50px' src="assets/images/fecha_btn.png">
+            </div>
+
+        </div>
+    </body>
+</html>

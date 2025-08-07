@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml' lang='en' xml:lang='pt-br'>
+<head>
+	<title>Gráfica Utópica | em (des)construção</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Description" content="Gráfica Utópica | em Desenvolvimento" />
+	<meta http-equiv="Author" content="extrapolo.com" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+	<style>
+	body {background-color: black}
+	p {position:absolute; color:gray; font-size:15px; font-family:tahoma; z-index:-1}
+	</style>
+	<script>	
+	$(document).ready(function(){
+		$("body").css("height", $(document).height());
+		
+		$("body").mousemove(function(e){	   
+			$("#img").css("left", e.pageX-250).css("top", e.pageY-250);
+			var value = parseInt((parseInt($("#img").css("top")) * 400) / $(document).height());
+			$('body').css("background-color", "rgb("+value+", "+value+", "+value+")");
+		});
+
+		$('#img').click(function(){
+			$('#img').hide("slow").fadeIn(1000);
+			$('#img').attr("src", $('#img').attr("src")=='1.jpg'? "2.jpg" : "1.jpg");
+		});
+
+		setInterval(function(){
+			var randomWord = ["gráfica", "utópica"][Math.floor(Math.random()*2)];
+			var randomLeft = Math.round(Math.random()*window.innerWidth);
+	        var randomTop = Math.round(Math.random()*window.innerHeight);
+			var acaso = $("<p>"+randomWord+"</p>").css("top", randomTop).css("left", randomLeft);
+			$("body").append(acaso);
+		}, 1000);
+	});
+	</script>
+</head>
+
+<body>
+	<img id="img" src="1.jpg" style="position: relative; opacity:0.8"/>
+</body>
+
+</html>

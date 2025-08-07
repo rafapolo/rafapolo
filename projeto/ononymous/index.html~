@@ -1,0 +1,368 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Ononymous</title>
+    <link href="assets/style.css" media="screen" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="assets/img/favicon.ico">
+    <meta name="description" property="og:description" content="Ononymous media">
+    <script src="assets/jquery-1.11.2.min.js"></script>
+    <script src="assets/packery.pkgd.min.js"></script>
+    <script src="assets/app.js"></script>
+    <!-- Piwik -->
+    <script type="text/javascript">
+    var _paq = _paq || [];
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://analytics.tacticaltech.org/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', 3]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
+    g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+    })();
+    </script>
+    <noscript><p><img src="http://analytics.tacticaltech.org/piwik.php?idsite=3" style="border:0;" alt="" /></p></noscript>
+    <!-- End Piwik Code -->
+  </head>
+  <body>
+    <div id="filters" class="button-group">
+      <button class="button" data-filter="*">All</button>
+      <button class="button play" data-filter=".play">Play</button>
+      <button class="button watch" data-filter=".watch">Watch</button>
+      <button class="button read" data-filter=".read">Read</button>
+      <button class="button" data-filter=".about">About</button>
+    </div>
+    <div class="isotope">
+      <div class="element-item about">
+        <img src="assets/img/logo_white.png" align="center" class="logo">
+      </div>
+      <!-- ono game -->
+      <div class="element-item play">
+        <h1>ONO the Game</h1>
+      </div>
+      <div class="element-item play">
+        <p>Do you want to help Ono save Secure-a-lot and learn all about safe and secure communications along the way? If you are ready for your treasure hunt through the internet, enter your email, and Ono will get in contact with YOU!.
+        </p>
+      </div>
+      <div class="element-item play">
+        <a href="https://game.ononymous.org/">
+          <img src="assets/img/cover/ono.png" target="_blank"/>
+        </a>
+      </div>
+      <!-- EFF -->
+      <div class="element-item watch">
+        <h1>Don't Let Yourself Be Silenced</h1>
+      </div>
+      <div class="element-item watch">
+        <p>How do you keep your site alive in a case of a DDoS? This short film explains what a DDoS attack is and how it silences information online.
+        </p>
+      </div>
+      <div class="element-item watch">
+        <iframe src="https://www.youtube.com/embed/I6HgLcMmIKk" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="element-item watch">
+        <h1>Back Up Your Web Content</h1>
+      </div>
+      <div class="element-item watch">
+        <p>This short film reminds us how important it is to keep copies of our websites. In a case of an attack we can then restore it to another location.
+        </p>
+      </div>
+      <div class="element-item watch">
+        <iframe src="https://www.youtube.com/embed/Wbpmgp_cBjE" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="element-item watch">
+        <h1>Mirror Your Web Content</h1>
+      </div>
+      <div class="element-item watch">
+        <p>To keep your information online you can Mirror your web content. A mirrored site can exist even when the original is down.</p>
+      </div>
+      <div class="element-item watch">
+        <iframe src="https://www.youtube.com/embed/NKuVC_OHa5U" frameborder="0" allowfullscreen></iframe>
+      </div>
+
+      <!-- Noir -->
+      <div class="element-item watch">
+        <h2>Noir Series</h2><h1>Exposing your Network</h1>
+      </div>
+      <div class="element-item watch">
+        <p>This series of short films focuses on how rights advocates' own behaviour and attitudes to digital security and privacy can jeopardise the safety of their communities and networks. This first episode looks at risks around exposing your networks.
+        </p>
+      </div>
+      <div class="element-item watch">
+        <iframe src="https://player.vimeo.com/video/47988860" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
+      <div class="element-item watch">
+        <h2>Noir Series</h2><h1>Censorship</h1>
+      </div>
+      <div class="element-item watch">
+        <p>Set in a film noir style, this episode encourages viewers to engage with the subject of digital security along the area of concern of censorship of information and expression.
+        </p>
+      </div>
+      <div class="element-item watch">
+        <iframe src="https://player.vimeo.com/video/47917975" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
+      <div class="element-item watch">
+        <h2>Noir Series</h2><h1>The digital traces we leave behind</h1>
+      </div>
+      <div class="element-item watch">
+        <p>Set in a film noir style, the films are designed to encourage viewers to engage with the subject of digital security along the areas of concern of the digital traces we leave behind.
+        </p>
+      </div>
+      <div class="element-item watch">
+        <iframe src="https://player.vimeo.com/video/46295114" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
+      <!-- certcheckplay -->
+      <div class="element-item play">
+        <h1>Cert Check Me</h1>
+      </div>
+      <div class="element-item play">
+        <p>CertCheck.me is a small web project explaining security certificates while browsing internet using https. It shows how to read a certificate and understands risks of using unverified certificates.
+        </p>
+      </div>
+      <div class="element-item play">
+        <a href="https://certcheck.me/">
+          <img src="assets/img/cover/certcheck.png" target="_blank"/>
+        </a>
+      </div>
+      <!-- ONO Episodes -->
+      <div class="element-item watch">
+        <h2>Survival in the Digital Age</h2><h1>The Traces we leave behind</h1>
+      </div>
+      <div class="element-item watch">
+        <p>Episode One: Get to know your animated ally, ONO, and follow him as he begins to see the layers behind information and how they can be seen by others.
+        </p>
+      </div>
+      <div class="element-item watch">
+        <iframe src="https://player.vimeo.com/video/27114595" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
+      <div class="element-item watch">
+        <h2>Survival in the Digital Age</h2><h1>Staying Safe Online and in Public</h1>
+      </div>
+      <div class="element-item watch">
+        <p>We all need the internet and often we have to use an internet cafe or other public space to access it. ONO will reveal the lurking dangers in these spaces and the steps you need to take to protect yourself and your data.
+        </p>
+      </div>
+      <div class="element-item watch">
+        <iframe src="https://player.vimeo.com/video/28657725" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
+      <div class="element-item watch">
+        <h2>Survival in the Digital Age</h2><h1>Safe Email</h1>
+      </div>
+      <div class="element-item watch">
+        <p>This is when ONO tells you about email; just because it's your inbox doesn't mean it's private! This episode deals with using email in public spaces, either on your own computer, mobile phone or in an internet cafe.
+        </p>
+      </div>
+      <div class="element-item watch">
+        <iframe src="https://player.vimeo.com/video/28657958" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
+      <div class="element-item watch">
+        <h2>Survival in the Digital Age</h2><h1>Safe Surfing</h1>
+      </div>
+      <div class="element-item watch">
+        <p>The internet is full of information from various sources and on many websites. ONO thinks this is wonderful but he is also very aware that not everybody can gain access to all of these all the time.</p>
+      </div>
+      <div class="element-item watch">
+        <iframe src="https://player.vimeo.com/video/29143324" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
+      <div class="element-item watch">
+        <h2>Survival in the Digital Age</h2><h1>Enhancing Privacy</h1>
+      </div>
+      <div class="element-item watch">
+        <p>ONO explores some of the ways that people can protect their identity and separate who they are from what they are doing such as: the use of anonymising and circumvention tools and encryption.</p>
+      </div>
+      <div class="element-item watch">
+        <iframe src="https://player.vimeo.com/video/29662889" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
+      <!-- TOR -->
+      <div class="element-item watch">
+        <h2>Tor</h2><h1>Join the Tor Network</h1>
+      </div>
+      <div class="element-item watch">
+        <p>This film was produced for The Tor Network, to encourage volunteers to join the Tor Network which relies on volunteers to donate bandwidth as a bridge or a relay, so improving the speed and safety of the network.</p>
+      </div>
+      <div class="element-item watch">
+        <iframe src="https://www.youtube.com/embed/eAxBuckgPuU" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="element-item watch">
+        <h2>Tor</h2><h1>Tor's Hidden Services</h1>
+      </div>
+      <div class="element-item watch">
+        <p>This film was produced for The Tor Network, to raise public awareness of the hidden services offered by Tor.</p>
+      </div>
+      <div class="element-item watch">
+        <iframe src="https://www.youtube.com/embed/eAxBuckgPuU" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <!-- ONO Clips -->
+      <div class="element-item watch">
+        <h2>ONO Clips</h2><h1>Hey yahoo! HTTPS my emails!</h1>
+      </div>
+      <div class="element-item watch">
+        <p>ONO provides some tips on how to keep your email communication safe.</p>
+      </div>
+      <div class="element-item watch">
+        <iframe src="https://player.vimeo.com/video/57840631" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
+      <div class="element-item watch">
+        <h2>ONO Clips</h2><h1>Facebook: A dangerous dance with your privacy</h1>
+      </div>
+      <div class="element-item watch">
+        <p>ONO provides some tips on how to keep your facebook account secure and private.</p>
+      </div>
+      <div class="element-item watch">
+        <iframe src="https://player.vimeo.com/video/57841081" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
+      <div class="element-item watch">
+        <h2>ONO Clips</h2><h1>What's my password, Mommy?</h1>
+      </div>
+      <div class="element-item watch">
+        <p>ONO provides some tips on how to create more secure passwords.</p>
+      </div>
+      <div class="element-item watch">
+        <iframe src="https://player.vimeo.com/video/57843422" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
+      <div class="element-item watch">
+        <h2>ONO Clips</h2><h1>Cloudy with a chance of data showers</h1>
+      </div>
+      <div class="element-item watch">
+        <p>ONO is not a big fan of the cloud storage! but in this clip ONO provides some tips on how to store your data securely on the cloud, if you have to!</p>
+      </div>
+      <div class="element-item watch">
+        <iframe src="https://player.vimeo.com/video/57844085" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
+      <div class="element-item watch">
+        <h2>ONO Clips</h2><h1>Playing hide and seek with encryption</h1>
+      </div>
+      <div class="element-item watch">
+        <p>ONO likes you tell you about encryption; all that's good and the bits that are not.</p>
+      </div>
+      <div class="element-item watch">
+        <iframe src="https://player.vimeo.com/video/57845176" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
+      <div class="element-item watch">
+        <h2>ONO Clips</h2><h1>1 password = 0 security</h1>
+      </div>
+      <div class="element-item watch">
+        <p>ONO tells us of the perils of using the same password for everything online, and how to avoid it.</p>
+      </div>
+      <div class="element-item watch">
+        <iframe src="https://player.vimeo.com/video/57885568" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
+      <div class="element-item watch">
+        <h2>ONO Clips</h2><h1>Your mobile phone, our tracking device</h1>
+      </div>
+      <div class="element-item watch">
+        <p>ONO shows us the risks and vulnerabilities of mobile phones communications.</p>
+      </div>
+      <div class="element-item watch">
+        <iframe src="https://player.vimeo.com/video/57886217" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
+      <div class="element-item watch">
+        <h2>ONO Clips</h2><h1>At a net cafe? keep your cookies to yourself</h1>
+      </div>
+      <div class="element-item watch">
+        <p>ONO provides some tips on the potential dangers of internet cafes and how to stay safe while using them.</p>
+      </div>
+      <div class="element-item watch">
+        <iframe src="https://player.vimeo.com/video/57886707" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
+
+      <!-- resources -->
+      <div class="element-item read">
+        <h1>EFF Surveillance Self-Defense</h1>
+      </div>
+      <div class="element-item read">
+        <p>Tips, tools and how-tos for safer online communication.
+        </p>
+      </div>
+      <div class="element-item read">
+        <a href="https://ssd.eff.org/">
+        <img src="assets/img/cover/eff.png" target="_blank"></a>
+      </div>
+
+      <div class="element-item read">
+        <h1>Information Security for Journalists</h1>
+      </div>
+      <div class="element-item read">
+        <p>Protecting your story, your source and yourself online, by the Centre for Investigative Journalism.
+        </p>
+      </div>
+      <div class="element-item read">
+        <a href="http://www.tcij.org/resources/handbooks/infosec">
+          <img src="assets/img/cover/cij.png" target="_blank">
+        </a>
+      </div>
+      <div class="element-item read">
+        <h1>Security in-a-box</h1>
+      </div>
+      <div class="element-item read" >
+        <p>A guide to digital security for activists and human rights defenders throughout the world.
+        </p>
+      </div>
+      <div class="element-item read">
+        <a href="https://securityinabox.org/en">
+        <img src="assets/img/cover/siab.png"  target="_blank"></a>
+      </div>
+      <div class="element-item read">
+        <h1>Access Now - Protecting Your Security Online</h1>
+      </div>
+      <div class="element-item read" >
+        <p>A practical guide to protecting your identity and security online and when using mobile phones.
+        </p>
+      </div>
+      <div class="element-item read">
+        <a href="https://www.accessnow.org/pages/protecting-your-security-online">
+        <img src="assets/img/cover/access.png" target="_blank"></a>
+      </div>
+      <div class="element-item read">
+        <h1>Digital security guide for the LGBTI community in the Arabic region</h1>
+      </div>
+      <div class="element-item read">
+        <p>Tools and tactics for the LGBTI community in the Middle-East and North Africa.
+        </p>
+      </div>
+      <div class="element-item read">
+        <a href="https://securityinabox.org/en/lgbti-mena">
+          <img src="assets/img/cover/mena.png" target="_blank"/>
+        </a>
+      </div>
+      <div class="element-item read">
+        <h1>Digital security guide for the LGBTI community in Sub-Saharan Africa</h1>
+      </div>
+      <div class="element-item read">
+        <p>Tools and tactics for the LGBTI community in Sub-Saharan Africa.
+        </p>
+      </div>
+      <div class="element-item read">
+        <a href="https://securityinabox.org/en/lgbti-africa">
+        <img src="assets/img/cover/ssa.png" target="_blank"></a>
+      </div>
+      <div class="element-item read">
+        <h1>Digital security guide for Environmental Rights Defenders in Sub-Saharan Africa</h1>
+      </div>
+      <div class="element-item read">
+        <p>Tools and tactics for environmental rights defenders in Sub-Saharan Africa.
+        </p>
+      </div>
+      <div class="element-item read">
+        <a href="https://securityinabox.org/en/eco-rights-africa">
+          <img src="assets/img/cover/enssa.png" target="_blank">
+        </a>
+      </div>
+      <div class="element-item about">
+        <h1>About</h1>
+      </div>
+      <div class="element-item about">
+        <p>Here you can find a collection of our material around protecting yourself online. Explore by using the filters above to Watch films and animiations, Play games and experiment, and Read online resources.
+        </p>
+      </div>
+      <div class="element-item about">
+        <a href="https://tacticaltech.org/" target='_blank'>
+          <img src="assets/img/cover/credits.png"/>
+        </a>
+      </div>
+      <!-- logo ttc and level up logo -->
+    </div>
+  </div>
+  <a id="footer" href="https://tacticaltech.org/" target="_blank">Tactical Technology Collective</a>
+</body>
+</html>

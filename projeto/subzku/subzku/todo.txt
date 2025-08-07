@@ -1,0 +1,17 @@
+- official red color is #cc3300
+- label as index page
+- text | sub_ʇxǝʇ_set#01
+- updated force-landscape image
+- updated audios for all sets
+- converted all MP3 also into WEBM and OGG
+  - compatibility with older browsers
+
+todo:
+
+- bigger sliders
+- label title down
+- fix apple-only behavior
+- should index contain more description or link to?
+  - https://www.zku-berlin.org/de/timeline/text-sub-text/
+- should last set have link?
+- again: audio start in 0 or 100?

@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Dia 10!</title>
+	<meta name="author" content="Rafael Polo"/>
+	<meta name="description" content="Quanto falta para 10/10/10 10:10:10?"/>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+
+	<script type="text/javascript">
+	function zero_time(x) {return ((x>9)?"":"0")+x}
+	function diff_dates(d1, d2) {
+		var ms = (d2.getTime()-d1.getTime())/1000;
+		if (ms>=0){
+			days = Math.floor(ms / (60 * 60 * 24));
+			ms %= (60 * 60 * 24);
+			hours = Math.floor(ms / (60 * 60));
+			ms %= (60 * 60);
+			minutes = Math.floor(ms / 60);
+			ms %= 60;
+			seconds = Math.floor(ms);        
+			return days + " dias, " + hours + " horas, " + minutes + " minutos e " + seconds + " segundos";
+		} else {
+			return "BOOOOOMMMMM!!!";
+		}
+	}
+
+	setInterval("print()", 1000);
+	function print(){
+		$("#falta").text(diff_dates(new Date(), new Date(2010, 10-1, 10, 10, 10, 10)));
+	}
+	</script>
+
+	<style type="text/css">
+	body {
+		background-color: black;
+		color: white;
+		font-size: 45px;
+		text-shadow: 10px 10px 10px gray;
+		text-align: center;
+		padding-top: 200px;
+	}
+	</style>
+</head>
+<body>
+	<p>Quanto falta para 10/10/10 10:10:10?</p>
+	<div id="falta"></div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<html>
+
+<head>
+<title>Command v0.1</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+<meta name="description" content="jogo-imaginação invenção-intermitente">
+<style type="text/css">
+	body {background-color:gray; font-family:verdana; font-size:14px;}	
+	img {position:absolute}
+	#info {text-align: center; color:white;}
+</style>
+<script>
+
+$(document).bind('keydown', function(e) {
+	var key = (e.keyCode ? e.keyCode : e.charCode);  
+	// alert(key);
+	var move_size = 20;
+	var left = parseInt($("#pessoa").css("left").replace("px", ""));
+	switch (key) {
+	// right
+	case 39:	
+		$("#pessoa").css("left", left+move_size);
+		$("#thumb").attr("src", "right.png");
+		break;
+	// up
+	case 38:
+		$("#pessoa").fadeIn();
+		$("#thumb").attr("src", "up.png");
+		break;
+	// down
+	case 40:
+		$("#pessoa").fadeOut();
+		$("#thumb").attr("src", "down.png");
+		break;
+	// left
+	case 37:
+		$("#pessoa").css("left", left-move_size);
+		$("#thumb").attr("src", "left.png");
+		break;
+	// space
+	case 32:
+	    $("#thumb").attr("src", "space.png");
+		var fogo_left = left+280; 
+		$("body").append("<img src='fogo.png' id='fogo' style='top:100px; left:"+fogo_left+"px'>");
+		$("#fogo").animate({left: fogo_left+500});
+		$("#fogo").fadeOut(function(){$("#fogo").remove()});
+		break;
+	}
+});
+
+$(document).ready(function(){
+	$.each(["right", "up", "down", "left", "space", "fogo"], function(i, name){			
+		var preload = new Image().src = name+".png";
+	});
+});
+
+
+</script>
+</head>
+
+<body>
+	<div style="height: 400px">
+		<img src="polo.png" id="pessoa" style="left:0px">
+	</div>
+	<hr/>
+	<p id="info">< esquerda | direita ><br>espaço = atira | baixo = invisível | cima = reaparece </p>
+	<img id="thumb" style="top:450px">
+</body>
+</html>

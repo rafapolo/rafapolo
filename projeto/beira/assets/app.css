@@ -1,0 +1,44 @@
+/* extrapolo.com | BEIRA | Agosto 2014 */
+
+*{cursor:none; margin:0; padding:0}
+a{text-decoration:none}
+html{height:100%}
+body{height:100%; overflow-y:hidden; position:fixed; width:100%; text-shadow:2px 2px #FFF; margin:15px}
+
+@font-face{font-family:Beira; src:url("fonts/beira-mangalarga.woff") format("woff")}
+@font-face{font-family:Mangalarga; src:url("fonts/mangalarga.woff") format("woff")}
+
+#todo{display:none}
+#fundo{position:fixed; left:5px; z-index:-10; user-select:none}
+#screensaver{display:none; position:absolute; left:-200px; z-index:1}
+#camarada{position:fixed; z-index:1; width:100px; user-select:none; display:none; user-select:none; opacity:0.9;}
+#menu{margin-left:300px; top:0; position:absolute; width:100%}
+#cursor{position:absolute; z-index:100; width:110px; display:none}
+#navs{position:fixed; right:20px; bottom:20px}
+#nav-txt{font-size:23px; margin-left:20px; display:inline; margin-top:5px}
+#nav-img{float:left}
+#radio-nav-txt{margin-left:80px; margin-bottom:10px}
+#radio-nav-img{margin-left:40px}
+#box{display:inline-block; line-height:29px; font-family:Beira; position:relative; top:30px; font-size:24px}
+#crono{font-size:100px}
+#newsletter{padding-bottom:25px}
+#translator{font-size:31px; margin-bottom:25px}
+#to-pt{text-decoration:underline}
+
+.beira{font-family:Beira; font-feature-settings:calt; -moz-font-feature-settings:'calt=1'; -ms-font-feature-settings:"calt"; -webkit-font-feature-settings:"calt"; -o-font-feature-settings:"calt"; text-decoration:none; color:#000}
+.sobre{font-size:33px; width:750px; white-space:normal; text-align:justify; text-shadow:1px 1px #FFF}
+.baixo{margin-bottom:45px; height:135px; overflow:hidden}
+.logo{font-size:40px}
+.icon{width:195px; display:block}
+.item{font-size:150px; text-decoration:none; color:#000; display:inline-block}
+.item:hover{font-family:Mangalarga}
+.subitem.item{font-size:150px; text-decoration:none; color:#000; display:inline-block}
+.subitem:hover{font-family:Mangalarga}
+.tela{display:none; position:absolute; font-size:110px; font-family:Mangalarga; white-space:nowrap; width:100%;}
+.colecao{display:none; position:fixed; width:100%; overflow-y:scroll; top:10px; left:10px}
+.colecao>img{background-color:#000; vertical-align:top}
+.last-img{margin-right:350px}
+.load-mangalarga-font{font-family:Mangalarga; visibility:hidden}
+.info{font-size:16px; font-family:Beira; text-shadow:1px 1px #FFF; float:left; padding-right:65px; padding-top:225px; text-align:right; width:690px}
+.mangalarga{font-family:Mangalarga}
+.barra-space{margin: 0px -5px 0px -5px}

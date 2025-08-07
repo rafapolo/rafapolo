@@ -1,0 +1,58 @@
+/* http://alexhead.com/sub-x/berlin-biennale/ */
+
+body {
+  padding: 20px;
+  min-width: 850px;
+}
+
+#centro{width: 50%; margin: auto;}
+#menu{text-align: center}
+#proto{display: none}
+#player{display: none}
+
+a{
+  color: red;
+  font-family: arial;
+  font-size: 15px;
+  text-align: center
+}
+
+#playlist{
+  width: 555px;
+  margin: 0px auto;
+  height: 400px
+}
+
+#ʇxǝʇ{
+  color: red;
+  font-size:40px;
+  font-family: "Droid Sans", sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+.vol{
+  user-select: none;
+  -webkit-appearance: none;
+  width: 350px;
+  height:5px;
+  background: black;
+  outline: none;
+  transform: rotate(270deg);
+  margin-top: 175px;
+  border-radius: 25px;
+  position: fixed;
+}
+
+.vol::-webkit-slider-thumb {
+  user-select: none;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 50px;
+  height: 65px;
+  transform: rotate(90deg);
+  cursor: pointer;
+  background: url('../image/thumb.png');
+}
+
+/* apply http://pleeease.io/play/ on final css */

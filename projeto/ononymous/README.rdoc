@@ -1,0 +1,5 @@
+~ resizable template for box-based contents ~
+
+is at https://ononymous.org
+
+

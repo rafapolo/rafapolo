@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>subzku qrcodes</title>
+    <script src="qrcode.min.js"></script>
+    <script src="jquery-3.3.1.min.js"></script>
+    <style>
+      body{text-align: center; width: 600px; margin: 0px auto; font-family: arial}
+    </style>
+    <script>
+    $(function(){
+      $(".qrcode").each(function(){
+        var code = $(this).attr("for")
+        // low
+        var qrcodeL = new QRCode({content: code, width: 256, height: 256, ecl: $(this).attr("quality")});
+        document.getElementById($(this).attr("id")).innerHTML = qrcodeL.svg();
+        $(this).next()
+          .attr("href-lang", 'image/svg+xml')
+          .attr("href", "data:image/svg+xml;utf8," +  unescape($(this)[0].innerHTML))
+          .text(code)
+      });
+    });
+    </script>
+  </head>
+
+<body>
+  <h1>subzku qrcodes</h1>
+  <hr/>
+  <div>
+    <div id="qr1-l" quality="L" class="qrcode" for="http://subzku.net/set01.html"></div>
+    <a download="qr1-l.svg"></a>
+    <div id="qr1-m" quality="M" class="qrcode" for="http://subzku.net/set01.html"></div>
+    <a download="qr1-m.svg"></a>
+    <div id="qr1-h" quality="H" class="qrcode" for="http://subzku.net/set01.html"></div>
+    <a download="qr1-h.svg"></a>
+  </div>
+  <hr/>
+  <div>
+    <div id="qr2-l" quality="L" class="qrcode" for="http://subzku.net/set02.html"></div>
+    <a download="qr2-l.svg"></a>
+    <div id="qr2-m" quality="M" class="qrcode" for="http://subzku.net/set02.html"></div>
+    <a download="qr2-m.svg"></a>
+    <div id="qr2-h" quality="H" class="qrcode" for="http://subzku.net/set02.html"></div>
+    <a download="qr2-h.svg"></a>
+  </div>
+  <hr/>
+  <div>
+    <div id="qr3-l" quality="L" class="qrcode" for="http://subzku.net/set03.html"></div>
+    <a download="qr3-l.svg"></a>
+    <div id="qr3-m" quality="M" class="qrcode" for="http://subzku.net/set03.html"></div>
+    <a download="qr3-m.svg"></a>
+    <div id="qr3-h" quality="H" class="qrcode" for="http://subzku.net/set03.html"></div>
+    <a download="qr3-h.svg"></a>
+  </div>
+  <hr/>
+  <div>
+    <div id="qr4-l" quality="L" class="qrcode" for="http://subzku.net/set04.html"></div>
+    <a download="qr4-l.svg"></a>
+    <div id="qr4-m" quality="M" class="qrcode" for="http://subzku.net/set04.html"></div>
+    <a download="qr4-m.svg"></a>
+    <div id="qr4-h" quality="H" class="qrcode" for="http://subzku.net/set04.html"></div>
+    <a download="qr4-h.svg"></a>
+  </div>
+  <hr/>
+  <div>
+    <div id="qr5-l" quality="L" class="qrcode" for="http://subzku.net/set05.html"></div>
+    <a download="qr5-l.svg"></a>
+    <div id="qr5-m" quality="M" class="qrcode" for="http://subzku.net/set05.html"></div>
+    <a download="qr5-m.svg"></a>
+    <div id="qr5-h" quality="H" class="qrcode" for="http://subzku.net/set05.html"></div>
+    <a download="qr5-h.svg"></a>
+  </div>
+  <hr/>
+  <div>
+    <div id="qr6-l" quality="L" class="qrcode" for="http://subzku.net/set06.html"></div>
+    <a download="qr6-l.svg"></a>
+    <div id="qr6-m" quality="M" class="qrcode" for="http://subzku.net/set06.html"></div>
+    <a download="qr6-m.svg"></a>
+    <div id="qr6-h" quality="H" class="qrcode" for="http://subzku.net/set06.html"></div>
+    <a download="qr6-h.svg"></a>
+  </div>
+  <hr/>
+  <p>extrapolo.com | athens - berlin | may 2018</p>
+
+</body>
+</html>

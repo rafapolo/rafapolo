@@ -1,0 +1,49 @@
+<html>
+
+<head>
+<title>Cidade Olímpica | info</title>
+  	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+	<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.8.16.min.js"></script>
+	<style>
+		body {background-image: url(img/fundo.jpg); width: 1043px; margin: 0px auto; overflow:hidden;}
+		#atual {cursor: pointer; position:fixed;}
+		#counter {display:none; color: white; font-size: 40px; text-shadow: 20px 20px 10px white; text-align: center; padding-top: 190px;}
+	</style>	
+	<script>
+	$(document).ready(function(){
+		$("#atual").click(function(){
+			$(this).hide("explode", { pieces: 30 }, 1950, function(){$("#counter").fadeIn(1500)});			
+		});
+	});
+	
+	function zero_time(x) {return ((x>9)?"":"0")+x}
+    function diff_dates(d1, d2) {
+        var ms = (d2.getTime()-d1.getTime())/1000;
+        if (ms>=0){
+            days = Math.floor(ms / (60 * 60 * 24));
+            ms %= (60 * 60 * 24);
+            hours = Math.floor(ms / (60 * 60));
+            ms %= (60 * 60);
+            minutes = Math.floor(ms / 60);
+            ms %= 60;
+            seconds = Math.floor(ms);        
+            return days + " dias, " + hours + " horas, " + minutes + " minutos e " + seconds + " segundos";
+        } else {
+            return "BOOOOOMMMMM!!!";
+        }
+    }
+    setInterval("print()", 1000);
+    function print(){
+        $("#counter").text(diff_dates(new Date(), new Date(2012, 0, 15, 12, 00, 00)));
+    }
+    </script>
+	</script>
+</head>
+
+<body>
+	<img id="atual" src="img/atual.jpg"/>
+	<div id="counter"></div>
+</body>
+
+</html>
