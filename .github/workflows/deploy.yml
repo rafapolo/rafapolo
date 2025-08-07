@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main # Change this to your default branch if different
+      - main
 
 permissions:
   contents: read
@@ -13,6 +13,9 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -23,7 +26,7 @@ jobs:
       - name: Upload site folder
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "./projeto" # Your custom folder for GitHub Pages
+          path: "./projeto"
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
