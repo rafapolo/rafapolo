@@ -1,6 +1,6 @@
 Hello there!
 
-I’ve been building software projects since the days when connecting to the Internet meant listening to modem sounds and paying dearly for just 0.007 MB/s. What a journey it has been!
+I have been building software projects since connecting to the Internet was an expensive ritual starting with mystic sounds for a mere 0.007MB/s. What a journey it has been since 1985!
 
 Even before Git existed, I worked as a Software Developer at a Competitive Intelligence startup in Rio de Janeiro, Brazil.
 
