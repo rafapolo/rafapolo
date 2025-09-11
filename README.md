@@ -1,6 +1,6 @@
 Hello there!
 
-I have been creating algorithms since connecting to the Internet was an expensive ritual starting with mystic sounds for a mere 0.007MB/s. What a journey!
+I have been creating software projects since connecting to the Internet was an expensive ritual starting with mystic sounds for a mere 0.007MB/s. What a journey!
 
 Before Git existed I was already working as a Software Developer for a Competitive Intelligence Startup in Rio de Janeiro, Brazil.
 
