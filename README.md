@@ -8,4 +8,4 @@ Fascinated by “biological machines” like ourselves, I enjoy exploring cultur
 
 Over the years, I’ve worked as an Engineer, DevOps, Tech Lead, and Educator, supporting journalists, researchers, designers, and CEOs.
 
-I collect databases and am currently fascinated by LLMs and data visualization → See ミ.xyz/dataviz
+I collect databases and am currently fascinated by LLMs and data visualization → See https://ミ.xyz/dataviz
