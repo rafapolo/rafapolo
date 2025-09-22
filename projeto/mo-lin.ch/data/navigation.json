@@ -1,0 +1,130 @@
+{
+  "de": {
+    "siteTitle": "墨林軒 - MO LIN Schule für chinesische Kunst",
+    "siteChineseName": "MO LIN",
+    "siteSubtitle": "MO LIN Schule für chinesische Kunst",
+    "metaDescription": "MO LIN Schule für chinesische Kunst - Kalligrafie und Tuschmalerei Kurse",
+    "phone": "+41 77 230 28 58",
+    "email": "info@mo-lin.ch",
+    "hoursTitle": "Öffnungszeiten",
+    "socialTitle": "Soziale Netzwerke",
+    "scrollToTopLabel": "Nach oben scrollen",
+    "hoursContent": {
+      "classes": "Kurse nach Vereinbarung",
+      "consultation": "Beratung und Verkauf:",
+      "schedule": "Mo-Fr: 10:00-18:00 Uhr"
+    },
+    "socialLinks": [
+      {"url": "#", "label": "Facebook", "icon": "📘"},
+      {"url": "#", "label": "Instagram", "icon": "📷"},
+      {"url": "#", "label": "Email", "icon": "✉️"}
+    ],
+    "languages": [
+      {"url": "index.html", "label": "Deutsch", "active": true},
+      {"url": "zh/index.html", "label": "中文", "active": false}
+    ],
+    "navigationItems": [
+      {"url": "index.html", "label": "Home", "active": true},
+      {"url": "de/ueber-uns.html", "label": "Über uns"},
+      {
+        "url": "de/kurse.html",
+        "label": "Kursangebot",
+        "hasDropdown": true,
+        "subItems": [
+          {"url": "de/kurse/kalligrafie-anfaenger.html", "label": "Kalligrafie-Grundkurse für Anfänger"},
+          {"url": "de/kurse/kalligrafie-fortgeschrittene.html", "label": "Kalligrafie für Fortgeschrittene"},
+          {"url": "de/kurse/kalligrafie-tuschmalerei.html", "label": "Kalligraphie & Tuschmalerei"},
+          {"url": "de/kurse/restaurieren.html", "label": "Kalligrafie für Kinder"},
+          {"url": "de/kurse/entspannen.html", "label": "Zeit zum Entspannen"}
+        ]
+      },
+      {"url": "de/aufziehen.html", "label": "Bild aufziehen"},
+      {
+        "url": "de/restaurationen.html",
+        "label": "Restaurationen",
+        "hasDropdown": true,
+        "subItems": [
+          {"url": "de/restaurationen/bilder.html", "label": "Bilder"},
+          {"url": "de/restaurationen/buecher.html", "label": "Bücher"}
+        ]
+      },
+      {"url": "de/galerie.html", "label": "Galerie"},
+      {
+        "url": "de/arbeitsmittel.html",
+        "label": "Arbeitsmittel",
+        "hasDropdown": true,
+        "subItems": [
+          {"url": "de/arbeitsmittel/pinsel.html", "label": "Pinsel"},
+          {"url": "de/arbeitsmittel/pinselaufhaenger.html", "label": "Pinselaufhänger"},
+          {"url": "de/arbeitsmittel/reispapier.html", "label": "Reispapier (Xuan)"},
+          {"url": "de/arbeitsmittel/wassertropfer.html", "label": "Wassertropfer"}
+        ]
+      },
+      {"url": "de/kontakt.html", "label": "Kontakt"}
+    ]
+  },
+  "zh": {
+    "siteTitle": "墨林軒 - MO LIN Schule für chinesische Kunst",
+    "siteChineseName": "墨林軒",
+    "siteSubtitle": "MO LIN Schule für chinesische Kunst",
+    "metaDescription": "MO LIN Schule für chinesische Kunst - 書法和國畫課程",
+    "phone": "+41 77 230 28 58",
+    "email": "info@mo-lin.ch",
+    "hoursTitle": "開放時間",
+    "socialTitle": "社交網站",
+    "scrollToTopLabel": "回到頂部",
+    "hoursContent": {
+      "classes": "課程預約制",
+      "consultation": "諮詢和銷售：",
+      "schedule": "週一至週五：10:00-18:00"
+    },
+    "socialLinks": [
+      {"url": "#", "label": "Facebook", "icon": "📘"},
+      {"url": "#", "label": "Instagram", "icon": "📷"},
+      {"url": "#", "label": "Email", "icon": "✉️"}
+    ],
+    "languages": [
+      {"url": "../index.html", "label": "Deutsch", "active": false},
+      {"url": "index.html", "label": "中文", "active": true}
+    ],
+    "navigationItems": [
+      {"url": "index.html", "label": "Home", "active": true},
+      {"url": "ueber-uns.html", "label": "關于我們"},
+      {
+        "url": "kurse.html",
+        "label": "課程設置",
+        "hasDropdown": true,
+        "subItems": [
+          {"url": "kurse/kalligrafie-anfaenger.html", "label": "書法基礎班"},
+          {"url": "kurse/kalligrafie-fortgeschrittene.html", "label": "書法高級班"},
+          {"url": "kurse/kalligrafie-tuschmalerei.html", "label": "書畫班"},
+          {"url": "kurse/restaurieren.html", "label": "兒童書法或親子課"},
+          {"url": "kurse/entspannen.html", "label": "特設"}
+        ]
+      },
+      {"url": "aufziehen.html", "label": "書畫裝裱"},
+      {
+        "url": "restaurationen.html",
+        "label": "古籍修復",
+        "hasDropdown": true,
+        "subItems": [
+          {"url": "restaurationen/bilder.html", "label": "古畫"},
+          {"url": "restaurationen/buecher.html", "label": "古籍"}
+        ]
+      },
+      {"url": "galerie.html", "label": "墨林雅集"},
+      {
+        "url": "arbeitsmittel.html",
+        "label": "文房用具",
+        "hasDropdown": true,
+        "subItems": [
+          {"url": "arbeitsmittel/pinsel.html", "label": "毛筆"},
+          {"url": "arbeitsmittel/pinselaufhaenger.html", "label": "筆架"},
+          {"url": "arbeitsmittel/reispapier.html", "label": "宣紙"},
+          {"url": "arbeitsmittel/wassertropfer.html", "label": "水滴"}
+        ]
+      },
+      {"url": "kontakt.html", "label": "聯系"}
+    ]
+  }
+}

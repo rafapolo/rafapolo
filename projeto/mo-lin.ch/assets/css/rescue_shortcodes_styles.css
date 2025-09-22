@@ -1,0 +1,14 @@
+/* Rescue shortcodes styles */
+.shortcode {
+  margin: 10px 0;
+}
+
+.block-group {
+  display: flex;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.block {
+  flex: 1;
+}

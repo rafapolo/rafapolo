@@ -1,0 +1,251 @@
+/* Modern Typography for MO LIN Website */
+/* Chinese Art School Typography System */
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* CSS Custom Properties for Typography */
+:root {
+  /* Font Families */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-heading: 'Cormorant Garamond', 'Times New Roman', serif;
+  --font-chinese: 'PingFang SC', 'Hiragino Sans GB', 'Source Han Sans SC', 'Microsoft YaHei', 'SimHei', sans-serif;
+  --font-chinese-serif: 'Songti SC', 'Source Han Serif SC', 'STSong', 'SimSun', serif;
+
+  /* Font Sizes */
+  --text-xs: 0.75rem;      /* 12px */
+  --text-sm: 0.875rem;     /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg: 1.125rem;     /* 18px */
+  --text-xl: 1.25rem;      /* 20px */
+  --text-2xl: 1.5rem;      /* 24px */
+  --text-3xl: 1.875rem;    /* 30px */
+  --text-4xl: 2.25rem;     /* 36px */
+  --text-5xl: 3rem;        /* 48px */
+
+  /* Line Heights */
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+
+  /* Letter Spacing */
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+
+  /* Colors */
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #6b7280;
+  --color-text-muted: #9ca3af;
+  --color-accent: #dc2626;
+  --color-accent-light: #fca5a5;
+  --color-gold: #d97706;
+}
+
+/* Base Typography */
+html {
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text-primary);
+  font-weight: 400;
+}
+
+/* Heading Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text-primary);
+  margin-bottom: 0.5em;
+}
+
+h1 {
+  font-size: var(--text-4xl);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: var(--text-3xl);
+  font-weight: 500;
+  margin-bottom: 0.875rem;
+}
+
+h3 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+h4 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  margin-bottom: 0.625rem;
+}
+
+h5 {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+h6 {
+  font-size: var(--text-base);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+}
+
+/* Chinese Character Specific Styling */
+.chinese-text,
+.widget-title:lang(zh),
+h1:lang(zh), h2:lang(zh), h3:lang(zh) {
+  font-family: var(--font-chinese-serif);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+}
+
+/* Logo and Brand Typography */
+.logo-text,
+.site-title {
+  font-family: var(--font-chinese-serif);
+  font-weight: 500;
+  font-size: var(--text-2xl);
+  letter-spacing: 0.15em;
+}
+
+/* Paragraph and Text Elements */
+p {
+  margin-bottom: 1rem;
+  line-height: var(--leading-relaxed);
+}
+
+.lead {
+  font-size: var(--text-lg);
+  font-weight: 400;
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+}
+
+.text-small {
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+}
+
+.text-large {
+  font-size: var(--text-lg);
+  line-height: var(--leading-normal);
+}
+
+/* Links */
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+a:focus {
+  outline: 2px solid var(--color-accent-light);
+  outline-offset: 2px;
+}
+
+/* Navigation Typography */
+.nav-link {
+  font-weight: 500;
+  font-size: var(--text-base);
+  letter-spacing: var(--tracking-wide);
+}
+
+.nav-link:hover {
+  text-decoration: none;
+}
+
+/* Button Typography */
+.btn {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: var(--text-base);
+  letter-spacing: var(--tracking-wide);
+  text-transform: none;
+}
+
+/* Form Typography */
+input, textarea, select {
+  font-family: var(--font-primary);
+  font-size: var(--text-base);
+}
+
+label {
+  font-weight: 500;
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+}
+
+/* Special Text Styles */
+.price {
+  font-weight: 600;
+  font-size: var(--text-lg);
+  color: var(--color-accent);
+}
+
+.highlight {
+  background-color: var(--color-accent-light);
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+}
+
+.muted {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: var(--text-3xl);
+  }
+
+  h2 {
+    font-size: var(--text-2xl);
+  }
+
+  h3 {
+    font-size: var(--text-xl);
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 13px;
+  }
+
+  h1 {
+    font-size: var(--text-2xl);
+  }
+
+  h2 {
+    font-size: var(--text-xl);
+  }
+}

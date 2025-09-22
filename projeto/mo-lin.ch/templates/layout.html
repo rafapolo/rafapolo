@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+    <meta charset="utf-8"/>
+    <title>{{pageTitle}} | {{siteTitle}}</title>
+    <meta name="generator" content="Clean Website"/>
+    <meta name="description" content="{{metaDescription}}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" type="image/png" href="{{assetPath}}img/favicon.png"/>
+
+    <!-- Consolidated CSS -->
+    <link href="{{assetPath}}css/consolidated.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body id="top" class="">
+    <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+    <div class="page-container">
+        <!-- Navigation Component -->
+        {{> navigation}}
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" aria-label="Toggle navigation">☰</button>
+        <div class="sidebar-overlay"></div>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <div class="content-header">
+                <h1 class="page-title {{#if isHomePage}}chinese-text{{/if}}">{{pageTitle}}</h1>
+                <nav aria-label="Breadcrumb">
+                    <ol class="breadcrumb">
+                        {{#each breadcrumbs}}
+                        <li><a href="{{url}}">{{title}}</a></li>
+                        {{/each}}
+                    </ol>
+                </nav>
+            </div>
+
+            <div class="content-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="large-8 col">
+                            <div class="entry-content">
+                                {{> content}}
+                            </div>
+                        </div>
+                        {{#if sidebar}}
+                        <div class="large-3 large-offset-1 col">
+                            <div class="widget-area">
+                                {{> sidebar}}
+                            </div>
+                        </div>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer Component -->
+    {{> footer}}
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" aria-label="{{scrollToTopLabel}}">↑</button>
+
+    <!-- Modern JavaScript -->
+    <script src="{{assetPath}}js/scripts.js"></script>
+</body>
+</html>

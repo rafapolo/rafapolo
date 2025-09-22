@@ -1,0 +1,55 @@
+/* Placeholder CSS file - basic reset and foundation styles */
+
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Basic layout */
+.row {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.columns {
+  float: left;
+  padding: 0 10px;
+}
+
+.large-8 {
+  width: 66.66667%;
+}
+
+.large-3 {
+  width: 25%;
+}
+
+.large-4 {
+  width: 33.33333%;
+}
+
+.large-12 {
+  width: 100%;
+}
+
+.large-offset-1 {
+  margin-left: 8.33333%;
+}
+
+/* Clearfix */
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Basic responsive */
+@media screen and (max-width: 768px) {
+  .columns {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+}

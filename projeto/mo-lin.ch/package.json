@@ -1,0 +1,20 @@
+{
+  "name": "mo-lin-website",
+  "version": "1.0.0",
+  "description": "MO LIN Chinese Art School Website",
+  "main": "build.js",
+  "scripts": {
+    "build": "node build.js",
+    "dev": "node build.js && npm run watch",
+    "watch": "nodemon --watch templates --watch data --exec 'npm run build'"
+  },
+  "dependencies": {
+    "handlebars": "^4.7.8"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": ["website", "chinese-art", "calligraphy", "templates"],
+  "author": "MO LIN School",
+  "license": "MIT"
+}

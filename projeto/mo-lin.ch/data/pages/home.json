@@ -1,0 +1,82 @@
+{
+  "de": {
+    "pageTitle": "MO LIN Schule für chinesische Kunst",
+    "isHomePage": true,
+    "welcomeTitle": "Willkommen bei MO LIN",
+    "leadText": "Wir bieten individuelle Kurse in Kalligraphie und Tuschmalerei für Kinder und Erwachsene. Ausserdem ziehen wir Bilder auf und übernehmen Restaurationen.",
+    "servicesTitle": "Unsere Angebote:",
+    "services": [
+      {
+        "title": "Kalligrafie-Kurse",
+        "description": "Für Anfänger und Fortgeschrittene"
+      },
+      {
+        "title": "Tuschmalerei",
+        "description": "Traditionelle chinesische Maltechniken"
+      },
+      {
+        "title": "Kinderkurse",
+        "description": "Altersgerechte Einführung in die chinesische Kunst"
+      },
+      {
+        "title": "Restaurationen",
+        "description": "Professionelle Bild- und Buchrestaurierung"
+      },
+      {
+        "title": "Arbeitsmittel",
+        "description": "Hochwertige Pinsel, Papier und Zubehör"
+      }
+    ],
+    "whyLearnTitle": "Warum chinesische Kalligrafie lernen?",
+    "whyLearnText": "Die chinesische Kalligrafie ist nicht nur eine Schriftkunst, sondern auch eine meditative Praxis, die Geist und Körper entspannt. In unseren Kursen lernen Sie die traditionellen Techniken und entwickeln Ihren eigenen Stil.",
+    "breadcrumbs": [
+      {"url": "index.html", "title": "Home"}
+    ],
+    "sidebar": {
+      "type": "image",
+      "src": "assets/img/logo.png",
+      "alt": "MO LIN Logo",
+      "width": "200",
+      "height": "auto"
+    }
+  },
+  "zh": {
+    "pageTitle": "墨林軒 - MO LIN Schule für chinesische Kunst",
+    "isHomePage": true,
+    "welcomeTitle": "歡迎來到墨林軒",
+    "leadText": "我們為兒童和成人提供個性化的書法和國畫課程。此外，我們還提供書畫裝裱和古籍修復服務。",
+    "servicesTitle": "我們的服務：",
+    "services": [
+      {
+        "title": "書法課程",
+        "description": "適合初學者和進階學習者"
+      },
+      {
+        "title": "國畫",
+        "description": "傳統中國繪畫技法"
+      },
+      {
+        "title": "兒童課程",
+        "description": "適合年齡的中國藝術入門"
+      },
+      {
+        "title": "古籍修復",
+        "description": "專業書畫和古籍修復"
+      },
+      {
+        "title": "文房用具",
+        "description": "高品質毛筆、宣紙和配件"
+      }
+    ],
+    "whyLearnTitle": "為什麼學習中國書法？",
+    "whyLearnText": "中國書法不僅是一門書寫藝術，也是一種冥想修行，能夠放鬆身心。在我們的課程中，您將學習傳統技法並發展自己的風格。",
+    "breadcrumbs": [
+      {"url": "index.html", "title": "Home"}
+    ],
+    "sidebar": {
+      "type": "image",
+      "src": "../assets/img/IMG_20170701_171755.jpg",
+      "alt": "書法作品"
+    }
+  }
+}

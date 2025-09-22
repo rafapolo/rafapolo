@@ -1,0 +1,35 @@
+<!-- Left Sidebar Navigation -->
+<nav class="sidebar">
+    <div class="sidebar-header">
+        <a href="{{homeUrl}}">
+            <img class="sidebar-logo" src="{{assetPath}}img/logo.png" alt="MO LIN Logo">
+        </a>
+        <h1 class="sidebar-title chinese-text">{{siteChineseName}}</h1>
+        <p class="sidebar-subtitle">{{siteSubtitle}}</p>
+    </div>
+
+    <div class="sidebar-languages">
+        <ul class="language-switcher">
+            {{#each languages}}
+            <li><a href="{{url}}" class="{{#if active}}active{{/if}}">{{label}}</a></li>
+            {{/each}}
+        </ul>
+    </div>
+
+    <div class="sidebar-nav">
+        <ul class="nav-menu">
+            {{#each navigationItems}}
+            <li class="nav-item {{#if hasDropdown}}has-dropdown{{/if}} {{#if isOpen}}open{{/if}}">
+                <a href="{{url}}" class="nav-link {{#if active}}active{{/if}}">{{label}}</a>
+                {{#if subItems}}
+                <ul class="sub-menu">
+                    {{#each subItems}}
+                    <li><a href="{{url}}" class="nav-link {{#if active}}active{{/if}}">{{label}}</a></li>
+                    {{/each}}
+                </ul>
+                {{/if}}
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,32 @@
+/* Language switcher styles */
+
+.langswitcher {
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+  text-align: right;
+}
+
+.langswitcher li {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.langswitcher a {
+  color: #333;
+  text-decoration: none;
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+.langswitcher a:hover {
+  background: #f0f0f0;
+}
+
+.langswitcher a.active {
+  background: #333;
+  color: #fff;
+  border-color: #333;
+}

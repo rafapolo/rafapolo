@@ -1,0 +1,41 @@
+<!-- Footer -->
+<footer class="footer-wrap">
+    <div class="container">
+        <div class="row">
+            <div class="large-4 col">
+                <aside class="widget widget_text">
+                    <h3 class="widget-title chinese-text">{{siteChineseName}}</h3>
+                    <div class="textwidget">
+                        <p>
+                            {{siteSubtitle}}<br>
+                            ☎ {{phone}}<br>
+                            ✉ <a href="mailto:{{email}}">{{email}}</a>
+                        </p>
+                    </div>
+                </aside>
+            </div>
+            <div class="large-4 col">
+                <aside class="widget widget_text">
+                    <h3 class="widget-title">{{hoursTitle}}</h3>
+                    <div class="textwidget">
+                        <p>
+                            {{hoursContent.classes}}<br>
+                            {{hoursContent.consultation}}<br>
+                            {{hoursContent.schedule}}
+                        </p>
+                    </div>
+                </aside>
+            </div>
+            <div class="large-4 col">
+                <aside class="widget widget_text">
+                    <h3 class="widget-title">{{socialTitle}}</h3>
+                    <div class="textwidget">
+                        {{#each socialLinks}}
+                        <a href="{{url}}" aria-label="{{label}}">{{icon}}</a>
+                        {{/each}}
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</footer>

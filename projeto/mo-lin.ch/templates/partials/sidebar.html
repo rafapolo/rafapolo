@@ -1,0 +1,14 @@
+{{#if sidebar}}
+<aside class="widget">
+    {{#if sidebar.type}}
+        {{#if (eq sidebar.type "image")}}
+            <img src="{{sidebar.src}}" alt="{{sidebar.alt}}" loading="lazy"{{#if sidebar.width}} width="{{sidebar.width}}"{{/if}}{{#if sidebar.height}} height="{{sidebar.height}}"{{/if}}>
+        {{/if}}
+        {{#if (eq sidebar.type "text")}}
+            <div class="widget-text">
+                {{sidebar.content}}
+            </div>
+        {{/if}}
+    {{/if}}
+</aside>
+{{/if}}
