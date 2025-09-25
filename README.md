@@ -1,5 +1,7 @@
 Hello there!
 
+![gif](alt.gif)
+
 I have been building software projects since connecting to the Internet was an expensive ritual starting with mystic sounds for a mere 0.007MB/s. What a journey it has been since the 90's!
 
 Before Git existed, I've worked as a Software Developer for a Competitive Intelligence startup in Rio de Janeiro, Brazil.
