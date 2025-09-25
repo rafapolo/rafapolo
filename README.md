@@ -12,7 +12,7 @@
 
 <p>Over the years, I’ve worked as an Engineer, DevOps, Tech Lead, and Educator, supporting journalists, researchers, designers, and CEOs.</p>
 
-<p>I collect public databases and am currently immersed inn LLMs and data visualization</p>
+<p>I collect public databases and am currently immersed in LLMs and data visualization</p>
 
 → See https://ミ.xyz/dataviz
     
