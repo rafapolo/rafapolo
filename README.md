@@ -11,7 +11,7 @@
 
 <p>Over the years, I’ve worked as an Engineer, DevOps, Tech Lead, and Educator, supporting journalists, researchers, designers, and CEOs.</p>
 
-→ Check my last DataViz researchers at https://ミ.xyz/dataviz
+→ Check my last Data Research & Visualizations at https://ミ.xyz/dataviz
     
   </td>
 </tr></table>
