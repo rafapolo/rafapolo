@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="style.css"/>
 	<script src="js/analytics.js"></script>
 	<script src="js/jquery.js"></script>
+	<script src="js/i18n.js"></script>
 	<script>
 		$(document).ready(function(){ $('#meio').fadeIn(800)});
 	</script>
@@ -16,183 +17,188 @@
 <body>
 
 <img class="logo" src="polo.png">
+<div id="lang-switcher">
+  <a class="lang-btn" data-target="en">EN</a> |
+  <a class="lang-btn" data-target="de">DE</a> |
+  <a class="lang-btn" data-target="pt">PT</a>
+</div>
 <div id="menu">
-	<a href="index.html">About</a>
-	<a href="works.html">Works</a>
-	<a href="projects.html">Projects</a>
-	<a href="rafael-polo-cv.pdf">Full CV as PDF</a>
+	<a href="index.html" data-i18n="nav.about">About</a>
+	<a href="works.html" data-i18n="nav.works">Works</a>
+	<a href="projects.html" data-i18n="nav.projects">Projects</a>
+	<a href="rafael-polo-cv.pdf" data-i18n="nav.fullcv">Full CV as PDF</a>
 </div>
 
 <div id="meio">
 <div>
 	<br/>
-	<span class='title'>EDUCATION</span>
+	<span class='title' data-i18n="cv.education">EDUCATION</span>
 	<p style='padding-bottom:1px'/>
 
 	<p class='min'>
-	<span class="bold">Postgraduate in Data Science for Finance</span> - 2021<br/>
+	<span class="bold" data-i18n="cv.degree.postgrad">Postgraduate in Data Science for Finance</span> - 2021<br/>
   NOVA Information Management School<br>
   Lisbon, Portugal
 	</p>
-	
+
   <p class='min'>
-	<span class="bold">Master in Information Systems</span> - March 2010 to July 2012<br/>
-	Research Area: Knowledge Representation and Reasoning</br>
+	<span class="bold" data-i18n="cv.degree.master">Master in Information Systems</span> - March 2010 to July 2012<br/>
+	<span data-i18n="cv.degree.master.area">Research Area: Knowledge Representation and Reasoning</span></br>
 	Federal University of Rio de Janeiro State (PPGI/UNIRIO)
 	</p>
 
 	<p class='min'>
-	<span class="bold">Extension in Digital Culture</span> - March to July 2010<br/>
+	<span class="bold" data-i18n="cv.degree.extension">Extension in Digital Culture</span> - March to July 2010<br/>
 	Communication School (ECO/UFRJ)<br/>
 	Rio de Janeiro Federal University
 	</p>
 
 	<p class='min'>
-	<span class="bold">Bachelor in Computer Science</span> - July 2003 to July 2009<br/>
+	<span class="bold" data-i18n="cv.degree.bachelor">Bachelor in Computer Science</span> - July 2003 to July 2009<br/>
 	Centro Universitário Metodista Bennett<br/>
 	Rio de Janeiro, Brazil
 	</p>
 
 	<p class='min'>
-	<span class="bold">Java Software Development</span> - February 2006 to February 2007<br/>
+	<span class="bold" data-i18n="cv.degree.java">Java Software Development</span> - February 2006 to February 2007<br/>
 	Department of Electronic Computation (NCE/UFRJ)<br/>
 	Rio de Janeiro Federal University
 	</p>
 
 	<p class='min'>
-	<span class="bold">Open Source Software Workshop</span> - April 2005<br/>
+	<span class="bold" data-i18n="cv.degree.oss">Open Source Software Workshop</span> - April 2005<br/>
 	Fundação Educacional Serra dos Órgãos<br/>
 	Teresópolis, Rio de Janeiro, Brazil
 	</p>
 
 	<p class='min'>
-	<span class="bold">Linux System Engineer</span> - February to December 2004<br/>
+	<span class="bold" data-i18n="cv.degree.linux">Linux System Engineer</span> - February to December 2004<br/>
 	M.Cury Computação <br/>
 	Rio de Janeiro, Brazil
 	</p>
 
 	<p class='min'>
-	<span class="bold">Visual Basic Programming</span> - June to December 1998<br/>
+	<span class="bold" data-i18n="cv.degree.vb">Visual Basic Programming</span> - June to December 1998<br/>
 	Index Informática<br/>
 	Nova Friburgo, Rio de Janeiro, Brazil
 	</p>
 
 	<br>
-	<span class='title'>LANGUAGES</span>
-	<p class='min'>
+	<span class='title' data-i18n="cv.languages">LANGUAGES</span>
+	<p class='min' data-i18n="cv.languages.text">
 	Native brazilian portuguese, fluent english, spoken spanish, A2 level german and basic greek.
 	</p>
 
 	</br>
-	<span class='title'>PROFESSIONAL EXPERIENCE</span>
+	<span class='title' data-i18n="cv.experience">PROFESSIONAL EXPERIENCE</span>
 
 	<p class='min'>
 	<span class="bold">Code+Create School</span> - first semester 2018<br/>
-	Web Programming Teacher for Greeks & Refugees (HTML, CSS, jQuery)<br/>
+	<span data-i18n="cv.role.codecreate">Web Programming Teacher for Greeks &amp; Refugees (HTML, CSS, jQuery)</span><br/>
 	<span>Athens, Greece</span>
 	</p>
 
 	<p class='min'>
 	<span class="bold">Tactical Tech Collective</span> - December 2014 to June 2016<br/>
-	Full-Stack Web Architect and Developer under Exposing the Invisible team<br/>
+	<span data-i18n="cv.role.ttc">Full-Stack Web Architect and Developer under Exposing the Invisible team</span><br/>
 	<span>Berlin, Germany</span>
 	</p>
 
 	<p class='min'>
 	<span class="bold">Trommsdorff + Drüner</span> - December 2013 to January 2014<br/>
-	Developer for innovation + marketing consultants team<br/>
+	<span data-i18n="cv.role.td">Developer for innovation + marketing consultants team</span><br/>
 	<span>Berlin, Germany</span>
 	</p>
 
 	<p class='min'>
 	<span class="bold">Meio</span> - 2010 to 2012<br/>
-	Co-founder of Meio Cowork space with Architects and Designers<br/>
+	<span data-i18n="cv.role.meio">Co-founder of Meio Cowork space with Architects and Designers</span><br/>
 	<span>Rio de Janeiro, Brazil</span>
 	</p>
 
 	<p class='min'>
 	<span class="bold">Cortex Intelligence</span> - September 2007 to November 2008<br/>
-	Developer in the Competitive Intelligence and Data Minining R&D team
+	<span data-i18n="cv.role.cortex">Developer in the Competitive Intelligence and Data Mining R&amp;D team</span>
 	<br/>
 	<span>Rio de Janeiro, Brazil</span>
 	</p>
 
 	<p class='min'>
 	<span class="bold">Logical Systems</span> - July to September 2007<br/>
-	SysAdmin and Java developer of its applications<br/>
+	<span data-i18n="cv.role.logical">SysAdmin and Java developer of its applications</span><br/>
 	<span>Rio de Janeiro, Brazil</span>
 	</p>
 
 	<p class='min'>
 	<span class="bold">INPP - Instituto Nacional de Pesquisas Públicas</span> - April to July 2004<br/>
-	Main developer of the Company "Planning" Software in Delphi<br/>
+	<span data-i18n="cv.role.inpp">Main developer of the Company "Planning" Software in Delphi</span><br/>
 	<span>Teresópolis, Brazil</span>
 	</p>
 
 	<p class='min'>
 	<span class="bold">MeuServidor</span> - 2002 to 2003<br/>
-	Co-founder of a Web Hosting Server based on Linux & PHP<br/>
+	<span data-i18n="cv.role.meuservidor">Co-founder of a Web Hosting Server based on Linux &amp; PHP</span><br/>
 	<span>Rio de Janeiro, Brazil</span>
 	</p>
 
 	<br/>
-	<span class='title'>FELLOWSHIPS AND AWARDS</span>
+	<span class='title' data-i18n="cv.fellowships">FELLOWSHIPS AND AWARDS</span>
 
 	<p class='min'>
 	<span class="bold">WebDoc Graffiti Platform</span> - 2012<br>
-	Collaborative Cartographies Initiatives | </span><a target="_blank" href="http://webdocgraffiti.com.br/">[website]</a><br/>
-	By Brazilian Federal Ministry of Culture<br/>
+	<span data-i18n="cv.fellow.webdoc">Collaborative Cartographies Initiatives</span> | </span><a target="_blank" href="http://webdocgraffiti.com.br/">[website]</a><br/>
+	<span data-i18n="cv.fellow.webdoc.by">By Brazilian Federal Ministry of Culture</span><br/>
 	</p>
 
 	<p class='min'>
 	<span class="bold">Dammatio Memoriae | Software-Art </span> - 2011<br>
-	<span>Gallery & Book Publication | </span><a target="_blank" href="http://memefest.org/en/gallery/archive/680/">[website]</a><br/>
-	By Memefest: International Festival of Social Responsive Communication & Art
+	<span data-i18n="cv.fellow.damnatio">Gallery &amp; Book Publication</span> | </span><a target="_blank" href="http://memefest.org/en/gallery/archive/680/">[website]</a><br/>
+	<span data-i18n="cv.fellow.damnatio.by">By Memefest: International Festival of Social Responsive Communication &amp; Art</span>
 	<br/>
 	</p>
 
 	<p class='min'>
 	<span class="bold">CAPES Fellowship for Postgraduate Research</span> - first semester of 2010<br/>
-	By Brazilian Federal Ministry of Education<br/>
+	<span data-i18n="cv.fellow.capes.by">By Brazilian Federal Ministry of Education</span><br/>
 	</p>
 
 	<br/>
-	<span class='title'>EXHIBITIONS</span>
+	<span class='title' data-i18n="cv.exhibitions">EXHIBITIONS</span>
 
 	<p class='min'>
 	<span class="bold">Connecting Cities – Prototyping Lab</span> - January 2015<br/>
-	Connecting Cities Network wants to develop an awareness on the changes which are hardly visible to the eyes and are underlying our nowadays cities.
+	<span data-i18n="cv.exhib.connecting.desc">Connecting Cities Network wants to develop an awareness on the changes which are hardly visible to the eyes and are underlying our nowadays cities.</span>
 	Transmediale, Haus der Kulturen der Welt, Berlin </span><a target="_blank" href="https://www.hkw.de/en/programm/projekte/veranstaltung/p_112696.php">[website]</a><br/>
 	</p>
 
 	<p class='min'>
 	<span class="bold">Pensar Público</span> - February 2012<br/>
-	Exhibition on dynamic and real-time city mapping<br/>
+	<span data-i18n="cv.exhib.pensar.desc">Exhibition on dynamic and real-time city mapping</span><br/>
 	Centro Carioca de Design. Studio-X, Rio de Janeiro, Brazil | </span><a target="_blank" href="/projeto/pensarpublico">[website]</a><br/>
 	</p>
 
 	<p class='min'>
 	<span class="bold">Galeria TAC | Vênus-Terra</span> - January 2012<br/>
-	Presentation of the "Variation" artwork<br/>
+	<span data-i18n="cv.exhib.venus.desc">Presentation of the "Variation" artwork</span><br/>
 	<span>Rio de Janeiro, Brazil | </span><a target="_blank" href="http://extrapolo.com/expo/venus-terra/">[website]</a><br/>
 	</p>
 
 	<p class='min'>
 	<span class="bold">Abotoados pela Manga</span> - September 2010<br/>
-	3-week art-and-politic residency during 29º São Paulo Bienal of Art<br/>
+	<span data-i18n="cv.exhib.abotoados.desc">3-week art-and-politic residency during 29º São Paulo Bienal of Art</span><br/>
 	<span>São Paulo, Brazil | </span><a target="_blank" href="http://www.youtube.com/embed/yzWVTFSRsu4">[video]</a><br/>
 	</p>
 
 	<br>
-	<span class='title'>TECH SKILLS</span>
-	<p class='min'>
-		System Analyses & Modeling with UML</br>
-    MVC System Architecture & Object-Oriented Programming</br>
-    Data Engineering Relational Databases & SQL ( + learning Neo4j GraphDB )</br>
-    Developing Crawlers & Scrappers for Data Mining & ETL</br>
+	<span class='title' data-i18n="cv.skills">TECH SKILLS</span>
+	<p class='min' data-i18n="cv.skills.text">
+		System Analyses &amp; Modeling with UML</br>
+    MVC System Architecture &amp; Object-Oriented Programming</br>
+    Data Engineering Relational Databases &amp; SQL ( + learning Neo4j GraphDB )</br>
+    Developing Crawlers &amp; Scrappers for Data Mining &amp; ETL</br>
     Many software projects developed in PHP, Python, Java, Crystal and mostly Ruby</br>
-    Linux Systems, SSH, Git & Deploy processes</br>
-    Full Stack Web Developer & Web design with HTML, CSS, Javascript & APIs</br>
+    Linux Systems, SSH, Git &amp; Deploy processes</br>
+    Full Stack Web Developer &amp; Web design with HTML, CSS, Javascript &amp; APIs</br>
     Ruby on Rails,  jQuery and Processing.org Media Frameworks
 	</p>
 

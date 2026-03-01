@@ -14,22 +14,28 @@
   <script src="js/graph.js"></script>
   <script src="js/springyui.js"></script>
   <script src="js/analytics.js"></script>
+  <script src="js/i18n.js"></script>
 </head>
 
 <body>
 
 <img class="logo" src="polo.png">
+<div id="lang-switcher">
+  <a class="lang-btn" data-target="en">EN</a> |
+  <a class="lang-btn" data-target="de">DE</a> |
+  <a class="lang-btn" data-target="pt">PT</a>
+</div>
 <div id="menu">
-	<a href="index.html" style="background-color: darkgray; color:black;">About</a>
-	<a href="works.html">Works</a>
-	<a href="projects.html">Projects</a>
-	<a href="curriculum.html">CV</a>
+	<a href="index.html" style="background-color: darkgray; color:black;" data-i18n="nav.about">About</a>
+	<a href="works.html" data-i18n="nav.works">Works</a>
+	<a href="projects.html" data-i18n="nav.projects">Projects</a>
+	<a href="curriculum.html" data-i18n="nav.cv">CV</a>
 </div>
 
 
 <div id="todo">
-	<p style="text-align: justify">
-		Rafael Polo is a Software Developer & Consultant working on interdisciplinary projects & teams for more than two decades. From the development of crawlers that structured governamental public data into visualizations for researches & journalists in Brazil, to architecting & implementing full web platforms & tools with hacktivists in Berlin. From elaborating experimental user-interfaces with artists in Rio de Janeiro, to teaching web design & programming in self-organized Athenian schools. Having solid skills in servers, databases and frontend, designs and builds systems for real cases & people.
+	<p style="text-align: justify" data-i18n="bio">
+		Rafael Polo is a Software Developer &amp; Consultant working on interdisciplinary projects &amp; teams for more than two decades. From the development of crawlers that structured governamental public data into visualizations for researches &amp; journalists in Brazil, to architecting &amp; implementing full web platforms &amp; tools with hacktivists in Berlin. From elaborating experimental user-interfaces with artists in Rio de Janeiro, to teaching web design &amp; programming in self-organized Athenian schools. Having solid skills in servers, databases and frontend, designs and builds systems for real cases &amp; people.
 	</p>
 	 <canvas id="meio" width="835px" height="450px" style="padding-bottom: 20px; display:none; cursor:pointer"></canvas>
 	 <script src="js/meio.js"></script>

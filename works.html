@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="style.css"/>
 	<script src="js/analytics.js"></script>
 	<script src="js/jquery.js"></script>
+	<script src="js/i18n.js"></script>
 	<script>
 		$(document).ready(function(){ $('#meio').fadeIn(800)});
 	</script>
@@ -16,84 +17,87 @@
 <body>
 
 <img class="logo" src="polo.png" width="130px">
+<div id="lang-switcher">
+  <a class="lang-btn" data-target="en">EN</a> |
+  <a class="lang-btn" data-target="de">DE</a> |
+  <a class="lang-btn" data-target="pt">PT</a>
+</div>
 <div id="menu">
-	<a href="index.html">About</a>
-	<a href="works.html" style="background-color: darkgray; color:black;">Works</a>
-	<a href="projects.html">Projects</a>
-	<a href="curriculum.html">CV</a>
+	<a href="index.html" data-i18n="nav.about">About</a>
+	<a href="works.html" style="background-color: darkgray; color:black;" data-i18n="nav.works">Works</a>
+	<a href="projects.html" data-i18n="nav.projects">Projects</a>
+	<a href="curriculum.html" data-i18n="nav.cv">CV</a>
 </div>
 
 <div id="meio">
 <div>
 	<br/>
-	<span class='title'>SELECTED WEB WORKS</span>
+	<span class='title' data-i18n="works.title">SELECTED WEB WORKS</span>
 	<br/>
 	<br/>
 
 	<div class='min'>
 		<a target="_blank" href="https://extrapolo.com/projeto/subzku">SubZKU - 2019</a>
-		<p class="lado">Interactive Audio Guide: a multi layered sonic response to five years of making at ZK/U</br>
-			<i>Zentrum für Kunst und Urbanistik, Berlin.</i>
-		</p>
+		<p class="lado" data-i18n="works.subzku">Interactive Audio Guide: a multi layered sonic response to five years of making at ZK/U</p>
 	</div>
 
 	<div class='min'>
 		<a target="_blank" href="https://exposingtheinvisible.org/">Exposing the Invisible - 2016</a>
-		<p class="lado">Through a series of short films, video interviews, guides and resources, <i>Tactical Tech Collective</i> looks at different techniques, tools and methods along with the individual practices of those working at the new frontiers of investigation, empowering people to uncover hidden information, expose corruption and bring the truth to light. <br/>
+		<p class="lado" data-i18n="works.eti">Through a series of short films, video interviews, guides and resources, <i>Tactical Tech Collective</i> looks at different techniques, tools and methods along with the individual practices of those working at the new frontiers of investigation, empowering people to uncover hidden information, expose corruption and bring the truth to light.<br/>
 		</p>
 	</div>
 
 	<div class='min'>
 			<a target="_blank" href="http://extrapolo.com/projeto/apt-avenida-atlantica/web/">Av. Atlântica 1101 - 2014</a>
-		<p class="lado">Rich interactive interface which background, pictures and videos are defined based on Rio de Janeiro time zone to promote the flat at Avenida Atlântica 1101 in Copacabana.
+		<p class="lado" data-i18n="works.atlantica">Rich interactive interface which background, pictures and videos are defined based on Rio de Janeiro time zone to promote the flat at Avenida Atlântica 1101 in Copacabana.
 		</p>
 	</div>
 
 	<div class='min'>
 		<a target="_blank" href="https://github.com/rafapolo/aguanaescola">Agenda Água na Escola - 2013</a>
-		<p class="lado">Platform developed to the Municipal Secretary of Environment of Rio de Janeiro to follow water metrics through participation of municipal school's students across all State.
+		<p class="lado" data-i18n="works.agua">Platform developed to the Municipal Secretary of Environment of Rio de Janeiro to follow water metrics through participation of municipal school's students across all State.
 		</p>
 	</div>
 
 	<div class='min'>
 		<a target="_blank" href="https://web.archive.org/web/20180217031203/http://www.studiozanini.com.br/">Studio Zanini - 2013</a>
-		<p class="lado">From-scratch responsible Content Management System developed to the Product Designer Zanini de Zanine, prestigious Design awarded in Brazil and abroad for creating furnitures.</p>
+		<p class="lado" data-i18n="works.zanini">From-scratch responsible Content Management System developed to the Product Designer Zanini de Zanine, prestigious Design awarded in Brazil and abroad for creating furnitures.</p>
 	</div>
 
 	<div class='min'>
 		<a target="_blank" href="https://web.archive.org/web/20180311091348/http://www.webdocgraffiti.com.br:80/">WebDoc Graffiti - 2012</a>
-		<p class="lado">Award-winning collaborative Webdocumentary Platform integrating Google Maps API and Popcorj.js about São Paulo street-art Graffiti.</p>
+		<p class="lado" data-i18n="works.webdoc">Award-winning collaborative Webdocumentary Platform integrating Google Maps API and Popcorn.js about São Paulo street-art Graffiti.</p>
 	</div>
 
 	<div class='min'>
 		<a target="_blank" href="http://extrapolo.com/projeto/pensarpublico">Pensar Público - 2012</a>
-		<p class="lado">Website, 3-floor exhibition & Interactive Systems to inaugurate the Centro Carioca de Design at Rio de Janeiro.</p>
+		<p class="lado" data-i18n="works.pensar">Website, 3-floor exhibition &amp; Interactive Systems to inaugurate the Centro Carioca de Design at Rio de Janeiro.</p>
 	</div>
 
 	<div class='min'>
 		<a target="_blank" href="http://extrapolo.com/projeto/etaoin/">Etaoin Shrdlu - 2012</a>
-		<p class="lado">FTP-Based CMS which generates all typographic portfolio of Pedro Moraes artworks.</p>
+		<p class="lado" data-i18n="works.etaoin">FTP-Based CMS which generates all typographic portfolio of Pedro Moraes artworks.</p>
 	</div>
 
 
 	<div class='min'>
 		<a target="_blank" href="http://extrapolo.com/projeto/graficautopica.net/">Gráfica Utópica - 2011</a>
-		<p class="lado">Interactive Website to present the namesake collective exhibition at Belas-Artes Museum of Rio de Janeiro.</p>
+		<p class="lado" data-i18n="works.grafica">Interactive Website to present the namesake collective exhibition at Belas-Artes Museum of Rio de Janeiro.</p>
 	</div>
 
 		<div class='min'>
 		<a target="_blank" href="https://extrapolo.com/projeto/victorhaim.com.br">Victor Haim - 2011</a>
-		<p class="lado">Innovative and inspiring Content Management System platform to present and manipulate photographer Victor Haim blog & portfolio.</p>
+		<p class="lado" data-i18n="works.victor">Innovative and inspiring Content Management System platform to present and manipulate photographer Victor Haim blog &amp; portfolio.</p>
 	</div>
 
 		<div class='min'>
 		<a target="_blank" href="https://web.archive.org/web/20160323025927/http://comuna.cc/">Comuna - 2011</a>
-		<p class="lado">Column-based CMS developed to the cowork and multifunction space Comuna at Rio de Janeiro. </p>
+		<p class="lado" data-i18n="works.comuna">Column-based CMS developed to the cowork and multifunction space Comuna at Rio de Janeiro. </p>
 	</div>
 
 	<div class='min'>
 		<a target="_blank" href="https://web.archive.org/web/20160401044158/http://razaoeambiente.com.br/">Razão e Ambiente - 2010</a>
-		<p class="lado">Website & Interactive System for Modern Art Museum of São Paulo (MAM/SP) Razão e Ambiente exhibition.</p>
+		<p class="lado" data-i18n="works.razao">Website &amp; Interactive System for Modern Art Museum of São Paulo (MAM/SP) Razão e Ambiente exhibition.</p>
 	</div>
 
 </div>
