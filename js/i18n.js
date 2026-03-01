@@ -6,7 +6,7 @@ var TRANSLATIONS = {
     "nav.cv":       "CV",
     "nav.fullcv":   "Full CV as PDF",
 
-    "bio": "Rafael Polo is a Software Developer &amp; Consultant working on interdisciplinary projects &amp; teams for more than two decades. From the development of crawlers that structured governamental public data into visualizations for researches &amp; journalists in Brazil, to architecting &amp; implementing full web platforms &amp; tools with hacktivists in Berlin. From elaborating experimental user-interfaces with artists in Rio de Janeiro, to teaching web design &amp; programming in self-organized Athenian schools. Having solid skills in servers, databases and frontend, designs and builds systems for real cases &amp; people.",
+    "bio": "Rafael Polo is a Software Developer &amp; Consultant working on interdisciplinary projects &amp; teams for more than two decades. From crawlers that turned governmental public data into visualizations for researchers &amp; journalists in Brazil, to building full web platforms &amp; tools with hacktivists in Berlin. From experimental user-interfaces made with artists in Rio de Janeiro, to teaching web design &amp; programming in self-organized Athenian schools. Solid across servers, databases &amp; frontend — always building for real cases &amp; real people.",
 
     "works.title": "SELECTED WEB WORKS",
     "works.subzku":   "Interactive Audio Guide: a multi layered sonic response to five years of making at ZK/U",
@@ -87,7 +87,7 @@ var TRANSLATIONS = {
     "nav.cv":       "Lebenslauf",
     "nav.fullcv":   "Vollständiger Lebenslauf als PDF",
 
-    "bio": "Rafael Polo ist Software-Entwickler &amp; Berater und arbeitet seit mehr als zwei Jahrzehnten in interdisziplinären Projekten &amp; Teams. Von der Entwicklung von Crawlern, die staatliche öffentliche Daten in Visualisierungen für Forscher &amp; Journalisten in Brasilien strukturierten, bis zur Architektur &amp; Implementierung vollständiger Web-Plattformen &amp; Tools mit Hacktivisten in Berlin. Von der Entwicklung experimenteller Benutzeroberflächen mit Künstlern in Rio de Janeiro bis zum Unterrichten von Webdesign &amp; Programmierung in selbstorganisierten Athener Schulen. Mit soliden Kenntnissen in Servern, Datenbanken und Frontend entwirft und baut er Systeme für echte Fälle &amp; Menschen.",
+    "bio": "Rafael Polo ist Software-Entwickler &amp; Berater und arbeitet seit mehr als zwei Jahrzehnten an interdisziplinären Projekten &amp; Teams. Von Crawlern, die staatliche öffentliche Daten in Visualisierungen für Forscher &amp; Journalisten in Brasilien umwandelten, bis hin zu vollständigen Webplattformen &amp; Werkzeugen, die mit Hacktivisten in Berlin entstanden. Von experimentellen Benutzeroberflächen, die mit Künstlern in Rio de Janeiro entstanden, bis zum Unterrichten von Webdesign &amp; Programmierung in selbstorganisierten Athener Schulen. Solide in Servern, Datenbanken &amp; Frontend — immer für echte Fälle &amp; echte Menschen.",
 
     "works.title": "AUSGEWÄHLTE WEB-ARBEITEN",
     "works.subzku":   "Interaktiver Audio-Guide: eine mehrschichtige klangliche Reaktion auf fünf Jahre Schaffen im ZK/U",
@@ -168,7 +168,7 @@ var TRANSLATIONS = {
     "nav.cv":       "Currículo",
     "nav.fullcv":   "Currículo Completo em PDF",
 
-    "bio": "Rafael Polo é Desenvolvedor de Software &amp; Consultor trabalhando em projetos &amp; equipes interdisciplinares há mais de duas décadas. Do desenvolvimento de crawlers que estruturaram dados públicos governamentais em visualizações para pesquisadores &amp; jornalistas no Brasil, até arquitetar &amp; implementar plataformas web completas &amp; ferramentas com hacktivistas em Berlim. Da elaboração de interfaces experimentais com artistas no Rio de Janeiro, ao ensino de web design &amp; programação em escolas atenienses auto-organizadas. Com sólidas habilidades em servidores, bancos de dados e frontend, projeta e constrói sistemas para casos &amp; pessoas reais.",
+    "bio": "Rafael Polo é Desenvolvedor de Software &amp; Consultor trabalhando em projetos &amp; equipes interdisciplinares há mais de duas décadas. De crawlers que transformaram dados públicos governamentais em visualizações para pesquisadores &amp; jornalistas no Brasil, a plataformas web completas &amp; ferramentas construídas com hacktivistas em Berlim. De interfaces experimentais criadas com artistas no Rio de Janeiro, ao ensino de web design &amp; programação em escolas autogeridas em Atenas. Sólido em servidores, bancos de dados &amp; frontend — sempre construindo para casos &amp; pessoas reais.",
 
     "works.title": "TRABALHOS WEB SELECIONADOS",
     "works.subzku":   "Guia de Áudio Interativo: uma resposta sonora em múltiplas camadas a cinco anos de criação no ZK/U",
