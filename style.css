@@ -30,6 +30,6 @@ p {font-size: 15px;}
 .min{margin-left: 5px; font-size:14px; padding-left: 8px; border-left: 1px solid white; line-height: 20px; margin-bottom: 20px;}
 .bold{text-decoration:underline;}
 .title{margin-left: 5px; padding-left: 8px; border-left: 1px dashed white;}
-#lang-switcher { float: right; padding-top: 32px; font-size: 13px; user-select: none; }
+#lang-switcher { display: none; float: right; padding-top: 32px; font-size: 13px; user-select: none; }
 #lang-switcher .lang-btn { cursor: pointer; }
 #lang-switcher .lang-btn.active { background-color: darkgray; color: black; }

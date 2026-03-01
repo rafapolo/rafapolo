@@ -19,7 +19,9 @@ $(document).ready(function(){
     $('#menu,.down').css('visibility', 'visible');
     $('#menu,.down').hide();
     $('#menu,.down').fadeIn(2000);
-    $('#meio').fadeIn(2000);
+    $('#meio').fadeIn(2000, function(){
+      $('#lang-switcher').fadeIn(800);
+    });
   });
 
 });
