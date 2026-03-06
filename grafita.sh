@@ -13,9 +13,13 @@ CHAR_MAP[O]=".###. #...# #...# #...# #...# #...# .###."
 CHAR_MAP[L]="#.... #.... #.... #.... ##### ..... ....."
 
 WORD="EXTRAPOLO"
-COMMITS_PER_PIXEL=5
+COMMITS_PER_PIXEL=10
 OUTPUT_FILE="extrapolo.txt"
-START_DATE=$(date -v -364d "+%Y-%m-%d")  # Start exactly 52 weeks ago
+
+# Aligns to the leftmost visible Sunday in GitHub's contribution graph.
+# See grafica/ for the self-contained repo with the weekly cron workflow.
+TODAY_DOW=$(date +%w)   # 0=Sun … 6=Sat (GNU date / Linux)
+START_DATE=$(date -d "-$((52 * 7 + TODAY_DOW)) days" +%Y-%m-%d)
 
 # Ensure we are inside a Git repo
 if [ ! -d .git ]; then
@@ -37,7 +41,7 @@ for ((c=0; c<${#WORD}; c++)); do
       if [[ "$pixel" == "#" ]]; then
         week_offset=$((c * 6 + col))
         day_offset=$((week_offset * 7 + row))
-        commit_date=$(date -v +"${day_offset}"d -j -f "%Y-%m-%d" "$START_DATE" "+%Y-%m-%dT12:00:00")
+        commit_date=$(date -d "${START_DATE} + ${day_offset} days" "+%Y-%m-%dT12:00:00")
 
         for ((k=0; k<COMMITS_PER_PIXEL; k++)); do
           echo "Pixel $row,$col at $commit_date" >> "$OUTPUT_FILE"
