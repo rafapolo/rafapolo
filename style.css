@@ -37,7 +37,7 @@ p {font-size: 15px;}
 /* ── SPA grid ── */
 #main { display: none; padding-top: 10px; }
 #graph-canvas { padding-bottom: 20px; cursor: pointer; display: block; }
-.filter-bar { margin-left:5px; padding-left:8px; margin-top:16px; margin-bottom:14px; line-height:26px; }
+.filter-bar { margin-left:auto; margin-right:5px; margin-top:16px; margin-bottom:14px; line-height:26px; }
 .filter-btn { cursor:pointer; font-size:12px; margin-right:3px; padding:2px 6px; color:white; background-color:rgb(39,40,34); display:inline-block; user-select:none; transition:background-color 0.15s, color 0.15s; }
 .filter-btn:hover { background-color:lightgray; color:rgb(30,30,30); }
 .filter-btn.active { background-color:#d4a574; color:#000; }
