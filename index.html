@@ -5,7 +5,7 @@
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="stylesheet" type="text/css" href="style.css"/>
-	<meta content="width=device-width" name="viewport">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta prefix="og: http://ogp.me/ns#" property="og:image" content="http://extrapolo.com/polo.png" />
 	<script src="js/jquery.js"></script>
 	<script src="js/springy.new.js"></script>
@@ -13,28 +13,35 @@
 	<script src="js/graph.js"></script>
 	<script src="js/springyui.js"></script>
 	<script src="js/meio.js"></script>
-	<script src="js/analytics.js"></script>
+	<script defer src="https://cloud.umami.is/script.js" data-website-id="ceb4b5fc-fa3c-4d04-8b8b-81b5a452e34d"></script>
 	<script src="js/i18n.js"></script>
 </head>
 
 <body>
 
+<div id="header">
 <img class="logo" src="polo.png">
 <div id="lang-switcher">
   <a class="lang-btn" data-target="en">EN</a> |
   <a class="lang-btn" data-target="pt">PT</a>
 </div>
 <div id="menu">
-	<a id="btn-about" href="#" data-i18n="nav.about">About</a>
 	<a href="curriculum.html" data-i18n="nav.cv">CV</a>
+	<span class="sep"> | </span>
+	<a href="mailto:rafael@extrapolo.com">email</a>
+	<span class="sep"> | </span>
+	<a target="_blank" href="0xCE8E94C8EDA640B6.pub.txt">pubkey</a>
+	<span class="sep"> | </span>
+	<a target="_blank" href="https://linkedin.com/in/rafaelpolo/">linkedin</a>
+	<span class="sep"> | </span>
+	<a target="_blank" href="https://github.com/rafapolo">github</a>
+</div>
 </div>
 
-<div id="about">
-	<p data-i18n="bio"></p>
-	<canvas id="graph-canvas" width="835px" height="450px" style="padding-bottom:20px; cursor:pointer; display:block;"></canvas>
-</div>
+<div id="main">
 
-<div id="grid-section">
+	<p class="bio" data-i18n="bio"></p>
+	<canvas id="graph-canvas" width="835px" height="450px"></canvas>
 
 	<div class="filter-bar">
 		<span class="filter-btn active" data-filter="all">all</span>
@@ -50,303 +57,262 @@
 
 		<!-- 2026 -->
 		<a class="card" href="https://github.com/rafapolo/baseldosdados" target="_blank" data-tags="data tool">
-			<div class="thumb"><img src="img/thumbs/baseldosdados.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/baseldosdados.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">baseldosdados</span><span class="year">2026</span></div>
 		</a>
 
 		<a class="card" href="https://github.com/rafapolo/BraViz" target="_blank" data-tags="dataviz data">
-			<div class="thumb"><img src="img/thumbs/braviz.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/braviz.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">BraViz</span><span class="year">2026</span></div>
 		</a>
 
 		<a class="card" href="https://github.com/rafapolo/datative" target="_blank" data-tags="data dataviz tool">
-			<div class="thumb"><img src="img/thumbs/datative.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/datative.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">datative</span><span class="year">2026</span></div>
 		</a>
 
 		<a class="card" href="https://github.com/rafapolo/helvetiscan" target="_blank" data-tags="data tool">
-			<div class="thumb"><img src="img/thumbs/helvetiscan.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/helvetiscan.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">helvetiscan</span><span class="year">2026</span></div>
 		</a>
 
 		<a class="card" href="https://github.com/rafapolo/swissviz" target="_blank" data-tags="dataviz data">
-			<div class="thumb"><img src="img/thumbs/swissviz.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/swissviz.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">swissviz</span><span class="year">2026</span></div>
 		</a>
 
 		<a class="card" href="https://xn--2dk.xyz/dataviz/swiss/" target="_blank" data-tags="dataviz data">
-			<div class="thumb"><img src="img/thumbs/swissnet.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/swissnet.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">swiss network</span><span class="year">2026</span></div>
 		</a>
 
 		<a class="card" href="https://tinyurl.com/pegadas-tigrim" target="_blank" data-tags="data dataviz">
-			<div class="thumb"><img src="img/thumbs/tigrim.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/tigrim.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">Pegadas Tigrinho</span><span class="year">2025</span></div>
 		</a>
 
 		<a class="card" href="https://github.com/rafapolo/malafaia" target="_blank" data-tags="project dataviz">
-			<div class="thumb"><img src="img/thumbs/malafaia.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/malafaia.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">malafaia</span><span class="year">2026</span></div>
 		</a>
 
 		<a class="card" href="https://xn--2dk.xyz/dataviz/pt-2026/" target="_blank" data-tags="work dataviz">
-			<div class="thumb"><img src="img/thumbs/pt-2026.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/pt-2026.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">pt-2026</span><span class="year">2026</span></div>
 		</a>
 
 		<!-- 2025 -->
 		<a class="card" href="https://github.com/rafapolo/viso" target="_blank" data-tags="data dataviz tool">
-			<div class="thumb"><img src="img/thumbs/viso.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/viso.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">viso</span><span class="year">2025</span></div>
 		</a>
 
 		<a class="card" href="https://github.com/rafapolo/fincrime" target="_blank" data-tags="data dataviz">
-			<div class="thumb"><img src="img/thumbs/fincrime.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/fincrime.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">fincrime</span><span class="year">2025</span></div>
 		</a>
 
 		<a class="card" href="https://github.com/rafapolo/IBGE13" target="_blank" data-tags="data">
-			<div class="thumb"><img src="img/thumbs/ibge13.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/ibge13.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">IBGE13</span><span class="year">2025</span></div>
 		</a>
 
 		<a class="card" href="https://github.com/rafapolo/polis" target="_blank" data-tags="data dataviz">
-			<div class="thumb"><img src="img/thumbs/polis.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/polis.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">polis</span><span class="year">2025</span></div>
 		</a>
 
 		<a class="card" href="https://github.com/rafapolo/sumaria" target="_blank" data-tags="project tool">
-			<div class="thumb"><img src="img/thumbs/sumaria.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/sumaria.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">sumaria</span><span class="year">2025</span></div>
 		</a>
 
 		<a class="card" href="https://xn--2dk.xyz/dataviz/rais/" target="_blank" data-tags="dataviz data">
-			<div class="thumb"><img src="img/thumbs/rais.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/rais.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">RAIS</span><span class="year">2025</span></div>
 		</a>
 
 		<a class="card" href="https://xn--2dk.xyz/dataviz/rio/ibge" target="_blank" data-tags="dataviz data">
-			<div class="thumb"><img src="img/thumbs/rioibge.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/rioibge.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">Rio IBGE</span><span class="year">2025</span></div>
 		</a>
 
 		<a class="card" href="https://xn--2dk.xyz/dataviz/friba/pop_3d" target="_blank" data-tags="dataviz data">
-			<div class="thumb"><img src="img/thumbs/friba.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/friba.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">Friba</span><span class="year">2025</span></div>
 		</a>
 
 		<a class="card" href="https://github.com/rafapolo/religioes" target="_blank" data-tags="project dataviz">
-			<div class="thumb"><img src="img/thumbs/religioes.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/religioes.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">religiões</span><span class="year">2025</span></div>
 		</a>
 
-		<a class="card" href="https://mo-lin.ch" target="_blank" data-tags="work design">
-			<div class="thumb"><img src="img/thumbs/molin.png" alt="" onerror="this.style.display='none'"></div>
-			<div class="info"><span class="name">MO LIN</span><span class="year">2025</span></div>
-		</a>
-
-		<!-- 2020 -->
+<!-- 2020 -->
 		<a class="card" href="https://github.com/rafapolo/uqt" target="_blank" data-tags="project design">
-			<div class="thumb"><img src="img/thumbs/uqt.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/uqt.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">uqt</span><span class="year">2020</span></div>
 		</a>
 
 		<a class="card" href="https://github.com/rafapolo/covid19" target="_blank" data-tags="work dataviz data">
-			<div class="thumb"><img src="img/thumbs/covid19.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/covid19.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">COVID-19 Brasil</span><span class="year">2020</span></div>
 		</a>
 
 		<!-- 2019 -->
 		<a class="card" href="http://github.com/rafapolo/ares" target="_blank" data-tags="project tool">
-			<div class="thumb"><img src="img/thumbs/ares.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/ares.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">Ares</span><span class="year">2019</span></div>
 		</a>
 
 		<a class="card" href="https://extrapolo.com/projeto/subzku" target="_blank" data-tags="work design">
-			<div class="thumb"><img src="img/thumbs/subzku.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/subzku.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">SubZKU</span><span class="year">2019</span></div>
 		</a>
 
 		<!-- 2018 -->
 		<a class="card" href="https://github.com/rafapolo/tribuna" target="_blank" data-tags="project data tool">
-			<div class="thumb"><img src="img/thumbs/tribuna.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/tribuna.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">Tribuna</span><span class="year">2018</span></div>
 		</a>
 
 		<a class="card" href="http://github.com/rafapolo/renda" target="_blank" data-tags="project tool">
-			<div class="thumb"><img src="img/thumbs/renda.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/renda.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">Renda</span><span class="year">2018</span></div>
 		</a>
 
 		<a class="card" href="https://github.com/rafapolo/otherbrecht" target="_blank" data-tags="work data">
-			<div class="thumb"><img src="img/thumbs/connectas.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/connectas.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">Connectas</span><span class="year">2018</span></div>
 		</a>
 
 		<!-- 2016 -->
 		<a class="card" href="https://exposingtheinvisible.org/" target="_blank" data-tags="work design">
-			<div class="thumb"><img src="img/thumbs/eti.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/eti.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">Exposing the Invisible</span><span class="year">2016</span></div>
 		</a>
 
 		<!-- 2014 -->
 		<a class="card" href="http://extrapolo.com/projeto/apt-avenida-atlantica/web/" target="_blank" data-tags="work design">
-			<div class="thumb"><img src="img/thumbs/atlantica.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/atlantica.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">Av. Atlântica 1101</span><span class="year">2014</span></div>
 		</a>
 
 		<a class="card" href="https://github.com/rafapolo/steganos" target="_blank" data-tags="project tool">
-			<div class="thumb"><img src="img/thumbs/steganos.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/steganos.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">Steganos</span><span class="year">2014</span></div>
 		</a>
 
 		<!-- 2013 -->
 		<a class="card" href="http://mostre.me/cultura" target="_blank" data-tags="project dataviz">
-			<div class="thumb"><img src="img/thumbs/mostremecultura.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/mostremecultura.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">Mostre!me Cultura</span><span class="year">2013</span></div>
 		</a>
 
 		<a class="card" href="http://mostre.me/acervo" target="_blank" data-tags="project">
-			<div class="thumb"><img src="img/thumbs/copyfight.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/copyfight.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">Copyfight Acervo</span><span class="year">2013</span></div>
 		</a>
 
 		<a class="card" href="https://github.com/rafapolo/aguanaescola" target="_blank" data-tags="work">
-			<div class="thumb"><img src="img/thumbs/agua.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/agua.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">Agenda Água na Escola</span><span class="year">2013</span></div>
 		</a>
 
 		<a class="card" href="https://web.archive.org/web/20180217031203/http://www.studiozanini.com.br/" target="_blank" data-tags="work design">
-			<div class="thumb"><img src="img/thumbs/zanini.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/zanini.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">Studio Zanini</span><span class="year">2013</span></div>
 		</a>
 
 		<!-- 2012 -->
 		<a class="card" href="https://web.archive.org/web/20180311091348/http://www.webdocgraffiti.com.br:80/" target="_blank" data-tags="work design">
-			<div class="thumb"><img src="img/thumbs/webdocgraffiti.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/webdocgraffiti.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">WebDoc Graffiti</span><span class="year">2012</span></div>
 		</a>
 
 		<a class="card" href="http://extrapolo.com/projeto/pensarpublico" target="_blank" data-tags="work design">
-			<div class="thumb"><img src="img/thumbs/pensarpublico.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/pensarpublico.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">Pensar Público</span><span class="year">2012</span></div>
 		</a>
 
 		<a class="card" href="http://extrapolo.com/projeto/etaoin/" target="_blank" data-tags="work design">
-			<div class="thumb"><img src="img/thumbs/etaoin.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/etaoin.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">Etaoin Shrdlu</span><span class="year">2012</span></div>
 		</a>
 
 		<!-- 2011 -->
 		<a class="card" href="http://extrapolo.com/projeto/graficautopica.net/" target="_blank" data-tags="work design">
-			<div class="thumb"><img src="img/thumbs/graficautopica.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/graficautopica.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">Gráfica Utópica</span><span class="year">2011</span></div>
 		</a>
 
 		<a class="card" href="https://extrapolo.com/projeto/victorhaim.com.br" target="_blank" data-tags="work design">
-			<div class="thumb"><img src="img/thumbs/victorhaim.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/victorhaim.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">Victor Haim</span><span class="year">2011</span></div>
 		</a>
 
 		<a class="card" href="https://web.archive.org/web/20160323025927/http://comuna.cc/" target="_blank" data-tags="work design">
-			<div class="thumb"><img src="img/thumbs/comuna.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/comuna.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">Comuna</span><span class="year">2011</span></div>
 		</a>
 
 		<!-- 2010 -->
 		<a class="card" href="https://web.archive.org/web/20160401044158/http://razaoeambiente.com.br/" target="_blank" data-tags="work design">
-			<div class="thumb"><img src="img/thumbs/razaoambiente.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/razaoambiente.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">Razão e Ambiente</span><span class="year">2010</span></div>
 		</a>
 
 		<a class="card" href="http://extrapolo.com/labs/graphs" target="_blank" data-tags="project dataviz">
-			<div class="thumb"><img src="img/thumbs/graphs.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/graphs.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">Graphs</span><span class="year">2010</span></div>
 		</a>
 
 		<!-- 2009 -->
 		<a class="card" href="https://github.com/rafapolo/consulta-natural/wiki" target="_blank" data-tags="project tool">
-			<div class="thumb"><img src="img/thumbs/consulta.png" alt="" onerror="this.style.display='none'"></div>
+			<div class="thumb"><img loading="lazy" src="img/thumbs/consulta.png" alt="" onerror="this.style.display='none'"></div>
 			<div class="info"><span class="name">Consulta Natural</span><span class="year">2009</span></div>
 		</a>
 
 	</div>
+
 </div>
 
-<div class="down">
-	<span> | </span>
-  <a href="mailto:rafael@extrapolo.com">email</a>
-	<span> | </span>
-  <a target="_blank" href="0xCE8E94C8EDA640B6.pub.txt">pubkey</a>
-  <span> | </span>
-	<span><a target="_blank" href="https://linkedin.com/in/rafaelpolo/">linkedin</a></span>
-	<span> | </span>
-	<span><a target="_blank" href="https://github.com/rafapolo">github</a></span>
-	<span> | </span>
-	<span><a target="_blank" href="dna.pvt.txt">dna</a></span>
-	<span> | </span>
-</div>
+
+<div id="since" data-i18n="since"></div>
 
 <script>
 $(document).ready(function() {
   var lang = localStorage.getItem('lang') || 'en';
   applyLang(lang);
 
-  $('#grid-section').fadeIn(600, function() {
+  var $window = $(window);
+  var $header = $('#header');
+  $window.on('scroll', function() {
+    $header.toggleClass('scrolled', $window.scrollTop() > 10);
+  });
+
+  $('#main').fadeIn(600, function() {
     $('#lang-switcher').fadeIn(300);
+    initMeio();
   });
 
-  // About toggle
-  var springyInited = false;
-  $('#btn-about').on('click', function(e) {
-    e.preventDefault();
-    $(this).toggleClass('active');
-    if ($('#about').is(':visible')) {
-      $('#about').fadeOut(200, function() { $('#grid-section').fadeIn(300); });
-    } else {
-      $('#grid-section').fadeOut(200, function() {
-        $('#about').fadeIn(400, function() {
-          if (!springyInited) { initMeio(); springyInited = true; }
-        });
-      });
-    }
-  });
-
-  // Filters (multi-select with fade animation)
-  var activeFilters = [];
-  $('.filter-btn').on('click', function() {
+  var $cards = $('.card');
+  var $filterBtns = $('.filter-btn');
+  var activeFilter = 'all';
+  $filterBtns.on('click', function() {
     var filter = $(this).data('filter');
-    if (filter === 'all') {
-      activeFilters = [];
-      $('.filter-btn').removeClass('active');
-      $(this).addClass('active');
-      $('.card.hidden').removeClass('hidden').css('opacity', 0).animate({opacity: 1}, 250);
-      return;
-    }
-    var idx = activeFilters.indexOf(filter);
-    if (idx > -1) {
-      activeFilters.splice(idx, 1);
-      $(this).removeClass('active');
-    } else {
-      activeFilters.push(filter);
-      $(this).addClass('active');
-      $('.filter-btn[data-filter="all"]').removeClass('active');
-    }
-    if (activeFilters.length === 0) {
-      $('.filter-btn[data-filter="all"]').addClass('active');
-      $('.card.hidden').removeClass('hidden').css('opacity', 0).animate({opacity: 1}, 250);
-    } else {
-      $('.card').each(function() {
-        var tags = $(this).data('tags').split(' ');
-        var match = activeFilters.some(function(f) { return tags.indexOf(f) > -1; });
-        if (match && $(this).hasClass('hidden')) {
-          $(this).removeClass('hidden').css('opacity', 0).animate({opacity: 1}, 250);
-        } else if (!match && !$(this).hasClass('hidden')) {
-          var $card = $(this);
-          $card.animate({opacity: 0}, 200, function() { $card.addClass('hidden').css('opacity', ''); });
-        }
-      });
-    }
+    if (filter === activeFilter) return;
+    activeFilter = filter;
+    $filterBtns.removeClass('active');
+    $(this).addClass('active');
+    $cards.each(function() {
+      var tags = $(this).data('tags').split(' ');
+      var match = filter === 'all' || tags.indexOf(filter) > -1;
+      if (match) {
+        $(this).removeClass('hidden');
+      } else {
+        $(this).addClass('hidden');
+      }
+    });
   });
 });
 </script>
