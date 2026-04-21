@@ -2,7 +2,6 @@ graph = new Graph();
 
 // ── Category nodes ──────────────────────────────────────────────────────────
 var catData  = graph.newNode({label: '[DATA]'});
-var catViz   = graph.newNode({label: '[DATAVIZ]'});
 var catDesign= graph.newNode({label: '[DESIGN]'});
 var catTool  = graph.newNode({label: '[TOOL]'});
 var catWork  = graph.newNode({label: '[WORK]'});
@@ -28,7 +27,6 @@ var nRAIS    = graph.newNode({label: 'RAIS',                site: 'https://xn--2
 var nRioI    = graph.newNode({label: 'Rio IBGE',            site: 'https://xn--2dk.xyz/dataviz/rio/ibge'});
 var nFriba   = graph.newNode({label: 'Friba',               site: 'https://xn--2dk.xyz/dataviz/friba/pop_3d'});
 var nRelig   = graph.newNode({label: 'religiões',           site: 'https://github.com/rafapolo/religioes'});
-var nMolin   = graph.newNode({label: 'MO LIN',              site: 'https://mo-lin.ch'});
 
 // ── 2020 ────────────────────────────────────────────────────────────────────
 var nUQT     = graph.newNode({label: 'uqt',                 site: 'https://github.com/rafapolo/uqt'});
@@ -75,28 +73,27 @@ var nConsul  = graph.newNode({label: 'Consulta Natural',    site: 'https://githu
 
 // ── Edges ───────────────────────────────────────────────────────────────────
 graph.newEdge(nBasel,  catData);  graph.newEdge(nBasel,  catTool);
-graph.newEdge(nBraViz, catViz);   graph.newEdge(nBraViz, catData);
-graph.newEdge(nDatat,  catData);  graph.newEdge(nDatat,  catViz);   graph.newEdge(nDatat, catTool);
+graph.newEdge(nBraViz, catData);   graph.newEdge(nBraViz, catData);
+graph.newEdge(nDatat,  catData);  graph.newEdge(nDatat,  catData);   graph.newEdge(nDatat, catTool);
 graph.newEdge(nHelvet, catData);  graph.newEdge(nHelvet, catTool);
-graph.newEdge(nSwissV, catViz);   graph.newEdge(nSwissV, catData);
-graph.newEdge(nSwissN, catViz);   graph.newEdge(nSwissN, catData);
-graph.newEdge(nTigrim, catViz);   graph.newEdge(nTigrim, catData);
-graph.newEdge(nMalaf,  catViz);
-graph.newEdge(nPt26,   catViz);   graph.newEdge(nPt26,   catWork);
+graph.newEdge(nSwissV, catData);   graph.newEdge(nSwissV, catData);
+graph.newEdge(nSwissN, catData);   graph.newEdge(nSwissN, catData);
+graph.newEdge(nTigrim, catData);   graph.newEdge(nTigrim, catData);
+graph.newEdge(nMalaf,  catData);
+graph.newEdge(nPt26,   catData);   graph.newEdge(nPt26,   catWork);
 
-graph.newEdge(nViso,   catData);  graph.newEdge(nViso,   catViz);   graph.newEdge(nViso,  catTool);
-graph.newEdge(nFincr,  catData);  graph.newEdge(nFincr,  catViz);
+graph.newEdge(nViso,   catData);  graph.newEdge(nViso,   catData);   graph.newEdge(nViso,  catTool);
+graph.newEdge(nFincr,  catData);  graph.newEdge(nFincr,  catData);
 graph.newEdge(nIBGE13, catData);
-graph.newEdge(nPolis,  catData);  graph.newEdge(nPolis,  catViz);
+graph.newEdge(nPolis,  catData);  graph.newEdge(nPolis,  catData);
 graph.newEdge(nSumar,  catTool);
-graph.newEdge(nRAIS,   catViz);   graph.newEdge(nRAIS,   catData);
-graph.newEdge(nRioI,   catViz);   graph.newEdge(nRioI,   catData);
-graph.newEdge(nFriba,  catViz);   graph.newEdge(nFriba,  catData);
-graph.newEdge(nRelig,  catViz);
-graph.newEdge(nMolin,  catDesign);graph.newEdge(nMolin,  catWork);
+graph.newEdge(nRAIS,   catData);   graph.newEdge(nRAIS,   catData);
+graph.newEdge(nRioI,   catData);   graph.newEdge(nRioI,   catData);
+graph.newEdge(nFriba,  catData);   graph.newEdge(nFriba,  catData);
+graph.newEdge(nRelig,  catData);
 
 graph.newEdge(nUQT,    catDesign);
-graph.newEdge(nCovid,  catViz);   graph.newEdge(nCovid,  catData);  graph.newEdge(nCovid, catWork);
+graph.newEdge(nCovid,  catData);   graph.newEdge(nCovid,  catData);  graph.newEdge(nCovid, catWork);
 
 graph.newEdge(nAres,   catData);  graph.newEdge(nAres,   catTool);
 graph.newEdge(nSubZKU, catDesign);graph.newEdge(nSubZKU, catWork);
@@ -110,12 +107,12 @@ graph.newEdge(nETI,    catDesign);graph.newEdge(nETI,    catWork);  graph.newEdg
 graph.newEdge(nAtlan,  catDesign);graph.newEdge(nAtlan,  catWork);
 graph.newEdge(nSteg,   catTool);
 
-graph.newEdge(nMostr,  catViz);
+graph.newEdge(nMostr,  catData);
 graph.newEdge(nCopy,   catData);
 graph.newEdge(nAgua,   catWork);  graph.newEdge(nAgua,   catData);
 graph.newEdge(nZanini, catDesign);graph.newEdge(nZanini, catWork);
 
-graph.newEdge(nWebDoc, catDesign);graph.newEdge(nWebDoc, catWork);  graph.newEdge(nWebDoc, catViz);
+graph.newEdge(nWebDoc, catDesign);graph.newEdge(nWebDoc, catWork);  graph.newEdge(nWebDoc, catData);
 graph.newEdge(nPensar, catDesign);graph.newEdge(nPensar, catWork);
 graph.newEdge(nEtaoin, catDesign);graph.newEdge(nEtaoin, catWork);
 
@@ -124,6 +121,6 @@ graph.newEdge(nVictor, catDesign);graph.newEdge(nVictor, catWork);
 graph.newEdge(nComuna, catDesign);graph.newEdge(nComuna, catWork);
 
 graph.newEdge(nRazao,  catDesign);graph.newEdge(nRazao,  catWork);
-graph.newEdge(nGraphs, catViz);
+graph.newEdge(nGraphs, catData);
 
 graph.newEdge(nConsul, catData);  graph.newEdge(nConsul, catTool);
