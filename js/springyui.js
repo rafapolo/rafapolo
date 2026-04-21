@@ -56,41 +56,30 @@ jQuery.fn.springy = function(params) {
 		Layout.requestAnimationFrame(adjust);
 	});
 
-	// convert to/from screen coordinates
-	toScreen = function(p) {
+	var toScreen = function(p) {
 		var size = currentBB.topright.subtract(currentBB.bottomleft);
 		var sx = p.subtract(currentBB.bottomleft).divide(size.x).x * canvas.width;
 		var sy = p.subtract(currentBB.bottomleft).divide(size.y).y * canvas.height;
 		return new Vector(sx, sy);
 	};
 
-	fromScreen = function(s) {
+	var fromScreen = function(s) {
 		var size = currentBB.topright.subtract(currentBB.bottomleft);
 		var px = (s.x / canvas.width) * size.x + currentBB.bottomleft.x;
 		var py = (s.y / canvas.height) * size.y + currentBB.bottomleft.y;
 		return new Vector(px, py);
 	};
 
-	// half-assed drag and drop
 	var selected = null;
 	var nearest = null;
-	var dragged = null;
 
 	jQuery(canvas).mousedown(function(e) {
-		jQuery('.actions').hide();
-
 		var pos = jQuery(this).offset();
 		var p = fromScreen({x: e.pageX - pos.left, y: e.pageY - pos.top});
-		selected = nearest = dragged = layout.nearest(p);
+		selected = nearest = layout.nearest(p);
 
-
-		if (selected.node !== null) {
-			dragged.point.m = 10000.0;
-      //window.open(selected.node.data.site, "_blank");
-
-			if (nodeSelected) {
-				nodeSelected(selected.node);
-			}
+		if (selected.node !== null && nodeSelected) {
+			nodeSelected(selected.node);
 		}
 
 		renderer.start();
@@ -100,17 +89,7 @@ jQuery.fn.springy = function(params) {
 		var pos = jQuery(this).offset();
 		var p = fromScreen({x: e.pageX - pos.left, y: e.pageY - pos.top});
 		nearest = layout.nearest(p);
-
-		if (dragged !== null && dragged.node !== null) {
-			dragged.point.p.x = p.x;
-			dragged.point.p.y = p.y;
-		}
-
 		renderer.start();
-	});
-
-	jQuery(window).bind('mouseup',function(e) {
-		dragged = null;
 	});
 
 	Node.prototype.getWidth = function() {
@@ -177,10 +156,6 @@ jQuery.fn.springy = function(params) {
 			}
 
 			var stroke = (edge.data.color !== undefined) ? edge.data.color : 'white';
-			if ($.browser.webkit && !window.chrome){ //safari
-				ctx.webkitImageSmoothingEnabled = true;
-				stroke = 'gray';
-			}
 
 
 			var arrowWidth;

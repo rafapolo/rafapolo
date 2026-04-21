@@ -12,7 +12,8 @@ body {
 	letter-spacing: 0.1px;
 }
 ::selection {
-	background: #c10000b0; /* WebKit/Blink Browsers */
+	background: #d4a574;
+	color: #000;
 }
 a {
 	color: white;
@@ -30,14 +31,16 @@ p {font-size: 15px;}
 .title{margin-left: 5px; padding-left: 8px; border-left: 1px dashed white;}
 #lang-switcher { display: none; float: right; padding-top: 34px; font-size: 16px; user-select: none; }
 #lang-switcher .lang-btn { cursor: pointer; }
-#lang-switcher .lang-btn.active { background-color: darkgray; color: black; }
+#lang-switcher .lang-btn:hover { background-color: lightgray; color: #000; }
+#lang-switcher .lang-btn.active { background-color: #d4a574; color: #000; }
 
 /* ── SPA grid ── */
 #main { display: none; padding-top: 10px; }
 #graph-canvas { padding-bottom: 20px; cursor: pointer; display: block; }
 .filter-bar { margin-left:5px; padding-left:8px; border-left:1px dashed white; margin-top:16px; margin-bottom:14px; line-height:26px; }
 .filter-btn { cursor:pointer; font-size:12px; margin-right:3px; padding:2px 6px; color:white; background-color:rgb(39,40,34); display:inline-block; user-select:none; transition:background-color 0.15s, color 0.15s; }
-.filter-btn:hover, .filter-btn.active { background-color:lightgray; color:rgb(30,30,30); }
+.filter-btn:hover { background-color:lightgray; color:rgb(30,30,30); }
+.filter-btn.active { background-color:#d4a574; color:#000; }
 .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(140px, 1fr)); gap:10px; margin-left:5px; padding-left:8px; border-left:1px solid white; margin-bottom:24px; }
 .card { width:100%; aspect-ratio:1; position:relative; display:block; padding:0; overflow:hidden; transition:opacity 0.2s; }
 .card .thumb { position:absolute; top:0; left:0; right:0; bottom:0; background:rgb(22,23,19); }

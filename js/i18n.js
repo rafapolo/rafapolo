@@ -1,5 +1,6 @@
 var TRANSLATIONS = {
   en: {
+    "since": "Since 1985",
     "nav.about": "About",
     "nav.works": "Works",
     "nav.data": "Data",
@@ -168,6 +169,7 @@ var TRANSLATIONS = {
   },
 
   pt: {
+    "since": "Desde 1985",
     "nav.about": "Sobre",
     "nav.works": "Trabalhos",
     "nav.data": "Dados",
