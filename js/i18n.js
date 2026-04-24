@@ -10,7 +10,7 @@ var TRANSLATIONS = {
     "browse.title":
       "Recent investigations, tools, web projects, and long-running experiments.",
     "browse.text":
-      "I design and ship data-heavy products, investigative tooling, visual systems, and full-stack platforms with a bias for clarity, speed, and practical ideas.",
+      "I design and ship data products, investigative tools, visual systems and full-stack platforms.",
     "meta.timespan": "Years covered",
     "meta.projects": "Selected projects",
     "filter.all": "All",
