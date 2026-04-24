@@ -1,11 +1,12 @@
 function initMeio() {
-  jQuery('#graph-canvas').springy({
-    stiffness: 30,
-    repulsion: 120000,
+  var $canvas = jQuery("#graph-canvas");
+  $canvas.springy({
+    stiffness: 5,
+    repulsion: 119500,
     damping: 0.1,
     graph: graph,
-    selected: function(node) {
+    selected: function (node) {
       if (node.data.site) window.open(node.data.site);
-    }
+    },
   });
 }

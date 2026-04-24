@@ -15,18 +15,30 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+
+      - name: Minify
+        run: |
+          mkdir -p dist/js
+          cp -r img projeto favicon.gif favicon.ico polo.png CNAME index.html curriculum.html curriculum.css dist/
+          bunx esbuild js/graph.js js/i18n.js js/meio.js js/springyui.js \
+            --bundle=false --minify --outdir=dist/js
+          cp js/jquery.js js/jquery.animate-colors-min.js js/springy.js js/springy.new.js dist/js/
+          bunx esbuild style.css curriculum.css --bundle=false --minify --outdir=dist/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
-      - name: Upload site folder
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "./projeto"
+          path: dist/
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy
+        id: deployment
         uses: actions/deploy-pages@v4

@@ -1,0 +1,62 @@
+body {
+	background-color: rgb(54,53,49);
+	font-family: 'Monda', sans-serif;
+	font-size: 19px;
+	word-spacing: 3px;
+	color: white;
+	margin-bottom: 10px;
+	letter-spacing: 0.1px;
+}
+#meio {
+	max-width: 835px;
+	margin-left: 25px;
+	margin-right: 25px;
+}
+::selection {
+	background: rgba(200,160,64,0.65);
+}
+a {
+	color: white;
+	background-color: rgb(39,40,34);
+	text-decoration: none; padding-right: 5px; padding-left: 5px;
+}
+a:hover{background-color: #c8a040; color:#111;}
+#since { text-align: center; }
+p {font-size: 15px;}
+#meio{display: none}
+#menu{padding-top:32px; user-select: none}
+#todo{padding-top: 20px; padding-left: 5px; padding-right: 20px;}
+
+.lado{padding-left: 5px; padding-top: 5px; margin: 0px; font-size: 14px;}
+.logo{float:left; padding-right: 20px; width: 130px; user-select: none}
+.down{bottom:15px; padding: 10px; font-size:13px; user-select:none }
+.min{margin-left: 5px; font-size:14px; padding-left: 8px; border-left: 1px solid white; line-height: 20px; margin-bottom: 20px;}
+.bold{text-decoration:underline;}
+.title{margin-left: 5px; padding-left: 8px; border-left: 1px dashed white;}
+/* header overrides — reset old float/padding/word-spacing so style.css header layout takes over */
+#header { word-spacing: normal; }
+#header .logo { float: none; width: auto; padding-right: 0; }
+#header #menu { padding-top: 0; }
+#header .brand-copy h1 { white-space: normal; }
+
+#lang-switcher { display: none; float: right; padding-top: 32px; font-size: 13px; user-select: none; }
+#lang-switcher .lang-btn { cursor: pointer; }
+#lang-switcher .lang-btn.active { background-color: darkgray; color: black; }
+
+/* ── SPA grid ── */
+#grid-section { display: none; }
+.filter-bar { margin-left:5px; padding-left:8px; border-left:1px dashed white; margin-top:16px; margin-bottom:14px; line-height:26px; }
+.filter-btn { cursor:pointer; font-size:12px; margin-right:3px; padding:2px 6px; color:white; background-color:rgb(39,40,34); display:inline-block; user-select:none; }
+.filter-btn:hover, .filter-btn.active { background-color:#c8a040; color:rgb(36,35,31); }
+.grid { display:flex; flex-wrap:wrap; gap:10px; margin-left:5px; padding-left:8px; border-left:1px solid white; margin-bottom:24px; }
+.card { width:155px; height:155px; position:relative; display:block; padding:0; overflow:hidden; border-left:none; transition:opacity 0.2s; }
+.card .thumb { position:absolute; top:0; left:0; right:0; bottom:0; background:rgb(22,23,19); }
+.card .thumb img { width:100%; height:100%; object-fit:cover; display:block; }
+.card .info { position:absolute; bottom:0; left:0; right:0; background:rgba(39,40,34,0.88); padding:4px 6px 5px; line-height:15px; z-index:1; transition:background 0.15s; }
+.card .info .name { display:block; font-size:11px; }
+.card .info .year { font-size:10px; opacity:0.55; transition:opacity 0.15s; }
+.card:hover .info { background:rgba(200,160,64,0.92); color:rgb(36,35,31); }
+.card:hover .info .year { opacity:1; color:rgb(36,35,31); }
+.card.hidden { display:none; }
+#about { display:none; padding-top:10px; }
+#about p { text-align:justify; padding:5px 20px 5px 5px; }

@@ -1,106 +1,23 @@
 var TRANSLATIONS = {
   en: {
-    "since": "Since 1985",
+    "skip.content": "Skip to content",
+    since: "ExtraPolo Labs since 1985",
     "nav.about": "About",
-    "nav.works": "Works",
-    "nav.data": "Data",
-    "nav.projects": "Projects",
     "nav.cv": "CV",
     "nav.fullcv": "Full CV as PDF",
+    "hero.title": "Computer Science, Data & Software Engineering.",
+    "browse.label": "Browse the work",
+    "browse.title":
+      "Recent investigations, tools, web projects, and long-running experiments.",
+    "browse.text":
+      "I design and ship data-heavy products, investigative tooling, visual systems, and full-stack platforms with a bias for clarity, speed, and practical ideas.",
+    "meta.timespan": "Years covered",
+    "meta.projects": "Selected projects",
+    "filter.all": "All",
+    "bio.label": "Profile",
+    "graph.label": "Relation map",
 
-    bio: "Rafael Polo is a Software Developer &amp; Consultant working on interdisciplinary projects &amp; teams for more than two decades. From crawlers that turned governmental public data into visualizations for researchers &amp; journalists in Brazil, to building full web platforms &amp; tools with hacktivists in Berlin. From experimental user-interfaces made with artists in Rio de Janeiro, to teaching web design &amp; programming in self-organized Athenian schools. Solid across servers, databases &amp; frontend — always building for real cases &amp; real people.",
-
-    "works.title": "SELECTED WEB WORKS",
-    "works.pt2026":
-      "Interactive electoral visualization analyzing Portuguese vote distribution ahead of the 2026 elections.",
-    "works.molin":
-      "Website system for MO LIN Chinese Art School in Basel — DRY Handlebars template engine reducing 39 HTML files to reusable components with consolidated CSS and data-driven navigation.",
-    "works.covid19":
-      "Real-time dashboard aggregating and visualizing Brazilian COVID-19 case data by state and city throughout the pandemic.",
-    "works.connectas":
-      "Investigative data platform mapping ownership networks connecting companies, campaign donors, relatives, and deputies using TSE electoral data — built for the Connectas journalism collective.",
-    "works.subzku":
-      "Interactive Audio Guide: a multi layered sonic response to five years of making at ZK/U",
-    "works.eti":
-      "Through a series of short films, video interviews, guides and resources, <i>Tactical Tech Collective</i> looks at different techniques, tools and methods along with the individual practices of those working at the new frontiers of investigation, empowering people to uncover hidden information, expose corruption and bring the truth to light.",
-    "works.atlantica":
-      "Rich interactive interface which background, pictures and videos are defined based on Rio de Janeiro time zone to promote the flat at Avenida Atlântica 1101 in Copacabana.",
-    "works.agua":
-      "Platform developed to the Municipal Secretary of Environment of Rio de Janeiro to follow water metrics through participation of municipal school's students across all State.",
-    "works.zanini":
-      "From-scratch responsible Content Management System developed to the Product Designer Zanini de Zanine, prestigious Design awarded in Brazil and abroad for creating furnitures.",
-    "works.webdoc":
-      "Award-winning collaborative Webdocumentary Platform integrating Google Maps API and Popcorn.js about São Paulo street-art Graffiti.",
-    "works.pensar":
-      "Website, 3-floor exhibition &amp; Interactive Systems to inaugurate the Centro Carioca de Design at Rio de Janeiro.",
-    "works.etaoin":
-      "FTP-Based CMS which generates all typographic portfolio of Pedro Moraes artworks.",
-    "works.grafica":
-      "Interactive Website to present the namesake collective exhibition at Belas-Artes Museum of Rio de Janeiro.",
-    "works.victor":
-      "Innovative and inspiring Content Management System platform to present and manipulate photographer Victor Haim blog &amp; portfolio.",
-    "works.comuna":
-      "Column-based CMS developed to the cowork and multifunction space Comuna at Rio de Janeiro.",
-    "works.razao":
-      "Website &amp; Interactive System for Modern Art Museum of São Paulo (MAM/SP) Razão e Ambiente exhibition.",
-
-    "data.title": "DATA TOOLS &amp; INVESTIGATIONS",
-    "data.asievolve":
-      "Autonomous agentic framework that closes the loop between knowledge, hypothesis, experiment, and analysis — enabling self-directed research across scientific and computational domains.",
-    "data.baseldosdados":
-      "Complete mirror of Base dos Dados' 533 public tables (~675 GB Parquet/zstd) on Hetzner, with an interactive DuckDB shell and a natural-language-to-SQL ask interface.",
-    "data.braviz":
-      "Serverless, GPU-accelerated browser visualization of 8 million Brazilian establishments from IBGE's CNEFE dataset — no backend, no tile server.",
-    "data.datative":
-      "Investigative analysis platform for exploring connections between companies, partners, and public records — interactive force-directed graphs with SQL-like CNPJ queries over remote Parquet data.",
-    "data.fincrime":
-      "<i>Redes Obscuras</i> — interactive visualization of opaque corporate networks flagged for suspicious activity, built for financial crime investigation and money-laundering detection.",
-    "data.viso":
-      "Interactive network visualization and live SQL explorer for Brazilian federal parliamentary expense data — shareable URLs, offline support, multi-layer caching.",
-    "data.polis":
-      "Digital humanities project mapping the ownership networks connecting Brazilian companies, deputies, and public expenditure — business-political entanglement as a graph.",
-    "data.helvetiscan":
-      "Full scanner and mapper of 2.5M+ Swiss .ch domains: HTTP, DNS, TLS, port, WHOIS, MX, CVE — sector classification, sovereignty scoring, and risk benchmarking with interactive force-graph.",
-    "data.swissviz":
-      "Interactive map of Swiss companies from open data: CSV pipeline → Mapbox geocoding → gzip → GPU-rendered browser tiles with CartoDB basemap.",
-    "data.tigrim":
-      "Corporate network investigation of the Tigrinho gaming empire — mapping companies, partners, and ownership chains of Brazil's most controversial online gambling operator.",
-    "data.swissnet":
-      "Cosmograph WebGL force-graph of all Swiss .ch domain-nameserver relationships — 25,000+ nodes exploring connectivity, concentration, and digital sovereignty patterns.",
-    "data.rais":
-      "Interactive visualization of Brazil's 500 most-connected companies by legal entity type — bubble chart and treemap exploring corporate concentration across private, public, and judicial sectors.",
-    "data.rioibge":
-      "MapLibre-powered illuminated point map of Rio de Janeiro's economic establishments — visualizing density and spatial distribution of business activity across the city.",
-    "data.friba":
-      "Multi-dimensional analysis of Nova Friburgo: 3D population density, residential heatmaps, garment industry distribution, and business registration patterns during COVID-19.",
-    "data.ibge13":
-      "Longitudinal analysis of 150 years of Brazilian census data (1872–2022) — housing, population, and social characteristics across 13 census periods.",
-
-    "projects.title": "SELECTED SELF-INITIATED PROJECTS",
-    "proj.malafaia":
-      "Hexbin density map charting the geographic footprint of the Malafaia religious empire across Brazil — location data rendered in-browser with GPU acceleration.",
-    "proj.religioes":
-      "IBGE census religion distribution mapped by municipality — interactive Kepler.gl visualization of faith demographics across Brazil.",
-    "proj.uqt":
-      "Digital archive of 100 years of Brazilian Popular Music: 2,303 albums, 28,742 tracks, 816 artists — virtual-scrolling grid, lazy-loaded covers, MP3 streaming via S3 proxy.",
-    "proj.sumaria":
-      "Fetches YouTube transcripts and runs them through a local LLM to generate structured summaries with key themes and action points — fully offline.",
-    "proj.ares":
-      "Tool developed for investigative journalists to collect and analyze hundreds of WhatsApp groups data during Brazilian elections. (scrapping the unscrappable)",
-    "proj.tribuna":
-      "This software project corrects, integrates, structures and optimizes all Brazilian Electoral Supreme Court's Electoral Data Repository into a single query-able relational database to facilitate investigation by journalists, hackers and activists.",
-    "proj.renda":
-      "Framework for cryptocurrency experiments: conceptualizes and operates Wallets, Markets, Ticks, Orders, Brokers, Arbitrage and Strategies in Crystal language.",
-    "proj.steganos":
-      "Creative conceptual-algorithm to encode &amp; decode any digital file into an image, and vice-versa. Rewritten in Rust in 2022: 45–126× faster with zstd compression.",
-    "proj.mostremecultura":
-      "Experimental Culture &amp; Communication system, exposing with many filters all Brazilian Ministry of Culture financed projects of the last 10 years.",
-    "proj.copyfight":
-      "Data-mined dataset of thousands of rare and curated movies and documentary torrents since the invention of the Cinema.",
-    "proj.graphs":
-      "A serie of dynamic scripts which generates different data-visualization use-cases, from twitter follower-following circle to wikipedia semantic networks.",
-    "proj.consulta":
-      "Implementation of the 'Natural Language Query System for RDF Repositories' from Nokia Research Center Cambridge, 2007, applied to a Google Talk chat agent. Ask him.",
+    bio: "Rafael Polo is a Software Developer & Consultant working on interdisciplinary projects & teams for more than two decades. From crawlers that turned governmental public data into visualizations for researchers & journalists in Brazil, to building full web platforms & tools with hacktivists in Berlin. From experimental user-interfaces made with artists in Rio de Janeiro, to teaching web design & programming in self-organized Athenian schools. Solid across servers, databases & frontend — building for real cases & people.",
 
     "cv.education": "EDUCATION",
     "cv.languages": "LANGUAGES",
@@ -179,14 +96,11 @@ var TRANSLATIONS = {
     "desc.viso": "Parliament expenses + live SQL",
     "desc.fincrime": "Corporate network for money-laundering",
     "desc.ibge13": "150 years of Brazilian census",
-    "desc.polis": "Business-political entanglement graph",
     "desc.sumaria": "YouTube transcript summarizer with LLM",
     "desc.rais": "500 most-connected companies",
     "desc.rioibge": "MapLibre point map of Rio",
     "desc.friba": "Nova Friburgo 3D population",
-    "desc.religioes": "IBGE religion distribution",
     "desc.uqt": "100 years of Brazilian Popular Music",
-    "desc.covid19": "Real-time COVID dashboard",
     "desc.ares": "WhatsApp scraping during elections",
     "desc.subzku": "DRY template for MO LIN school",
     "desc.tribuna": "TSE electoral DB for journalists",
@@ -196,122 +110,34 @@ var TRANSLATIONS = {
     "desc.atlantica": "Property visualization",
     "desc.steganos": "Image steganography (Rust rewrite)",
     "desc.mostremecultura": "Ministry of Culture viz",
-    "desc.copyfight": "Film torrent curation",
     "desc.agua": "Water education program",
     "desc.zanini": "Architecture portfolio",
     "desc.webdocgraffiti": "Documentary web project",
     "desc.pensarpublico": "Public policy platform",
-    "desc.etaoin": "Typography resource",
     "desc.graficautopica": "Printing collective",
-    "desc.victorhaim": "Personal website",
-    "desc.comuna": "Creative collective",
     "desc.razaoambiente": "Environmental resource",
-    "desc.graphs": "Twitter + Wikipedia semantic network",
     "desc.consulta": "SPARQL/Google Talk NLP agent",
   },
 
   pt: {
-    "since": "Desde 1985",
+    "skip.content": "Ir para o conteúdo",
+    since: "ExtraPolo Labs desde 1985",
     "nav.about": "Sobre",
-    "nav.works": "Trabalhos",
-    "nav.data": "Dados",
-    "nav.projects": "Projetos",
     "nav.cv": "Currículo",
     "nav.fullcv": "Currículo em PDF",
+    "hero.title": "Ciência da Computação, Dados & Engenharia de Software.",
+    "browse.label": "Explore o trabalho",
+    "browse.title":
+      "Investigações recentes, ferramentas, projetos web e experimentos de longa duração.",
+    "browse.text":
+      "Desenho e entrego produtos orientados a dados, ferramentas investigativas, sistemas visuais e plataformas full-stack com foco em clareza, velocidade e ideias pouco óbvias, mas práticas.",
+    "meta.timespan": "Anos cobertos",
+    "meta.projects": "Projetos selecionados",
+    "filter.all": "Todos",
+    "bio.label": "Perfil",
+    "graph.label": "Mapa de relações",
 
-    bio: "Rafael Polo é Desenvolvedor &amp; Consultor de Software trabalhando em projetos e equipes interdisciplinares há mais de duas décadas. De crawlers que transformaram dados públicos governamentais em visualizações para pesquisadores &amp; jornalistas no Brasil, a construir plataformas e ferramentas web completas com hacktivistas em Berlim. De interfaces experimentais criadas com artistas no Rio de Janeiro, ao ensino de web design &amp; programação em escolas autônomas atenienses. Sólido em servidores, bancos de dados &amp; frontend — sempre construindo para casos reais &amp; pessoas reais.",
-
-    "works.title": "TRABALHOS WEB SELECIONADOS",
-    "works.pt2026":
-      "Visualização eleitoral interativa analisando a distribuição de votos portugueses nas eleições de 2026.",
-    "works.molin":
-      "Sistema de site para a Escola de Arte Chinesa MO LIN em Basel — motor de templates Handlebars DRY que reduz 39 arquivos HTML a componentes reutilizáveis com CSS consolidado e navegação orientada a dados.",
-    "works.covid19":
-      "Dashboard em tempo real agregando e visualizando dados de casos de COVID-19 no Brasil por estado e cidade durante toda a pandemia.",
-    "works.connectas":
-      "Plataforma de dados investigativos mapeando redes de propriedade que conectam empresas, doadores de campanha, parentes e deputados usando dados eleitorais do TSE — desenvolvida para o coletivo jornalístico Connectas.",
-    "works.subzku":
-      "Guia de Áudio Interativo: uma resposta sonora em múltiplas camadas a cinco anos de criação no ZK/U",
-    "works.eti":
-      "Através de uma série de curtas-metragens, entrevistas em vídeo, guias e recursos, o <i>Tactical Tech Collective</i> examina diferentes técnicas, ferramentas e métodos, juntamente com as práticas individuais daqueles que trabalham nas novas fronteiras da investigação, capacitando pessoas a descobrir informações ocultas, expor a corrupção e trazer a verdade à tona.",
-    "works.atlantica":
-      "Interface interativa rica cujo plano de fundo, imagens e vídeos são definidos com base no fuso horário do Rio de Janeiro para promover o apartamento na Avenida Atlântica 1101 em Copacabana.",
-    "works.agua":
-      "Plataforma desenvolvida para a Secretaria Municipal de Meio Ambiente do Rio de Janeiro para acompanhar métricas de água através da participação de alunos de escolas municipais em todo o Estado.",
-    "works.zanini":
-      "Sistema de Gerenciamento de Conteúdo responsivo desenvolvido do zero para o Designer de Produto Zanini de Zanine, prestígio do Design premiado no Brasil e no exterior por criar móveis.",
-    "works.webdoc":
-      "Plataforma de Webdocumentário colaborativa premiada, integrando a API do Google Maps e Popcorn.js sobre a arte de rua Graffiti de São Paulo.",
-    "works.pensar":
-      "Website, exposição de 3 andares &amp; Sistemas Interativos para inaugurar o Centro Carioca de Design no Rio de Janeiro.",
-    "works.etaoin":
-      "CMS baseado em FTP que gera todo o portfólio tipográfico das obras de Pedro Moraes.",
-    "works.grafica":
-      "Website interativa para apresentar a exposição coletiva homônima no Museu de Belas-Artes do Rio de Janeiro.",
-    "works.victor":
-      "Plataforma inovadora e inspiradora de Sistema de Gerenciamento de Conteúdo para apresentar e manipular o blog e portfólio do fotógrafo Victor Haim.",
-    "works.comuna":
-      "CMS baseado em colunas desenvolvido para o espaço de cowork e multifunções Comuna no Rio de Janeiro.",
-    "works.razao":
-      "Website &amp; Sistema Interativo para a exposição Razão e Ambiente no Museu de Arte Moderna de São Paulo (MAM/SP).",
-
-    "data.title": "FERRAMENTAS DE DADOS &amp; INVESTIGAÇÕES",
-    "data.asievolve":
-      "Framework agêntico autônomo que fecha o ciclo entre conhecimento, hipótese, experimento e análise — habilitando pesquisa autodirigida em domínios científicos e computacionais.",
-    "data.baseldosdados":
-      "Espelho completo das 533 tabelas públicas da Base dos Dados (~675 GB Parquet/zstd) na Hetzner, com um shell DuckDB interativo e uma interface de linguagem natural para SQL.",
-    "data.braviz":
-      "Visualização sem backend, acelerada por GPU, de 8 milhões de estabelecimentos brasileiros do CNEFE do IBGE — sem servidor de tiles.",
-    "data.datative":
-      "Plataforma de análise investigativa para explorar conexões entre empresas, sócios e registros públicos — grafos de força interativos com consultas CNPJ sobre dados Parquet remotos.",
-    "data.fincrime":
-      "<i>Redes Obscuras</i> — visualização interativa de redes corporativas opacas sinalizadas por atividades suspeitas, desenvolvida para investigação de crimes financeiros e lavagem de dinheiro.",
-    "data.viso":
-      "Visualização de rede interativa e explorador SQL ao vivo para dados de despesas parlamentares federais brasileiras — URLs compartilháveis, suporte offline, cache multicamadas.",
-    "data.polis":
-      "Projeto de humanidades digitais mapeando as redes de propriedade que conectam empresas brasileiras, deputados e gastos públicos — entrelaçamento político-empresarial como grafo.",
-    "data.helvetiscan":
-      "Scanner e mapeador completo de 2,5 milhões de domínios .ch suíços: HTTP, DNS, TLS, porta, WHOIS, MX, CVE — classificação setorial, pontuação de soberania e benchmarking de risco com grafo de força interativo.",
-    "data.swissviz":
-      "Mapa interativo de empresas suíças a partir de dados abertos: pipeline CSV → geocodificação Mapbox → gzip → tiles renderizados por GPU no navegador com mapa-base CartoDB.",
-    "data.tigrim":
-      "Investigação de rede corporativa do Império Tigrinho — mapeando empresas, sócios e cadeias de propriedade do mais controverso operador de jogos online do Brasil.",
-    "data.swissnet":
-      "Grafo de força WebGL com Cosmograph de todas as relações domínio-nameserver .ch suíços — 25.000+ nós explorando padrões de conectividade, concentração e soberania digital.",
-    "data.rais":
-      "Visualização interativa das 500 empresas brasileiras com mais conexões por tipo jurídico — gráfico de bolhas e treemap explorando a concentração corporativa nos setores privado, público e judicial.",
-    "data.rioibge":
-      "Mapa de pontos iluminados com MapLibre dos estabelecimentos econômicos do Rio de Janeiro — visualizando densidade e distribuição espacial da atividade empresarial na cidade.",
-    "data.friba":
-      "Análise multidimensional de Nova Friburgo: densidade populacional 3D, mapas de calor residenciais, distribuição da indústria do vestuário e padrões de registro de empresas durante a COVID-19.",
-    "data.ibge13":
-      "Análise longitudinal de 150 anos de dados censitários brasileiros (1872–2022) — habitação, população e características sociais ao longo de 13 períodos censitários.",
-
-    "projects.title": "PROJETOS PRÓPRIOS SELECIONADOS",
-    "proj.malafaia":
-      "Mapa de densidade hexbin do footprint geográfico do Império Malafaia no Brasil — dados de localização renderizados no navegador com aceleração por GPU.",
-    "proj.religioes":
-      "Distribuição da religião pelo censo do IBGE mapeada por município — visualização interativa Kepler.gl da demografia religiosa em todo o Brasil.",
-    "proj.uqt":
-      "Arquivo digital de 100 anos de Música Popular Brasileira: 2.303 álbuns, 28.742 faixas, 816 artistas — grade com rolagem virtual, capas carregadas preguiçosamente, streaming de MP3 via proxy S3.",
-    "proj.sumaria":
-      "Busca transcrições do YouTube e as processa por um LLM local para gerar resumos estruturados com temas-chave e pontos de ação — totalmente offline.",
-    "proj.ares":
-      "Ferramenta desenvolvida para jornalistas investigativos coletar e analisar dados de centenas de grupos de WhatsApp durante as eleições brasileiras. (raspando o inraspável)",
-    "proj.tribuna":
-      "Este projeto de software corrige, integra, estrutura e otimiza todo o Repositório de Dados Eleitorais do Tribunal Superior Eleitoral Brasileiro em um único banco de dados relacional consultável para facilitar a investigação por jornalistas, hackers e ativistas.",
-    "proj.renda":
-      "Framework para experimentos com criptomoedas: conceitualiza e opera Carteiras, Mercados, Ticks, Ordens, Corretoras, Arbitragem e Estratégias na linguagem Crystal.",
-    "proj.steganos":
-      "Algoritmo conceitual-criativo para codificar &amp; decodificar qualquer arquivo digital em uma imagem, e vice-versa. Reescrito em Rust em 2022: 45–126× mais rápido com compressão zstd.",
-    "proj.mostremecultura":
-      "Sistema experimental de Cultura &amp; Comunicação, expondo com muitos filtros todos os projetos financiados pelo Ministério da Cultura Brasileiro nos últimos 10 anos.",
-    "proj.copyfight":
-      "Dataset obtido por mineração de dados com milhares de filmes raros e curados e torrents de documentários desde a invenção do Cinema.",
-    "proj.graphs":
-      "Uma série de scripts dinâmicos que geram diferentes casos de uso de visualização de dados, desde círculos de seguidores no Twitter até redes semânticas da Wikipedia.",
-    "proj.consulta":
-      "Implementação do 'Sistema de Consulta em Linguagem Natural para Repositórios RDF' do Nokia Research Center Cambridge, 2007, aplicado a um agente de chat do Google Talk. Pergunte a ele.",
+    bio: "Rafael Polo é Desenvolvedor de Software & Consultor com mais de duas décadas em projetos & equipas interdisciplinares. De crawlers que transformaram dados públicos governamentais em visualizações para investigadores & jornalistas no Brasil, à construção de plataformas web & ferramentas com hacktivistas em Berlim. De interfaces experimentais criadas com artistas no Rio de Janeiro, ao ensino de web design & programação em escolas autogestionadas em Atenas. Sólido em servidores, bases de dados & frontend — sempre a construir para casos reais & pessoas reais.",
 
     "cv.education": "EDUCAÇÃO",
     "cv.languages": "IDIOMAS",
@@ -392,14 +218,11 @@ var TRANSLATIONS = {
     "desc.viso": "Despesas parlamentares + SQL vivo",
     "desc.fincrime": "Rede corporativa anti-lavagem",
     "desc.ibge13": "150 anos do censo brasileiro",
-    "desc.polis": "Gráfico político-empresarial",
     "desc.sumaria": "Resumidor de transcrições com LLM",
     "desc.rais": "500 empresas mais conectadas",
     "desc.rioibge": "Mapa de pontos do Rio",
     "desc.friba": "População 3D de Nova Friburgo",
-    "desc.religioes": "Distribuição religiosa do IBGE",
     "desc.uqt": "100 anos de música popular brasileira",
-    "desc.covid19": "Dashboard COVID em tempo real",
     "desc.ares": "Raspagem do WhatsApp nas eleições",
     "desc.subzku": "Template DRY para escola MO LIN",
     "desc.tribuna": "DB electoral para jornalistas",
@@ -409,17 +232,12 @@ var TRANSLATIONS = {
     "desc.atlantica": "Visualização imobiliária",
     "desc.steganos": "Esteganografia (reescrita em Rust)",
     "desc.mostremecultura": "Visualização do Min. Cultura",
-    "desc.copyfight": "Curadoria de torrents de filmes",
     "desc.agua": "Programa água nas escolas",
     "desc.zanini": "Portfólio de arquitetura",
     "desc.webdocgraffiti": "Projeto webdocumentário",
     "desc.pensarpublico": "Plataforma de políticas públicas",
-    "desc.etaoin": "Recurso tipográfico",
     "desc.graficautopica": "Coletivo gráfico",
-    "desc.victorhaim": "Site pessoal",
-    "desc.comuna": "Coletivo criativo",
     "desc.razaoambiente": "Recurso ambiental",
-    "desc.graphs": "Rede semântica Twitter+Wikipedia",
     "desc.consulta": "Agente NLP SPARQL/Google Talk",
   },
 };
@@ -432,17 +250,16 @@ function applyLang(lang) {
       $(this).html(t[key]);
     }
   });
-  $(".lang-btn").removeClass("active");
-  $('.lang-btn[data-target="' + lang + '"]').addClass("active");
+  $("[data-i18n-placeholder]").each(function () {
+    var key = $(this).attr("data-i18n-placeholder");
+    if (t[key] !== undefined) {
+      $(this).attr("placeholder", t[key]);
+    }
+  });
 }
 
 $(document).ready(function () {
-  var lang = localStorage.getItem("lang") || "en";
+  var lang = "en";
+  localStorage.setItem("lang", lang);
   applyLang(lang);
-
-  $(".lang-btn").on("click", function () {
-    var selected = $(this).attr("data-target");
-    localStorage.setItem("lang", selected);
-    applyLang(selected);
-  });
 });

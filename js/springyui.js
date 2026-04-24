@@ -72,14 +72,24 @@ jQuery.fn.springy = function(params) {
 
 	var selected = null;
 	var nearest = null;
+	var highlightedNetwork = [];
 
 	jQuery(canvas).mousedown(function(e) {
 		var pos = jQuery(this).offset();
 		var p = fromScreen({x: e.pageX - pos.left, y: e.pageY - pos.top});
 		selected = nearest = layout.nearest(p);
 
-		if (selected.node !== null && nodeSelected) {
-			nodeSelected(selected.node);
+		highlightedNetwork = [];
+		if (selected.node !== null) {
+			highlightedNetwork.push(selected.node.id);
+			var connected = graph.getEdges(selected.node);
+			for (var i = 0; i < connected.length; i++) {
+				var other = connected[i].source.id === selected.node.id ? connected[i].target : connected[i].source;
+				highlightedNetwork.push(other.id);
+			}
+			if (nodeSelected) {
+				nodeSelected(selected.node);
+			}
 		}
 
 		renderer.start();
@@ -98,7 +108,7 @@ jQuery.fn.springy = function(params) {
 			return this._width[text];
 
 		ctx.save();
-		ctx.font = "11px 'Monda'";
+		ctx.font = "9px 'Monda'";
 		var width = ctx.measureText(text).width + 15;
 		ctx.restore();
 
@@ -109,7 +119,7 @@ jQuery.fn.springy = function(params) {
 	};
 
 	Node.prototype.getHeight = function() {
-		return 20;
+		return 16;
 	};
 
 	var renderer = new Renderer(layout,
@@ -149,13 +159,16 @@ jQuery.fn.springy = function(params) {
 			var boxWidth = edge.target.getWidth();
 			var boxHeight = edge.target.getHeight();
 
-			var intersection = intersect_line_box(s1, s2, {x: x2-boxWidth/2.0, y: y2-boxHeight/2.0}, boxWidth, boxHeight);
+			var intersection = intersect_line_box(s1, s2, {x: x2-boxWidth/2.0, y: y2-boxHeight/2.0}, boxWidth, 16);
 
 			if (!intersection) {
 				intersection = s2;
 			}
 
 			var stroke = (edge.data.color !== undefined) ? edge.data.color : 'white';
+			if (highlightedNetwork.length > 0 && highlightedNetwork.indexOf(edge.source.id) !== -1 && highlightedNetwork.indexOf(edge.target.id) !== -1) {
+				stroke = '#FFD700';
+			}
 
 
 			var arrowWidth;
@@ -206,7 +219,7 @@ jQuery.fn.springy = function(params) {
 				ctx.save();
 				ctx.textAlign = "center";
 				ctx.textBaseline = "top";
-				ctx.font = "13px 'Monda'";
+ctx.font = "10px 'Monda'";
 				ctx.fillStyle = "white";
 				ctx.fillText(text, (x1+x2)/2, (y1+y2)/2);
 				ctx.fillRect(s.x - boxWidth/2, s.y + 2, boxWidth, 20);
@@ -224,13 +237,17 @@ jQuery.fn.springy = function(params) {
 			//ctx.clearRect(s.x - boxWidth/2, s.y - 10, boxWidth, 20);
 
 			// fill background
-			if (selected !== null && nearest.node !== null && selected.node.id === node.id && node.site) {
+			var inNetwork = highlightedNetwork.indexOf(node.id) !== -1;
+			if (inNetwork) {
+				ctx.fillStyle = "#FFD700";
+				ctx.fillRect(s.x - boxWidth/2, s.y + 2, boxWidth, 16);
+			} else if (selected !== null && nearest.node !== null && selected.node.id === node.id && node.site) {
 				ctx.fillStyle = "lightgray";
-				ctx.fillRect(s.x - boxWidth/2, s.y + 2, boxWidth, 20);
+				ctx.fillRect(s.x - boxWidth/2, s.y + 2, boxWidth, 16);
 			} else if (nearest !== null && nearest.node !== null && nearest.node.id === node.id) {
 				if (nearest.node.data.site!=null){
 					ctx.fillStyle = "gray";
-					ctx.fillRect(s.x - boxWidth/2, s.y + 2, boxWidth, 20);
+					ctx.fillRect(s.x - boxWidth/2, s.y + 2, boxWidth, 16);
 				}
 			} else {
 				ctx.fillStyle = null;
@@ -239,11 +256,11 @@ jQuery.fn.springy = function(params) {
 			ctx.textAlign = "left";
 			ctx.textBaseline = "top";
 			ctx.font = "13px 'Monda'";
-			ctx.fillStyle = "white";
+			ctx.fillStyle = inNetwork ? "#f3f1eb" : "white";
 
 			var text = (node.data.label !== undefined) ? node.data.label : node.id;
-			ctx.fillText(text, s.x - boxWidth/2 , s.y + 5);
-			ctx.fillText('°', s.x -3, s.y - 12);
+			ctx.fillText(text, s.x - boxWidth/2 , s.y + 4);
+			ctx.fillText('°', s.x -3, s.y - 8);
 
 			ctx.restore();
 		}
