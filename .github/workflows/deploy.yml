@@ -25,7 +25,9 @@ jobs:
       - name: Minify
         run: |
           mkdir -p dist/js
-          cp -r img projeto favicon.gif favicon.ico polo.png CNAME index.html curriculum.html dist/
+          for f in img projeto favicon.gif favicon.ico polo.png CNAME index.html curriculum.html; do
+            [ -e "$f" ] && cp -r "$f" dist/
+          done
           bunx esbuild js/graph.js js/i18n.js js/meio.js js/springyui.js \
             --bundle=false --minify --outdir=dist/js
           cp js/jquery.js js/jquery.animate-colors-min.js js/springy.js js/springy.new.js dist/js/
