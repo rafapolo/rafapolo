@@ -25,11 +25,11 @@ jobs:
       - name: Minify
         run: |
           mkdir -p dist/js
-          cp -r img projeto favicon.gif favicon.ico polo.png CNAME index.html curriculum.html curriculum.css dist/
+          cp -r img projeto favicon.gif favicon.ico polo.png CNAME index.html curriculum.html dist/
           bunx esbuild js/graph.js js/i18n.js js/meio.js js/springyui.js \
             --bundle=false --minify --outdir=dist/js
           cp js/jquery.js js/jquery.animate-colors-min.js js/springy.js js/springy.new.js dist/js/
-          bunx esbuild style.css curriculum.css --bundle=false --minify --outdir=dist/
+          bunx esbuild style.css --bundle=false --minify --outdir=dist/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
