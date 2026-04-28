@@ -31,6 +31,7 @@ body {
     line-height: 1.55;
     letter-spacing: 0.1px;
     max-width: 1195px;
+    min-width: 460px;
     margin-inline: auto;
     padding: 0 20px 28px;
 }
@@ -53,10 +54,6 @@ a {
 
 a:hover {
     color: #111;
-}
-
-.card:hover {
-    color: var(--text);
 }
 
 a:focus-visible,
@@ -122,9 +119,16 @@ h2 {
     align-items: flex-start;
 }
 
+.logo-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 0 auto;
+    gap: 4px;
+}
+
 .logo {
     width: 130px;
-    flex: 0 0 auto;
     user-select: none;
 }
 
@@ -143,9 +147,15 @@ h2 {
     color: var(--accent);
 }
 
+.eyebrow {
+    margin-top: -26px;
+    padding-bottom: 5px;
+    margin-left: 20px;
+}
+
 .brand-copy h1 {
     margin-top: 10px;
-    font-size: clamp(1.1rem, 1.6vw, 1.8rem);
+    font-size: clamp(1.1rem, 1.6vw, 25px);
     line-height: 1.1;
     white-space: nowrap;
 }
@@ -230,7 +240,7 @@ h2 {
 }
 
 .intro-panel {
-    margin: 25px 0px 25px 0px;
+    margin: 25px 0;
     padding: 24px;
     display: grid;
     grid-template-columns: minmax(0, 1.5fr) minmax(260px, 0.9fr);
@@ -248,7 +258,7 @@ h2 {
     line-height: 1.15;
 }
 
-.browse-text {
+.intro-copy {
     margin-top: 8px;
     color: var(--muted);
     max-width: 42ch;
@@ -298,11 +308,6 @@ h2 {
     margin-bottom: 0;
 }
 
-.card-graph {
-    grid-column: span 3;
-    grid-row: span 2;
-}
-
 .card {
     position: relative;
     display: block;
@@ -312,20 +317,8 @@ h2 {
     border: 1px solid rgba(255, 255, 255, 0.09);
 }
 
-.card-graph {
-    grid-column: span 3;
-    grid-row: span 2;
-}
-
 .card:not(.card-bio):not(.card-graph) {
     aspect-ratio: 1;
-}
-
-.card-filter {
-    display: flex;
-    align-items: center;
-    height: 30px;
-    margin: 8px 0;
 }
 
 .card:hover {
@@ -405,13 +398,16 @@ h2 {
     color: var(--accent);
 }
 
+.card-filter {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    margin: 8px 0;
+}
+
 .card-bio {
     grid-column: span 2;
     grid-row: span 2;
-}
-
-.card-graph {
-    min-height: 0;
 }
 
 .card-bio .info,
@@ -419,8 +415,9 @@ h2 {
     position: static;
     min-height: auto;
     padding: 22px;
-    padding-bottom: 0px;
+    padding-bottom: 0;
     background: transparent;
+    color: var(--accent);
 }
 
 .bio-copy,
@@ -431,11 +428,14 @@ h2 {
 .bio-copy {
     margin: 20px;
     margin-top: 30px;
-    font-size: 17px;
+    font-size: clamp(14px, 1.4vw, 17px);
     line-height: 1.6;
 }
 
 .card-graph {
+    grid-column: span 3;
+    grid-row: span 2;
+    min-height: 0;
     display: grid;
     grid-template-rows: auto minmax(260px, 1fr);
 }
@@ -515,11 +515,11 @@ h2 {
     }
 
     .header-actions {
-        justify-items: start;
+        justify-items: center;
     }
 
     #menu {
-        justify-content: flex-start;
+        justify-content: center;
     }
 
     .grid {
@@ -607,10 +607,6 @@ h2 {
     margin-left: 25px;
     margin-right: 25px;
     display: none;
-}
-
-#since {
-    text-align: center;
 }
 
 #todo {
