@@ -11,17 +11,14 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="style.css?v=3" />
         <script src="js/jquery.js"></script>
-        <script src="js/i18n.js?v=3"></script>
         <script>
             $(document).ready(function () {
-                var lang = localStorage.getItem("lang") || "en";
-                applyLang(lang);
                 var $window = $(window);
                 var $header = $("#header");
                 $window.on("scroll", function () {
                     $header.toggleClass("scrolled", $window.scrollTop() > 10);
                 });
-                $("#meio").hide().fadeIn(800);
+                $("#cv-body").hide().fadeIn(800);
             });
         </script>
     </head>
@@ -31,18 +28,22 @@
             <div class="header-shell">
                 <div class="brand-block">
                     <div class="logo-block">
-                        <img class="logo" src="polo.png" alt="Rafael Polo logo" />
+                        <img
+                            class="logo"
+                            src="polo.png"
+                            alt="Rafael Polo logo"
+                        />
                         <p class="eyebrow">RAFAEL POLO</p>
                     </div>
-                    <div class="brand-copy">
-                        <h1 data-i18n="hero.title">
-                            Computer Science, Data & Software Engineering.
+                    <div class="brand-tagline">
+                        <h1>
+                            Computer Science, Data & Software Engineering
                         </h1>
                     </div>
                 </div>
                 <div class="header-actions">
                     <nav id="menu" aria-label="Primary">
-                        <a href="index.html" data-i18n="nav.about">About</a>
+                        <a href="index.html">About</a>
                         <a href="mailto:rafael@extrapolo.com">email</a>
                         <a
                             target="_blank"
@@ -67,13 +68,13 @@
             </div>
         </header>
 
-        <div id="meio" style="margin-left: 0px">
+        <div id="cv-body" style="margin-left: 0px">
             <br />
-            <span class="title" data-i18n="cv.education">EDUCATION</span>
+            <span class="cv-heading">EDUCATION</span>
             <p style="padding-bottom: 1px" />
 
-            <p class="min">
-                <span class="bold" data-i18n="cv.degree.postgrad"
+            <p class="cv-entry">
+                <span class="cv-entry-name"
                     >Postgraduate in Data Science for Finance</span
                 >
                 - 2021<br />
@@ -81,19 +82,19 @@
                 Lisbon, Portugal
             </p>
 
-            <p class="min">
-                <span class="bold" data-i18n="cv.degree.master"
+            <p class="cv-entry">
+                <span class="cv-entry-name"
                     >Master in Information Systems</span
                 >
                 - 2010 to 2012<br />
-                <span data-i18n="cv.degree.master.area"
+                <span
                     >Research Area: Knowledge Representation and Reasoning</span
                 ><br />
                 Federal University of the State of Rio de Janeiro (PPGI/UNIRIO)
             </p>
 
-            <p class="min">
-                <span class="bold" data-i18n="cv.degree.bachelor"
+            <p class="cv-entry">
+                <span class="cv-entry-name"
                     >Bachelor in Computer Science</span
                 >
                 - 2004 to 2009<br />
@@ -101,8 +102,8 @@
                 Rio de Janeiro, Brazil
             </p>
 
-            <p class="min">
-                <span class="bold" data-i18n="cv.degree.extension"
+            <p class="cv-entry">
+                <span class="cv-entry-name"
                     >Extension in Digital Culture</span
                 >
                 - 2010<br />
@@ -110,8 +111,8 @@
                 Rio de Janeiro Federal University
             </p>
 
-            <p class="min">
-                <span class="bold" data-i18n="cv.degree.java"
+            <p class="cv-entry">
+                <span class="cv-entry-name"
                     >Java Software Development</span
                 >
                 - 2006 to 2007<br />
@@ -119,8 +120,8 @@
                 Rio de Janeiro Federal University
             </p>
 
-            <p class="min">
-                <span class="bold" data-i18n="cv.degree.linux"
+            <p class="cv-entry">
+                <span class="cv-entry-name"
                     >Linux System Engineer</span
                 >
                 - 2004<br />
@@ -129,20 +130,20 @@
             </p>
 
             <br />
-            <span class="title" data-i18n="cv.languages">LANGUAGES</span>
-            <p class="min" data-i18n="cv.languages.text">
+            <span class="cv-heading">LANGUAGES</span>
+            <p class="cv-entry">
                 Portuguese (native), English (full professional), Spanish (full
                 professional), German (elementary) and Greek (elementary).
             </p>
 
             <br />
-            <span class="title" data-i18n="cv.experience"
+            <span class="cv-heading"
                 >PROFESSIONAL EXPERIENCE</span
             >
 
-            <p class="min">
-                <span class="bold">Swisscom</span> - 2024 to 2025<br />
-                <span data-i18n="cv.role.swisscom"
+            <p class="cv-entry">
+                <span class="cv-entry-name">Swisscom</span> - 2024 to 2025<br />
+                <span
                     >DevOps Engineer — modernization of mission-critical
                     internal platforms &amp; CI/CD pipelines for
                     high-availability Telecom infrastructure</span
@@ -150,10 +151,10 @@
                 <span>Zurich, Switzerland</span>
             </p>
 
-            <p class="min">
-                <span class="bold">EDGE Empower®</span> - March 2023 to March
+            <p class="cv-entry">
+                <span class="cv-entry-name">EDGE Empower®</span> - March 2023 to March
                 2024<br />
-                <span data-i18n="cv.role.edge"
+                <span
                     >Senior Technical Lead — built a PayTool cutting processing
                     time by 98%; improved CI/CD pipeline from 14 to 4 minutes;
                     managed 3 developers and a UX designer</span
@@ -161,9 +162,9 @@
                 <span>Baar, Switzerland</span>
             </p>
 
-            <p class="min">
-                <span class="bold">ExtraPolo</span> - 2010 to 2022<br />
-                <span data-i18n="cv.role.extrapolo"
+            <p class="cv-entry">
+                <span class="cv-entry-name">ExtraPolo</span> - 2010 to 2022<br />
+                <span
                     >Software Engineer &amp; Consultant — civic tech &amp; data
                     journalism, culture &amp; arts, open source. 40+ projects
                     across data investigations, web platforms, interactive
@@ -172,10 +173,10 @@
                 <span>Rio de Janeiro · Berlin · Athens · Lisbon</span>
             </p>
 
-            <p class="min">
-                <span class="bold">GFOSS.eu / Code + Create</span> - 2017 to
+            <p class="cv-entry">
+                <span class="cv-entry-name">GFOSS.eu / Code + Create</span> - 2017 to
                 2018<br />
-                <span data-i18n="cv.role.codecreate"
+                <span
                     >Web Programming Teacher — web programming to refugee and
                     Greek youth through the Code + Create initiative (HTML, CSS,
                     jQuery)</span
@@ -183,67 +184,67 @@
                 <span>Athens, Greece</span>
             </p>
 
-            <p class="min">
-                <span class="bold">Tactical Tech Collective</span> - December
+            <p class="cv-entry">
+                <span class="cv-entry-name">Tactical Tech Collective</span> - December
                 2014 to June 2016<br />
-                <span data-i18n="cv.role.ttc"
+                <span
                     >Full-Stack Web Architect and Developer under Exposing the
                     Invisible team</span
                 ><br />
                 <span>Berlin, Germany</span>
             </p>
 
-            <p class="min">
-                <span class="bold">Trommsdorff + Drüner</span> - December 2013
+            <p class="cv-entry">
+                <span class="cv-entry-name">Trommsdorff + Drüner</span> - December 2013
                 to January 2014<br />
-                <span data-i18n="cv.role.td"
+                <span
                     >Developer for innovation + marketing consultants team</span
                 ><br />
                 <span>Berlin, Germany</span>
             </p>
 
-            <p class="min">
-                <span class="bold">Meio</span> - 2010 to 2012<br />
-                <span data-i18n="cv.role.meio"
+            <p class="cv-entry">
+                <span class="cv-entry-name">Meio</span> - 2010 to 2012<br />
+                <span
                     >Co-founder of Meio Cowork space with Architects and
                     Designers</span
                 ><br />
                 <span>Rio de Janeiro, Brazil</span>
             </p>
 
-            <p class="min">
-                <span class="bold">Cortex Intelligence</span> - 2008 to 2010<br />
-                <span data-i18n="cv.role.cortex"
+            <p class="cv-entry">
+                <span class="cv-entry-name">Cortex Intelligence</span> - 2008 to 2010<br />
+                <span
                     >Developer in the Competitive Intelligence and Data Mining
                     R&amp;D team</span
                 ><br />
                 <span>Rio de Janeiro, Brazil</span>
             </p>
 
-            <p class="min">
-                <span class="bold">Logical Systems</span> - July to September
+            <p class="cv-entry">
+                <span class="cv-entry-name">Logical Systems</span> - July to September
                 2007<br />
-                <span data-i18n="cv.role.logical"
+                <span
                     >SysAdmin and Java developer of its applications</span
                 ><br />
                 <span>Rio de Janeiro, Brazil</span>
             </p>
 
-            <p class="min">
-                <span class="bold"
+            <p class="cv-entry">
+                <span class="cv-entry-name"
                     >INPP - Instituto Nacional de Pesquisas Públicas</span
                 >
                 - April to July 2004<br />
-                <span data-i18n="cv.role.inpp"
+                <span
                     >Main developer of the Company "Planning" Software in
                     Delphi</span
                 ><br />
                 <span>Teresópolis, Brazil</span>
             </p>
 
-            <p class="min">
-                <span class="bold">MeuServidor</span> - 2003 to 2004<br />
-                <span data-i18n="cv.role.meuservidor"
+            <p class="cv-entry">
+                <span class="cv-entry-name">MeuServidor</span> - 2003 to 2004<br />
+                <span
                     >Co-founder of a Web Hosting Server based on Linux &amp;
                     PHP</span
                 ><br />
@@ -251,28 +252,28 @@
             </p>
 
             <br />
-            <span class="title" data-i18n="cv.fellowships"
+            <span class="cv-heading"
                 >FELLOWSHIPS AND AWARDS</span
             >
 
-            <p class="min">
-                <span class="bold">WebDoc Graffiti Platform</span> - 2012<br />
-                <span data-i18n="cv.fellow.webdoc"
+            <p class="cv-entry">
+                <span class="cv-entry-name">WebDoc Graffiti Platform</span> - 2012<br />
+                <span
                     >Collaborative Cartographies Initiatives</span
                 >
                 |
                 <a target="_blank" href="http://webdocgraffiti.com.br/"
                     >[website]</a
                 ><br />
-                <span data-i18n="cv.fellow.webdoc.by"
+                <span
                     >By Brazilian Federal Ministry of Culture</span
                 ><br />
             </p>
 
-            <p class="min">
-                <span class="bold">Dammatio Memoriae | Software-Art</span> -
+            <p class="cv-entry">
+                <span class="cv-entry-name">Dammatio Memoriae | Software-Art</span> -
                 2011<br />
-                <span data-i18n="cv.fellow.damnatio"
+                <span
                     >Gallery &amp; Book Publication</span
                 >
                 |
@@ -281,29 +282,29 @@
                     href="http://memefest.org/en/gallery/archive/680/"
                     >[website]</a
                 ><br />
-                <span data-i18n="cv.fellow.damnatio.by"
+                <span
                     >By Memefest: International Festival of Social Responsive
                     Communication &amp; Art</span
                 ><br />
             </p>
 
-            <p class="min">
-                <span class="bold"
+            <p class="cv-entry">
+                <span class="cv-entry-name"
                     >CAPES Fellowship for Postgraduate Research</span
                 >
                 - first semester of 2010<br />
-                <span data-i18n="cv.fellow.capes.by"
+                <span
                     >By Brazilian Federal Ministry of Education</span
                 ><br />
             </p>
 
             <br />
-            <span class="title" data-i18n="cv.exhibitions">EXHIBITIONS</span>
+            <span class="cv-heading">EXHIBITIONS</span>
 
-            <p class="min">
-                <span class="bold">Connecting Cities – Prototyping Lab</span> -
+            <p class="cv-entry">
+                <span class="cv-entry-name">Connecting Cities – Prototyping Lab</span> -
                 January 2015<br />
-                <span data-i18n="cv.exhib.connecting.desc"
+                <span
                     >Connecting Cities Network wants to develop an awareness on
                     the changes which are hardly visible to the eyes and are
                     underlying our nowadays cities.</span
@@ -316,9 +317,9 @@
                 ><br />
             </p>
 
-            <p class="min">
-                <span class="bold">Pensar Público</span> - February 2012<br />
-                <span data-i18n="cv.exhib.pensar.desc"
+            <p class="cv-entry">
+                <span class="cv-entry-name">Pensar Público</span> - February 2012<br />
+                <span
                     >Exhibition on dynamic and real-time city mapping</span
                 ><br />
                 Centro Carioca de Design. Studio-X, Rio de Janeiro, Brazil |
@@ -326,10 +327,10 @@
                 ><br />
             </p>
 
-            <p class="min">
-                <span class="bold">Galeria TAC | Vênus-Terra</span> - January
+            <p class="cv-entry">
+                <span class="cv-entry-name">Galeria TAC | Vênus-Terra</span> - January
                 2012<br />
-                <span data-i18n="cv.exhib.venus.desc"
+                <span
                     >Presentation of the "Variation" artwork</span
                 ><br />
                 <span>Rio de Janeiro, Brazil | </span
@@ -340,10 +341,10 @@
                 ><br />
             </p>
 
-            <p class="min">
-                <span class="bold">Abotoados pela Manga</span> - September
+            <p class="cv-entry">
+                <span class="cv-entry-name">Abotoados pela Manga</span> - September
                 2010<br />
-                <span data-i18n="cv.exhib.abotoados.desc"
+                <span
                     >3-week art-and-politic residency during 29º São Paulo
                     Bienal of Art</span
                 ><br />
@@ -356,30 +357,30 @@
             </p>
 
             <br />
-            <span class="title" data-i18n="cv.certifications"
+            <span class="cv-heading"
                 >CERTIFICATIONS</span
             >
 
-            <p class="min">
-                <span data-i18n="cv.cert.nfadp"
+            <p class="cv-entry">
+                <span
                     >Swiss Federal Act on Data Protection (nFADP)</span
                 ><br />
-                <span data-i18n="cv.cert.genai.nlp"
+                <span
                     >Gen AI Foundational Models for NLP &amp; Language
                     Understanding</span
                 ><br />
-                <span data-i18n="cv.cert.genai.arch"
+                <span
                     >Generative AI and LLMs: Architecture and Data
                     Preparation</span
                 ><br />
-                <span data-i18n="cv.cert.aiagents"
+                <span
                     >Fundamentals of AI Agents Using RAG and LangChain</span
                 >
             </p>
 
             <br />
-            <span class="title" data-i18n="cv.skills">TECH SKILLS</span>
-            <p class="min" data-i18n="cv.skills.text">
+            <span class="cv-heading">TECH SKILLS</span>
+            <p class="cv-entry">
                 API Design &amp; REST Architecture<br />
                 Full-Stack Development: Python · Ruby on Rails · TypeScript ·
                 React<br />
@@ -392,6 +393,6 @@
             </p>
         </div>
 
-        <div id="since" data-i18n="since"></div>
+        <div id="since">ExtraPolo Labs since 1985</div>
     </body>
 </html>

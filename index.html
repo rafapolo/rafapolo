@@ -26,30 +26,29 @@
             src="https://cloud.umami.is/script.js"
             data-website-id="ceb4b5fc-fa3c-4d04-8b8b-81b5a452e34d"
         ></script>
-        <script src="js/i18n.js?v=5"></script>
     </head>
 
     <body>
-        <a class="skip-link" href="#content" data-i18n="skip.content"
-            >Skip to content</a
-        >
-
-        <header id="header">
+<header id="header">
             <div class="header-shell">
                 <div class="brand-block">
                     <div class="logo-block">
-                        <img class="logo" src="polo.png" alt="Rafael Polo logo" />
+                        <img
+                            class="logo"
+                            src="polo.png"
+                            alt="Rafael Polo logo"
+                        />
                         <p class="eyebrow">RAFAEL POLO</p>
                     </div>
-                    <div class="brand-copy">
-                        <h1 data-i18n="hero.title">
-                            Computer Science, Data & Software Engineering.
+                    <div class="brand-tagline">
+                        <h1>
+                            Computer Science, Data & Software Engineering
                         </h1>
                     </div>
                 </div>
                 <div class="header-actions">
                     <nav id="menu" aria-label="Primary">
-                        <a href="curriculum.html" data-i18n="nav.cv">CV</a>
+                        <a href="curriculum.html">CV</a>
                         <a href="mailto:rafael@extrapolo.com">email</a>
                         <a
                             target="_blank"
@@ -77,31 +76,25 @@
         <main id="content">
             <section class="intro-panel" aria-labelledby="browse-title">
                 <div class="intro-head">
-                    <p class="section-label" data-i18n="browse.label">
+                    <p class="section-label">
                         Browse the work
                     </p>
-                    <h2 id="browse-title" data-i18n="browse.title">
+                    <h2 id="browse-title">
                         Recent investigations, tools, web projects, and
                         long-running experiments.
                     </h2>
                 </div>
-                <p class="intro-copy" data-i18n="browse.text">
-                    Use search and category filters to move through the
-                    portfolio quickly. The graph is interactive and opens
-                    projects directly.
+                <p class="intro-text">
+                    I design and ship data products, investigative tools, visual systems and full-stack platforms.
                 </p>
                 <div class="meta-strip" aria-label="Portfolio summary">
                     <div class="meta-item">
                         <span class="meta-value">20</span>
-                        <span class="meta-label" data-i18n="meta.timespan"
-                            >Years covered</span
-                        >
+                        <span class="meta-label">Years covered</span>
                     </div>
                     <div class="meta-item">
                         <span class="meta-value">30+</span>
-                        <span class="meta-label" data-i18n="meta.projects"
-                            >Selected projects</span
-                        >
+                        <span class="meta-label">Selected projects</span>
                     </div>
                 </div>
             </section>
@@ -110,8 +103,8 @@
                 <!-- Bio card -->
                 <article class="card card-bio" data-static="true" data-tags="">
                     <div class="info">
-                        <p class="card-kicker" data-i18n="bio.label">Profile</p>
-                        <p class="bio-copy" data-i18n="bio"></p>
+                        <p class="card-kicker">Profile</p>
+                        <p class="bio-text">Rafael Polo is a Software Developer &amp; Consultant working on interdisciplinary projects &amp; teams for more than two decades. From crawlers that turned governmental public data into visualizations for researchers &amp; journalists in Brazil, to building full web platforms &amp; tools with hacktivists in Berlin. From experimental user-interfaces made with artists in Rio de Janeiro, to teaching web design &amp; programming in self-organized Athenian schools. Solid across servers, databases &amp; frontend — building for real cases &amp; people.</p>
                     </div>
                 </article>
 
@@ -122,8 +115,8 @@
                     data-tags=""
                     aria-labelledby="graph-title"
                 >
-                    <div class="graph-copy">
-                        <p class="card-kicker" data-i18n="graph.label">
+                    <div class="graph-header">
+                        <p id="graph-title" class="card-kicker">
                             Relation map
                         </p>
                     </div>
@@ -137,7 +130,6 @@
                     <span
                         class="filter-btn active"
                         data-filter="all"
-                        data-i18n="filter.all"
                         >all</span
                     >
                     <span class="filter-btn" data-filter="data">data</span>
@@ -152,7 +144,7 @@
                 </div>
             </div>
 
-            <div id="main" class="grid">
+            <div id="portfolio" class="grid">
                 <!-- 2026 -->
                 <a
                     class="card"
@@ -170,10 +162,7 @@
                     </div>
                     <div class="info">
                         <span class="name">baseldosdados</span
-                        ><span
-                            class="desc"
-                            data-i18n="desc.baseldosdados"
-                        ></span
+                        ><span class="desc">533 tables (~675 GB) mirror on Hetzner</span
                         ><span class="year">2026</span>
                     </div>
                 </a>
@@ -194,7 +183,7 @@
                     </div>
                     <div class="info">
                         <span class="name">BraViz</span
-                        ><span class="desc" data-i18n="desc.braviz"></span
+                        ><span class="desc">8M Brazilian establishments from IBGE</span
                         ><span class="year">2026</span>
                     </div>
                 </a>
@@ -215,7 +204,7 @@
                     </div>
                     <div class="info">
                         <span class="name">datative</span
-                        ><span class="desc" data-i18n="desc.datative"></span
+                        ><span class="desc">Investigative platform with force graphs</span
                         ><span class="year">2026</span>
                     </div>
                 </a>
@@ -236,7 +225,7 @@
                     </div>
                     <div class="info">
                         <span class="name">helvetiscan</span
-                        ><span class="desc" data-i18n="desc.helvetiscan"></span
+                        ><span class="desc">Scanner of 2.5M+ Swiss .ch domains</span
                         ><span class="year">2026</span>
                     </div>
                 </a>
@@ -257,7 +246,7 @@
                     </div>
                     <div class="info">
                         <span class="name">swissviz</span
-                        ><span class="desc" data-i18n="desc.swissviz"></span
+                        ><span class="desc">Swiss companies on interactive map</span
                         ><span class="year">2026</span>
                     </div>
                 </a>
@@ -278,7 +267,7 @@
                     </div>
                     <div class="info">
                         <span class="name">swiss network</span
-                        ><span class="desc" data-i18n="desc.swissnet"></span
+                        ><span class="desc">WebGL force-graph of .ch domains</span
                         ><span class="year">2026</span>
                     </div>
                 </a>
@@ -299,7 +288,7 @@
                     </div>
                     <div class="info">
                         <span class="name">Pegadas Tigrinho</span
-                        ><span class="desc" data-i18n="desc.tigrim"></span
+                        ><span class="desc">Corporate network of Tigrinho gaming</span
                         ><span class="year">2025</span>
                     </div>
                 </a>
@@ -320,7 +309,7 @@
                     </div>
                     <div class="info">
                         <span class="name">malafaia</span
-                        ><span class="desc" data-i18n="desc.malafaia"></span
+                        ><span class="desc">Hexbin map of religious empire</span
                         ><span class="year">2026</span>
                     </div>
                 </a>
@@ -341,7 +330,7 @@
                     </div>
                     <div class="info">
                         <span class="name">pt-2026</span
-                        ><span class="desc" data-i18n="desc.pt2026"></span
+                        ><span class="desc">Portuguese electoral visualization</span
                         ><span class="year">2026</span>
                     </div>
                 </a>
@@ -363,7 +352,7 @@
                     </div>
                     <div class="info">
                         <span class="name">viso</span
-                        ><span class="desc" data-i18n="desc.viso"></span
+                        ><span class="desc">Parliament expenses + live SQL</span
                         ><span class="year">2025</span>
                     </div>
                 </a>
@@ -384,7 +373,7 @@
                     </div>
                     <div class="info">
                         <span class="name">fincrime</span
-                        ><span class="desc" data-i18n="desc.fincrime"></span
+                        ><span class="desc">Corporate network for money-laundering</span
                         ><span class="year">2025</span>
                     </div>
                 </a>
@@ -405,7 +394,7 @@
                     </div>
                     <div class="info">
                         <span class="name">IBGE13</span
-                        ><span class="desc" data-i18n="desc.ibge13"></span
+                        ><span class="desc">150 years of Brazilian census</span
                         ><span class="year">2025</span>
                     </div>
                 </a>
@@ -426,7 +415,7 @@
                     </div>
                     <div class="info">
                         <span class="name">sumaria</span
-                        ><span class="desc" data-i18n="desc.sumaria"></span
+                        ><span class="desc">YouTube transcript summarizer with LLM</span
                         ><span class="year">2025</span>
                     </div>
                 </a>
@@ -447,7 +436,7 @@
                     </div>
                     <div class="info">
                         <span class="name">RAIS</span
-                        ><span class="desc" data-i18n="desc.rais"></span
+                        ><span class="desc">500 most-connected companies</span
                         ><span class="year">2025</span>
                     </div>
                 </a>
@@ -468,7 +457,7 @@
                     </div>
                     <div class="info">
                         <span class="name">Rio IBGE</span
-                        ><span class="desc" data-i18n="desc.rioibge"></span
+                        ><span class="desc">MapLibre point map of Rio</span
                         ><span class="year">2025</span>
                     </div>
                 </a>
@@ -489,7 +478,7 @@
                     </div>
                     <div class="info">
                         <span class="name">Friba</span
-                        ><span class="desc" data-i18n="desc.friba"></span
+                        ><span class="desc">Nova Friburgo 3D population</span
                         ><span class="year">2025</span>
                     </div>
                 </a>
@@ -511,7 +500,7 @@
                     </div>
                     <div class="info">
                         <span class="name">uqt</span
-                        ><span class="desc" data-i18n="desc.uqt"></span
+                        ><span class="desc">100 years of Brazilian Popular Music</span
                         ><span class="year">2020</span>
                     </div>
                 </a>
@@ -533,7 +522,7 @@
                     </div>
                     <div class="info">
                         <span class="name">Tribuna</span
-                        ><span class="desc" data-i18n="desc.tribuna"></span
+                        ><span class="desc">TSE electoral DB for journalists</span
                         ><span class="year">2018</span>
                     </div>
                 </a>
@@ -554,7 +543,7 @@
                     </div>
                     <div class="info">
                         <span class="name">Renda</span
-                        ><span class="desc" data-i18n="desc.renda"></span
+                        ><span class="desc">Crystal crypto framework</span
                         ><span class="year">2018</span>
                     </div>
                 </a>
@@ -575,7 +564,7 @@
                     </div>
                     <div class="info">
                         <span class="name">Connectas</span
-                        ><span class="desc" data-i18n="desc.connectas"></span
+                        ><span class="desc">Investigative platform</span
                         ><span class="year">2018</span>
                     </div>
                 </a>
@@ -597,7 +586,7 @@
                     </div>
                     <div class="info">
                         <span class="name">Exposing the Invisible</span
-                        ><span class="desc" data-i18n="desc.exposing"></span
+                        ><span class="desc">Investigation resources</span
                         ><span class="year">2016</span>
                     </div>
                 </a>
@@ -619,7 +608,7 @@
                     </div>
                     <div class="info">
                         <span class="name">Av. Atlântica 1101</span
-                        ><span class="desc" data-i18n="desc.atlantica"></span
+                        ><span class="desc">Property visualization</span
                         ><span class="year">2014</span>
                     </div>
                 </a>
@@ -640,7 +629,7 @@
                     </div>
                     <div class="info">
                         <span class="name">Steganos</span
-                        ><span class="desc" data-i18n="desc.steganos"></span
+                        ><span class="desc">Image steganography (Rust rewrite)</span
                         ><span class="year">2014</span>
                     </div>
                 </a>
@@ -662,10 +651,7 @@
                     </div>
                     <div class="info">
                         <span class="name">Mostre!me Cultura</span
-                        ><span
-                            class="desc"
-                            data-i18n="desc.mostremecultura"
-                        ></span
+                        ><span class="desc">Ministry of Culture viz</span
                         ><span class="year">2013</span>
                     </div>
                 </a>
@@ -686,11 +672,10 @@
                     </div>
                     <div class="info">
                         <span class="name">Agenda Água na Escola</span
-                        ><span class="desc" data-i18n="desc.agua"></span
+                        ><span class="desc">Water education program</span
                         ><span class="year">2013</span>
                     </div>
                 </a>
-
 
                 <!-- 2012 -->
                 <a
@@ -709,10 +694,7 @@
                     </div>
                     <div class="info">
                         <span class="name">WebDoc Graffiti</span
-                        ><span
-                            class="desc"
-                            data-i18n="desc.webdocgraffiti"
-                        ></span
+                        ><span class="desc">Documentary web project</span
                         ><span class="year">2012</span>
                     </div>
                 </a>
@@ -733,10 +715,7 @@
                     </div>
                     <div class="info">
                         <span class="name">Pensar Público</span
-                        ><span
-                            class="desc"
-                            data-i18n="desc.pensarpublico"
-                        ></span
+                        ><span class="desc">Public policy platform</span
                         ><span class="year">2012</span>
                     </div>
                 </a>
@@ -758,10 +737,7 @@
                     </div>
                     <div class="info">
                         <span class="name">Gráfica Utópica</span
-                        ><span
-                            class="desc"
-                            data-i18n="desc.graficautopica"
-                        ></span
+                        ><span class="desc">Printing collective</span
                         ><span class="year">2011</span>
                     </div>
                 </a>
@@ -783,10 +759,7 @@
                     </div>
                     <div class="info">
                         <span class="name">Razão e Ambiente</span
-                        ><span
-                            class="desc"
-                            data-i18n="desc.razaoambiente"
-                        ></span
+                        ><span class="desc">Environmental resource</span
                         ><span class="year">2010</span>
                     </div>
                 </a>
@@ -808,20 +781,18 @@
                     </div>
                     <div class="info">
                         <span class="name">Consulta Natural</span
-                        ><span class="desc" data-i18n="desc.consulta"></span
+                        ><span class="desc">SPARQL/Google Talk NLP agent</span
                         ><span class="year">2009</span>
                     </div>
                 </a>
             </div>
         </main>
 
-        <div id="since" data-i18n="since"></div>
+        <div id="since">ExtraPolo Labs since 1985</div>
 
         <script>
             $(document).ready(function () {
                 $(window).scrollTop(0);
-                var lang = localStorage.getItem("lang") || "en";
-                applyLang(lang);
 
                 var $window = $(window);
                 var $header = $("#header");
@@ -829,7 +800,7 @@
                     $header.toggleClass("scrolled", $window.scrollTop() > 10);
                 });
 
-                $("#main")
+                $("#portfolio")
                     .css("display", "grid")
                     .hide()
                     .fadeIn(600, function () {

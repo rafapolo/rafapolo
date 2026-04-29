@@ -31,7 +31,7 @@ body {
     line-height: 1.55;
     letter-spacing: 0.1px;
     max-width: 1195px;
-    min-width: 460px;
+    min-width: 650px;
     margin-inline: auto;
     padding: 0 20px 28px;
 }
@@ -67,22 +67,6 @@ p,
 h1,
 h2 {
     margin: 0;
-}
-
-.skip-link {
-    position: absolute;
-    left: 20px;
-    top: -56px;
-    z-index: 50;
-    background: var(--accent);
-    color: #111;
-    padding: 10px 14px;
-    border-radius: 999px;
-    transition: top 0.2s ease;
-}
-
-.skip-link:focus {
-    top: 14px;
 }
 
 #header {
@@ -132,7 +116,7 @@ h2 {
     user-select: none;
 }
 
-.brand-copy {
+.brand-tagline {
     max-width: 720px;
     padding-top: 5px;
 }
@@ -153,7 +137,7 @@ h2 {
     margin-left: 4px;
 }
 
-.brand-copy h1 {
+.brand-tagline h1 {
     margin-top: 30px;
     font-size: clamp(1.1rem, 1.6vw, 25px);
     line-height: 1.1;
@@ -174,7 +158,7 @@ h2 {
 #menu {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    /*gap: 8px;*/
     justify-content: flex-end;
 }
 
@@ -197,6 +181,13 @@ h2 {
     gap: 6px;
     justify-content: flex-end;
     width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.filter-bar::-webkit-scrollbar {
+    display: none;
 }
 
 .filter-btn {
@@ -254,11 +245,11 @@ h2 {
 
 .intro-head h2 {
     margin-top: 8px;
-    font-size: clamp(1.1rem, 1.8vw, 1.6rem);
+    font-size: clamp(1.1rem, 1.8vw, 24px);
     line-height: 1.15;
 }
 
-.intro-copy {
+.intro-text {
     margin-top: 8px;
     color: var(--muted);
     max-width: 42ch;
@@ -290,9 +281,10 @@ h2 {
 .meta-label {
     color: var(--soft);
     font-size: 12px;
+    text-align: center;
 }
 
-#main {
+#portfolio {
     display: none;
     margin-top: 18px;
 }
@@ -322,7 +314,6 @@ h2 {
 }
 
 .card:hover {
-    transform: translateY(-2px);
     color: var(--text);
 }
 
@@ -411,7 +402,7 @@ h2 {
 }
 
 .card-bio .info,
-.card-graph .graph-copy {
+.card-graph .graph-header {
     position: static;
     min-height: auto;
     padding: 22px;
@@ -420,16 +411,11 @@ h2 {
     color: var(--accent);
 }
 
-.bio-copy,
-.card-graph p {
-    color: var(--muted);
-}
-
-.bio-copy {
+.bio-text {
     margin: 20px;
-    margin-top: 30px;
     font-size: clamp(14px, 1.4vw, 17px);
     line-height: 1.6;
+    color: white;
 }
 
 .card-graph {
@@ -509,9 +495,9 @@ h2 {
         padding: 0 14px 24px;
     }
 
-    .header-shell,
-    .intro-panel {
+    .header-shell {
         grid-template-columns: 1fr;
+        gap: 0;
     }
 
     .header-actions {
@@ -520,6 +506,10 @@ h2 {
 
     #menu {
         justify-content: center;
+    }
+
+    .intro-panel {
+        grid-template-columns: 1fr;
     }
 
     .grid {
@@ -531,109 +521,19 @@ h2 {
     }
 }
 
-@media (max-width: 640px) {
-    body {
-        padding: 0 10px 20px;
-    }
-
-    .brand-block {
-        flex-direction: column;
-    }
-
-    .logo {
-        width: 130px;
-    }
-
-    .brand-copy h1 {
-        white-space: normal;
-    }
-
-    .intro-panel {
-        margin-top: 14px;
-        padding: 14px;
-    }
-
-    .card-bio .info,
-    .card-graph .graph-copy {
-        padding: 14px;
-    }
-
-    .bio-copy {
-        font-size: 15px;
-        margin: 14px;
-        margin-top: 16px;
-    }
-
-    .meta-strip {
-        justify-content: center;
-    }
-
-    .meta-item {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .grid {
-        margin-top: 10px;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .grid-top {
-        grid-auto-rows: auto;
-    }
-
-    .card-bio {
-        grid-column: span 2;
-        grid-row: auto;
-        height: auto;
-    }
-
-    .card-graph {
-        display: none;
-    }
-
-    .card .desc {
-        white-space: normal;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-    }
-}
-
 /* ── curriculum.html ── */
-#meio {
+#cv-body {
     max-width: 835px;
     margin-left: 25px;
     margin-right: 25px;
     display: none;
 }
 
-#todo {
-    padding-top: 20px;
-    padding-left: 5px;
-    padding-right: 20px;
-}
-
-#meio p {
+#cv-body p {
     font-size: 15px;
 }
 
-.lado {
-    padding-left: 5px;
-    padding-top: 5px;
-    margin: 0;
-    font-size: 14px;
-}
-
-.down {
-    bottom: 15px;
-    padding: 10px;
-    font-size: 13px;
-    user-select: none;
-}
-
-.min {
+.cv-entry {
     margin-left: 5px;
     font-size: 14px;
     padding-left: 8px;
@@ -642,44 +542,13 @@ h2 {
     margin-bottom: 20px;
 }
 
-.bold {
+.cv-entry-name {
     text-decoration: underline;
 }
 
-.title {
+.cv-heading {
     display: block;
     margin-left: 5px;
     padding-left: 8px;
     border-left: 1px dashed white;
-}
-
-#lang-switcher {
-    display: none;
-    float: right;
-    padding-top: 32px;
-    font-size: 13px;
-    user-select: none;
-}
-
-#lang-switcher .lang-btn {
-    cursor: pointer;
-}
-
-#lang-switcher .lang-btn.active {
-    background-color: darkgray;
-    color: black;
-}
-
-#grid-section {
-    display: none;
-}
-
-#about {
-    display: none;
-    padding-top: 10px;
-}
-
-#about p {
-    text-align: justify;
-    padding: 5px 20px 5px 5px;
 }

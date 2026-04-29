@@ -35,6 +35,7 @@ jQuery.fn.springy = function(params) {
 
 	var canvas = this[0];
 	var ctx = canvas.getContext("2d");
+	var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
 
 	var layout = this.layout = new Layout.ForceDirected(graph, stiffness, repulsion, damping);
 
@@ -75,8 +76,10 @@ jQuery.fn.springy = function(params) {
 	var highlightedNetwork = [];
 
 	jQuery(canvas).mousedown(function(e) {
-		var pos = jQuery(this).offset();
-		var p = fromScreen({x: e.pageX - pos.left, y: e.pageY - pos.top});
+		var rect = canvas.getBoundingClientRect();
+		var scaleX = canvas.width / rect.width;
+		var scaleY = canvas.height / rect.height;
+		var p = fromScreen({x: (e.clientX - rect.left) * scaleX, y: (e.clientY - rect.top) * scaleY});
 		selected = nearest = layout.nearest(p);
 
 		highlightedNetwork = [];
@@ -96,25 +99,20 @@ jQuery.fn.springy = function(params) {
 	});
 
 	jQuery(canvas).mousemove(function(e) {
-		var pos = jQuery(this).offset();
-		var p = fromScreen({x: e.pageX - pos.left, y: e.pageY - pos.top});
+		var rect = canvas.getBoundingClientRect();
+		var scaleX = canvas.width / rect.width;
+		var scaleY = canvas.height / rect.height;
+		var p = fromScreen({x: (e.clientX - rect.left) * scaleX, y: (e.clientY - rect.top) * scaleY});
 		nearest = layout.nearest(p);
 		renderer.start();
 	});
 
 	Node.prototype.getWidth = function() {
 		var text = (this.data.label !== undefined) ? this.data.label : this.id;
-		if (this._width && this._width[text])
-			return this._width[text];
-
 		ctx.save();
-		ctx.font = "9px 'Monda'";
+		ctx.font = "13px 'Monda'";
 		var width = ctx.measureText(text).width + 15;
 		ctx.restore();
-
-		this._width || (this._width = {});
-		this._width[text] = width;
-
 		return width;
 	};
 
@@ -241,22 +239,20 @@ ctx.font = "10px 'Monda'";
 			if (inNetwork) {
 				ctx.fillStyle = "#FFD700";
 				ctx.fillRect(s.x - boxWidth/2, s.y + 2, boxWidth, 16);
-			} else if (selected !== null && nearest.node !== null && selected.node.id === node.id && node.site) {
-				ctx.fillStyle = "lightgray";
-				ctx.fillRect(s.x - boxWidth/2, s.y + 2, boxWidth, 16);
 			} else if (nearest !== null && nearest.node !== null && nearest.node.id === node.id) {
 				if (nearest.node.data.site!=null){
-					ctx.fillStyle = "gray";
+					ctx.fillStyle = accentColor;
 					ctx.fillRect(s.x - boxWidth/2, s.y + 2, boxWidth, 16);
 				}
 			} else {
 				ctx.fillStyle = null;
 			}
 
+			var isHovered = nearest !== null && nearest.node !== null && nearest.node.id === node.id && nearest.node.data.site != null;
 			ctx.textAlign = "left";
 			ctx.textBaseline = "top";
 			ctx.font = "13px 'Monda'";
-			ctx.fillStyle = inNetwork ? "#f3f1eb" : "white";
+			ctx.fillStyle = inNetwork ? "#f3f1eb" : (isHovered ? "#111" : "white");
 
 			var text = (node.data.label !== undefined) ? node.data.label : node.id;
 			ctx.fillText(text, s.x - boxWidth/2 , s.y + 4);
