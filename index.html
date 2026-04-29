@@ -8,19 +8,18 @@
         />
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <link rel="stylesheet" type="text/css" href="style.css?v=15" />
+        <link rel="stylesheet" type="text/css" href="style.css?v=16" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Rafael Polo — Software Developer & Consultant. Computer Science, Data & Software Engineering." />
         <meta
             prefix="og: http://ogp.me/ns#"
             property="og:image"
             content="http://extrapolo.com/polo.png"
         />
-        <script src="js/jquery.js"></script>
-        <script src="js/springy.new.js"></script>
-        <script src="js/jquery.animate-colors-min.js"></script>
-        <script src="js/graph.js?v=2"></script>
-        <script src="js/springyui.js"></script>
-        <script src="js/meio.js"></script>
+        <script defer src="js/springy.js"></script>
+        <script defer src="js/graph.js?v=2"></script>
+        <script defer src="js/springyui.js"></script>
+        <script defer src="js/graph-init.js"></script>
         <script
             defer
             src="https://cloud.umami.is/script.js"
@@ -791,37 +790,41 @@
         <div id="since">ExtraPolo Labs since 1985</div>
 
         <script>
-            $(document).ready(function () {
-                $(window).scrollTop(0);
+            document.addEventListener('DOMContentLoaded', function() {
+                window.scrollTo(0, 0);
 
-                var $window = $(window);
-                var $header = $("#header");
-                $window.on("scroll", function () {
-                    $header.toggleClass("scrolled", $window.scrollTop() > 10);
+                var header = document.getElementById('header');
+                window.addEventListener('scroll', function() {
+                    header.classList.toggle('scrolled', window.scrollY > 10);
                 });
 
-                $("#portfolio")
-                    .css("display", "grid")
-                    .hide()
-                    .fadeIn(600, function () {
-                        $(this).css("display", "grid");
-                        initMeio();
+                var portfolio = document.getElementById('portfolio');
+                portfolio.style.cssText = 'display:grid;opacity:0;transition:opacity 0.6s ease';
+                requestAnimationFrame(function() {
+                    requestAnimationFrame(function() {
+                        portfolio.style.opacity = '1';
                     });
+                });
+                setTimeout(function() {
+                    portfolio.style.transition = '';
+                    initMeio();
+                }, 600);
 
-                var $cards = $(".card:not([data-static])");
-                var $filterBtns = $(".filter-btn");
-                var activeFilter = "all";
-                $filterBtns.on("click", function () {
-                    var filter = $(this).data("filter");
-                    if (filter === activeFilter) return;
-                    activeFilter = filter;
-                    $filterBtns.removeClass("active");
-                    $(this).addClass("active");
-                    $cards.each(function () {
-                        var tags = ($(this).data("tags") || "").split(" ");
-                        var match =
-                            filter === "all" || tags.indexOf(filter) > -1;
-                        $(this).toggleClass("hidden", !match);
+                var cards = Array.from(document.querySelectorAll('.card:not([data-static])'));
+                var filterBtns = Array.from(document.querySelectorAll('.filter-btn'));
+                var activeFilter = 'all';
+
+                filterBtns.forEach(function(btn) {
+                    btn.addEventListener('click', function() {
+                        var filter = btn.dataset.filter;
+                        if (filter === activeFilter) return;
+                        activeFilter = filter;
+                        filterBtns.forEach(function(b) { b.classList.remove('active'); });
+                        btn.classList.add('active');
+                        cards.forEach(function(card) {
+                            var tags = (card.dataset.tags || '').split(' ');
+                            card.classList.toggle('hidden', filter !== 'all' && tags.indexOf(filter) === -1);
+                        });
                     });
                 });
             });

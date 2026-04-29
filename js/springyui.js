@@ -23,37 +23,28 @@ Copyright (c) 2010 Dennis Hotson
  OTHER DEALINGS IN THE SOFTWARE.
 */
 
-(function() {
-
-jQuery.fn.springy = function(params) {
-	var graph = this.graph = params.graph || new Graph();
+function initSpringy(canvas, params) {
+	var graph = params.graph || new Graph();
 
 	var stiffness = params.stiffness || 350.0;
 	var repulsion = params.repulsion || 350.0;
 	var damping = params.damping || 50;
 	var nodeSelected = params.nodeSelected || null;
 
-	var canvas = this[0];
 	var ctx = canvas.getContext("2d");
 	var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
 
-	var layout = this.layout = new Layout.ForceDirected(graph, stiffness, repulsion, damping);
+	var layout = new Layout.ForceDirected(graph, stiffness, repulsion, damping);
 
-	// calculate bounding box of graph layout.. with ease-in
 	var currentBB = layout.getBoundingBox();
 	var targetBB = {bottomleft: new Vector(-2, -2), topright: new Vector(2, 2)};
 
-	// auto adjusting bounding box
 	Layout.requestAnimationFrame(function adjust() {
 		targetBB = layout.getBoundingBox();
-		// current gets 20% closer to target every iteration
 		currentBB = {
-			bottomleft: currentBB.bottomleft.add( targetBB.bottomleft.subtract(currentBB.bottomleft)
-				.divide(10)),
-			topright: currentBB.topright.add( targetBB.topright.subtract(currentBB.topright)
-				.divide(10))
+			bottomleft: currentBB.bottomleft.add( targetBB.bottomleft.subtract(currentBB.bottomleft).divide(10)),
+			topright: currentBB.topright.add( targetBB.topright.subtract(currentBB.topright).divide(10))
 		};
-
 		Layout.requestAnimationFrame(adjust);
 	});
 
@@ -75,7 +66,7 @@ jQuery.fn.springy = function(params) {
 	var nearest = null;
 	var highlightedNetwork = [];
 
-	jQuery(canvas).mousedown(function(e) {
+	canvas.addEventListener('mousedown', function(e) {
 		var rect = canvas.getBoundingClientRect();
 		var scaleX = canvas.width / rect.width;
 		var scaleY = canvas.height / rect.height;
@@ -98,7 +89,7 @@ jQuery.fn.springy = function(params) {
 		renderer.start();
 	});
 
-	jQuery(canvas).mousemove(function(e) {
+	canvas.addEventListener('mousemove', function(e) {
 		var rect = canvas.getBoundingClientRect();
 		var scaleX = canvas.width / rect.width;
 		var scaleY = canvas.height / rect.height;
@@ -122,7 +113,7 @@ jQuery.fn.springy = function(params) {
 
 	var renderer = new Renderer(layout,
 		function clear() {
-			ctx.clearRect(0,0,canvas.width,canvas.height);
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
 		},
 		function drawEdge(edge, p1, p2) {
 			var x1 = toScreen(p1).x;
@@ -138,17 +129,12 @@ jQuery.fn.springy = function(params) {
 
 			var total = from.length + to.length;
 
-			// Figure out edge's position in relation to other edges between the same nodes
 			var n = 0;
 			for (var i=0; i<from.length; i++) {
-				if (from[i].id === edge.id) {
-					n = i;
-				}
+				if (from[i].id === edge.id) { n = i; }
 			}
 
 			var spacing = 10.0;
-
-			// Figure out how far off center the line should be drawn
 			var offset = normal.multiply(-((total - 1) * spacing)/2.0 + (n * spacing));
 
 			var s1 = toScreen(p1).add(offset);
@@ -158,36 +144,23 @@ jQuery.fn.springy = function(params) {
 			var boxHeight = edge.target.getHeight();
 
 			var intersection = intersect_line_box(s1, s2, {x: x2-boxWidth/2.0, y: y2-boxHeight/2.0}, boxWidth, 16);
-
-			if (!intersection) {
-				intersection = s2;
-			}
+			if (!intersection) { intersection = s2; }
 
 			var stroke = (edge.data.color !== undefined) ? edge.data.color : 'white';
 			if (highlightedNetwork.length > 0 && highlightedNetwork.indexOf(edge.source.id) !== -1 && highlightedNetwork.indexOf(edge.target.id) !== -1) {
 				stroke = '#FFD700';
 			}
 
-
-			var arrowWidth;
-			var arrowLength;
-
 			var weight = (edge.data.weight !== undefined) ? edge.data.weight : 0.1;
+			ctx.lineWidth = weight;
+			var arrowWidth = ctx.lineWidth;
+			var arrowLength = 8;
 
-      		ctx.lineWidth = weight;
-			//ctx.lineWidth = Math.max(weight *  2, 0.1);
-			arrowWidth = ctx.lineWidth;
-			arrowLength = 8;
+			var directional = false;
 
-			var directional = false;//(edge.data.directional !== undefined) ? edge.data.directional : true;
-
-			// line
-			var lineEnd;
-			if (directional) {
-				lineEnd = intersection.subtract(direction.normalise().multiply(arrowLength * 0.5));
-			} else {
-				lineEnd = s2;
-			}
+			var lineEnd = directional
+				? intersection.subtract(direction.normalise().multiply(arrowLength * 0.5))
+				: s2;
 
 			ctx.strokeStyle = stroke;
 			ctx.beginPath();
@@ -195,7 +168,6 @@ jQuery.fn.springy = function(params) {
 			ctx.lineTo(lineEnd.x, lineEnd.y);
 			ctx.stroke();
 
-			// arrow
 			if (directional) {
 				ctx.save();
 				ctx.fillStyle = stroke;
@@ -205,25 +177,11 @@ jQuery.fn.springy = function(params) {
 				ctx.moveTo(-arrowLength, arrowWidth);
 				ctx.lineTo(0, 0);
 				ctx.lineTo(-arrowLength, -arrowWidth);
-				ctx.lineTo(-arrowLength * 0.8, -0);
+				ctx.lineTo(-arrowLength * 0.8, 0);
 				ctx.closePath();
 				ctx.fill();
 				ctx.restore();
 			}
-
-			// label
-			if (edge.data.label !== undefined) {
-				text = edge.data.label
-				ctx.save();
-				ctx.textAlign = "center";
-				ctx.textBaseline = "top";
-ctx.font = "10px 'Monda'";
-				ctx.fillStyle = "white";
-				ctx.fillText(text, (x1+x2)/2, (y1+y2)/2);
-				ctx.fillRect(s.x - boxWidth/2, s.y + 2, boxWidth, 20);
-				ctx.restore();
-			}
-
 		},
 		function drawNode(node, p) {
 			var s = toScreen(p);
@@ -231,21 +189,15 @@ ctx.font = "10px 'Monda'";
 			var boxWidth = node.getWidth();
 			var boxHeight = node.getHeight();
 
-			// clear background
-			//ctx.clearRect(s.x - boxWidth/2, s.y - 10, boxWidth, 20);
-
-			// fill background
 			var inNetwork = highlightedNetwork.indexOf(node.id) !== -1;
 			if (inNetwork) {
 				ctx.fillStyle = "#FFD700";
 				ctx.fillRect(s.x - boxWidth/2, s.y + 2, boxWidth, 16);
 			} else if (nearest !== null && nearest.node !== null && nearest.node.id === node.id) {
-				if (nearest.node.data.site!=null){
+				if (nearest.node.data.site != null) {
 					ctx.fillStyle = accentColor;
 					ctx.fillRect(s.x - boxWidth/2, s.y + 2, boxWidth, 16);
 				}
-			} else {
-				ctx.fillStyle = null;
 			}
 
 			var isHovered = nearest !== null && nearest.node !== null && nearest.node.id === node.id && nearest.node.data.site != null;
@@ -255,8 +207,8 @@ ctx.font = "10px 'Monda'";
 			ctx.fillStyle = inNetwork ? "#f3f1eb" : (isHovered ? "#111" : "white");
 
 			var text = (node.data.label !== undefined) ? node.data.label : node.id;
-			ctx.fillText(text, s.x - boxWidth/2 , s.y + 4);
-			ctx.fillText('°', s.x -3, s.y - 8);
+			ctx.fillText(text, s.x - boxWidth/2, s.y + 4);
+			ctx.fillText('°', s.x - 3, s.y - 8);
 
 			ctx.restore();
 		}
@@ -264,21 +216,14 @@ ctx.font = "10px 'Monda'";
 
 	renderer.start();
 
-	// helpers for figuring out where to draw arrows
 	function intersect_line_line(p1, p2, p3, p4) {
 		var denom = ((p4.y - p3.y)*(p2.x - p1.x) - (p4.x - p3.x)*(p2.y - p1.y));
-
-		// lines are parallel
-		if (denom === 0) {
-			return false;
-		}
+		if (denom === 0) { return false; }
 
 		var ua = ((p4.x - p3.x)*(p1.y - p3.y) - (p4.y - p3.y)*(p1.x - p3.x)) / denom;
 		var ub = ((p2.x - p1.x)*(p1.y - p3.y) - (p2.y - p1.y)*(p1.x - p3.x)) / denom;
 
-		if (ua < 0 || ua > 1 || ub < 0 || ub > 1) {
-			return false;
-		}
+		if (ua < 0 || ua > 1 || ub < 0 || ub > 1) { return false; }
 
 		return new Vector(p1.x + ua * (p2.x - p1.x), p1.y + ua * (p2.y - p1.y));
 	}
@@ -290,15 +235,11 @@ ctx.font = "10px 'Monda'";
 		var br = {x: p3.x + w, y: p3.y + h};
 
 		var result;
-		if (result = intersect_line_line(p1, p2, tl, tr)) { return result; } // top
-		if (result = intersect_line_line(p1, p2, tr, br)) { return result; } // right
-		if (result = intersect_line_line(p1, p2, br, bl)) { return result; } // bottom
-		if (result = intersect_line_line(p1, p2, bl, tl)) { return result; } // left
+		if (result = intersect_line_line(p1, p2, tl, tr)) { return result; }
+		if (result = intersect_line_line(p1, p2, tr, br)) { return result; }
+		if (result = intersect_line_line(p1, p2, br, bl)) { return result; }
+		if (result = intersect_line_line(p1, p2, bl, tl)) { return result; }
 
 		return false;
 	}
-
-	return this;
 }
-
-})();

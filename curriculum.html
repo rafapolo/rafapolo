@@ -9,16 +9,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <link rel="stylesheet" type="text/css" href="style.css?v=3" />
-        <script src="js/jquery.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css?v=16" />
+        <meta name="description" content="Rafael Polo — CV. Software Developer & Consultant with 20+ years across data engineering, civic tech, and full-stack platforms." />
         <script>
-            $(document).ready(function () {
-                var $window = $(window);
-                var $header = $("#header");
-                $window.on("scroll", function () {
-                    $header.toggleClass("scrolled", $window.scrollTop() > 10);
+            document.addEventListener('DOMContentLoaded', function() {
+                var header = document.getElementById('header');
+                window.addEventListener('scroll', function() {
+                    header.classList.toggle('scrolled', window.scrollY > 10);
                 });
-                $("#cv-body").hide().fadeIn(800);
+
+                var cvBody = document.getElementById('cv-body');
+                cvBody.style.cssText = 'display:block;opacity:0;transition:opacity 0.8s ease';
+                requestAnimationFrame(function() {
+                    requestAnimationFrame(function() {
+                        cvBody.style.opacity = '1';
+                    });
+                });
+                setTimeout(function() {
+                    cvBody.style.transition = '';
+                }, 800);
             });
         </script>
     </head>

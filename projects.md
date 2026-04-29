@@ -97,11 +97,12 @@ These live visualizations are hosted on the xyz domain and should be added to th
 | Project | Year | URL | Tags | Notes |
 |---|---|---|---|---|
 | **swiss network** | 2026 | https://xn--2dk.xyz/dataviz/swiss/ | data, dataviz | Cosmograph WebGL force-graph of .ch domain-nameserver relationships (already added) |
-| **RAIS** | 2025 | https://xn--2dk.xyz/dataviz/rais/ | dataviz, data | Brazil's 500 most-connected companies bubble chart/treemap (already added) |
+| **RAIS** | 2025 | https://xn--2dk.xyz/dataviz/rais/por_uf | dataviz, data | Biggest companies per state — bubble chart/treemap of Brazil's most-connected companies (already added) |
 | **Rio IBGE** | 2025 | https://xn--2dk.xyz/dataviz/rio/ibge | dataviz, data | MapLibre point map of Rio de Janeiro establishments (already added) |
 | **Friba** | 2025 | https://xn--2dk.xyz/dataviz/friba/pop_3d | dataviz, data | Nova Friburgo 3D population/economic analysis (already added) |
 | **pt-2026** | 2026 | https://xn--2dk.xyz/dataviz/pt-2026/ | work, dataviz | Portuguese electoral viz (already added) |
 | **Pegadas Tigrinho** | 2025 | https://tinyurl.com/pegadas-tigrim | data, dataviz | **ADD** — Corporate network investigation of Tigrinho gaming empire (owners, partners, companies) |
+| **Swiss-BR** | 2025 | https://tinyurl.com/swiss-brazilian-network | data, dataviz | **ADD** — Network of Swiss companies with registered headquarters in Brazil |
 
 ---
 
