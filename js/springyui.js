@@ -95,8 +95,41 @@ function initSpringy(canvas, params) {
 		var scaleY = canvas.height / rect.height;
 		var p = fromScreen({x: (e.clientX - rect.left) * scaleX, y: (e.clientY - rect.top) * scaleY});
 		nearest = layout.nearest(p);
+		canvas.style.cursor = (nearest && nearest.node && nearest.node.data.site) ? 'pointer' : 'default';
 		renderer.start();
 	});
+
+	canvas.addEventListener('touchstart', function(e) {
+		e.preventDefault();
+		var touch = e.touches[0];
+		var rect = canvas.getBoundingClientRect();
+		var scaleX = canvas.width / rect.width;
+		var scaleY = canvas.height / rect.height;
+		var p = fromScreen({x: (touch.clientX - rect.left) * scaleX, y: (touch.clientY - rect.top) * scaleY});
+		selected = nearest = layout.nearest(p);
+		highlightedNetwork = [];
+		if (selected.node !== null) {
+			highlightedNetwork.push(selected.node.id);
+			var connected = graph.getEdges(selected.node);
+			for (var i = 0; i < connected.length; i++) {
+				var other = connected[i].source.id === selected.node.id ? connected[i].target : connected[i].source;
+				highlightedNetwork.push(other.id);
+			}
+			if (nodeSelected) { nodeSelected(selected.node); }
+		}
+		renderer.start();
+	}, { passive: false });
+
+	canvas.addEventListener('touchmove', function(e) {
+		e.preventDefault();
+		var touch = e.touches[0];
+		var rect = canvas.getBoundingClientRect();
+		var scaleX = canvas.width / rect.width;
+		var scaleY = canvas.height / rect.height;
+		var p = fromScreen({x: (touch.clientX - rect.left) * scaleX, y: (touch.clientY - rect.top) * scaleY});
+		nearest = layout.nearest(p);
+		renderer.start();
+	}, { passive: false });
 
 	Node.prototype.getWidth = function() {
 		var text = (this.data.label !== undefined) ? this.data.label : this.id;

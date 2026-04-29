@@ -304,6 +304,12 @@ h2 {
 
 .card:not(.card-bio):not(.card-graph) {
     aspect-ratio: 1;
+    transition: opacity 0.15s ease;
+}
+
+.card.fading {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .card:hover {
@@ -429,7 +435,7 @@ h2 {
     display: block;
     width: 100%;
     min-height: 320px;
-    cursor: pointer;
+    cursor: default;
 }
 
 #since {
@@ -544,4 +550,11 @@ h2 {
     margin-left: 5px;
     padding-left: 8px;
     border-left: 1px dashed white;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
 }
