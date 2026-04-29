@@ -92,7 +92,7 @@ h2 {
 
 .header-shell {
     display: grid;
-    grid-template-columns: minmax(0, 1.6fr) minmax(260px, 0.9fr);
+    grid-template-columns: minmax(0, 1fr) auto;
     gap: 24px;
     align-items: center;
 }
@@ -151,8 +151,9 @@ h2 {
 
 #menu {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: flex-end;
+    white-space: nowrap;
 }
 
 #menu a {
@@ -224,57 +225,20 @@ h2 {
 }
 
 .intro-panel {
-    margin: 25px 0;
-    padding: 24px;
+    margin: 16px 0;
+    padding: 18px 24px;
     display: grid;
-    grid-template-columns: minmax(0, 1.5fr) minmax(260px, 0.9fr);
+    grid-template-columns: 1fr auto;
     gap: 24px;
-    align-items: end;
-}
-
-.intro-head {
-    grid-column: 1 / -1;
+    align-items: center;
 }
 
 .intro-head h2 {
-    margin-top: 8px;
-    font-size: clamp(1.1rem, 1.8vw, 24px);
-    line-height: 1.15;
-}
-
-.intro-text {
-    margin-top: 8px;
+    margin-top: 4px;
+    font-size: clamp(0.9rem, 1.4vw, 16px);
+    line-height: 1.2;
     color: var(--muted);
-    max-width: 42ch;
-}
-
-.meta-strip {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-.meta-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    padding: 5px 12px;
-    background: var(--surface-3);
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.07);
-}
-
-.meta-value {
-    font-size: 0.9rem;
-    font-weight: 700;
-}
-
-.meta-label {
-    color: var(--soft);
-    font-size: 12px;
-    text-align: center;
+    font-weight: 400;
 }
 
 #portfolio {
@@ -304,7 +268,7 @@ h2 {
 
 .card:not(.card-bio):not(.card-graph) {
     aspect-ratio: 1;
-    transition: opacity 0.15s ease;
+    transition: opacity 0.2s ease;
 }
 
 .card.fading {
@@ -388,16 +352,19 @@ h2 {
     color: var(--accent);
 }
 
-.card-filter {
-    display: flex;
-    align-items: center;
-    height: 30px;
-    margin: 8px 0;
-}
-
 .card-bio {
     grid-column: span 2;
     grid-row: span 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bio-kicker {
+    position: absolute;
+    top: 22px;
+    left: 22px;
+    z-index: 1;
 }
 
 .card-bio .info,
@@ -408,13 +375,30 @@ h2 {
     padding-bottom: 0;
     background: transparent;
     color: var(--accent);
+    overflow: hidden;
 }
 
 .bio-text {
     margin: 20px;
     font-size: clamp(14px, 1.4vw, 17px);
     line-height: 1.6;
+    padding-top: 10px;
+    text-align: justify;
     color: white;
+}
+
+.bio-cv-link {
+    display: inline-block;
+    float: right;
+    margin: 4px 20px 20px;
+    font-size: 13px;
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.bio-cv-link:hover {
+    color: var(--accent-strong);
 }
 
 .card-graph {
@@ -444,8 +428,24 @@ h2 {
     text-align: center;
     font-size: 12px;
     color: var(--soft);
+    padding: 0 0 2px;
+    text-transform: lowercase;
+}
+
+#footer-email {
+    text-align: center;
+    font-size: 12px;
     padding: 0 0 6px;
     text-transform: lowercase;
+}
+
+#footer-email a {
+    color: var(--soft);
+    text-decoration: none;
+}
+
+#footer-email a:hover {
+    color: var(--muted);
 }
 
 .card[data-tags*="data"] .thumb {
@@ -495,16 +495,8 @@ h2 {
     }
 
     .header-shell {
-        grid-template-columns: 1fr;
-        gap: 0;
-    }
-
-    .header-actions {
-        justify-items: center;
-    }
-
-    #menu {
-        justify-content: center;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 12px;
     }
 
     .intro-panel {
@@ -523,7 +515,7 @@ h2 {
 /* ── curriculum.html ── */
 #cv-body {
     max-width: 835px;
-    margin-left: 25px;
+    margin-left: 0px;
     margin-right: 25px;
     display: none;
 }
@@ -553,7 +545,9 @@ h2 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
         transition-duration: 0.01ms !important;
         animation-duration: 0.01ms !important;
     }

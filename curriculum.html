@@ -48,19 +48,17 @@
                     </div>
                     <div class="brand-tagline">
                         <h1>
-                            Computer Science, Data & Software Engineering
+                            Data & Software Engineering
                         </h1>
                     </div>
                 </div>
                 <div class="header-actions">
                     <nav id="menu" aria-label="Primary">
                         <a href="index.html">About</a>
-                        <a href="mailto:rafael@extrapolo.com">email</a>
                         <a
-                            target="_blank"
-                            rel="noreferrer"
-                            href="0xCE8E94C8EDA640B6.pub.txt"
-                            >pubkey</a
+                            href="rafael-polo-cv.pdf"
+                            download
+                            >PDF</a
                         >
                         <a
                             target="_blank"
@@ -405,5 +403,16 @@
         </div>
 
         <div id="since">ExtraPolo Labs since 1985</div>
+        <div id="footer-email"></div>
+        <script>
+            (function(){
+                var c=[114,97,102,97,101,108,64,101,120,116,114,97,112,111,108,111,46,99,111,109];
+                var e=c.map(function(n){return String.fromCharCode(n)}).join('');
+                var a=document.createElement('a');
+                a.href='mailto:'+e;
+                a.textContent=e;
+                document.getElementById('footer-email').appendChild(a);
+            })();
+        </script>
     </body>
 </html>
