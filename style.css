@@ -31,7 +31,6 @@ body {
     line-height: 1.55;
     letter-spacing: 0.1px;
     max-width: 1195px;
-    min-width: 650px;
     margin-inline: auto;
     padding: 0 20px 28px;
 }
@@ -100,7 +99,7 @@ h2 {
 .brand-block {
     display: flex;
     gap: 18px;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .logo-block {
@@ -118,7 +117,6 @@ h2 {
 
 .brand-tagline {
     max-width: 720px;
-    padding-top: 5px;
 }
 
 .eyebrow,
@@ -137,8 +135,7 @@ h2 {
 }
 
 .brand-tagline h1 {
-    margin-top: 30px;
-    font-size: clamp(1.1rem, 1.6vw, 25px);
+    font-size: clamp(16.5px, 2vw, 23px);
     line-height: 1.1;
     white-space: nowrap;
 }
@@ -154,18 +151,23 @@ h2 {
     flex-wrap: nowrap;
     justify-content: flex-end;
     white-space: nowrap;
+    margin-top: 70px;
 }
 
 #menu a {
+    display: inline-flex;
+    align-items: center;
     padding: 6px 10px;
     border-radius: 999px;
     background: rgba(39, 40, 34, 0.88);
     border: 1px solid var(--border);
     font-size: 14px;
+    color: white;
 }
 
 #menu a:hover {
     background: var(--accent);
+    color: #111;
 }
 
 .filter-bar {
@@ -200,8 +202,8 @@ h2 {
 }
 
 .filter-btn:hover {
-    background: #d7d4cb;
-    color: #151515;
+    background: var(--accent);
+    color: #111;
     border-color: transparent;
 }
 
@@ -264,6 +266,7 @@ h2 {
     border-radius: 24px;
     background: var(--surface-2);
     border: 1px solid rgba(255, 255, 255, 0.09);
+    -webkit-tap-highlight-color: transparent;
 }
 
 .card:not(.card-bio):not(.card-graph) {

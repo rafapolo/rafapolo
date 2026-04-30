@@ -225,11 +225,13 @@ function initSpringy(canvas, params) {
           )
         : s2;
 
+      ctx.globalAlpha = 0.7;
       ctx.strokeStyle = stroke;
       ctx.beginPath();
       ctx.moveTo(s1.x, s1.y);
       ctx.lineTo(lineEnd.x, lineEnd.y);
       ctx.stroke();
+      ctx.globalAlpha = 1;
 
       if (directional) {
         ctx.save();
@@ -252,23 +254,23 @@ function initSpringy(canvas, params) {
       var boxWidth = node.getWidth();
 
       var inNetwork = highlightedNetwork.indexOf(node.id) !== -1;
-      var isHovered =
-        nearest !== null &&
-        nearest.node !== null &&
-        nearest.node.id === node.id &&
-        nearest.node.data.site != null;
-
-      if (inNetwork || isHovered) {
-        ctx.fillStyle = inNetwork ? "#FFD700" : accentColor;
-        ctx.fillRect(s.x - boxWidth / 2, s.y + 2, boxWidth, 16);
-      }
+      var isNearest = nearest !== null && nearest.node !== null && nearest.node.id === node.id;
+      var isHovered = isNearest && nearest.node.data.site != null;
 
       ctx.textAlign = "center";
       ctx.textBaseline = "top";
       ctx.font = "13px 'Monda'";
-      ctx.fillStyle = inNetwork ? "#f3f1eb" : isHovered ? "#111" : "white";
-
       var text = node.data.label !== undefined ? node.data.label : node.id;
+      var isCategory = /^\[.*\]$/.test(text);
+      var isCatHovered = isCategory && isNearest;
+
+      if (inNetwork || isHovered || isCategory) {
+        ctx.fillStyle = (inNetwork && isCategory) ? "#d7d4cb" : inNetwork ? "#FFD700" : isCategory ? accentColor : "#d7d4cb";
+        ctx.fillRect(s.x - boxWidth / 2, s.y + 2, boxWidth, 16);
+      }
+
+      ctx.fillStyle = inNetwork ? "#111" : isHovered ? "#111" : isCategory ? "#111" : "white";
+
       ctx.fillText(text, s.x, s.y + 4);
       ctx.fillText("°", s.x - 3, s.y - 8);
 
