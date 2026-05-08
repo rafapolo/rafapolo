@@ -172,7 +172,6 @@ h2 {
 }
 
 .filter-bar {
-    padding-top: 9px;
     display: flex;
     flex-wrap: nowrap;
     gap: 6px;
@@ -330,6 +329,8 @@ h2 {
     );
     backdrop-filter: blur(8px);
     min-height: 116px;
+    display: flex;
+    flex-direction: column;
 }
 
 .card .name {
@@ -350,8 +351,9 @@ h2 {
 }
 
 .card .year {
-    display: inline-block;
-    margin-top: 8px;
+    display: block;
+    margin-top: auto;
+    padding-top: 6px;
     font-size: 11px;
     color: var(--accent);
 }
