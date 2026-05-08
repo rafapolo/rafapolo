@@ -394,8 +394,8 @@ h2 {
 }
 
 .bio-cv-link {
-    display: inline-block;
-    float: right;
+    display: block;
+    text-align: right;
     margin: 4px 20px 20px;
     font-size: 13px;
     color: var(--accent);
