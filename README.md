@@ -3,16 +3,20 @@
     <p align="center">Hello there!</p>
     <img src="alt.gif"/></td>
   <td>
-<p>I have been building software projects since connecting to the Internet was an expensive ritual starting with mystic sounds for a mere 0.007MB/s. What a journey it has been since the 90's!</p>
+<p>I have been building software projects since connecting to the Internet was an expensive ritual accompanied by mystic sounds for a mere 0.007 MB/s. What a journey it has been since the ’90s!</p>
 
-<p>Before Git existed, I had worked as a Software Developer for a Competitive Intelligence startup in Rio de Janeiro, Brazil. Most of my open-source projects for the last 15 years relates to Civic Scrapping for Transparency, Cultural Media Archives, Natural Language Processing, Crypto Economics Experiments and Data Visualization.</p>
+<p>Before Git existed, I worked as a software developer for a competitive intelligence startup in Rio de Janeiro, Brazil. Over the last 15 years, I have lived in Berlin, Lisbon, Athens, and Zurich, working as an engineer, tech lead, DevOps specialist, and educator, supporting journalists, researchers, designers, and CEOs.</p>
 
-<p>Over the years, I’ve lived in Berlin, Lisbon, Athens and Zurich, working as an Engineer, Tech Lead, DevOps and Educator, supporting Journalists, Researchers, Designers, and CEOs.</p>
+<p>Most of my open-source projects have focused on civic data scraping for transparency, cultural media archives, natural language processing, crypto-economic experiments, and data visualization.</p>
 
-→ Check my last Data Research & Visualizations at https://ミ.xyz/dataviz
+→ Check out my latest data research and visualizations at ミ.xyz/dataviz
     
   </td>
 </tr></table>
+
+
+
+
 
 
 
