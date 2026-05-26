@@ -9,7 +9,7 @@
 
 <p>Most of my open-source projects have focused on civic data scraping for transparency, cultural media archives, natural language processing, crypto-economic experiments, and data visualization.</p>
 
-→ Check out my latest data research and visualizations at ミ.xyz/dataviz
+→ Check out my latest data research and visualizations at [ミ.xyz](ミ.xyz/dataviz)
     
   </td>
 </tr></table>
