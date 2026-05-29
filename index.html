@@ -128,7 +128,7 @@
 
             <section class="intro-panel" aria-labelledby="browse-title">
                 <div class="intro-head">
-                    <p class="section-label">Browse some projects</p>
+                    <p class="section-label">Browse <span id="card-count"></span> selected projects</p>
                     <h2 id="browse-title">
                         Open-source platforms, tools and data visualizations:
                     </h2>
@@ -1034,6 +1034,9 @@
                 }, 600);
 
                 window.addEventListener("resize", centerLastRow);
+
+                document.getElementById("card-count").textContent =
+                    document.querySelectorAll(".card:not([data-static])").length;
 
                 var cards = Array.from(
                     document.querySelectorAll(".card:not([data-static])"),

@@ -1,3 +1,4 @@
+CLAUDE.md
 .DS_Store
 .claude/
 node_modules/
@@ -13,3 +14,4 @@ tasks/
 /.cocoindex_code/
 projeto/
 img/
+cvs/
