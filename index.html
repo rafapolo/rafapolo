@@ -10,13 +10,13 @@
         />
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <link rel="stylesheet" type="text/css" href="style.css?v=16" />
+        <link rel="stylesheet" type="text/css" href="style.css?v=17" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content="Rafael Polo — Data &amp; Software" />
         <meta
             prefix="og: http://ogp.me/ns#"
             property="og:image"
-            content="http://extrapolo.com/polo.png"
+            content="https://extrapolo.com/polo.png"
         />
         <script defer src="js/springy.js"></script>
         <script defer src="js/graph.js?v=2"></script>
@@ -133,18 +133,22 @@
                         Open-source platforms, tools and data visualizations:
                     </h2>
                 </div>
-                <div class="filter-bar">
-                    <span class="filter-btn active" data-filter="all">all</span>
-                    <span class="filter-btn" data-filter="dataviz"
-                        >dataviz</span
-                    >
-                    <span class="filter-btn" data-filter="website"
-                        >website</span
-                    >
-                    <span class="filter-btn" data-filter="design"
-                        >design</span
-                    >
-                    <span class="filter-btn" data-filter="tool">tool</span>
+                <div class="controls-row">
+                    <div class="filter-bar">
+                        <span class="filter-btn active" data-filter="all">all</span>
+                        <span class="filter-btn" data-filter="dataviz">dataviz</span>
+                        <span class="filter-btn" data-filter="website">website</span>
+                        <span class="filter-btn" data-filter="design">design</span>
+                        <span class="filter-btn" data-filter="tool">tool</span>
+                    </div>
+                    <div class="view-toggle">
+                        <button class="view-btn" data-view="grid" aria-label="Grid view">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><rect x="0" y="0" width="6" height="6" rx="1"/><rect x="8" y="0" width="6" height="6" rx="1"/><rect x="0" y="8" width="6" height="6" rx="1"/><rect x="8" y="8" width="6" height="6" rx="1"/></svg>
+                        </button>
+                        <button class="view-btn active" data-view="list" aria-label="List view">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><rect x="0" y="1" width="14" height="2" rx="1"/><rect x="0" y="6" width="14" height="2" rx="1"/><rect x="0" y="11" width="14" height="2" rx="1"/></svg>
+                        </button>
+                    </div>
                 </div>
             </section>
 
@@ -250,7 +254,7 @@
                     href="https://github.com/rafapolo/swissviz"
                     target="_blank"
                     rel="noopener noreferrer"
-                    data-tags="dataviz website"
+                    data-tags="dataviz"
                 >
                     <div class="thumb">
                         <img
@@ -370,7 +374,7 @@
                     href="https://github.com/rafapolo/viso"
                     target="_blank"
                     rel="noopener noreferrer"
-                    data-tags="dataviz tool website"
+                    data-tags="dataviz tool"
                 >
                     <div class="thumb">
                         <img
@@ -394,7 +398,7 @@
                     href="https://github.com/rafapolo/fincrime"
                     target="_blank"
                     rel="noopener noreferrer"
-                    data-tags="dataviz website"
+                    data-tags="dataviz"
                 >
                     <div class="thumb">
                         <img
@@ -418,7 +422,7 @@
                     href="https://github.com/rafapolo/IBGE13"
                     target="_blank"
                     rel="noopener noreferrer"
-                    data-tags="dataviz website"
+                    data-tags="dataviz"
                 >
                     <div class="thumb">
                         <img
@@ -583,7 +587,7 @@
                     href="https://github.com/rafapolo/uqt"
                     target="_blank"
                     rel="noopener noreferrer"
-                    data-tags="design website"
+                    data-tags="design"
                 >
                     <div class="thumb">
                         <img
@@ -697,37 +701,13 @@
                     </div>
                 </a>
 
-                <!-- 2014 -->
-                <a
-                    class="card"
-                    href="http://extrapolo.com/projeto/apt-avenida-atlantica/web/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    data-tags="design website"
-                >
-                    <div class="thumb">
-                        <img
-                            loading="lazy"
-                            src="img/thumbs/atlantica.png"
-                            alt=""
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
-                    <div class="info">
-                        <span class="name">Av. Atlântica 1101</span
-                        ><span class="desc"
-                            >Beautiful visualization for a RJ luxury
-                            property</span
-                        ><span class="year">2014</span>
-                    </div>
-                </a>
 
                 <a
                     class="card"
                     href="https://github.com/rafapolo/steganos"
                     target="_blank"
                     rel="noopener noreferrer"
-                    data-tags="tool website"
+                    data-tags="tool"
                 >
                     <div class="thumb">
                         <img
@@ -749,7 +729,7 @@
                 <!-- 2013 -->
                 <a
                     class="card"
-                    href="http://mostre.me/cultura"
+                    href="https://github.com/rafapolo/mostre"
                     target="_blank"
                     rel="noopener noreferrer"
                     data-tags="dataviz"
@@ -775,7 +755,7 @@
                     href="https://github.com/rafapolo/aguanaescola"
                     target="_blank"
                     rel="noopener noreferrer"
-                    data-tags="dataviz website"
+                    data-tags="dataviz"
                 >
                     <div class="thumb">
                         <img
@@ -866,7 +846,7 @@
 
                 <a
                     class="card"
-                    href="http://extrapolo.com/projeto/pensarpublico"
+                    href="https://rafapolo.github.io/pensar-publico/"
                     target="_blank"
                     rel="noopener noreferrer"
                     data-tags="design website"
@@ -1030,10 +1010,12 @@
                 setTimeout(function () {
                     portfolio.style.transition = "";
                     initMeio();
-                    centerLastRow();
+                    if (currentView === "grid") centerLastRow();
                 }, 600);
 
-                window.addEventListener("resize", centerLastRow);
+                window.addEventListener("resize", function () {
+                    if (currentView === "grid") centerLastRow();
+                });
 
                 document.getElementById("card-count").textContent =
                     document.querySelectorAll(".card:not([data-static])").length;
@@ -1044,7 +1026,22 @@
                 var filterBtns = Array.from(
                     document.querySelectorAll(".filter-btn"),
                 );
+                var viewBtns = Array.from(
+                    document.querySelectorAll(".view-btn"),
+                );
                 var activeFilter = "all";
+                var currentView = "list";
+                portfolio.classList.add("list-view");
+
+                function visibleCount() {
+                    return cards.filter(function (c) {
+                        return !c.classList.contains("hidden");
+                    }).length;
+                }
+
+                function updateCount() {
+                    document.getElementById("card-count").textContent = visibleCount();
+                }
 
                 filterBtns.forEach(function (btn) {
                     btn.addEventListener("click", function () {
@@ -1085,7 +1082,8 @@
                                 card.classList.add("fading");
                                 card.classList.remove("hidden");
                             });
-                            centerLastRow();
+                            updateCount();
+                            if (currentView === "grid") centerLastRow();
                             requestAnimationFrame(function () {
                                 requestAnimationFrame(function () {
                                     toShow.forEach(function (card) {
@@ -1094,6 +1092,20 @@
                                 });
                             });
                         }, 220);
+                    });
+                });
+
+                viewBtns.forEach(function (btn) {
+                    btn.addEventListener("click", function () {
+                        var view = btn.dataset.view;
+                        if (view === currentView) return;
+                        currentView = view;
+                        viewBtns.forEach(function (b) {
+                            b.classList.remove("active");
+                        });
+                        btn.classList.add("active");
+                        portfolio.classList.toggle("list-view", view === "list");
+                        if (view === "grid") centerLastRow();
                     });
                 });
             });

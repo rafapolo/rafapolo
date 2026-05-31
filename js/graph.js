@@ -41,7 +41,6 @@ var nConn    = graph.newNode({label: 'Connectas',           site: 'https://www.c
 var nETI     = graph.newNode({label: 'Exposing the Invisible', site: 'https://exposingtheinvisible.org/'});
 
 // ── 2014 ────────────────────────────────────────────────────────────────────
-var nAtlan   = graph.newNode({label: 'Av. Atlântica 1101',  site: 'http://extrapolo.com/projeto/apt-avenida-atlantica/web/'});
 var nSteg    = graph.newNode({label: 'Steganos',            site: 'https://github.com/rafapolo/steganos'});
 
 // ── 2013 ────────────────────────────────────────────────────────────────────
@@ -91,7 +90,6 @@ graph.newEdge(nConn,   catData);  graph.newEdge(nConn,   catWork);
 
 graph.newEdge(nETI,    catDesign);graph.newEdge(nETI,    catWork);  graph.newEdge(nETI, catData);
 
-graph.newEdge(nAtlan,  catDesign);graph.newEdge(nAtlan,  catWork);
 graph.newEdge(nSteg,   catTool);
 
 graph.newEdge(nMostr,  catData);
