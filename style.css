@@ -31,7 +31,7 @@ body {
     line-height: 1.55;
     letter-spacing: 0.1px;
     max-width: 1195px;
-    min-width: 650px;
+    min-width: 375px;
     margin-inline: auto;
     padding: 0 20px 28px;
 }
@@ -145,6 +145,7 @@ h2 {
     display: grid;
     gap: 14px;
     justify-items: end;
+    align-self: end;
 }
 
 #menu {
@@ -152,7 +153,6 @@ h2 {
     flex-wrap: nowrap;
     justify-content: flex-end;
     white-space: nowrap;
-    margin-top: 70px;
 }
 
 #menu a {
@@ -173,10 +173,10 @@ h2 {
 
 .filter-bar {
     display: flex;
+    flex: 1;
     flex-wrap: nowrap;
     gap: 6px;
     justify-content: flex-end;
-    width: 100%;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
@@ -229,10 +229,15 @@ h2 {
 .intro-panel {
     margin: 16px 0;
     padding: 18px 24px;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 24px;
+    display: flex;
+    flex-direction: row;
     align-items: center;
+    gap: 16px;
+}
+
+.intro-head {
+    flex: 1;
+    min-width: 0;
 }
 
 .intro-head h2 {
@@ -245,7 +250,10 @@ h2 {
 
 #portfolio {
     display: none;
-    margin-top: 18px;
+    margin-top: 0;
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    gap: 3px;
 }
 
 .grid {
@@ -263,15 +271,16 @@ h2 {
     position: relative;
     display: block;
     overflow: hidden;
-    border-radius: 24px;
+    border-radius: 12px;
     background: var(--surface-2);
     border: 1px solid rgba(255, 255, 255, 0.09);
     -webkit-tap-highlight-color: transparent;
 }
 
 .card:not(.card-bio):not(.card-graph) {
-    aspect-ratio: 1;
-    transition: opacity 0.2s ease;
+    height: 52px;
+    transition: opacity 0.15s ease;
+    position: relative;
 }
 
 .card.fading {
@@ -283,12 +292,15 @@ h2 {
     color: var(--text);
 }
 
-.card:hover .info {
-    background: linear-gradient(
-        180deg,
-        rgba(28, 29, 26, 0),
-        rgba(28, 29, 26, 0.92) 30%
-    );
+#portfolio .card {
+    background: var(--surface-2);
+    border: none;
+    border-radius: 8px;
+}
+
+#portfolio .card:hover {
+    background: rgba(255, 255, 255, 0.03);
+    box-shadow: inset 3px 0 0 var(--accent);
 }
 
 .card.hidden {
@@ -296,66 +308,63 @@ h2 {
 }
 
 .card .thumb {
+    display: none;
     position: absolute;
-    inset: 0;
+    right: 0;
+    top: 0;
+    width: 76px;
+    height: 76px;
     background: var(--surface-2);
-    background-size: 55%;
+    background-size: 65%;
     background-repeat: no-repeat;
-    background-position: center calc(50% - 16px);
-}
-
-.card .thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition:
-        transform 0.35s ease,
-        opacity 0.2s ease;
-}
-
-.card:hover .thumb img {
-    transform: scale(1.06);
+    background-position: center center;
 }
 
 .card .info {
-    position: absolute;
-    inset: auto 0 0 0;
-    padding: 12px 14px 14px;
-    background: linear-gradient(
-        180deg,
-        rgba(39, 40, 34, 0.15),
-        rgba(39, 40, 34, 0.92) 30%
-    );
-    backdrop-filter: blur(8px);
-    min-height: 116px;
+    height: 100%;
+    padding: 0 20px;
     display: flex;
-    flex-direction: column;
-}
-
-.card .name {
-    display: block;
-    font-size: 15px;
-    font-weight: 700;
-    line-height: 1.2;
-}
-
-.card .desc {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    margin-top: 5px;
-    font-size: 12px;
-    color: var(--muted);
-    overflow: hidden;
+    flex-direction: row;
+    align-items: center;
+    gap: 18px;
 }
 
 .card .year {
-    display: block;
-    margin-top: auto;
-    padding-top: 6px;
+    order: -1;
     font-size: 11px;
     color: var(--accent);
+    flex: 0 0 44px;
+    white-space: nowrap;
+}
+
+.card .name {
+    font-size: 14px;
+    font-weight: 700;
+    flex: 0 0 190px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: capitalize;
+}
+
+.card .desc {
+    flex: 1;
+    font-size: 14px;
+    color: var(--muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-tag {
+    flex: 0 0 auto;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    color: var(--soft);
+    white-space: nowrap;
+    letter-spacing: 0.04em;
 }
 
 .card-bio {
@@ -373,10 +382,20 @@ h2 {
     z-index: 1;
 }
 
-.card-bio .info,
+.card-bio .info {
+    margin-right: 0;
+    height: auto;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 22px;
+    padding-bottom: 0;
+    background: transparent;
+    color: var(--accent);
+    overflow: hidden;
+}
+
 .card-graph .graph-header {
-    position: static;
-    min-height: auto;
     padding: 22px;
     padding-bottom: 0;
     background: transparent;
@@ -389,22 +408,27 @@ h2 {
     font-size: clamp(14px, 1.4vw, 17px);
     line-height: 1.6;
     padding-top: 10px;
-    text-align: justify;
+    text-align: left;
     color: white;
 }
 
 .bio-cv-link {
-    display: block;
-    text-align: right;
+    display: inline-block;
+    float: right;
     margin: 4px 20px 20px;
     font-size: 13px;
     color: var(--accent);
     text-decoration: underline;
     text-underline-offset: 3px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    transition: background 0.15s, color 0.15s;
 }
 
 .bio-cv-link:hover {
-    color: var(--accent-strong);
+    background: var(--accent);
+    color: #111;
+    text-decoration: none;
 }
 
 .card-graph {
@@ -430,7 +454,7 @@ h2 {
 
 #since {
     clear: both;
-    margin-top: 50px;
+    margin-top: 25px;
     text-align: center;
     font-size: 12px;
     color: var(--soft);
@@ -454,17 +478,7 @@ h2 {
     color: var(--muted);
 }
 
-.card[data-tags*="tool"] .thumb {
-    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><rect x='50' y='60' width='100' height='80' rx='3' fill='none' stroke='%23d4a574' stroke-width='2'/><line x1='50' y1='76' x2='150' y2='76' stroke='%23d4a574' stroke-width='1.5'/><polyline points='65,95 80,105 65,115' fill='none' stroke='%23d4a574' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/><line x1='88' y1='115' x2='115' y2='115' stroke='%23d4a574' stroke-width='2.5' stroke-linecap='round'/></svg>");
-}
 
-.card[data-tags*="dataviz"] .thumb {
-    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><line x1='75' y1='85' x2='125' y2='70' stroke='%23d4a574' stroke-width='1.5' opacity='0.6'/><line x1='125' y1='70' x2='140' y2='120' stroke='%23d4a574' stroke-width='1.5' opacity='0.6'/><line x1='140' y1='120' x2='80' y2='135' stroke='%23d4a574' stroke-width='1.5' opacity='0.6'/><line x1='80' y1='135' x2='75' y2='85' stroke='%23d4a574' stroke-width='1.5' opacity='0.6'/><line x1='75' y1='85' x2='140' y2='120' stroke='%23d4a574' stroke-width='1' opacity='0.3'/><line x1='125' y1='70' x2='80' y2='135' stroke='%23d4a574' stroke-width='1' opacity='0.3'/><circle cx='75' cy='85' r='6' fill='%23d4a574'/><circle cx='125' cy='70' r='6' fill='%23d4a574'/><circle cx='140' cy='120' r='6' fill='%23d4a574'/><circle cx='80' cy='135' r='6' fill='%23d4a574'/><circle cx='100' cy='100' r='4' fill='%23d4a574' opacity='0.5'/></svg>");
-}
-
-.card[data-tags*="design"] .thumb {
-    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><path d='M65 145 C65 80 135 120 135 55' fill='none' stroke='%23d4a574' stroke-width='3' stroke-linecap='round'/><line x1='65' y1='145' x2='65' y2='80' stroke='%23d4a574' stroke-width='1' opacity='0.4' stroke-dasharray='4 4'/><line x1='135' y1='55' x2='135' y2='120' stroke='%23d4a574' stroke-width='1' opacity='0.4' stroke-dasharray='4 4'/><circle cx='65' cy='145' r='5' fill='%23d4a574'/><circle cx='135' cy='55' r='5' fill='%23d4a574'/><circle cx='65' cy='80' r='3' fill='none' stroke='%23d4a574' stroke-width='1.5' opacity='0.6'/><circle cx='135' cy='120' r='3' fill='none' stroke='%23d4a574' stroke-width='1.5' opacity='0.6'/></svg>");
-}
 
 @media (max-width: 1020px) {
     .grid-top {
@@ -493,16 +507,82 @@ h2 {
         gap: 12px;
     }
 
-    .intro-panel {
-        grid-template-columns: 1fr;
-    }
-
     .grid {
         grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     }
+}
 
-    .card {
-        border-radius: 20px;
+@media (max-width: 600px) {
+    body {
+        font-size: 15px;
+        min-width: 320px;
+        padding: 0 12px 20px;
+    }
+
+    .logo {
+        width: 80px;
+    }
+
+    .brand-tagline h1 {
+        white-space: normal;
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+    .eyebrow {
+        font-size: 10px;
+        margin-top: -16px;
+    }
+
+    .header-actions {
+        align-self: center;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card-bio,
+    .card-graph {
+        grid-column: 1 / -1;
+    }
+
+    .intro-panel {
+        padding: 14px 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    #portfolio .card:not(.card-bio):not(.card-graph) {
+        height: auto;
+        min-height: 52px;
+    }
+
+    #portfolio .card .info {
+        height: auto;
+        padding: 10px 14px;
+        flex-wrap: wrap;
+        gap: 4px 10px;
+    }
+
+    #portfolio .card .name {
+        flex-basis: 100%;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+    }
+
+    #portfolio .card .desc {
+        flex-basis: 100%;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+    }
+
+    #portfolio .card .card-tag {
+        order: -1;
+        margin-left: auto;
     }
 }
 
@@ -518,6 +598,14 @@ h2 {
     font-size: 15px;
 }
 
+.cv-section {
+    margin-top: 1.8em;
+}
+
+.cv-section:first-child {
+    margin-top: 0;
+}
+
 .cv-entry {
     margin-left: 5px;
     font-size: 14px;
@@ -525,6 +613,15 @@ h2 {
     border-left: 1px solid white;
     line-height: 20px;
     margin-bottom: 20px;
+}
+
+ul.cv-entry {
+    list-style: none;
+    padding-inline-start: 8px;
+}
+
+.cv-entry a:hover {
+    color: var(--muted);
 }
 
 .cv-entry-name {
@@ -536,6 +633,9 @@ h2 {
     margin-left: 5px;
     padding-left: 8px;
     border-left: 1px dashed white;
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: 700;
 }
 
 @media (prefers-reduced-motion: reduce) {

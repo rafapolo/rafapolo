@@ -10,7 +10,7 @@
         />
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <link rel="stylesheet" type="text/css" href="style.css?v=17" />
+        <link rel="stylesheet" type="text/css" href="style.css?v=20" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content="Rafael Polo — Data &amp; Software" />
         <meta
@@ -128,31 +128,27 @@
 
             <section class="intro-panel" aria-labelledby="browse-title">
                 <div class="intro-head">
-                    <p class="section-label">Browse <span id="card-count"></span> selected projects</p>
+                    <p class="section-label">
+                        Browse <span id="card-count"></span> selected projects
+                    </p>
                     <h2 id="browse-title">
                         Open-source platforms, tools and data visualizations:
                     </h2>
                 </div>
-                <div class="controls-row">
-                    <div class="filter-bar">
-                        <span class="filter-btn active" data-filter="all">all</span>
-                        <span class="filter-btn" data-filter="dataviz">dataviz</span>
-                        <span class="filter-btn" data-filter="website">website</span>
-                        <span class="filter-btn" data-filter="design">design</span>
-                        <span class="filter-btn" data-filter="tool">tool</span>
-                    </div>
-                    <div class="view-toggle">
-                        <button class="view-btn" data-view="grid" aria-label="Grid view">
-                            <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><rect x="0" y="0" width="6" height="6" rx="1"/><rect x="8" y="0" width="6" height="6" rx="1"/><rect x="0" y="8" width="6" height="6" rx="1"/><rect x="8" y="8" width="6" height="6" rx="1"/></svg>
-                        </button>
-                        <button class="view-btn active" data-view="list" aria-label="List view">
-                            <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><rect x="0" y="1" width="14" height="2" rx="1"/><rect x="0" y="6" width="14" height="2" rx="1"/><rect x="0" y="11" width="14" height="2" rx="1"/></svg>
-                        </button>
-                    </div>
+                <div class="filter-bar">
+                    <span class="filter-btn active" data-filter="all">all</span>
+                    <span class="filter-btn" data-filter="dataviz"
+                        >dataviz</span
+                    >
+                    <span class="filter-btn" data-filter="website"
+                        >website</span
+                    >
+                    <span class="filter-btn" data-filter="design">design</span>
+                    <span class="filter-btn" data-filter="tool">tool</span>
                 </div>
             </section>
 
-            <div id="portfolio" class="grid">
+            <div id="portfolio">
                 <!-- 2026 -->
                 <a
                     class="card"
@@ -161,16 +157,9 @@
                     rel="noopener noreferrer"
                     data-tags="dataviz tool"
                 >
-                    <div class="thumb">
-                        <img
-                            loading="lazy"
-                            src="img/thumbs/baseldosdados.png"
-                            alt=""
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
+                    <div class="thumb"></div>
                     <div class="info">
-                        <span class="name">baseldosdados</span
+                        <span class="name">Rodado</span
                         ><span class="desc"
                             >Organized ~675 GB (533 datasets) of Brazilian open
                             data</span
@@ -185,14 +174,7 @@
                     rel="noopener noreferrer"
                     data-tags="dataviz"
                 >
-                    <div class="thumb">
-                        <img
-                            loading="lazy"
-                            src="img/thumbs/braviz.png"
-                            alt=""
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
+                    <div class="thumb"></div>
                     <div class="info">
                         <span class="name">BraViz</span
                         ><span class="desc"
@@ -209,14 +191,7 @@
                     rel="noopener noreferrer"
                     data-tags="dataviz tool"
                 >
-                    <div class="thumb">
-                        <img
-                            loading="lazy"
-                            src="img/thumbs/datative.png"
-                            alt=""
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
+                    <div class="thumb"></div>
                     <div class="info">
                         <span class="name">datative</span
                         ><span class="desc"
@@ -232,14 +207,7 @@
                     rel="noopener noreferrer"
                     data-tags="dataviz tool"
                 >
-                    <div class="thumb">
-                        <img
-                            loading="lazy"
-                            src="img/thumbs/helvetiscan.png"
-                            alt=""
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
+                    <div class="thumb"></div>
                     <div class="info">
                         <span class="name">helvetiscan</span
                         ><span class="desc"
@@ -254,16 +222,9 @@
                     href="https://github.com/rafapolo/swissviz"
                     target="_blank"
                     rel="noopener noreferrer"
-                    data-tags="dataviz"
+                    data-tags="dataviz website"
                 >
-                    <div class="thumb">
-                        <img
-                            loading="lazy"
-                            src="img/thumbs/swissviz.png"
-                            alt=""
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
+                    <div class="thumb"></div>
                     <div class="info">
                         <span class="name">swissviz</span
                         ><span class="desc"
@@ -279,16 +240,9 @@
                     rel="noopener noreferrer"
                     data-tags="dataviz"
                 >
-                    <div class="thumb">
-                        <img
-                            loading="lazy"
-                            src="img/thumbs/swissnet.png"
-                            alt=""
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
+                    <div class="thumb"></div>
                     <div class="info">
-                        <span class="name">DependencyMap</span
+                        <span class="name">Dependency Map</span
                         ><span class="desc"
                             >WebGL force-graph of .ch domains DNS
                             dependencies</span
@@ -303,14 +257,7 @@
                     rel="noopener noreferrer"
                     data-tags="dataviz website"
                 >
-                    <div class="thumb">
-                        <img
-                            loading="lazy"
-                            src="img/thumbs/malafaia.png"
-                            alt=""
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
+                    <div class="thumb"></div>
                     <div class="info">
                         <span class="name">malafaia</span
                         ><span class="desc"
@@ -327,14 +274,7 @@
                     rel="noopener noreferrer"
                     data-tags="dataviz"
                 >
-                    <div class="thumb">
-                        <img
-                            loading="lazy"
-                            src="img/thumbs/pt-2026.png"
-                            alt=""
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
+                    <div class="thumb"></div>
                     <div class="info">
                         <span class="name">PT2026</span
                         ><span class="desc"
@@ -352,14 +292,7 @@
                     rel="noopener noreferrer"
                     data-tags="dataviz"
                 >
-                    <div class="thumb">
-                        <img
-                            loading="lazy"
-                            src="img/thumbs/tigrim.png"
-                            alt=""
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
+                    <div class="thumb"></div>
                     <div class="info">
                         <span class="name">Pegadas Tigrinho</span
                         ><span class="desc"
@@ -374,21 +307,14 @@
                     href="https://github.com/rafapolo/viso"
                     target="_blank"
                     rel="noopener noreferrer"
-                    data-tags="dataviz tool"
+                    data-tags="dataviz tool website design"
                 >
-                    <div class="thumb">
-                        <img
-                            loading="lazy"
-                            src="img/thumbs/viso.png"
-                            alt=""
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
+                    <div class="thumb"></div>
                     <div class="info">
                         <span class="name">VISO</span
                         ><span class="desc"
-                            >Visualize parliamentary expenses with rich dashboard
-                            & live SQL</span
+                            >Visualize parliamentary expenses with rich
+                            dashboard & live SQL</span
                         ><span class="year">2025</span>
                     </div>
                 </a>
@@ -398,16 +324,9 @@
                     href="https://github.com/rafapolo/fincrime"
                     target="_blank"
                     rel="noopener noreferrer"
-                    data-tags="dataviz"
+                    data-tags="dataviz website"
                 >
-                    <div class="thumb">
-                        <img
-                            loading="lazy"
-                            src="img/thumbs/fincrime.png"
-                            alt=""
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
+                    <div class="thumb"></div>
                     <div class="info">
                         <span class="name">fincrime</span
                         ><span class="desc"
@@ -424,14 +343,7 @@
                     rel="noopener noreferrer"
                     data-tags="dataviz"
                 >
-                    <div class="thumb">
-                        <img
-                            loading="lazy"
-                            src="img/thumbs/ibge13.png"
-                            alt=""
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
+                    <div class="thumb"></div>
                     <div class="info">
                         <span class="name">IBGE13</span
                         ><span class="desc"
@@ -448,14 +360,7 @@
                     rel="noopener noreferrer"
                     data-tags="tool"
                 >
-                    <div class="thumb">
-                        <img
-                            loading="lazy"
-                            src="img/thumbs/sumaria.png"
-                            alt=""
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
+                    <div class="thumb"></div>
                     <div class="info">
                         <span class="name">sumaria</span
                         ><span class="desc"
@@ -471,14 +376,7 @@
                     rel="noopener noreferrer"
                     data-tags="dataviz"
                 >
-                    <div class="thumb">
-                        <img
-                            loading="lazy"
-                            src="img/thumbs/rais.png"
-                            alt=""
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
+                    <div class="thumb"></div>
                     <div class="info">
                         <span class="name">RAIS</span
                         ><span class="desc"
@@ -492,16 +390,9 @@
                     href="https://xn--2dk.xyz/dataviz/friba/pop_3d"
                     target="_blank"
                     rel="noopener noreferrer"
-                    data-tags="dataviz"
+                    data-tags="dataviz website"
                 >
-                    <div class="thumb">
-                        <img
-                            loading="lazy"
-                            src="img/thumbs/friba.png"
-                            alt=""
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
+                    <div class="thumb"></div>
                     <div class="info">
                         <span class="name">Friba</span
                         ><span class="desc">Nova Friburgo 3D population</span
@@ -516,14 +407,7 @@
                     rel="noopener noreferrer"
                     data-tags="dataviz website"
                 >
-                    <div class="thumb">
-                        <img
-                            loading="lazy"
-                            src="img/thumbs/dataviz.png"
-                            alt=""
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
+                    <div class="thumb"></div>
                     <div class="info">
                         <span class="name">Dataviz Hub</span
                         ><span class="desc"
@@ -541,14 +425,7 @@
                     rel="noopener noreferrer"
                     data-tags="tool"
                 >
-                    <div class="thumb">
-                        <img
-                            loading="lazy"
-                            src="img/thumbs/celohuobihack.png"
-                            alt=""
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
+                    <div class="thumb"></div>
                     <div class="info">
                         <span class="name">VERAΞFIKO</span
                         ><span class="desc"
@@ -565,14 +442,7 @@
                     rel="noopener noreferrer"
                     data-tags="tool"
                 >
-                    <div class="thumb">
-                        <img
-                            loading="lazy"
-                            src="img/thumbs/speculari.png"
-                            alt=""
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
+                    <div class="thumb"></div>
                     <div class="info">
                         <span class="name">speculari</span
                         ><span class="desc"
@@ -584,24 +454,17 @@
                 <!-- 2020 -->
                 <a
                     class="card"
-                    href="https://github.com/rafapolo/uqt"
+                    href="https://github.com/rafapolo/tocador"
                     target="_blank"
                     rel="noopener noreferrer"
-                    data-tags="design"
+                    data-tags="design website"
                 >
-                    <div class="thumb">
-                        <img
-                            loading="lazy"
-                            src="img/thumbs/uqt.png"
-                            alt=""
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
+                    <div class="thumb"></div>
                     <div class="info">
-                        <span class="name">Acervo MPB</span
+                        <span class="name">Tocador</span
                         ><span class="desc"
-                            >Spotify-alternative with 100 years of Brazilian
-                            Popular Music</span
+                            >Spotify-alternative player with +7k Brazilian
+                            artists</span
                         ><span class="year">2020</span>
                     </div>
                 </a>
@@ -614,14 +477,7 @@
                     rel="noopener noreferrer"
                     data-tags="dataviz tool"
                 >
-                    <div class="thumb">
-                        <img
-                            loading="lazy"
-                            src="img/thumbs/tribuna.png"
-                            alt=""
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
+                    <div class="thumb"></div>
                     <div class="info">
                         <span class="name">Tribuna</span
                         ><span class="desc"
@@ -638,14 +494,7 @@
                     rel="noopener noreferrer"
                     data-tags="tool"
                 >
-                    <div class="thumb">
-                        <img
-                            loading="lazy"
-                            src="img/thumbs/renda.png"
-                            alt=""
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
+                    <div class="thumb"></div>
                     <div class="info">
                         <span class="name">Renda</span
                         ><span class="desc"
@@ -661,14 +510,7 @@
                     rel="noopener noreferrer"
                     data-tags="dataviz website"
                 >
-                    <div class="thumb">
-                        <img
-                            loading="lazy"
-                            src="img/thumbs/connectas.png"
-                            alt=""
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
+                    <div class="thumb"></div>
                     <div class="info">
                         <span class="name">Connectas</span
                         ><span class="desc"
@@ -685,14 +527,7 @@
                     rel="noopener noreferrer"
                     data-tags="design website"
                 >
-                    <div class="thumb">
-                        <img
-                            loading="lazy"
-                            src="img/thumbs/eti.png"
-                            alt=""
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
+                    <div class="thumb"></div>
                     <div class="info">
                         <span class="name">Exposing the Invisible</span
                         ><span class="desc"
@@ -701,7 +536,6 @@
                     </div>
                 </a>
 
-
                 <a
                     class="card"
                     href="https://github.com/rafapolo/steganos"
@@ -709,14 +543,7 @@
                     rel="noopener noreferrer"
                     data-tags="tool"
                 >
-                    <div class="thumb">
-                        <img
-                            loading="lazy"
-                            src="img/thumbs/steganos.png"
-                            alt=""
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
+                    <div class="thumb"></div>
                     <div class="info">
                         <span class="name">Steganos</span
                         ><span class="desc"
@@ -732,16 +559,9 @@
                     href="https://github.com/rafapolo/mostre"
                     target="_blank"
                     rel="noopener noreferrer"
-                    data-tags="dataviz"
+                    data-tags="dataviz website"
                 >
-                    <div class="thumb">
-                        <img
-                            loading="lazy"
-                            src="img/thumbs/mostremecultura.png"
-                            alt=""
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
+                    <div class="thumb"></div>
                     <div class="info">
                         <span class="name">Mostre!me Cultura</span
                         ><span class="desc"
@@ -755,16 +575,9 @@
                     href="https://github.com/rafapolo/aguanaescola"
                     target="_blank"
                     rel="noopener noreferrer"
-                    data-tags="dataviz"
+                    data-tags="dataviz website"
                 >
-                    <div class="thumb">
-                        <img
-                            loading="lazy"
-                            src="img/thumbs/agua.png"
-                            alt=""
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
+                    <div class="thumb"></div>
                     <div class="info">
                         <span class="name">Água na Escola</span
                         ><span class="desc"
@@ -782,14 +595,7 @@
                     rel="noopener noreferrer"
                     data-tags="tool"
                 >
-                    <div class="thumb">
-                        <img
-                            loading="lazy"
-                            src="img/thumbs/rastros.png"
-                            alt=""
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
+                    <div class="thumb"></div>
                     <div class="info">
                         <span class="name">rastros</span
                         ><span class="desc"
@@ -805,18 +611,12 @@
                     rel="noopener noreferrer"
                     data-tags="tool"
                 >
-                    <div class="thumb">
-                        <img
-                            loading="lazy"
-                            src="img/thumbs/processing.png"
-                            alt=""
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
+                    <div class="thumb"></div>
                     <div class="info">
                         <span class="name">processing</span
                         ><span class="desc"
-                            >Creative coding sketches and visual experiments</span
+                            >Creative coding sketches and visual
+                            experiments</span
                         ><span class="year">2012</span>
                     </div>
                 </a>
@@ -828,14 +628,7 @@
                     rel="noopener noreferrer"
                     data-tags="design website"
                 >
-                    <div class="thumb">
-                        <img
-                            loading="lazy"
-                            src="img/thumbs/webdocgraffiti.png"
-                            alt=""
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
+                    <div class="thumb"></div>
                     <div class="info">
                         <span class="name">WebDoc Graffiti</span
                         ><span class="desc"
@@ -851,14 +644,7 @@
                     rel="noopener noreferrer"
                     data-tags="design website"
                 >
-                    <div class="thumb">
-                        <img
-                            loading="lazy"
-                            src="img/thumbs/pensarpublico.png"
-                            alt=""
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
+                    <div class="thumb"></div>
                     <div class="info">
                         <span class="name">Pensar Público</span
                         ><span class="desc">Public policy Studio platform</span
@@ -874,14 +660,7 @@
                     rel="noopener noreferrer"
                     data-tags="design website"
                 >
-                    <div class="thumb">
-                        <img
-                            loading="lazy"
-                            src="img/thumbs/graficautopica.png"
-                            alt=""
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
+                    <div class="thumb"></div>
                     <div class="info">
                         <span class="name">Gráfica Utópica</span
                         ><span class="desc"
@@ -897,14 +676,7 @@
                     rel="noopener noreferrer"
                     data-tags="tool"
                 >
-                    <div class="thumb">
-                        <img
-                            loading="lazy"
-                            src="img/thumbs/fratura.png"
-                            alt=""
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
+                    <div class="thumb"></div>
                     <div class="info">
                         <span class="name">fratura</span
                         ><span class="desc"
@@ -921,14 +693,7 @@
                     rel="noopener noreferrer"
                     data-tags="design website"
                 >
-                    <div class="thumb">
-                        <img
-                            loading="lazy"
-                            src="img/thumbs/razaoambiente.png"
-                            alt=""
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
+                    <div class="thumb"></div>
                     <div class="info">
                         <span class="name">Razão e Ambiente</span
                         ><span class="desc"
@@ -946,14 +711,7 @@
                     rel="noopener noreferrer"
                     data-tags="tool"
                 >
-                    <div class="thumb">
-                        <img
-                            loading="lazy"
-                            src="img/thumbs/consulta.png"
-                            alt=""
-                            onerror="this.style.display = 'none'"
-                        />
-                    </div>
+                    <div class="thumb"></div>
                     <div class="info">
                         <span class="name">Consulta Natural</span
                         ><span class="desc"
@@ -968,29 +726,6 @@
         <div id="footer-email"></div>
 
         <script>
-            function centerLastRow() {
-                var grid = document.getElementById("portfolio");
-                grid.querySelectorAll(".card:not([data-static])").forEach(
-                    function (c) {
-                        c.style.gridColumnStart = "";
-                    },
-                );
-                var cols =
-                    getComputedStyle(grid).gridTemplateColumns.split(
-                        " ",
-                    ).length;
-                var visible = Array.from(
-                    grid.querySelectorAll(".card:not([data-static])"),
-                ).filter(function (c) {
-                    return !c.classList.contains("hidden");
-                });
-                var remainder = visible.length % cols;
-                if (remainder === 0) return;
-                var startCol = Math.floor((cols - remainder) / 2) + 1;
-                visible[visible.length - remainder].style.gridColumnStart =
-                    startCol;
-            }
-
             document.addEventListener("DOMContentLoaded", function () {
                 window.scrollTo(0, 0);
 
@@ -1010,28 +745,35 @@
                 setTimeout(function () {
                     portfolio.style.transition = "";
                     initMeio();
-                    if (currentView === "grid") centerLastRow();
                 }, 600);
 
-                window.addEventListener("resize", function () {
-                    if (currentView === "grid") centerLastRow();
-                });
-
                 document.getElementById("card-count").textContent =
-                    document.querySelectorAll(".card:not([data-static])").length;
+                    document.querySelectorAll(
+                        ".card:not([data-static])",
+                    ).length;
 
                 var cards = Array.from(
                     document.querySelectorAll(".card:not([data-static])"),
                 );
+
+                cards.forEach(function (card) {
+                    var tags = (card.dataset.tags || "")
+                        .trim()
+                        .split(" ")
+                        .filter(Boolean);
+                    var info = card.querySelector(".info");
+                    tags.forEach(function (tag) {
+                        var pill = document.createElement("span");
+                        pill.className = "card-tag";
+                        pill.textContent = tag;
+                        info.appendChild(pill);
+                    });
+                });
+
                 var filterBtns = Array.from(
                     document.querySelectorAll(".filter-btn"),
                 );
-                var viewBtns = Array.from(
-                    document.querySelectorAll(".view-btn"),
-                );
                 var activeFilter = "all";
-                var currentView = "list";
-                portfolio.classList.add("list-view");
 
                 function visibleCount() {
                     return cards.filter(function (c) {
@@ -1040,7 +782,8 @@
                 }
 
                 function updateCount() {
-                    document.getElementById("card-count").textContent = visibleCount();
+                    document.getElementById("card-count").textContent =
+                        visibleCount();
                 }
 
                 filterBtns.forEach(function (btn) {
@@ -1083,7 +826,6 @@
                                 card.classList.remove("hidden");
                             });
                             updateCount();
-                            if (currentView === "grid") centerLastRow();
                             requestAnimationFrame(function () {
                                 requestAnimationFrame(function () {
                                     toShow.forEach(function (card) {
@@ -1092,20 +834,6 @@
                                 });
                             });
                         }, 220);
-                    });
-                });
-
-                viewBtns.forEach(function (btn) {
-                    btn.addEventListener("click", function () {
-                        var view = btn.dataset.view;
-                        if (view === currentView) return;
-                        currentView = view;
-                        viewBtns.forEach(function (b) {
-                            b.classList.remove("active");
-                        });
-                        btn.classList.add("active");
-                        portfolio.classList.toggle("list-view", view === "list");
-                        if (view === "grid") centerLastRow();
                     });
                 });
             });
