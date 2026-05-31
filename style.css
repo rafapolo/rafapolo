@@ -414,7 +414,7 @@ h2 {
 
 .bio-cv-link {
     display: inline-block;
-    float: right;
+    align-self: flex-end;
     margin: 4px 20px 20px;
     font-size: 13px;
     color: var(--accent);
@@ -574,15 +574,15 @@ h2 {
     }
 
     #portfolio .card .desc {
-        flex-basis: 100%;
+        flex: 1;
+        min-width: 0;
         white-space: normal;
         overflow: visible;
         text-overflow: clip;
     }
 
     #portfolio .card .card-tag {
-        order: -1;
-        margin-left: auto;
+        flex-shrink: 0;
     }
 }
 
