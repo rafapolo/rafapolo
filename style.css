@@ -599,43 +599,112 @@ h2 {
 }
 
 .cv-section {
-    margin-top: 1.8em;
+    margin-top: 2.3em;
 }
 
 .cv-section:first-child {
     margin-top: 0;
 }
 
+.cv-heading {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding-bottom: 6px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+}
+
 .cv-entry {
-    margin-left: 5px;
     font-size: 14px;
-    padding-left: 8px;
-    border-left: 1px solid white;
-    line-height: 20px;
-    margin-bottom: 20px;
+    line-height: 1.5;
+    margin-bottom: 18px;
 }
 
-ul.cv-entry {
-    list-style: none;
-    padding-inline-start: 8px;
+.cv-entry:last-child {
+    margin-bottom: 0;
 }
 
-.cv-entry a:hover {
-    color: var(--muted);
+/* date-led entries become a two-column timeline */
+.cv-entry:has(.cv-date) {
+    display: grid;
+    grid-template-columns: 6em 1fr;
+    gap: 0 18px;
+    align-items: start;
+}
+
+.cv-date {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.5;
+    font-variant-numeric: tabular-nums;
+    padding-top: 1px;
+}
+
+.cv-detail {
+    border-left: 1px solid var(--border);
+    padding-left: 16px;
+}
+
+.cv-entry:has(.cv-now) .cv-detail {
+    border-left-color: var(--accent);
 }
 
 .cv-entry-name {
-    text-decoration: underline;
+    color: var(--accent-strong);
+    font-weight: 700;
 }
 
-.cv-heading {
-    display: block;
-    margin-left: 5px;
-    padding-left: 8px;
-    border-left: 1px dashed white;
-    font-size: inherit;
-    line-height: inherit;
+.cv-place {
+    color: var(--soft);
+    font-size: 12.5px;
+}
+
+.cv-now {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--surface-2);
+    border-radius: 999px;
+    padding: 0 6px;
+    font-size: 9.5px;
     font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+
+.cv-entry a {
+    color: var(--accent);
+}
+
+.cv-entry a:hover {
+    color: var(--accent-strong);
+}
+
+/* chip clouds: skills, certifications, languages */
+.cv-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.chip {
+    font-size: 12px;
+    padding: 4px 11px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface-3);
+    color: var(--muted);
+    line-height: 1.3;
+}
+
+.chip strong {
+    color: var(--accent);
+    font-weight: 700;
+    margin-right: 4px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -644,5 +713,111 @@ ul.cv-entry {
     *::after {
         transition-duration: 0.01ms !important;
         animation-duration: 0.01ms !important;
+    }
+}
+
+/* ── print: recruiter-friendly light CV ── */
+@media print {
+    body {
+        background: #fff;
+        color: #111;
+        max-width: 100%;
+        padding: 0;
+        font-size: 10.5pt;
+    }
+
+    #menu,
+    #since,
+    #footer-email {
+        display: none !important;
+    }
+
+    #header {
+        position: static !important;
+        background: none !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 0 10px !important;
+    }
+
+    .eyebrow {
+        color: #111 !important;
+    }
+
+    #cv-body {
+        display: block !important;
+        opacity: 1 !important;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .cv-heading {
+        color: #000;
+        border-color: #999;
+    }
+
+    .cv-date {
+        color: #555;
+    }
+
+    .cv-entry-name {
+        color: #000;
+    }
+
+    .cv-place {
+        color: #555;
+    }
+
+    .cv-detail {
+        border-color: #ccc;
+    }
+
+    .cv-entry a {
+        color: #000 !important;
+        text-decoration: none;
+    }
+
+    .chip {
+        background: #fff;
+        border-color: #bbb;
+        color: #222;
+    }
+
+    .chip strong {
+        color: #000;
+    }
+
+    .cv-now {
+        background: #000;
+        color: #fff;
+    }
+
+    .cv-section {
+        break-inside: avoid;
+    }
+
+    .cv-entry {
+        break-inside: avoid;
+    }
+}
+
+/* ── curriculum.html — mobile (after base rules so it wins) ── */
+@media (max-width: 600px) {
+    #cv-body {
+        margin-right: 0;
+    }
+
+    .cv-entry:has(.cv-date) {
+        grid-template-columns: 1fr;
+        gap: 3px;
+    }
+
+    .cv-date {
+        padding-top: 0;
+    }
+
+    .cv-detail {
+        border-left: none;
+        padding-left: 0;
     }
 }
