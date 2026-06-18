@@ -523,10 +523,26 @@ h2 {
         width: 80px;
     }
 
-    .brand-tagline h1 {
-        white-space: normal;
+    .brand-tagline {
+        display: none;
+    }
+
+    .header-shell {
+        gap: 10px;
+    }
+
+    #menu {
+        gap: 6px;
+    }
+
+    #menu a {
+        padding: 5px 9px;
         font-size: 13px;
-        line-height: 1.4;
+    }
+
+    /* logo already links home, so the About item is redundant on mobile */
+    #menu a[href="index.html"] {
+        display: none;
     }
 
     .eyebrow {
