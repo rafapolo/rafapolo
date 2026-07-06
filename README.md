@@ -7,7 +7,7 @@
 
 <p>Before Git existed, I worked as a software developer for a competitive intelligence startup in Rio de Janeiro, Brazil. Over the last 15 years, I have lived in Berlin, Lisbon, Athens, and Zurich, working as an engineer, tech lead, DevOps specialist, and educator, supporting journalists, researchers, designers, and CEOs.</p>
 
-<p>Most of my open-source projects have focused on civic data scraping for transparency, cultural media archives, natural language processing, crypto-economic experiments, and data visualization.</p>
+<p>Most of my open-source projects have focused on civic data scraping for public transparency, cultural media archives, natural language processing, crypto-economic experiments, and data visualization.</p>
 
 → Check out my latest data research and visualizations at [ミ.xyz](ミ.xyz/dataviz)
     
