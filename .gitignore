@@ -6,6 +6,7 @@
 CLAUDE.md
 .claude/
 tasks/
+todo.md
 node_modules/
 .cache/
 dist/

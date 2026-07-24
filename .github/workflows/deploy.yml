@@ -25,7 +25,7 @@ jobs:
       - name: Minify
         run: |
           mkdir -p dist/js
-          for f in img projeto favicon.ico polo.png rafael-polo-cv.pdf CNAME index.html curriculum.html; do
+          for f in img projeto favicon.ico polo.png rafael-polo-cv.pdf 0xCE8E94C8EDA640B6.pub.txt CNAME index.html curriculum.html; do
             [ -e "$f" ] && cp -r "$f" dist/
           done
           bunx esbuild js/graph.js js/springyui.js \
