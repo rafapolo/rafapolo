@@ -86,7 +86,7 @@ var nAres = graph.newNode({
 });
 var nSubZKU = graph.newNode({
   label: "SubZKU",
-  site: "https://extrapolo.com/projeto/subzku",
+  site: "/projeto/subzku/",
 });
 
 // ── 2018 ────────────────────────────────────────────────────────────────────
@@ -136,13 +136,13 @@ var nWebDoc = graph.newNode({
 });
 var nPensar = graph.newNode({
   label: "Pensar Público",
-  site: "http://extrapolo.com/projeto/pensarpublico",
+  site: "/projeto/pensarpublico/",
 });
 
 // ── 2011 ────────────────────────────────────────────────────────────────────
 var nGrafica = graph.newNode({
   label: "Gráfica Utópica",
-  site: "http://extrapolo.com/projeto/graficautopica.net/",
+  site: "/projeto/graficautopica.net/",
 });
 
 // ── 2010 ────────────────────────────────────────────────────────────────────
