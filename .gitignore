@@ -26,4 +26,21 @@ cvs/
 
 # Local-only assets
 img/
-projeto/
+
+# projeto/ is local-only EXCEPT the three project folders the site actually links to.
+# Everything else stays out — see todo.md.
+projeto/*
+!projeto/graficautopica.net/
+!projeto/pensarpublico/
+!projeto/subzku/
+
+# ...and within those, keep the dead weight out:
+projeto/pensarpublico/**/*.zip
+projeto/subzku/subzku/
+projeto/subzku/**/*.webm
+projeto/subzku/**/*.ogg
+
+# visitor access logs — contain IP addresses, must never be published
+projeto/subzku/sub_access.txt
+projeto/subzku/ips_count.txt
+projeto/subzku/report.html
