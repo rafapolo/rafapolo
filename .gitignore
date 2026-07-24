@@ -1,17 +1,28 @@
-CLAUDE.md
+# OS / editor
 .DS_Store
-.claude/
-node_modules/
 *.log
-*.env
-.env.*
-dist/
-.cache/
+
+# Tooling
+CLAUDE.md
+.claude/
 tasks/
-*.pvt.txt
-*.pub.txt
+node_modules/
+.cache/
+dist/
 # CocoIndex Code (ccc)
 /.cocoindex_code/
-projeto/
-img/
+
+# Secrets
+*.env
+.env.*
+*.pvt.txt
+*.pub.txt
+!0xCE8E94C8EDA640B6.pub.txt
+
+# Private — job applications, CVs, cover letters, references. Keep out of the public repo.
+job/
 cvs/
+
+# Local-only assets
+img/
+projeto/
