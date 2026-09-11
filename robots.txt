@@ -1,0 +1,6 @@
+# extrapolo.com
+
+User-agent: *
+Allow: /
+
+Sitemap: https://extrapolo.com/sitemap.xml

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The deployed surface is small and fixed: see the copy list in
+     .github/workflows/deploy.yml. Update this file when that list changes. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://extrapolo.com/</loc>
+    <lastmod>2026-07-28</lastmod>
+  </url>
+  <url>
+    <loc>https://extrapolo.com/curriculum.html</loc>
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://extrapolo.com/projeto/graficautopica.net/</loc>
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://extrapolo.com/projeto/pensarpublico/</loc>
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://extrapolo.com/projeto/subzku/</loc>
+    <lastmod>2026-07-24</lastmod>
+  </url>
+</urlset>
