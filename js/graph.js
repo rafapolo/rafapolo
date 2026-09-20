@@ -52,7 +52,7 @@ var nRios = graph.newNode({
   site: "https://rodado.xyz/plataformas/rios-do-brasil/",
 });
 var nTseBens = graph.newNode({
-  label: "tse-bens",
+  label: "TSE-bens",
   site: "https://rodado.xyz/plataformas/patrimonio/",
 });
 var nVorcaros = graph.newNode({
