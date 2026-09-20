@@ -39,9 +39,25 @@ var nMalaf = graph.newNode({
   label: "malafaia",
   site: "https://xn--2dk.xyz/malafaia/",
 });
-var nPt26 = graph.newNode({
-  label: "pt-2026",
-  site: "https://xn--2dk.xyz/dataviz/pt-2026/",
+var nBrasil = graph.newNode({
+  label: "brasiliano",
+  site: "https://xn--2dk.xyz/brasiliana/",
+});
+var nPet = graph.newNode({
+  label: "pet16704",
+  site: "https://rodado.xyz/plataformas/pet16704/",
+});
+var nRios = graph.newNode({
+  label: "rios-do-brasil",
+  site: "https://rodado.xyz/plataformas/rios-do-brasil/",
+});
+var nTseBens = graph.newNode({
+  label: "tse-bens",
+  site: "https://rodado.xyz/plataformas/patrimonio/",
+});
+var nVorcaros = graph.newNode({
+  label: "vorcaros",
+  site: "https://rafapolo.github.io/vorcaros/",
 });
 
 // ── 2025 ────────────────────────────────────────────────────────────────────
@@ -174,8 +190,11 @@ graph.newEdge(nSwissN, catData);
 graph.newEdge(nTigrim, catData);
 graph.newEdge(nTigrim, catData);
 graph.newEdge(nMalaf, catData);
-graph.newEdge(nPt26, catData);
-graph.newEdge(nPt26, catWork);
+graph.newEdge(nBrasil, catData);
+graph.newEdge(nPet, catData);
+graph.newEdge(nRios, catData);
+graph.newEdge(nTseBens, catData);
+graph.newEdge(nVorcaros, catData);
 
 graph.newEdge(nViso, catData);
 graph.newEdge(nViso, catData);
