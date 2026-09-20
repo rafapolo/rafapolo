@@ -11,6 +11,12 @@
 
 | Project | Year | Stack | i18n key | EN Description |
 |---|---|---|---|---|
+| **brasiliano** | 2026 | Node.js, Python, S3 | `proj.brasiliano` | Scraped and archived the entire ~13k Brasiliana Fotográfica photo collection into a public 3D wall viewer |
+| **pet16704** | 2026 | Python (OCR/NER), static HTML/JS | `proj.pet16704` | Brazil Supreme Court × Banco Master: ~3.5K documents OCR'd, mapped and summarized |
+| **pulso-da-imprensa-em-brasília** | 2026 | Python/DuckDB pipeline, static HTML | `proj.pulsoimprensa` | Lifecycle panel of 4,205 Brasília press-outlet companies, from incorporation to closure, since 2000 |
+| **rios-do-brasil** | 2026 | Python, static HTML/JS, Bun/Playwright | `proj.riosdobrasil` | Live map of Brazil's 462k river segments, colored by flow trend, from a century of public ANA gauge data |
+| **tse-bens** | 2026 | JavaScript (Rolldown), static site | `proj.tsebens` | Dashboard tracking 1,000+ federal deputies' declared wealth outpacing their salaries |
+| **vorcaros** | 2026 | JavaScript (Bun, d3-force), Python | `proj.vorcaros` | Ownership graph tracing Vorcaros Negócios Ltda through 263 partners to 8,088 connected companies |
 | **ASI-Evolve** | 2025 | Python, AI Agents, LLM | `proj.asievolve` | Autonomous agentic framework that closes the loop between knowledge, hypothesis, experiment, and analysis — enabling self-directed research across scientific and computational domains. |
 | **baseldosdados** | 2025 | Node.js, DuckDB, BigQuery, Parquet, Rust | `proj.baseldosdados` | Complete mirror of Base dos Dados' 533 public tables (~675 GB Parquet/zstd) on Hetzner, with an interactive DuckDB shell and a natural-language-to-SQL ask interface. |
 | **BraViz** | 2025 | Vite, Deck.gl, PMTiles, MapLibre | `proj.braviz` | Serverless, GPU-accelerated browser visualization of 8 million Brazilian establishments from IBGE's CNEFE dataset — no backend, no tile server. |
