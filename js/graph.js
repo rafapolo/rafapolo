@@ -9,7 +9,7 @@ var catWork = graph.newNode({ label: "[WORK]" });
 // ── 2026 ────────────────────────────────────────────────────────────────────
 var nBasel = graph.newNode({
   label: "baseldosdados",
-  site: "https://git.extrapolo.com/polo/baseldosdados",
+  site: "https://rodado.xyz/",
 });
 var nBraViz = graph.newNode({
   label: "BraViz",
@@ -132,7 +132,7 @@ var nZanini = graph.newNode({
 // ── 2012 ────────────────────────────────────────────────────────────────────
 var nWebDoc = graph.newNode({
   label: "WebDoc Graffiti",
-  site: "https://web.archive.org/web/20180311091348/http://www.webdocgraffiti.com.br:80/",
+  site: "https://rafapolo.github.io/webdocgraffiti/",
 });
 var nPensar = graph.newNode({
   label: "Pensar Público",
