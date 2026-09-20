@@ -11,12 +11,12 @@
 
 | Project | Year | Stack | i18n key | EN Description |
 |---|---|---|---|---|
-| **brasiliano** | 2026 | Node.js, Python, S3 | `proj.brasiliano` | Scraped and archived the entire ~13k Brasiliana Fotográfica photo collection into a public 3D wall viewer |
-| **pet16704** | 2026 | Python (OCR/NER), static HTML/JS | `proj.pet16704` | Brazil Supreme Court × Banco Master: ~3.5K documents OCR'd, mapped and summarized |
-| **pulso-da-imprensa-em-brasília** | 2026 | Python/DuckDB pipeline, static HTML | `proj.pulsoimprensa` | Lifecycle panel of 4,205 Brasília press-outlet companies, from incorporation to closure, since 2000 |
+| **brasiliano** | 2026 | Node.js, Python, S3 | `proj.brasiliano` | Scraped and archived the entire 13,060-item Brasiliana Fotográfica photo collection across 16 institutions into a public 3D wall viewer |
+| **pet16704** | 2026 | Python (OCR/NER), static HTML/JS | `proj.pet16704` | Brazil Supreme Court × Banco Master inquiry — 3,437 case documents OCR'd, mapped by institution, and summarized on a navigable timeline |
+| **pulso-da-imprensa-em-brasília** | 2026 | Python/DuckDB pipeline, static HTML | `proj.pulsoimprensa` | Lifecycle panel tracking 4,205 Brasília press-outlet companies registered with Receita Federal since 2000, from incorporation to closure |
 | **rios-do-brasil** | 2026 | Python, static HTML/JS, Bun/Playwright | `proj.riosdobrasil` | Live map of Brazil's 462k river segments, colored by flow trend, from a century of public ANA gauge data |
-| **tse-bens** | 2026 | JavaScript (Rolldown), static site | `proj.tsebens` | Dashboard tracking 1,000+ federal deputies' declared wealth outpacing their salaries |
-| **vorcaros** | 2026 | JavaScript (Bun, d3-force), Python | `proj.vorcaros` | Ownership graph tracing Vorcaros Negócios Ltda through 263 partners to 8,088 connected companies |
+| **tse-bens** | 2026 | JavaScript (Rolldown), static site | `proj.tsebens` | Dashboard tracking 1,025 federal deputies' declared wealth since 2010 against the salary their office actually paid them |
+| **vorcaros** | 2026 | JavaScript (Bun, d3-force), Python | `proj.vorcaros` | Ownership graph tracing Vorcaros Negócios Ltda through 263 partners to the 8,088 companies those partners also control |
 | **ASI-Evolve** | 2025 | Python, AI Agents, LLM | `proj.asievolve` | Autonomous agentic framework that closes the loop between knowledge, hypothesis, experiment, and analysis — enabling self-directed research across scientific and computational domains. |
 | **baseldosdados** | 2025 | Node.js, DuckDB, BigQuery, Parquet, Rust | `proj.baseldosdados` | Complete mirror of Base dos Dados' 533 public tables (~675 GB Parquet/zstd) on Hetzner, with an interactive DuckDB shell and a natural-language-to-SQL ask interface. |
 | **BraViz** | 2025 | Vite, Deck.gl, PMTiles, MapLibre | `proj.braviz` | Serverless, GPU-accelerated browser visualization of 8 million Brazilian establishments from IBGE's CNEFE dataset — no backend, no tile server. |
@@ -26,7 +26,7 @@
 | **polis** | 2024 | Python, Pandas, NetworkX, BigQuery, DuckDB | `proj.polis` | Digital humanities project mapping the ownership networks connecting Brazilian companies, deputies, and public expenditure — business-political entanglement as a graph. |
 | **helvetiscan** | 2024 | Rust, Node.js | `proj.helvetiscan` | Full scanner and mapper of 2.5M+ Swiss .ch domains: HTTP, DNS, TLS, port, WHOIS, MX, CVE. Sector classification, sovereignty scoring, and risk benchmarking with interactive force-graph. |
 | **swissviz** | 2024 | JS, Deck.gl, MapLibre, Mapbox Geocoding | `proj.swissviz` | Interactive map of Swiss companies from open data: CSV pipeline → Mapbox geocoding → gzip → GPU-rendered browser tiles with CartoDB basemap. |
-| **uqt** | 2023 | Node.js, Vanilla JS, S3 | `proj.uqt` | Digital archive of 100 years of Brazilian Popular Music: 2,303 albums, 28,742 tracks, 816 artists — virtual-scrolling grid, lazy-loaded covers, MP3 streaming via S3 proxy. |
+| **uqt** | 2026 | Node.js, Vanilla JS, S3 | `proj.uqt` | Digital archive of 100 years of Brazilian Popular Music: 2,303 albums, 28,742 tracks, 816 artists — virtual-scrolling grid, lazy-loaded covers, MP3 streaming via S3 proxy. |
 | **IBGE13** | 2023 | Python, Jupyter | `proj.ibge13` | Longitudinal analysis of 150 years of Brazilian census data (1872–2022) — housing, population, and social characteristics across 13 census periods. |
 | **sumaria** | 2023 | Python, Ollama, LLM | `proj.sumaria` | Fetches YouTube transcripts and runs them through a local LLM to generate structured summaries with key themes and action points — fully offline. |
 | **malafaia** | 2024 | Node.js, Deck.gl, Vite | `proj.malafaia` | Hexbin density map charting the geographic footprint of the Malafaia religious empire across Brazil — location data rendered in-browser with GPU acceleration. |
@@ -78,7 +78,6 @@
 | **MO LIN** | 2024 | Node.js, Handlebars | `works.molin` | Website system for MO LIN Chinese Art School in Basel — DRY template engine reducing 39 HTML files to reusable components with consolidated CSS and data-driven navigation. |
 | **Connectas / Grupo Bruto** | 2018 | Ruby, Rails, PostgreSQL | `works.connectas` | Investigative data platform mapping ownership networks connecting companies, campaign donors, relatives, and deputies using TSE electoral data — built for the Connectas journalism collective. |
 | **COVID-19 Brasil** | 2020 | Ruby, ChartJS, JSON | `works.covid19` | Real-time dashboard aggregating and visualizing Brazilian COVID-19 case data by state and city throughout the pandemic. |
-| **pt-2026** | 2025 | JS, HTML, CSV | `works.pt2026` | Interactive electoral visualization analyzing Portuguese vote distribution ahead of the 2026 election. *(Add only if the project is public/shareable.)* |
 
 ### KEEP (already on site — all 12 current entries are solid)
 
