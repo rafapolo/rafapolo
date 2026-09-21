@@ -308,17 +308,18 @@ h2 {
 }
 
 .card.card-flash {
-    animation: card-flash 200ms ease 3;
+    animation: card-flash 200ms ease-in-out 2;
 }
 
 @keyframes card-flash {
-    0% {
-        background: var(--accent-strong);
-        box-shadow: inset 3px 0 0 var(--accent-strong);
-    }
+    0%,
     100% {
         background: var(--surface-2);
         box-shadow: none;
+    }
+    50% {
+        background: rgba(236, 192, 141, 0.3);
+        box-shadow: inset 3px 0 0 rgba(236, 192, 141, 0.5);
     }
 }
 
