@@ -9,168 +9,169 @@ var catWork = graph.newNode({ label: "[WORK]" });
 // ── 2026 ────────────────────────────────────────────────────────────────────
 var nBasel = graph.newNode({
   label: "baseldosdados",
-  site: "https://rodado.xyz/",
+  id: "rodado",
 });
 var nBraViz = graph.newNode({
   label: "BraViz",
-  site: "https://github.com/rafapolo/BraViz",
+  id: "braviz",
 });
 var nDatat = graph.newNode({
   label: "datative",
-  site: "https://github.com/rafapolo/datative",
+  id: "datative",
 });
 var nHelvet = graph.newNode({
   label: "helvetiscan",
-  site: "https://github.com/rafapolo/helvetiscan",
+  id: "helvetiscan",
 });
 var nSwissV = graph.newNode({
   label: "swissviz",
-  site: "https://github.com/rafapolo/swissviz",
+  id: "swissviz",
 });
 var nSwissN = graph.newNode({
   label: "swiss network",
-  site: "https://xn--2dk.xyz/dataviz/swiss/",
+  id: "dependency-map",
 });
 var nTigrim = graph.newNode({
   label: "Pegadas Tigrinho",
-  site: "https://tinyurl.com/pegadas-tigrim",
+  id: "pegadas-tigrinho",
 });
 var nMalaf = graph.newNode({
   label: "malafaia",
-  site: "https://xn--2dk.xyz/malafaia/",
+  id: "malafaia",
 });
 var nBrasil = graph.newNode({
   label: "brasiliano",
-  site: "https://xn--2dk.xyz/brasiliana/",
+  id: "brasiliano",
 });
 var nPet = graph.newNode({
   label: "pet16704",
-  site: "https://rodado.xyz/plataformas/pet16704/",
+  id: "pet16704",
 });
 var nRios = graph.newNode({
   label: "rios-do-brasil",
-  site: "https://rodado.xyz/plataformas/rios-do-brasil/",
+  id: "rios-do-brasil",
 });
 var nTseBens = graph.newNode({
   label: "TSE-bens",
-  site: "https://rodado.xyz/plataformas/patrimonio/",
+  id: "tse-bens",
 });
 var nVorcaros = graph.newNode({
   label: "vorcaros",
-  site: "https://rafapolo.github.io/vorcaros/",
+  id: "vorcaros",
 });
 
 // ── 2025 ────────────────────────────────────────────────────────────────────
 var nViso = graph.newNode({
   label: "viso",
-  site: "https://github.com/rafapolo/viso",
+  id: "viso",
 });
 var nFincr = graph.newNode({
   label: "fincrime",
-  site: "https://github.com/rafapolo/fincrime",
+  id: "fincrime",
 });
 var nIBGE13 = graph.newNode({
   label: "IBGE13",
-  site: "https://github.com/rafapolo/IBGE13",
+  id: "ibge13",
 });
 var nSumar = graph.newNode({
   label: "sumaria",
-  site: "https://github.com/rafapolo/sumaria",
+  id: "sumaria",
 });
 var nRAIS = graph.newNode({
   label: "RAIS",
-  site: "https://xn--2dk.xyz/dataviz/rais/",
+  id: "rais",
 });
 var nRioI = graph.newNode({
   label: "Rio IBGE",
-  site: "https://xn--2dk.xyz/dataviz/rio/ibge",
+  id: "dataviz-hub",
 });
 var nFriba = graph.newNode({
   label: "Friba",
-  site: "https://xn--2dk.xyz/dataviz/friba/pop_3d",
+  id: "friba",
 });
 // ── 2020 ────────────────────────────────────────────────────────────────────
 var nUQT = graph.newNode({
   label: "tocador",
-  site: "https://github.com/rafapolo/tocador",
+  id: "tocador",
 });
 
 // ── 2019 ────────────────────────────────────────────────────────────────────
 var nAres = graph.newNode({
   label: "Ares",
-  site: "https://github.com/rafapolo/ares",
 });
 var nSubZKU = graph.newNode({
   label: "SubZKU",
-  site: "/projeto/subzku/",
 });
 
 // ── 2018 ────────────────────────────────────────────────────────────────────
 var nTrib = graph.newNode({
   label: "Tribuna",
-  site: "https://github.com/rafapolo/tribuna",
+  id: "tribuna",
 });
 var nRenda = graph.newNode({
   label: "Renda",
-  site: "https://github.com/rafapolo/renda",
+  id: "renda",
 });
 var nConn = graph.newNode({
   label: "Connectas",
-  site: "https://www.connectas.org/especiales/odebrecht/",
+  id: "connectas",
 });
 
 // ── 2016 ────────────────────────────────────────────────────────────────────
 var nETI = graph.newNode({
   label: "Exposing the Invisible",
-  site: "https://exposingtheinvisible.org/",
+  id: "exposing-the-invisible",
+});
+var nHolistic = graph.newNode({
+  label: "Holistic Security",
+  id: "holistic-security",
 });
 
 // ── 2014 ────────────────────────────────────────────────────────────────────
 var nSteg = graph.newNode({
   label: "Steganos",
-  site: "https://github.com/rafapolo/steganos",
+  id: "steganos",
 });
 
 // ── 2013 ────────────────────────────────────────────────────────────────────
 var nMostr = graph.newNode({
   label: "Mostre!me Cultura",
-  site: "http://mostre.me/cultura",
+  id: "mostre-me-cultura",
 });
 var nAgua = graph.newNode({
   label: "Agenda Água",
-  site: "https://github.com/rafapolo/aguanaescola",
+  id: "agua-na-escola",
 });
 var nZanini = graph.newNode({
   label: "Studio Zanini",
-  site: "https://web.archive.org/web/20180217031203/http://www.studiozanini.com.br/",
 });
 
 // ── 2012 ────────────────────────────────────────────────────────────────────
 var nWebDoc = graph.newNode({
   label: "WebDoc Graffiti",
-  site: "https://rafapolo.github.io/webdocgraffiti/",
+  id: "webdoc-graffiti",
 });
 var nPensar = graph.newNode({
   label: "Pensar Público",
-  site: "/projeto/pensarpublico/",
+  id: "pensar-publico",
 });
 
 // ── 2011 ────────────────────────────────────────────────────────────────────
 var nGrafica = graph.newNode({
   label: "Gráfica Utópica",
-  site: "/projeto/graficautopica.net/",
+  id: "grafica-utopica",
 });
 
 // ── 2010 ────────────────────────────────────────────────────────────────────
 var nRazao = graph.newNode({
   label: "Razão e Ambiente",
-  site: "https://web.archive.org/web/20160401044158/http://razaoeambiente.com.br/",
+  id: "razao-e-ambiente",
 });
 
 // ── 2009 ────────────────────────────────────────────────────────────────────
 var nConsul = graph.newNode({
   label: "Consulta Natural",
-  site: "https://github.com/rafapolo/consulta-natural/wiki",
+  id: "consulta-natural",
 });
 
 // ── Edges ───────────────────────────────────────────────────────────────────
@@ -225,6 +226,9 @@ graph.newEdge(nConn, catWork);
 graph.newEdge(nETI, catDesign);
 graph.newEdge(nETI, catWork);
 graph.newEdge(nETI, catData);
+
+graph.newEdge(nHolistic, catDesign);
+graph.newEdge(nHolistic, catWork);
 
 graph.newEdge(nSteg, catTool);
 
