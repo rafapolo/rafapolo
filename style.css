@@ -585,6 +585,15 @@ h2 {
         gap: 10px;
     }
 
+    .filter-bar {
+        width: 100%;
+        justify-content: center;
+    }
+
+    #portfolio {
+        gap: 10px;
+    }
+
     #portfolio .card:not(.card-bio):not(.card-graph) {
         height: auto;
         min-height: 52px;
@@ -609,6 +618,7 @@ h2 {
         flex: 1 1 100%;
         order: 2;
         min-width: 0;
+        font-size: 12px;
         white-space: normal;
         overflow: visible;
         text-overflow: clip;
