@@ -19,9 +19,10 @@ function initMeio() {
                     if (flashed) return;
                     flashed = true;
                     match.classList.add('card-flash');
-                    setTimeout(function() {
+                    match.addEventListener('animationend', function handler() {
                         match.classList.remove('card-flash');
-                    }, 500);
+                        match.removeEventListener('animationend', handler);
+                    });
                 }
                 window.addEventListener('scrollend', flash, { once: true });
                 setTimeout(flash, 900);
