@@ -14,10 +14,17 @@ function initMeio() {
             }
             setTimeout(function() {
                 match.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                match.classList.add('card-flash');
-                setTimeout(function() {
-                    match.classList.remove('card-flash');
-                }, 500);
+                var flashed = false;
+                function flash() {
+                    if (flashed) return;
+                    flashed = true;
+                    match.classList.add('card-flash');
+                    setTimeout(function() {
+                        match.classList.remove('card-flash');
+                    }, 500);
+                }
+                window.addEventListener('scrollend', flash, { once: true });
+                setTimeout(flash, 900);
             }, match.classList.contains('hidden') ? 200 : 0);
         }
     });
