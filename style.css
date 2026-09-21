@@ -308,7 +308,7 @@ h2 {
 }
 
 .card.card-flash {
-    animation: card-flash 500ms ease;
+    animation: card-flash 200ms ease 3;
 }
 
 @keyframes card-flash {
