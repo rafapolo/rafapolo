@@ -307,6 +307,21 @@ h2 {
     display: none;
 }
 
+.card.card-flash {
+    animation: card-flash 500ms ease;
+}
+
+@keyframes card-flash {
+    0% {
+        background: var(--accent-strong);
+        box-shadow: inset 3px 0 0 var(--accent-strong);
+    }
+    100% {
+        background: var(--surface-2);
+        box-shadow: none;
+    }
+}
+
 .card .thumb {
     display: none;
     position: absolute;
@@ -583,14 +598,16 @@ h2 {
     }
 
     #portfolio .card .name {
-        flex-basis: 100%;
+        flex: 1 1 auto;
+        min-width: 0;
         white-space: normal;
         overflow: visible;
         text-overflow: clip;
     }
 
     #portfolio .card .desc {
-        flex: 1;
+        flex: 1 1 100%;
+        order: 2;
         min-width: 0;
         white-space: normal;
         overflow: visible;
@@ -599,6 +616,7 @@ h2 {
 
     #portfolio .card .card-tag {
         flex-shrink: 0;
+        margin-left: auto;
     }
 }
 

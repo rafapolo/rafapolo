@@ -5,11 +5,8 @@ function initMeio() {
         damping: 0.1,
         graph: graph,
         nodeSelected: function(node) {
-            if (!node.data.site) return;
-            var match = null;
-            document.querySelectorAll('.card:not([data-static])').forEach(function(card) {
-                if (!match && card.href === node.data.site) match = card;
-            });
+            if (!node.data.id) return;
+            var match = document.querySelector('.card[data-id="' + node.data.id + '"]');
             if (!match) return;
             if (match.classList.contains('hidden')) {
                 var allBtn = document.querySelector('.filter-btn[data-filter="all"]');
@@ -17,6 +14,10 @@ function initMeio() {
             }
             setTimeout(function() {
                 match.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                match.classList.add('card-flash');
+                setTimeout(function() {
+                    match.classList.remove('card-flash');
+                }, 500);
             }, match.classList.contains('hidden') ? 200 : 0);
         }
     });

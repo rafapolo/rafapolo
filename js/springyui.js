@@ -99,7 +99,7 @@ function initSpringy(canvas, params) {
     });
     nearest = layout.nearest(p);
     canvas.style.cursor =
-      nearest && nearest.node && nearest.node.data.site ? "pointer" : "default";
+      nearest && nearest.node && nearest.node.data.id ? "pointer" : "default";
     renderer.start();
   });
 
@@ -255,7 +255,7 @@ function initSpringy(canvas, params) {
 
       var inNetwork = highlightedNetwork.indexOf(node.id) !== -1;
       var isNearest = nearest !== null && nearest.node !== null && nearest.node.id === node.id;
-      var isHovered = isNearest && nearest.node.data.site != null;
+      var isHovered = isNearest && nearest.node.data.id != null;
 
       ctx.textAlign = "center";
       ctx.textBaseline = "top";
