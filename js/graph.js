@@ -246,3 +246,40 @@ graph.newEdge(nRazao, catWork);
 
 graph.newEdge(nConsul, catData);
 graph.newEdge(nConsul, catTool);
+
+// ── Added to match project list ─────────────────────────────────────────────
+var n_erthos = graph.newNode({
+  label: "Erthos",
+  id: "erthos",
+});
+var n_verafiko = graph.newNode({
+  label: "VERAΞFIKO",
+  id: "verafiko",
+});
+var n_speculari = graph.newNode({
+  label: "speculari",
+  id: "speculari",
+});
+var n_rastros = graph.newNode({
+  label: "rastros",
+  id: "rastros",
+});
+var n_processing = graph.newNode({
+  label: "processing",
+  id: "processing",
+});
+var n_fratura = graph.newNode({
+  label: "fratura",
+  id: "fratura",
+});
+var n_damnatio = graph.newNode({
+  label: "Damnatio Memoriae",
+  id: "damnatio-memoriae",
+});
+graph.newEdge(n_erthos, catDesign);
+graph.newEdge(n_verafiko, catTool);
+graph.newEdge(n_speculari, catTool);
+graph.newEdge(n_rastros, catTool);
+graph.newEdge(n_processing, catTool);
+graph.newEdge(n_fratura, catTool);
+graph.newEdge(n_damnatio, catDesign);
