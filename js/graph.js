@@ -115,13 +115,11 @@ var nHolistic = graph.newNode({
   id: "holistic-security",
 });
 
-// ── 2014 ────────────────────────────────────────────────────────────────────
+// ── 2013 ────────────────────────────────────────────────────────────────────
 var nSteg = graph.newNode({
   label: "Steganos",
   id: "steganos",
 });
-
-// ── 2013 ────────────────────────────────────────────────────────────────────
 var nMostr = graph.newNode({
   label: "Mostre!me Cultura",
   id: "mostre-me-cultura",
