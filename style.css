@@ -964,7 +964,7 @@ button.filter-btn {
 /* date-led entries become a two-column timeline */
 .cv-entry:has(.cv-date) {
     display: grid;
-    grid-template-columns: 6em 1fr;
+    grid-template-columns: 7.5em 1fr;
     gap: 0 18px;
     align-items: start;
 }
@@ -1016,6 +1016,62 @@ button.filter-btn {
 
 .cv-entry a:hover {
     color: var(--accent-strong);
+}
+
+.cv-bullets {
+    list-style: none;
+    margin: 6px 0 0;
+    padding: 0;
+}
+
+.cv-bullets li {
+    position: relative;
+    padding-left: 14px;
+    margin-bottom: 3px;
+    color: var(--muted);
+}
+
+.cv-bullets li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 5px;
+    height: 1px;
+    background: var(--accent);
+}
+
+.cv-bullets strong {
+    color: var(--accent-strong);
+    font-weight: 700;
+}
+
+.cv-skills {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 12em 1fr;
+    gap: 10px 18px;
+    align-items: baseline;
+}
+
+.cv-skills dt {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.cv-skills dd {
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .cv-skills {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+    .cv-skills dd {
+        margin-bottom: 10px;
+    }
 }
 
 /* chip clouds: skills, certifications, languages */
