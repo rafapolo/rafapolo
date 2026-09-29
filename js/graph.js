@@ -65,10 +65,6 @@ var nFincr = graph.newNode({
   label: "fincrime",
   id: "fincrime",
 });
-var nIBGE13 = graph.newNode({
-  label: "IBGE13",
-  id: "ibge13",
-});
 var nSumar = graph.newNode({
   label: "sumaria",
   id: "sumaria",
@@ -76,10 +72,6 @@ var nSumar = graph.newNode({
 var nRAIS = graph.newNode({
   label: "RAIS",
   id: "rais",
-});
-var nRioI = graph.newNode({
-  label: "Rio IBGE",
-  id: "dataviz-hub",
 });
 var nFriba = graph.newNode({
   label: "Friba",
@@ -196,12 +188,9 @@ graph.newEdge(nViso, catData);
 graph.newEdge(nViso, catTool);
 graph.newEdge(nFincr, catData);
 graph.newEdge(nFincr, catData);
-graph.newEdge(nIBGE13, catData);
 graph.newEdge(nSumar, catTool);
 graph.newEdge(nRAIS, catData);
 graph.newEdge(nRAIS, catData);
-graph.newEdge(nRioI, catData);
-graph.newEdge(nRioI, catData);
 graph.newEdge(nFriba, catData);
 graph.newEdge(nFriba, catData);
 graph.newEdge(nUQT, catDesign);
