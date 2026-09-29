@@ -51,6 +51,10 @@ var nTseBens = graph.newNode({
   label: "TSE-bens",
   id: "tse-bens",
 });
+var nReligioes = graph.newNode({
+  label: "religioes",
+  id: "religioes",
+});
 var nVorcaros = graph.newNode({
   label: "vorcaros",
   id: "vorcaros",
@@ -179,6 +183,7 @@ graph.newEdge(nBrasil, catData);
 graph.newEdge(nPet, catData);
 graph.newEdge(nRios, catData);
 graph.newEdge(nTseBens, catData);
+graph.newEdge(nReligioes, catData);
 graph.newEdge(nVorcaros, catData);
 
 graph.newEdge(nViso, catData);
