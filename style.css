@@ -131,7 +131,8 @@ h2 {
 }
 
 .logo {
-    width: 165px;
+    height: 155px;
+    width: auto;
     user-select: none;
 }
 
@@ -765,7 +766,8 @@ button.filter-btn {
     }
 
     .logo {
-        width: 165px;
+        height: 100px;
+        width: auto;
     }
 
     .brand-tagline {
