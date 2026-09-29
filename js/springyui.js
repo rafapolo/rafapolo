@@ -41,18 +41,27 @@ function initSpringy(canvas, params) {
   var currentBB = layout.getBoundingBox();
   var targetBB = { bottomleft: new Vector(-2, -2), topright: new Vector(2, 2) };
 
-  Layout.requestAnimationFrame(function adjust() {
+  var adjusting = false;
+  function adjust() {
     targetBB = layout.getBoundingBox();
+    var dBL = targetBB.bottomleft.subtract(currentBB.bottomleft);
+    var dTR = targetBB.topright.subtract(currentBB.topright);
     currentBB = {
-      bottomleft: currentBB.bottomleft.add(
-        targetBB.bottomleft.subtract(currentBB.bottomleft).divide(10),
-      ),
-      topright: currentBB.topright.add(
-        targetBB.topright.subtract(currentBB.topright).divide(10),
-      ),
+      bottomleft: currentBB.bottomleft.add(dBL.divide(10)),
+      topright: currentBB.topright.add(dTR.divide(10)),
     };
+    if (dBL.magnitude() + dTR.magnitude() < 0.001) {
+      adjusting = false;
+      return;
+    }
     Layout.requestAnimationFrame(adjust);
-  });
+  }
+  function kickAdjust() {
+    if (adjusting) return;
+    adjusting = true;
+    Layout.requestAnimationFrame(adjust);
+  }
+  kickAdjust();
 
   var toScreen = function (p) {
     var size = currentBB.topright.subtract(currentBB.bottomleft);
@@ -158,6 +167,7 @@ function initSpringy(canvas, params) {
   var renderer = new Renderer(
     layout,
     function clear() {
+      kickAdjust();
       ctx.clearRect(0, 0, canvas.width, canvas.height);
     },
     function drawEdge(edge, p1, p2) {
@@ -277,6 +287,22 @@ function initSpringy(canvas, params) {
       ctx.restore();
     },
   );
+
+  function fitCanvas() {
+    var rect = canvas.getBoundingClientRect();
+    if (!rect.width || !rect.height) return;
+    canvas.width = Math.round(rect.width);
+    canvas.height = Math.round(rect.height);
+  }
+  fitCanvas();
+  var resizeTimer;
+  window.addEventListener("resize", function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () {
+      fitCanvas();
+      renderer.start();
+    }, 120);
+  });
 
   renderer.start();
 

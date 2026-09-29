@@ -1,3 +1,19 @@
+@font-face {
+    font-family: "Monda";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("fonts/monda-400.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Monda";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("fonts/monda-700.woff2") format("woff2");
+}
+
 :root {
     --bg: #363531;
     --surface: #272822;
@@ -20,18 +36,21 @@
 
 html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
 
 body {
     margin: 0;
     background: var(--bg);
     color: var(--text);
-    font-family: "Monda", sans-serif;
+    font-family: "Monda", system-ui, -apple-system, "Segoe UI", sans-serif;
     font-size: 18px;
     line-height: 1.55;
     letter-spacing: 0.1px;
     max-width: 1195px;
-    min-width: 375px;
+    min-width: 320px;
+    overflow-wrap: anywhere;
     margin-inline: auto;
     padding: 0 20px 28px;
 }
@@ -188,6 +207,8 @@ h2 {
 
 .filter-btn {
     cursor: pointer;
+    flex: 0 0 auto;
+    line-height: 1.4;
     font-size: 12px;
     padding: 4px 12px;
     border-radius: 999px;
@@ -249,7 +270,7 @@ h2 {
 }
 
 #portfolio {
-    display: none;
+    display: grid;
     margin-top: 0;
     grid-template-columns: 1fr;
     grid-auto-rows: auto;
@@ -452,7 +473,7 @@ h2 {
     grid-row: span 2;
     min-height: 0;
     display: grid;
-    grid-template-rows: auto minmax(260px, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
 }
 
 .card-graph h2 {
@@ -464,8 +485,10 @@ h2 {
 #graph-canvas {
     display: block;
     width: 100%;
+    height: 100%;
     min-height: 320px;
     cursor: default;
+    touch-action: pan-y;
 }
 
 #since {
@@ -496,6 +519,211 @@ h2 {
 
 
 
+/* ── view toggle + thumbnail grid ── */
+.view-toggle {
+    display: flex;
+    flex: 0 0 auto;
+    gap: 2px;
+    padding: 2px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface);
+}
+
+.view-btn {
+    display: inline-grid;
+    place-items: center;
+    width: 32px;
+    height: 26px;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    transition:
+        background 0.15s,
+        color 0.15s;
+}
+
+.view-btn:hover,
+.view-btn.active {
+    background: var(--accent);
+    color: #111;
+}
+
+button.filter-btn {
+    font-family: inherit;
+}
+
+.card:focus-visible {
+    outline: 2px solid var(--accent-strong);
+    outline-offset: 2px;
+}
+
+#portfolio.view-grid {
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 14px;
+}
+
+#portfolio.view-grid .card {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 8 / 5;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+}
+
+#portfolio.view-grid .card:hover {
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
+    border-color: var(--accent);
+}
+
+#portfolio.view-grid .card .thumb {
+    display: block;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+#portfolio.view-grid .card .thumb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition:
+        transform 0.4s ease,
+        filter 0.3s ease;
+}
+
+#portfolio.view-grid .card:hover .thumb img,
+#portfolio.view-grid .card:focus-visible .thumb img {
+    transform: scale(1.05);
+    filter: brightness(0.6);
+}
+
+.thumb-fallback {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 14px;
+    text-align: center;
+    background:
+        radial-gradient(
+            circle at 20% 15%,
+            hsl(var(--h) 55% 38% / 0.95),
+            transparent 65%
+        ),
+        linear-gradient(135deg, hsl(var(--h) 38% 24%), hsl(calc(var(--h) + 50) 42% 13%));
+}
+
+#portfolio.view-grid .card .thumb-fallback {
+    display: flex;
+}
+
+.thumb-fallback span {
+    font-size: clamp(18px, 2.4vw, 26px);
+    font-weight: 700;
+    line-height: 1.1;
+    color: hsl(var(--h) 65% 82%);
+    text-transform: capitalize;
+    transition: opacity 0.25s ease;
+}
+
+#portfolio.view-grid .card:hover .thumb-fallback span,
+#portfolio.view-grid .card:focus-visible .thumb-fallback span {
+    opacity: 0.25;
+}
+
+#portfolio.view-grid .card .info {
+    position: absolute;
+    inset: auto 0 0 0;
+    height: auto;
+    padding: 34px 12px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.88));
+}
+
+#portfolio.view-grid .thumb-fallback ~ .info {
+    background: none;
+}
+
+#portfolio.view-grid .thumb-fallback ~ .info .name {
+    visibility: hidden;
+}
+
+#portfolio.view-grid .card .name {
+    flex: none;
+    max-width: 100%;
+    font-size: 14px;
+    color: #fff;
+}
+
+#portfolio.view-grid .card .year {
+    order: 0;
+    flex: none;
+    font-size: 11px;
+}
+
+#portfolio.view-grid .card .card-tag {
+    display: none;
+}
+
+#portfolio.view-grid .card .desc {
+    display: block;
+    flex: none;
+    max-width: 100%;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    white-space: normal;
+    font-size: 12px;
+    line-height: 1.35;
+    color: rgba(255, 255, 255, 0.85);
+    transition:
+        max-height 0.25s ease,
+        opacity 0.25s ease;
+}
+
+#portfolio.view-grid .card:hover .desc,
+#portfolio.view-grid .card:focus-visible .desc {
+    max-height: 4.2em;
+    opacity: 1;
+}
+
+#portfolio.view-grid .card:hover .name {
+    color: #fff;
+}
+
+@media (hover: none) {
+    #portfolio.view-grid .card .desc {
+        display: none;
+    }
+
+    #portfolio.view-grid .card .thumb-fallback span {
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
 @media (max-width: 1020px) {
     .grid-top {
         grid-auto-rows: auto;
@@ -509,6 +737,7 @@ h2 {
 
     .card-graph {
         grid-column: 1 / -1;
+        grid-template-rows: auto clamp(300px, 62vw, 460px);
     }
 }
 
@@ -581,14 +810,74 @@ h2 {
 
     .intro-panel {
         padding: 14px 16px;
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
         gap: 10px;
     }
 
+    .intro-head {
+        flex: 1 1 100%;
+    }
+
+
+    #portfolio.view-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    #portfolio.view-grid .card .info {
+        padding: 26px 9px 8px;
+    }
+
+    #portfolio.view-grid .card .name {
+        font-size: 13px;
+    }
+
+    .thumb-fallback span {
+        font-size: 17px;
+    }
+
+    .intro-panel {
+        border-radius: 18px;
+    }
+
+    .intro-head h2 {
+        font-size: 14px;
+    }
+
     .filter-bar {
-        width: 100%;
+        flex: 1 1 0;
+        min-width: 0;
+        justify-content: flex-start;
+    }
+
+    .filter-btn {
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+
+    .view-btn {
+        width: 40px;
+        height: 34px;
+    }
+
+    .bio-cv-link {
+        padding: 8px 14px;
+    }
+
+    #menu a {
+        min-width: 40px;
+        min-height: 40px;
         justify-content: center;
+    }
+
+    #graph-canvas {
+        min-height: 0;
+    }
+
+    .card-graph {
+        grid-template-rows: auto 340px;
     }
 
     #portfolio {
@@ -636,7 +925,6 @@ h2 {
     max-width: 835px;
     margin-left: 0px;
     margin-right: 25px;
-    display: none;
 }
 
 #cv-body p {
@@ -864,5 +1152,20 @@ h2 {
     .cv-detail {
         border-left: none;
         padding-left: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    #cv-body {
+        margin-right: 0;
+    }
+
+    .cv-entry:has(.cv-date) {
+        grid-template-columns: 1fr;
+        gap: 2px;
+    }
+
+    .cv-detail {
+        padding-left: 12px;
     }
 }
