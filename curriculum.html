@@ -33,7 +33,7 @@
 
         <link rel="preload" href="fonts/monda-400.woff2" as="font" type="font/woff2" crossorigin />
         <link rel="preload" href="fonts/monda-700.woff2" as="font" type="font/woff2" crossorigin />
-        <link rel="stylesheet" href="style.css?v=32" />
+        <link rel="stylesheet" href="style.css?v=33" />
 
         <script type="application/ld+json">
             {
@@ -123,63 +123,102 @@
 
         <main id="cv-body">
             <section class="cv-section">
+                <h2 class="cv-heading">TECH SKILLS</h2>
+                <dl class="cv-skills">
+                    <dt>Languages &amp; Frameworks</dt>
+                    <dd class="cv-chips">
+                        <span class="chip">Python</span>
+                        <span class="chip">Ruby on Rails</span>
+                        <span class="chip">TypeScript</span>
+                        <span class="chip">React</span>
+                        <span class="chip">SQL</span>
+                        <span class="chip">HTML · CSS · JavaScript</span>
+                    </dd>
+                    <dt>Data &amp; AI</dt>
+                    <dd class="cv-chips">
+                        <span class="chip">PostgreSQL</span>
+                        <span class="chip">ETL &amp; Data Engineering</span>
+                        <span class="chip">AI Agents · RAG · LangChain</span>
+                        <span class="chip">LLM Integrations</span>
+                        <span class="chip">Crawling &amp; Scraping</span>
+                    </dd>
+                    <dt>DevOps &amp; Infra</dt>
+                    <dd class="cv-chips">
+                        <span class="chip">Docker</span>
+                        <span class="chip">Kubernetes</span>
+                        <span class="chip">CI/CD</span>
+                        <span class="chip">AWS</span>
+                        <span class="chip">Linux</span>
+                        <span class="chip">Git</span>
+                    </dd>
+                    <dt>Architecture</dt>
+                    <dd class="cv-chips">
+                        <span class="chip">REST API Design</span>
+                        <span class="chip">System Architecture · MVC · OOP</span>
+                    </dd>
+                </dl>
+            </section>
+
+            <section class="cv-section">
                 <h2 class="cv-heading">PROFESSIONAL EXPERIENCE</h2>
 
                 <div class="cv-entry">
                     <span class="cv-date"><time datetime="2025-04">2025</time> – <span class="cv-now">now</span></span>
                     <div class="cv-detail">
                         <span class="cv-entry-name">Freelance Data &amp; Visualization Engineer</span><br />
-                        Self-directed data engineering and visualization work —
-                        large-scale cartography platforms, network mapping, and
-                        offline-first system prototyping<br />
                         <span class="cv-place">Basel, Switzerland</span>
+                        <ul class="cv-bullets">
+                            <li>Large-scale cartography platforms and network mapping</li>
+                            <li>Offline-first system prototyping</li>
+                            <li>Shipped open source: helvetiscan, baseldosdados, swissviz, VISO</li>
+                        </ul>
                     </div>
                 </div>
 
                 <div class="cv-entry">
-                    <span class="cv-date"><time datetime="2024-03">2024</time> – <time datetime="2025-03">25</time></span>
+                    <span class="cv-date"><time datetime="2024-03">2024</time> – <time datetime="2025-03">2025</time></span>
                     <div class="cv-detail">
                         <span class="cv-entry-name">Swisscom</span> — DevOps Engineer<br />
-                        Maintained and modernized 28 mission-critical internal
-                        services used daily by field-operations teams; delivered
-                        features in Ruby on Rails within a SAFe Agile environment;
-                        deployed and operated with Docker &amp; Kubernetes under
-                        strict SLAs; contributed to CI/CD improvements supporting
-                        frequent, low-risk releases<br />
                         <span class="cv-place">Zurich, Switzerland</span>
+                        <ul class="cv-bullets">
+                            <li>Maintained and modernized <strong>28 mission-critical internal services</strong> used daily by field-operations teams</li>
+                            <li>Delivered features in Ruby on Rails within a SAFe Agile environment</li>
+                            <li>Deployed and operated on Docker &amp; Kubernetes under strict SLAs</li>
+                            <li>Improved CI/CD to support frequent, low-risk releases</li>
+                        </ul>
                     </div>
                 </div>
 
                 <div class="cv-entry">
-                    <span class="cv-date"><time datetime="2023-02">2023</time> – <time datetime="2024-02">24</time></span>
+                    <span class="cv-date"><time datetime="2023-02">2023</time> – <time datetime="2024-02">2024</time></span>
                     <div class="cv-detail">
                         <span class="cv-entry-name">EDGE Empower®</span> — Senior Technical Lead<br />
-                        First in-house technical hire; built a modern offline
-                        PayTool replacing the legacy system, cutting processing
-                        time by 98%; parallelized the CI/CD pipeline, reducing
-                        build time from 14 to 4 minutes; contracted and coached 3
-                        external developers and a UX designer<br />
                         <span class="cv-place">Zug, Switzerland</span>
+                        <ul class="cv-bullets">
+                            <li>First in-house technical hire</li>
+                            <li>Built a modern offline PayTool replacing the legacy system, <strong>cutting processing time by 98%</strong></li>
+                            <li>Parallelized the CI/CD pipeline, <strong>build time from 14 to 4 minutes</strong></li>
+                            <li>Contracted and coached 3 external developers and a UX designer</li>
+                        </ul>
                     </div>
                 </div>
 
                 <div class="cv-entry">
-                    <span class="cv-date"><time datetime="2010">2010</time> – <time datetime="2022">22</time></span>
+                    <span class="cv-date"><time datetime="2010">2010</time> – <time datetime="2022">2022</time></span>
                     <div class="cv-detail">
                         <span class="cv-entry-name">ExtraPolo</span> — Software Engineer &amp; Consultant<br />
-                        Civic tech, data journalism, culture &amp; arts, open
-                        source. 40+ projects across data investigations, web
-                        platforms, interactive installations and CMS systems.
-                        Selected clients: The Intercept Brasil (investigative data
-                        pipelines), Connectas / Grupo Bruto (ownership-network
-                        platform), and Rio de Janeiro's Environmental Secretariat
-                        (water-quality reporting platform)<br />
                         <span class="cv-place">Rio de Janeiro · Berlin · Athens · Lisbon</span>
+                        <ul class="cv-bullets">
+                            <li><strong>40+ projects</strong> in civic tech, data journalism, culture &amp; arts and open source: data investigations, web platforms, interactive installations, CMS systems</li>
+                            <li><strong>The Intercept Brasil</strong>: investigative data pipelines</li>
+                            <li><strong>Connectas / Grupo Bruto</strong>: ownership-network platform</li>
+                            <li><strong>Rio de Janeiro Environmental Secretariat</strong>: water-quality reporting platform</li>
+                        </ul>
                     </div>
                 </div>
 
                 <div class="cv-entry">
-                    <span class="cv-date"><time datetime="2017">2017</time> – <time datetime="2018">18</time></span>
+                    <span class="cv-date"><time datetime="2017">2017</time> – <time datetime="2018">2018</time></span>
                     <div class="cv-detail">
                         <span class="cv-entry-name">GFOSS.eu / Code + Create</span> — Web Programming Teacher<br />
                         Web programming to refugee and Greek youth through the
@@ -189,17 +228,18 @@
                 </div>
 
                 <div class="cv-entry">
-                    <span class="cv-date"><time datetime="2014-12">2014</time> – <time datetime="2016-06">16</time></span>
+                    <span class="cv-date"><time datetime="2014-12">2014</time> – <time datetime="2016-06">2016</time></span>
                     <div class="cv-detail">
                         <span class="cv-entry-name">Tactical Tech Collective</span> — Full-Stack Web Architect &amp; Developer<br />
-                        Built tools and platforms under the Exposing the Invisible
-                        team<br />
                         <span class="cv-place">Berlin, Germany</span>
+                        <ul class="cv-bullets">
+                            <li>Built investigative data tools and platforms under the Exposing the Invisible team (Ruby on Rails, data visualization)</li>
+                        </ul>
                     </div>
                 </div>
 
                 <div class="cv-entry">
-                    <span class="cv-date"><time datetime="2013-12">2013</time> – <time datetime="2014-01">14</time></span>
+                    <span class="cv-date"><time datetime="2013-12">2013</time> – <time datetime="2014-01">2014</time></span>
                     <div class="cv-detail">
                         <span class="cv-entry-name">Trommsdorff + Drüner</span> — Developer<br />
                         For the innovation + marketing consultants team<br />
@@ -208,7 +248,7 @@
                 </div>
 
                 <div class="cv-entry">
-                    <span class="cv-date"><time datetime="2010">2010</time> – <time datetime="2012">12</time></span>
+                    <span class="cv-date"><time datetime="2010">2010</time> – <time datetime="2012">2012</time></span>
                     <div class="cv-detail">
                         <span class="cv-entry-name">Meio</span> — Co-founder<br />
                         Coworking space shared with architects and designers<br />
@@ -217,7 +257,7 @@
                 </div>
 
                 <div class="cv-entry">
-                    <span class="cv-date"><time datetime="2008">2008</time> – <time datetime="2010">10</time></span>
+                    <span class="cv-date"><time datetime="2008">2008</time> – <time datetime="2010">2010</time></span>
                     <div class="cv-detail">
                         <span class="cv-entry-name">Cortex Intelligence</span> — Developer<br />
                         Competitive Intelligence and Data Mining R&amp;D team<br />
@@ -245,7 +285,7 @@
                 </div>
 
                 <div class="cv-entry">
-                    <span class="cv-date"><time datetime="2003">2003</time> – <time datetime="2004">04</time></span>
+                    <span class="cv-date"><time datetime="2003">2003</time> – <time datetime="2004">2004</time></span>
                     <div class="cv-detail">
                         <span class="cv-entry-name">MeuServidor</span> — Co-founder<br />
                         Web hosting server based on Linux &amp; PHP<br />
@@ -258,12 +298,13 @@
                 <h2 class="cv-heading">SELECTED PROJECTS</h2>
 
                 <div class="cv-entry">
-                    40+ open-source projects across data analysis,
-                    visualization, automation and AI tooling — including
-                    helvetiscan, baseldosdados, swissviz and VISO. Browse the
-                    interactive project graph at
-                    <a href="index.html">extrapolo.com</a>
-                    | <a target="_blank" href="https://github.com/rafapolo">[github.com/rafapolo]</a>
+                    <ul class="cv-bullets cv-bullets-flush">
+                        <li><strong>Rodado</strong>: ~730 Brazilian public datasets, 1 TB of Parquet, DuckDB, natural-language-to-SQL over MCP</li>
+                        <li><strong>HelvetiScan</strong>: scanner and mapper of 2.5M+ Swiss .ch domains (HTTP, DNS, TLS, WHOIS, CVE)</li>
+                        <li>40+ open-source projects across data analysis, visualization, automation and AI tooling: browse the
+                        <a href="index.html">project graph</a>
+                        | <a target="_blank" href="https://github.com/rafapolo">[github.com/rafapolo]</a></li>
+                    </ul>
                 </div>
             </section>
 
@@ -365,31 +406,6 @@
             </section>
 
             <section class="cv-section">
-                <h2 class="cv-heading">TECH SKILLS</h2>
-                <div class="cv-entry cv-chips">
-                    <span class="chip">Python</span>
-                    <span class="chip">Ruby on Rails</span>
-                    <span class="chip">TypeScript</span>
-                    <span class="chip">React</span>
-                    <span class="chip">SQL</span>
-                    <span class="chip">PostgreSQL</span>
-                    <span class="chip">ETL &amp; Data Engineering</span>
-                    <span class="chip">REST API Design</span>
-                    <span class="chip">Docker</span>
-                    <span class="chip">Kubernetes</span>
-                    <span class="chip">CI/CD</span>
-                    <span class="chip">AWS</span>
-                    <span class="chip">Linux</span>
-                    <span class="chip">Git</span>
-                    <span class="chip">AI Agents · RAG · LangChain</span>
-                    <span class="chip">LLM Integrations</span>
-                    <span class="chip">Crawling &amp; Scraping</span>
-                    <span class="chip">System Architecture · MVC · OOP</span>
-                    <span class="chip">HTML · CSS · JavaScript</span>
-                </div>
-            </section>
-
-            <section class="cv-section">
                 <h2 class="cv-heading">LANGUAGES</h2>
                 <div class="cv-entry cv-chips">
                     <span class="chip"><strong>Portuguese</strong> native</span>
@@ -413,7 +429,7 @@
                 </div>
 
                 <div class="cv-entry">
-                    <span class="cv-date"><time datetime="2010">2010</time> – <time datetime="2012">12</time></span>
+                    <span class="cv-date"><time datetime="2010">2010</time> – <time datetime="2012">2012</time></span>
                     <div class="cv-detail">
                         <span class="cv-entry-name">Master in Information Systems</span><br />
                         Research Area: Knowledge Representation and Reasoning<br />
@@ -422,7 +438,7 @@
                 </div>
 
                 <div class="cv-entry">
-                    <span class="cv-date"><time datetime="2004">2004</time> – <time datetime="2009">09</time></span>
+                    <span class="cv-date"><time datetime="2004">2004</time> – <time datetime="2009">2009</time></span>
                     <div class="cv-detail">
                         <span class="cv-entry-name">Bachelor in Computer Science</span><br />
                         Centro Universitário Metodista Bennett<br />
@@ -440,7 +456,7 @@
                 </div>
 
                 <div class="cv-entry">
-                    <span class="cv-date"><time datetime="2006">2006</time> – <time datetime="2007">07</time></span>
+                    <span class="cv-date"><time datetime="2006">2006</time> – <time datetime="2007">2007</time></span>
                     <div class="cv-detail">
                         <span class="cv-entry-name">Java Software Development</span><br />
                         Department of Electronic Computation (NCE/UFRJ)<br />
