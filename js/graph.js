@@ -27,10 +27,6 @@ var nSwissV = graph.newNode({
   label: "swissviz",
   id: "swissviz",
 });
-var nSwissN = graph.newNode({
-  label: "swiss network",
-  id: "dependency-map",
-});
 var nTigrim = graph.newNode({
   label: "Pegadas Tigrinho",
   id: "pegadas-tigrinho",
@@ -186,8 +182,6 @@ graph.newEdge(nHelvet, catData);
 graph.newEdge(nHelvet, catTool);
 graph.newEdge(nSwissV, catData);
 graph.newEdge(nSwissV, catData);
-graph.newEdge(nSwissN, catData);
-graph.newEdge(nSwissN, catData);
 graph.newEdge(nTigrim, catData);
 graph.newEdge(nTigrim, catData);
 graph.newEdge(nMalaf, catData);
