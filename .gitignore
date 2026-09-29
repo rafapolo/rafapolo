@@ -24,8 +24,12 @@ dist/
 job/
 cvs/
 
-# Local-only assets
-img/
+# Local-only assets — only the optimized thumbnails and share image are published
+img/*
+!img/thumbs/
+!img/og.png
+img/thumbs/*
+!img/thumbs/*.webp
 
 # projeto/ is local-only EXCEPT the three project folders the site actually links to.
 # Everything else stays out — see todo.md.
