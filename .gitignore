@@ -31,15 +31,13 @@ img/*
 img/thumbs/*
 !img/thumbs/*.webp
 
-# projeto/ is local-only EXCEPT the three project folders the site actually links to.
+# projeto/ is local-only EXCEPT the two project folders the site actually links to.
 # Everything else stays out — see todo.md.
 projeto/*
 !projeto/graficautopica.net/
-!projeto/pensarpublico/
 !projeto/subzku/
 
 # ...and within those, keep the dead weight out:
-projeto/pensarpublico/**/*.zip
 projeto/subzku/subzku/
 projeto/subzku/**/*.webm
 projeto/subzku/**/*.ogg
