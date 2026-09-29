@@ -53,11 +53,11 @@
         });
     }
 
-    var saved = "list";
+    var saved = "grid";
     try {
-        saved = localStorage.getItem(VIEW_KEY) || "list";
+        saved = localStorage.getItem(VIEW_KEY) || "grid";
     } catch (e) {}
-    setView(saved === "grid" ? "grid" : "list");
+    setView(saved === "list" ? "list" : "grid");
 
     viewBtns.forEach(function (btn) {
         btn.addEventListener("click", function () {
