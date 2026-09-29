@@ -56,6 +56,11 @@ var nVorcaros = graph.newNode({
   id: "vorcaros",
 });
 
+var nUQT = graph.newNode({
+  label: "tocador",
+  id: "tocador",
+});
+
 // ── 2025 ────────────────────────────────────────────────────────────────────
 var nViso = graph.newNode({
   label: "viso",
@@ -76,11 +81,6 @@ var nRAIS = graph.newNode({
 var nFriba = graph.newNode({
   label: "Friba",
   id: "friba",
-});
-// ── 2020 ────────────────────────────────────────────────────────────────────
-var nUQT = graph.newNode({
-  label: "tocador",
-  id: "tocador",
 });
 
 // ── 2019 ────────────────────────────────────────────────────────────────────
