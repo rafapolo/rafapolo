@@ -758,6 +758,21 @@ button.filter-btn {
     }
 }
 
+@media (max-width: 760px) {
+    /* flex instead of grid so a lone last card can be centred, filters included */
+    #portfolio.view-grid {
+        --grid-gap: 14px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--grid-gap);
+    }
+
+    #portfolio.view-grid .card {
+        flex: 0 0 calc((100% - var(--grid-gap)) / 2);
+    }
+}
+
 @media (max-width: 600px) {
     body {
         font-size: 15px;
@@ -822,8 +837,7 @@ button.filter-btn {
 
 
     #portfolio.view-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
+        --grid-gap: 10px;
     }
 
     #portfolio.view-grid .card .info {
