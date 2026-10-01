@@ -19,7 +19,7 @@
 | **vorcaros** | 2026 | JavaScript (Bun, d3-force), Python | `proj.vorcaros` | Ownership graph tracing Vorcaros Negócios Ltda through 263 partners to the 8,088 companies those partners also control |
 | **ASI-Evolve** | 2025 | Python, AI Agents, LLM | `proj.asievolve` | Autonomous agentic framework that closes the loop between knowledge, hypothesis, experiment, and analysis — enabling self-directed research across scientific and computational domains. |
 | **baseldosdados** | 2025 | Node.js, DuckDB, BigQuery, Parquet, Rust | `proj.baseldosdados` | Complete mirror of Base dos Dados' 533 public tables (~675 GB Parquet/zstd) on Hetzner, with an interactive DuckDB shell and a natural-language-to-SQL ask interface. |
-| **BraViz** | 2025 | Vite, Deck.gl, PMTiles, MapLibre | `proj.braviz` | Serverless, GPU-accelerated browser visualization of 8 million Brazilian establishments from IBGE's CNEFE dataset — no backend, no tile server. |
+| **Brasilumen** | 2025 | Vite, Deck.gl, PMTiles, MapLibre | `proj.braviz` | Serverless, GPU-accelerated browser visualization of 8 million Brazilian establishments from IBGE's CNEFE dataset — no backend, no tile server. |
 | **datative** | 2024 | Bun, Sigma.js, Graphology, DuckDB WASM, S3 | `proj.datative` | Investigative analysis platform for exploring connections between companies, partners, and public records — interactive force-directed graphs with SQL-like CNPJ queries over remote Parquet data. |
 | **fincrime** | 2024 | JS, D3.js, DuckDB WASM | `proj.fincrime` | *Redes Obscuras* — interactive visualization of opaque corporate networks flagged for suspicious activity, built for financial crime investigation and money-laundering detection. |
 | **viso** | 2024 | JS, D3.js, DuckDB WASM, Monaco Editor | `proj.viso` | Interactive network visualization and live SQL explorer for Brazilian federal parliamentary expense data — shareable URLs, offline support, multi-layer caching. |
@@ -61,7 +61,7 @@
 | Project | Year | Reason |
 |---|---|---|
 | WikiBot | 2012 | Low signal; link dead; superseded by more interesting work |
-| Processing Sketches | 2010 | Superseded by BraViz, swissviz, and GPU-rendered viz work |
+| Processing Sketches | 2010 | Superseded by Brasilumen, swissviz, and GPU-rendered viz work |
 | BaixoGávea | 2009 | Torrent/image scraper; doesn't reflect current skills or narrative |
 | Mostre!me Links | 2009 | URL shortener; dated concept, weak signal |
 | Chat-RSA | 2008 | Superseded by Steganos (keep only if you want the historical 2008 bookmark) |
