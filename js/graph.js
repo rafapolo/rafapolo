@@ -12,7 +12,7 @@ var nBasel = graph.newNode({
   id: "rodado",
 });
 var nBraViz = graph.newNode({
-  label: "BraViz",
+  label: "Brasilumen",
   id: "braviz",
 });
 var nDatat = graph.newNode({
