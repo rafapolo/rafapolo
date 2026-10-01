@@ -562,12 +562,18 @@ button.filter-btn {
     outline-offset: 2px;
 }
 
+/* flex instead of grid so an incomplete last row can be centred, filters included */
 #portfolio.view-grid {
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    gap: 14px;
+    --cols: 4;
+    --grid-gap: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--grid-gap);
 }
 
 #portfolio.view-grid .card {
+    flex: 0 0 calc((100% - (var(--cols) - 1) * var(--grid-gap)) / var(--cols));
     height: auto;
     min-height: 0;
     aspect-ratio: 8 / 5;
@@ -726,6 +732,10 @@ button.filter-btn {
 }
 
 @media (max-width: 1020px) {
+    #portfolio.view-grid {
+        --cols: 3;
+    }
+
     .grid-top {
         grid-auto-rows: auto;
     }
@@ -759,17 +769,8 @@ button.filter-btn {
 }
 
 @media (max-width: 760px) {
-    /* flex instead of grid so a lone last card can be centred, filters included */
     #portfolio.view-grid {
-        --grid-gap: 14px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: var(--grid-gap);
-    }
-
-    #portfolio.view-grid .card {
-        flex: 0 0 calc((100% - var(--grid-gap)) / 2);
+        --cols: 2;
     }
 }
 
