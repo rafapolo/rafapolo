@@ -222,7 +222,7 @@ function initSpringy(canvas, params) {
         stroke = "#FFD700";
       }
 
-      var weight = edge.data.weight !== undefined ? edge.data.weight : 0.2;
+      var weight = edge.data.weight !== undefined ? edge.data.weight : 0.3;
       ctx.lineWidth = weight;
       var arrowWidth = ctx.lineWidth;
       var arrowLength = 8;
