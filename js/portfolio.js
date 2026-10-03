@@ -26,27 +26,75 @@
         lantern.id = "lantern";
         lantern.setAttribute("aria-hidden", "true");
         document.body.appendChild(lantern);
+        var LIGHT_RADIUS = 320;
+        var lit = Array.prototype.slice.call(
+            document.querySelectorAll(
+                ".intro-panel, .card-bio, .card-graph, #portfolio .card",
+            ),
+        );
         var mx = 0;
         var my = 0;
+        var active = false;
         var queued = false;
+
+        function castShadows() {
+            lit.forEach(function (el) {
+                var r = el.getBoundingClientRect();
+                var dx = Math.max(r.left - mx, 0, mx - r.right);
+                var dy = Math.max(r.top - my, 0, my - r.bottom);
+                var strength = active
+                    ? 1 - Math.sqrt(dx * dx + dy * dy) / LIGHT_RADIUS
+                    : 0;
+                if (strength <= 0 || r.width === 0) {
+                    if (el.classList.contains("lit")) el.classList.remove("lit");
+                    return;
+                }
+                var vx = r.left + r.width / 2 - mx;
+                var vy = r.top + r.height / 2 - my;
+                var len = Math.sqrt(vx * vx + vy * vy) || 1;
+                var reach = 3 + 7 * strength;
+                el.style.setProperty("--sx", ((vx / len) * reach).toFixed(1) + "px");
+                el.style.setProperty("--sy", ((vy / len) * reach).toFixed(1) + "px");
+                el.style.setProperty("--so", (0.35 * strength).toFixed(2));
+                el.classList.add("lit");
+            });
+        }
+
+        function frame() {
+            queued = false;
+            lantern.style.setProperty("--mx", mx + "px");
+            lantern.style.setProperty("--my", my + "px");
+            lantern.classList.toggle("on", active);
+            castShadows();
+        }
+
+        function schedule() {
+            if (queued) return;
+            queued = true;
+            requestAnimationFrame(frame);
+        }
+
         window.addEventListener(
             "pointermove",
             function (e) {
                 mx = e.clientX;
                 my = e.clientY;
-                if (queued) return;
-                queued = true;
-                requestAnimationFrame(function () {
-                    queued = false;
-                    lantern.style.setProperty("--mx", mx + "px");
-                    lantern.style.setProperty("--my", my + "px");
-                    lantern.classList.add("on");
-                });
+                active = true;
+                schedule();
+            },
+            { passive: true },
+        );
+        window.addEventListener(
+            "scroll",
+            function () {
+                if (active) schedule();
             },
             { passive: true },
         );
         document.addEventListener("mouseout", function (e) {
-            if (!e.relatedTarget) lantern.classList.remove("on");
+            if (e.relatedTarget) return;
+            active = false;
+            schedule();
         });
     }
 
