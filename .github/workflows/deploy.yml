@@ -22,19 +22,8 @@ jobs:
 
       - uses: oven-sh/setup-bun@v2
 
-      - name: Minify
-        run: |
-          mkdir -p dist/js
-          mkdir -p dist/img/thumbs
-          cp img/thumbs/*.webp dist/img/thumbs/
-          cp img/og.png dist/img/
-          for f in fonts projeto favicon.ico polo.png rafael-polo-cv.pdf 0xCE8E94C8EDA640B6.pub.txt CNAME robots.txt sitemap.xml index.html curriculum.html; do
-            [ -e "$f" ] && cp -r "$f" dist/
-          done
-          bunx esbuild js/graph.js js/springyui.js js/portfolio.js \
-            --bundle=false --minify --outdir=dist/js
-          cp js/springy.js dist/js/
-          bunx esbuild style.css --bundle=false --minify --outdir=dist/
+      - name: Build
+        run: ./build.sh
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
