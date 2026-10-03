@@ -3,6 +3,21 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script>
+            (function () {
+                var meta = document.querySelector('meta[name="viewport"]');
+                function fit() {
+                    var landscape = matchMedia("(orientation: landscape)").matches;
+                    var w = (landscape ? Math.max : Math.min)(screen.width, screen.height);
+                    meta.setAttribute(
+                        "content",
+                        w < 520 ? "width=520" : "width=device-width, initial-scale=1",
+                    );
+                }
+                fit();
+                addEventListener("orientationchange", fit);
+            })();
+        </script>
         <title>Rafael Polo — CV | Senior Data &amp; Platform Engineer</title>
         <meta name="description" content="Curriculum vitae of Rafael Polo, Senior Data &amp; Platform Engineer and Tech Lead: 20+ years across data infrastructure, full-stack platforms and AI-powered tools, in Brazil, Germany, Portugal and Switzerland." />
         <meta name="author" content="Rafael Polo" />
@@ -33,7 +48,7 @@
 
         <link rel="preload" href="fonts/monda-400.woff2" as="font" type="font/woff2" crossorigin />
         <link rel="preload" href="fonts/monda-700.woff2" as="font" type="font/woff2" crossorigin />
-        <link rel="stylesheet" href="style.css?v=45" />
+        <link rel="stylesheet" href="style.css?v=48" />
 
         <script type="application/ld+json">
             {

@@ -3,6 +3,21 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script>
+            (function () {
+                var meta = document.querySelector('meta[name="viewport"]');
+                function fit() {
+                    var landscape = matchMedia("(orientation: landscape)").matches;
+                    var w = (landscape ? Math.max : Math.min)(screen.width, screen.height);
+                    meta.setAttribute(
+                        "content",
+                        w < 520 ? "width=520" : "width=device-width, initial-scale=1",
+                    );
+                }
+                fit();
+                addEventListener("orientationchange", fit);
+            })();
+        </script>
         <title>Rafael Polo — Software Engineer, Data &amp; AI Platforms</title>
         <meta name="description" content="Rafael Polo is a Software Engineer and Tech Lead with 20+ years across data infrastructure, full-stack platforms and AI tooling. Browse 40 open-source projects, data visualizations and tools." />
         <meta name="author" content="Rafael Polo" />
@@ -32,7 +47,7 @@
 
         <link rel="preload" href="fonts/monda-400.woff2" as="font" type="font/woff2" crossorigin />
         <link rel="preload" href="fonts/monda-700.woff2" as="font" type="font/woff2" crossorigin />
-        <link rel="stylesheet" href="style.css?v=45" />
+        <link rel="stylesheet" href="style.css?v=48" />
 
         <script type="application/ld+json">
             {
@@ -71,7 +86,7 @@
         <script defer src="js/springy.js?v=2"></script>
         <script defer src="js/graph.js?v=10"></script>
         <script defer src="js/springyui.js?v=4"></script>
-        <script defer src="js/portfolio.js?v=4"></script>
+        <script defer src="js/portfolio.js?v=6"></script>
         <script
             defer
             src="https://cloud.umami.is/script.js"
@@ -146,13 +161,12 @@
                 <article class="card card-bio" data-static="true" data-tags="">
                     <div class="info">
                         <p class="bio-text">
-                            Now based in Basel, Rafael Polo is a Software
-                            Engineer &amp; Tech Lead who has worked in Rio de
-                            Janeiro, Berlin, Athens and Lisbon. Working across
-                            cultures, languages, platforms, data and AI, he has
-                            led product teams through modernisations and builds
-                            data tools that turn complex datasets into
-                            knowledge.
+                            Based in Basel, Rafael Polo is a Software Engineer
+                            who has worked in Rio de Janeiro, Berlin, Athens and
+                            Lisbon. Working across cultures, languages,
+                            platforms, data and AI, he has led product teams
+                            through modernisations and builds tools that turn
+                            complex datasets into knowledge.
                         </p>
                         <a href="curriculum.html" class="bio-cv-link"
                             >Check my CV</a
