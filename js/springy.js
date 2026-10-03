@@ -486,7 +486,7 @@ Layout.ForceDirected.prototype.getBoundingBox = function() {
 		}
 	});
 
-	var padding = topright.subtract(bottomleft).multiply(0.30); // 15% padding
+	var padding = topright.subtract(bottomleft).multiply(0.20); // 20% padding per side
 
 	return {bottomleft: bottomleft.subtract(padding), topright: topright.add(padding)};
 };
