@@ -103,6 +103,7 @@ h2 {
     transition:
         border-color 0.2s ease,
         background 0.2s ease;
+    view-transition-name: header;
 }
 
 #header.scrolled {
@@ -224,12 +225,7 @@ h2 {
         border-color 0.15s;
 }
 
-.filter-btn:hover {
-    background: var(--accent);
-    color: #111;
-    border-color: transparent;
-}
-
+.filter-btn:hover,
 .filter-btn.active {
     background: var(--accent);
     color: #111;
@@ -250,6 +246,7 @@ h2 {
 }
 
 .intro-panel {
+    background: var(--surface-2);
     margin: 16px 0;
     padding: 18px 24px;
     display: flex;
@@ -303,7 +300,6 @@ h2 {
 .card:not(.card-bio):not(.card-graph) {
     height: 52px;
     transition: opacity 0.15s ease;
-    position: relative;
 }
 
 .card.fading {
@@ -316,9 +312,9 @@ h2 {
 }
 
 #portfolio .card {
-    background: var(--surface-2);
     border: none;
     border-radius: 8px;
+    view-transition-class: card;
 }
 
 #portfolio .card:hover {
@@ -328,14 +324,6 @@ h2 {
 
 .card.hidden {
     display: none;
-}
-
-#header {
-    view-transition-name: header;
-}
-
-#portfolio .card {
-    view-transition-class: card;
 }
 
 ::view-transition-group(header) {
@@ -430,9 +418,6 @@ h2 {
     width: 76px;
     height: 76px;
     background: var(--surface-2);
-    background-size: 65%;
-    background-repeat: no-repeat;
-    background-position: center center;
 }
 
 .card .info {
@@ -488,13 +473,6 @@ h2 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-.bio-kicker {
-    position: absolute;
-    top: 22px;
-    left: 22px;
-    z-index: 1;
 }
 
 .card-bio .info {
@@ -588,14 +566,11 @@ h2 {
 
 #footer-email a {
     color: var(--soft);
-    text-decoration: none;
 }
 
 #footer-email a:hover {
     color: var(--muted);
 }
-
-
 
 /* ── view toggle + thumbnail grid ── */
 .view-toggle {
@@ -628,10 +603,6 @@ h2 {
 .view-btn.active {
     background: var(--accent);
     color: #111;
-}
-
-button.filter-btn {
-    font-family: inherit;
 }
 
 .card:focus-visible {
@@ -669,7 +640,6 @@ button.filter-btn {
     inset: 0;
     width: 100%;
     height: 100%;
-    background-size: cover;
 }
 
 #portfolio.view-grid .card .thumb img {
@@ -689,39 +659,6 @@ button.filter-btn {
     filter: brightness(0.6);
 }
 
-.thumb-fallback {
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 14px;
-    text-align: center;
-    background:
-        radial-gradient(
-            circle at 20% 15%,
-            hsl(var(--h) 55% 38% / 0.95),
-            transparent 65%
-        ),
-        linear-gradient(135deg, hsl(var(--h) 38% 24%), hsl(calc(var(--h) + 50) 42% 13%));
-}
-
-#portfolio.view-grid .card .thumb-fallback {
-    display: flex;
-}
-
-.thumb-fallback span {
-    font-size: clamp(18px, 2.4vw, 26px);
-    font-weight: 700;
-    line-height: 1.1;
-    color: hsl(var(--h) 65% 82%);
-    text-transform: capitalize;
-    transition: opacity 0.25s ease;
-}
-
-#portfolio.view-grid .card:hover .thumb-fallback span,
-#portfolio.view-grid .card:focus-visible .thumb-fallback span {
-    opacity: 0.25;
-}
-
 #portfolio.view-grid .card .info {
     position: absolute;
     inset: auto 0 0 0;
@@ -732,14 +669,6 @@ button.filter-btn {
     align-items: flex-start;
     gap: 2px;
     background: linear-gradient(transparent, rgba(0, 0, 0, 0.88));
-}
-
-#portfolio.view-grid .thumb-fallback ~ .info {
-    background: none;
-}
-
-#portfolio.view-grid .thumb-fallback ~ .info .name {
-    visibility: hidden;
 }
 
 #portfolio.view-grid .card .name {
@@ -781,17 +710,9 @@ button.filter-btn {
     opacity: 1;
 }
 
-#portfolio.view-grid .card:hover .name {
-    color: #fff;
-}
-
 @media (hover: none) {
     #portfolio.view-grid .card .desc {
         display: none;
-    }
-
-    #portfolio.view-grid .card .thumb-fallback span {
-        opacity: 1;
     }
 }
 
@@ -842,7 +763,6 @@ button.filter-btn {
     }
 
     .header-shell {
-        grid-template-columns: minmax(0, 1fr) auto;
         gap: 12px;
     }
 
@@ -863,11 +783,6 @@ button.filter-btn {
         padding: 0 12px 20px;
     }
 
-    .logo {
-        height: 110px;
-        width: auto;
-    }
-
     .brand-tagline {
         display: none;
     }
@@ -881,6 +796,9 @@ button.filter-btn {
     }
 
     #menu a {
+        min-width: 40px;
+        min-height: 40px;
+        justify-content: center;
         padding: 5px 9px;
         font-size: 13px;
     }
@@ -909,16 +827,14 @@ button.filter-btn {
 
     .intro-panel {
         padding: 14px 16px;
-        flex-direction: row;
         flex-wrap: wrap;
-        align-items: center;
         gap: 10px;
+        border-radius: 18px;
     }
 
     .intro-head {
         flex: 1 1 100%;
     }
-
 
     #portfolio.view-grid {
         --grid-gap: 10px;
@@ -930,14 +846,6 @@ button.filter-btn {
 
     #portfolio.view-grid .card .name {
         font-size: 13px;
-    }
-
-    .thumb-fallback span {
-        font-size: 17px;
-    }
-
-    .intro-panel {
-        border-radius: 18px;
     }
 
     .intro-head h2 {
@@ -958,12 +866,6 @@ button.filter-btn {
     .view-btn {
         width: 40px;
         height: 34px;
-    }
-
-    #menu a {
-        min-width: 40px;
-        min-height: 40px;
-        justify-content: center;
     }
 
     #graph-canvas {
@@ -1157,16 +1059,6 @@ button.filter-btn {
     margin: 0;
 }
 
-@media (max-width: 600px) {
-    .cv-skills {
-        grid-template-columns: 1fr;
-        gap: 4px;
-    }
-    .cv-skills dd {
-        margin-bottom: 10px;
-    }
-}
-
 /* chip clouds: skills, certifications, languages */
 .cv-chips {
     display: flex;
@@ -1188,15 +1080,6 @@ button.filter-btn {
     color: var(--accent);
     font-weight: 700;
     margin-right: 4px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
-    }
 }
 
 /* ── print: recruiter-friendly light CV ── */
@@ -1292,7 +1175,7 @@ button.filter-btn {
 
     .cv-entry:has(.cv-date) {
         grid-template-columns: 1fr;
-        gap: 3px;
+        gap: 2px;
     }
 
     .cv-date {
@@ -1301,21 +1184,15 @@ button.filter-btn {
 
     .cv-detail {
         border-left: none;
-        padding-left: 0;
-    }
-}
-
-@media (max-width: 600px) {
-    #cv-body {
-        margin-right: 0;
-    }
-
-    .cv-entry:has(.cv-date) {
-        grid-template-columns: 1fr;
-        gap: 2px;
-    }
-
-    .cv-detail {
         padding-left: 12px;
+    }
+
+    .cv-skills {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+
+    .cv-skills dd {
+        margin-bottom: 10px;
     }
 }
