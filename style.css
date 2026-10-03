@@ -95,8 +95,8 @@ h2 {
     backdrop-filter: blur(14px);
     background: linear-gradient(
         180deg,
-        rgba(54, 53, 49, 0.96),
-        rgba(54, 53, 49, 0.84)
+        rgba(54, 53, 49, 0.55),
+        rgba(54, 53, 49, 0.35)
     );
     border-bottom: 1px solid transparent;
     transition:
@@ -366,6 +366,24 @@ h2 {
         opacity: 0;
         transform: scale(0.9);
     }
+}
+
+#lantern {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    background: radial-gradient(
+        circle at var(--mx, 50%) var(--my, 50%),
+        rgba(236, 192, 141, 0.2) 0,
+        transparent 220px
+    );
+}
+
+#lantern.on {
+    opacity: 1;
 }
 
 .card.card-flash {
