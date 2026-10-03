@@ -18,6 +18,38 @@
         card.style.viewTransitionName = "card-" + i;
     });
 
+    if (
+        window.matchMedia("(hover: hover) and (pointer: fine)").matches &&
+        !reducedMotion.matches
+    ) {
+        var lantern = document.createElement("div");
+        lantern.id = "lantern";
+        lantern.setAttribute("aria-hidden", "true");
+        document.body.appendChild(lantern);
+        var mx = 0;
+        var my = 0;
+        var queued = false;
+        window.addEventListener(
+            "pointermove",
+            function (e) {
+                mx = e.clientX;
+                my = e.clientY;
+                if (queued) return;
+                queued = true;
+                requestAnimationFrame(function () {
+                    queued = false;
+                    lantern.style.setProperty("--mx", mx + "px");
+                    lantern.style.setProperty("--my", my + "px");
+                    lantern.classList.add("on");
+                });
+            },
+            { passive: true },
+        );
+        document.addEventListener("mouseout", function (e) {
+            if (!e.relatedTarget) lantern.classList.remove("on");
+        });
+    }
+
     window.addEventListener(
         "scroll",
         function () {
