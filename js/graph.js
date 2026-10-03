@@ -88,11 +88,9 @@ var nFriba = graph.newNode({
 });
 
 // ── 2019 ────────────────────────────────────────────────────────────────────
-var nAres = graph.newNode({
-  label: "Ares",
-});
 var nSubZKU = graph.newNode({
   label: "SubZKU",
+  id: "subzku",
 });
 
 // ── 2018 ────────────────────────────────────────────────────────────────────
@@ -131,9 +129,6 @@ var nMostr = graph.newNode({
 var nAgua = graph.newNode({
   label: "Agenda Água",
   id: "agua-na-escola",
-});
-var nZanini = graph.newNode({
-  label: "Studio Zanini",
 });
 
 // ── 2012 ────────────────────────────────────────────────────────────────────
@@ -198,11 +193,9 @@ graph.newEdge(nFriba, catData);
 graph.newEdge(nFriba, catData);
 graph.newEdge(nUQT, catDesign);
 
-graph.newEdge(nAres, catData);
-graph.newEdge(nAres, catTool);
+
 graph.newEdge(nSubZKU, catDesign);
 graph.newEdge(nSubZKU, catWork);
-
 graph.newEdge(nTrib, catData);
 graph.newEdge(nTrib, catTool);
 graph.newEdge(nRenda, catTool);
@@ -221,8 +214,6 @@ graph.newEdge(nSteg, catTool);
 graph.newEdge(nMostr, catData);
 graph.newEdge(nAgua, catWork);
 graph.newEdge(nAgua, catData);
-graph.newEdge(nZanini, catDesign);
-graph.newEdge(nZanini, catWork);
 
 graph.newEdge(nWebDoc, catDesign);
 graph.newEdge(nWebDoc, catWork);
