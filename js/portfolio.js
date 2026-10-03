@@ -29,7 +29,7 @@
         var LIGHT_RADIUS = 320;
         var lit = Array.prototype.slice.call(
             document.querySelectorAll(
-                ".intro-panel, .card-bio, .card-graph, #portfolio .card",
+                ".intro-panel, .card-bio, .card-graph, #portfolio .card, #footer-email",
             ),
         );
         var mx = 0;
@@ -55,7 +55,7 @@
                 var reach = 3 + 7 * strength;
                 el.style.setProperty("--sx", ((vx / len) * reach).toFixed(1) + "px");
                 el.style.setProperty("--sy", ((vy / len) * reach).toFixed(1) + "px");
-                el.style.setProperty("--so", (0.35 * strength).toFixed(2));
+                el.style.setProperty("--so", (0.2 * strength).toFixed(2));
                 el.classList.add("lit");
             });
         }
