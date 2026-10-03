@@ -12,6 +12,11 @@
         document.querySelectorAll(".view-btn"),
     );
     var activeFilter = "all";
+    var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    cards.forEach(function (card, i) {
+        card.style.viewTransitionName = "card-" + i;
+    });
 
     window.addEventListener(
         "scroll",
@@ -89,20 +94,33 @@
                 else if (match && hidden) toShow.push(card);
             });
 
+            function apply() {
+                toHide.forEach(function (card) {
+                    card.classList.add("hidden");
+                });
+                toShow.forEach(function (card) {
+                    card.classList.remove("hidden");
+                });
+                updateCount();
+            }
+
+            if (document.startViewTransition && !reducedMotion.matches) {
+                document.startViewTransition(apply);
+                return;
+            }
+
             toHide.forEach(function (card) {
                 card.classList.add("fading");
             });
 
             setTimeout(function () {
                 toHide.forEach(function (card) {
-                    card.classList.add("hidden");
                     card.classList.remove("fading");
                 });
                 toShow.forEach(function (card) {
                     card.classList.add("fading");
-                    card.classList.remove("hidden");
                 });
-                updateCount();
+                apply();
                 requestAnimationFrame(function () {
                     requestAnimationFrame(function () {
                         toShow.forEach(function (card) {
@@ -156,7 +174,7 @@
                         });
                         flashCard(match);
                     },
-                    wasHidden ? 260 : 0,
+                    wasHidden ? 460 : 0,
                 );
             },
         });
