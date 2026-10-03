@@ -48,7 +48,7 @@
 
         <link rel="preload" href="fonts/monda-400.woff2" as="font" type="font/woff2" crossorigin />
         <link rel="preload" href="fonts/monda-700.woff2" as="font" type="font/woff2" crossorigin />
-        <link rel="stylesheet" href="style.css?v=51" />
+        <link rel="stylesheet" href="style.css?v=52" />
 
         <script type="application/ld+json">
             {
@@ -108,9 +108,9 @@
                         <p class="eyebrow">RAFAEL POLO</p>
                     </a>
                     <div class="brand-tagline">
-                        <h1>
+                        <p class="tagline">
                             Software Engineering — Data, Platforms &amp; Product Design
-                        </h1>
+                        </p>
                     </div>
                 </div>
                 <div class="header-actions">
@@ -119,14 +119,14 @@
                         <a href="rafael-polo-cv.pdf" download>PDF</a>
                         <a
                             target="_blank"
-                            rel="noreferrer"
+                            rel="noopener noreferrer"
                             href="https://linkedin.com/in/rafaelpolo/"
                             aria-label="LinkedIn"
                             ><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a
                         >
                         <a
                             target="_blank"
-                            rel="noreferrer"
+                            rel="noopener noreferrer"
                             href="https://github.com/rafapolo"
                             aria-label="GitHub"
                             ><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a
@@ -137,45 +137,10 @@
         </header>
 
         <main id="cv-body">
-            <section class="cv-section">
-                <h2 class="cv-heading">TECH SKILLS</h2>
-                <dl class="cv-skills">
-                    <dt>Languages &amp; Frameworks</dt>
-                    <dd class="cv-chips">
-                        <span class="chip">Python</span>
-                        <span class="chip">Ruby on Rails</span>
-                        <span class="chip">TypeScript</span>
-                        <span class="chip">React</span>
-                        <span class="chip">SQL</span>
-                        <span class="chip">HTML · CSS · JavaScript</span>
-                    </dd>
-                    <dt>Data &amp; AI</dt>
-                    <dd class="cv-chips">
-                        <span class="chip">PostgreSQL</span>
-                        <span class="chip">ETL &amp; Data Engineering</span>
-                        <span class="chip">AI Agents · RAG · LangChain</span>
-                        <span class="chip">LLM Integrations</span>
-                        <span class="chip">Crawling &amp; Scraping</span>
-                    </dd>
-                    <dt>DevOps &amp; Infra</dt>
-                    <dd class="cv-chips">
-                        <span class="chip">Docker</span>
-                        <span class="chip">Kubernetes</span>
-                        <span class="chip">CI/CD</span>
-                        <span class="chip">AWS</span>
-                        <span class="chip">Linux</span>
-                        <span class="chip">Git</span>
-                    </dd>
-                    <dt>Architecture</dt>
-                    <dd class="cv-chips">
-                        <span class="chip">REST API Design</span>
-                        <span class="chip">System Architecture · MVC · OOP</span>
-                    </dd>
-                </dl>
-            </section>
+            <h1 class="sr-only">Rafael Polo — CV</h1>
 
             <section class="cv-section">
-                <h2 class="cv-heading">PROFESSIONAL EXPERIENCE</h2>
+                <h2 class="cv-heading">Professional Experience</h2>
 
                 <div class="cv-entry">
                     <span class="cv-date"><time datetime="2025-04">2025</time> – <span class="cv-now">now</span></span>
@@ -236,9 +201,10 @@
                     <span class="cv-date"><time datetime="2017">2017</time> – <time datetime="2018">2018</time></span>
                     <div class="cv-detail">
                         <span class="cv-entry-name">GFOSS.eu / Code + Create</span> — Web Programming Teacher<br />
-                        Web programming to refugee and Greek youth through the
-                        Code + Create initiative (HTML, CSS, jQuery)<br />
                         <span class="cv-place">Athens, Greece</span>
+                        <ul class="cv-bullets">
+                            <li>Taught web programming (HTML, CSS, jQuery) to refugee and Greek youth through the EU-funded Code + Create initiative</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -257,8 +223,10 @@
                     <span class="cv-date"><time datetime="2013-12">2013</time> – <time datetime="2014-01">2014</time></span>
                     <div class="cv-detail">
                         <span class="cv-entry-name">Trommsdorff + Drüner</span> — Developer<br />
-                        For the innovation + marketing consultants team<br />
                         <span class="cv-place">Berlin, Germany</span>
+                        <ul class="cv-bullets">
+                            <li>Business-intelligence dashboards for the marketing consultancy's innovation team</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -266,8 +234,10 @@
                     <span class="cv-date"><time datetime="2010">2010</time> – <time datetime="2012">2012</time></span>
                     <div class="cv-detail">
                         <span class="cv-entry-name">Meio</span> — Co-founder<br />
-                        Coworking space shared with architects and designers<br />
                         <span class="cv-place">Rio de Janeiro, Brazil</span>
+                        <ul class="cv-bullets">
+                            <li>Coworking space shared with architects and designers</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -275,164 +245,80 @@
                     <span class="cv-date"><time datetime="2008">2008</time> – <time datetime="2010">2010</time></span>
                     <div class="cv-detail">
                         <span class="cv-entry-name">Cortex Intelligence</span> — Developer<br />
-                        Competitive Intelligence and Data Mining R&amp;D team<br />
                         <span class="cv-place">Rio de Janeiro, Brazil</span>
+                        <ul class="cv-bullets">
+                            <li>Competitive-intelligence and data-mining R&amp;D team</li>
+                        </ul>
                     </div>
                 </div>
 
                 <div class="cv-entry">
-                    <span class="cv-date"><time datetime="2007">2007</time></span>
+                    <span class="cv-date"><time datetime="2003">2003</time> – <time datetime="2007">2007</time></span>
                     <div class="cv-detail">
-                        <span class="cv-entry-name">Logical Systems</span> — SysAdmin &amp; Java Developer<br />
-                        Maintained and developed its applications<br />
-                        <span class="cv-place">Rio de Janeiro, Brazil</span>
-                    </div>
-                </div>
-
-                <div class="cv-entry">
-                    <span class="cv-date"><time datetime="2004">2004</time></span>
-                    <div class="cv-detail">
-                        <span class="cv-entry-name">INPP — Instituto Nacional de Pesquisas Públicas</span> — Developer<br />
-                        Main developer of the company "Planning" software in
-                        Delphi<br />
-                        <span class="cv-place">Teresópolis, Brazil</span>
-                    </div>
-                </div>
-
-                <div class="cv-entry">
-                    <span class="cv-date"><time datetime="2003">2003</time> – <time datetime="2004">2004</time></span>
-                    <div class="cv-detail">
-                        <span class="cv-entry-name">MeuServidor</span> — Co-founder<br />
-                        Web hosting server based on Linux &amp; PHP<br />
-                        <span class="cv-place">Rio de Janeiro, Brazil</span>
+                        <span class="cv-entry-name">Early career</span> — Developer &amp; SysAdmin<br />
+                        <span class="cv-place">Rio de Janeiro · Teresópolis, Brazil</span>
+                        <ul class="cv-bullets">
+                            <li><strong>Logical Systems</strong>: system administration and application development</li>
+                            <li><strong>INPP — Instituto Nacional de Pesquisas Públicas</strong>: main developer of its planning software</li>
+                            <li><strong>MeuServidor</strong>: co-founded a Linux &amp; PHP web-hosting service</li>
+                        </ul>
                     </div>
                 </div>
             </section>
 
             <section class="cv-section">
-                <h2 class="cv-heading">SELECTED PROJECTS</h2>
+                <h2 class="cv-heading">Selected Projects</h2>
 
                 <div class="cv-entry">
-                    <ul class="cv-bullets cv-bullets-flush">
+                    <ul class="cv-bullets">
                         <li><strong>Rodado</strong>: ~730 Brazilian public datasets, 1 TB of Parquet, DuckDB, natural-language-to-SQL over MCP</li>
                         <li><strong>HelvetiScan</strong>: scanner and mapper of 2.5M+ Swiss .ch domains (HTTP, DNS, TLS, WHOIS, CVE)</li>
                         <li>40+ open-source projects across data analysis, visualization, automation and AI tooling: browse the
                         <a href="index.html">project graph</a>
-                        | <a target="_blank" href="https://github.com/rafapolo">[github.com/rafapolo]</a></li>
+                        | <a target="_blank" rel="noopener noreferrer" href="https://github.com/rafapolo">[github.com/rafapolo]</a></li>
                     </ul>
                 </div>
             </section>
 
             <section class="cv-section">
-                <h2 class="cv-heading">FELLOWSHIPS AND AWARDS</h2>
-
-                <div class="cv-entry">
-                    <span class="cv-date"><time datetime="2021">2021</time></span>
-                    <div class="cv-detail">
-                        <span class="cv-entry-name">Moedax — Celo &amp; Zcash Foundation Grants</span><br />
-                        Won competitive grants from the Celo and Zcash foundations
-                        to build a Web3 payments platform — authored smart
-                        contracts and bridged Web2/Web3 with a CBDC
-                    </div>
-                </div>
-
-                <div class="cv-entry">
-                    <span class="cv-date"><time datetime="2012">2012</time></span>
-                    <div class="cv-detail">
-                        <span class="cv-entry-name">WebDoc Graffiti Platform</span><br />
-                        Collaborative Cartographies Initiatives, by the Brazilian
-                        Federal Ministry of Culture
-                        | <a target="_blank" href="https://rafapolo.github.io/webdocgraffiti/">[website]</a>
-                    </div>
-                </div>
-
-                <div class="cv-entry">
-                    <span class="cv-date"><time datetime="2011">2011</time></span>
-                    <div class="cv-detail">
-                        <span class="cv-entry-name">Dammatio Memoriae | Software-Art</span><br />
-                        Gallery &amp; book publication by Memefest: International
-                        Festival of Social Responsive Communication &amp; Art
-                        | <a target="_blank" href="https://web.archive.org/web/20230606031538/http://memefest.org/en/gallery/archive/680/">[website]</a>
-                    </div>
-                </div>
-
-                <div class="cv-entry">
-                    <span class="cv-date"><time datetime="2010">2010</time></span>
-                    <div class="cv-detail">
-                        <span class="cv-entry-name">CAPES Fellowship for Postgraduate Research</span><br />
-                        By the Brazilian Federal Ministry of Education
-                    </div>
-                </div>
+                <h2 class="cv-heading">Tech Skills</h2>
+                <dl class="cv-skills">
+                    <dt>Languages &amp; Frameworks</dt>
+                    <dd class="cv-chips">
+                        <span class="chip">Python</span>
+                        <span class="chip">Ruby on Rails</span>
+                        <span class="chip">TypeScript</span>
+                        <span class="chip">React</span>
+                        <span class="chip">SQL</span>
+                        <span class="chip">HTML · CSS · JavaScript</span>
+                    </dd>
+                    <dt>Data &amp; AI</dt>
+                    <dd class="cv-chips">
+                        <span class="chip">PostgreSQL</span>
+                        <span class="chip">ETL &amp; Data Engineering</span>
+                        <span class="chip">AI Agents · RAG · LangChain</span>
+                        <span class="chip">LLM Integrations</span>
+                        <span class="chip">Crawling &amp; Scraping</span>
+                    </dd>
+                    <dt>DevOps &amp; Infra</dt>
+                    <dd class="cv-chips">
+                        <span class="chip">Docker</span>
+                        <span class="chip">Kubernetes</span>
+                        <span class="chip">CI/CD</span>
+                        <span class="chip">AWS</span>
+                        <span class="chip">Linux</span>
+                        <span class="chip">Git</span>
+                    </dd>
+                    <dt>Architecture</dt>
+                    <dd class="cv-chips">
+                        <span class="chip">REST API Design</span>
+                        <span class="chip">System Architecture · MVC · OOP</span>
+                    </dd>
+                </dl>
             </section>
 
             <section class="cv-section">
-                <h2 class="cv-heading">EXHIBITIONS</h2>
-
-                <div class="cv-entry">
-                    <span class="cv-date"><time datetime="2015-01">2015</time></span>
-                    <div class="cv-detail">
-                        <span class="cv-entry-name">Connecting Cities – Prototyping Lab</span><br />
-                        Awareness on the changes hardly visible to the eyes that
-                        underlie our cities. Transmediale, Haus der Kulturen der
-                        Welt, Berlin
-                        | <a target="_blank" href="https://www.hkw.de/en/programm/projekte/veranstaltung/p_112696.php">[website]</a>
-                    </div>
-                </div>
-
-                <div class="cv-entry">
-                    <span class="cv-date"><time datetime="2012-02">2012</time></span>
-                    <div class="cv-detail">
-                        <span class="cv-entry-name">Pensar Público</span><br />
-                        Exhibition on dynamic and real-time city mapping. Centro
-                        Carioca de Design, Studio-X, Rio de Janeiro
-                        | <a target="_blank" href="https://rafapolo.github.io/pensar-publico/">[website]</a>
-                    </div>
-                </div>
-
-                <div class="cv-entry">
-                    <span class="cv-date"><time datetime="2012-01">2012</time></span>
-                    <div class="cv-detail">
-                        <span class="cv-entry-name">Galeria TAC | Vênus-Terra</span><br />
-                        Presentation of the "Variation" artwork, Rio de Janeiro
-                        | <a target="_blank" href="https://web.archive.org/web/20240422072444/https://extrapolo.com/expo/venus-terra/">[website]</a>
-                    </div>
-                </div>
-
-                <div class="cv-entry">
-                    <span class="cv-date"><time datetime="2010-09">2010</time></span>
-                    <div class="cv-detail">
-                        <span class="cv-entry-name">Abotoados pela Manga</span><br />
-                        3-week art-and-politics residency during the 29º São Paulo
-                        Bienal of Art, São Paulo
-                        | <a target="_blank" href="http://www.youtube.com/embed/yzWVTFSRsu4">[video]</a>
-                    </div>
-                </div>
-            </section>
-
-            <section class="cv-section">
-                <h2 class="cv-heading">CERTIFICATIONS</h2>
-                <div class="cv-entry cv-chips">
-                    <span class="chip">Swiss Federal Act on Data Protection (nFADP)</span>
-                    <span class="chip">Databricks for Data Engineering</span>
-                    <span class="chip">Gen AI Foundational Models for NLP</span>
-                    <span class="chip">Generative AI &amp; LLMs: Architecture &amp; Data Prep</span>
-                    <span class="chip">AI Agents using RAG &amp; LangChain</span>
-                </div>
-            </section>
-
-            <section class="cv-section">
-                <h2 class="cv-heading">LANGUAGES</h2>
-                <div class="cv-entry cv-chips">
-                    <span class="chip"><strong>Portuguese</strong> native</span>
-                    <span class="chip"><strong>English</strong> full professional</span>
-                    <span class="chip"><strong>Spanish</strong> full professional</span>
-                    <span class="chip"><strong>German</strong> B1 · telc</span>
-                    <span class="chip"><strong>Greek</strong> A2</span>
-                </div>
-            </section>
-
-            <section class="cv-section">
-                <h2 class="cv-heading">EDUCATION</h2>
+                <h2 class="cv-heading">Education</h2>
 
                 <div class="cv-entry">
                     <span class="cv-date"><time datetime="2021">2021</time></span>
@@ -453,20 +339,20 @@
                 </div>
 
                 <div class="cv-entry">
-                    <span class="cv-date"><time datetime="2004">2004</time> – <time datetime="2009">2009</time></span>
-                    <div class="cv-detail">
-                        <span class="cv-entry-name">Bachelor in Computer Science</span><br />
-                        Centro Universitário Metodista Bennett<br />
-                        <span class="cv-place">Rio de Janeiro, Brazil</span>
-                    </div>
-                </div>
-
-                <div class="cv-entry">
                     <span class="cv-date"><time datetime="2010">2010</time></span>
                     <div class="cv-detail">
                         <span class="cv-entry-name">Extension in Digital Culture</span><br />
                         Communication School (ECO/UFRJ)<br />
                         <span class="cv-place">Rio de Janeiro Federal University</span>
+                    </div>
+                </div>
+
+                <div class="cv-entry">
+                    <span class="cv-date"><time datetime="2004">2004</time> – <time datetime="2009">2009</time></span>
+                    <div class="cv-detail">
+                        <span class="cv-entry-name">Bachelor in Computer Science</span><br />
+                        Centro Universitário Metodista Bennett<br />
+                        <span class="cv-place">Rio de Janeiro, Brazil</span>
                     </div>
                 </div>
 
@@ -485,6 +371,113 @@
                         <span class="cv-entry-name">Linux System Engineer</span><br />
                         M.Cury Computação<br />
                         <span class="cv-place">Rio de Janeiro, Brazil</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cv-section">
+                <h2 class="cv-heading">Languages</h2>
+                <div class="cv-entry cv-chips">
+                    <span class="chip"><strong>Portuguese</strong> native</span>
+                    <span class="chip"><strong>English</strong> full professional</span>
+                    <span class="chip"><strong>Spanish</strong> full professional</span>
+                    <span class="chip"><strong>German</strong> B1 · telc</span>
+                    <span class="chip"><strong>Greek</strong> A2</span>
+                </div>
+            </section>
+
+            <section class="cv-section">
+                <h2 class="cv-heading">Certifications</h2>
+                <div class="cv-entry cv-chips">
+                    <span class="chip">Swiss Federal Act on Data Protection (nFADP)</span>
+                    <span class="chip">Databricks for Data Engineering</span>
+                    <span class="chip">Gen AI Foundational Models for NLP</span>
+                    <span class="chip">Generative AI &amp; LLMs: Architecture &amp; Data Prep</span>
+                    <span class="chip">AI Agents using RAG &amp; LangChain</span>
+                </div>
+            </section>
+
+            <section class="cv-section">
+                <h2 class="cv-heading">Fellowships and Awards</h2>
+
+                <div class="cv-entry">
+                    <span class="cv-date"><time datetime="2021">2021</time></span>
+                    <div class="cv-detail">
+                        <span class="cv-entry-name">Moedax — Celo &amp; Zcash Foundation Grants</span><br />
+                        Won competitive grants from the Celo and Zcash foundations
+                        to build a Web3 payments platform — authored smart
+                        contracts and bridged Web2/Web3 with a CBDC
+                    </div>
+                </div>
+
+                <div class="cv-entry">
+                    <span class="cv-date"><time datetime="2012">2012</time></span>
+                    <div class="cv-detail">
+                        <span class="cv-entry-name">WebDoc Graffiti Platform</span><br />
+                        Collaborative Cartographies Initiatives, by the Brazilian
+                        Federal Ministry of Culture
+                        | <a target="_blank" rel="noopener noreferrer" href="https://rafapolo.github.io/webdocgraffiti/">[website]</a>
+                    </div>
+                </div>
+
+                <div class="cv-entry">
+                    <span class="cv-date"><time datetime="2011">2011</time></span>
+                    <div class="cv-detail">
+                        <span class="cv-entry-name">Damnatio Memoriae | Software-Art</span><br />
+                        Gallery &amp; book publication by Memefest: International
+                        Festival of Social Responsive Communication &amp; Art
+                        | <a target="_blank" rel="noopener noreferrer" href="https://web.archive.org/web/20230606031538/http://memefest.org/en/gallery/archive/680/">[website]</a>
+                    </div>
+                </div>
+
+                <div class="cv-entry">
+                    <span class="cv-date"><time datetime="2010">2010</time></span>
+                    <div class="cv-detail">
+                        <span class="cv-entry-name">CAPES Fellowship for Postgraduate Research</span><br />
+                        By the Brazilian Federal Ministry of Education
+                    </div>
+                </div>
+            </section>
+
+            <section class="cv-section">
+                <h2 class="cv-heading">Exhibitions</h2>
+
+                <div class="cv-entry">
+                    <span class="cv-date"><time datetime="2015-01">2015</time></span>
+                    <div class="cv-detail">
+                        <span class="cv-entry-name">Connecting Cities – Prototyping Lab</span><br />
+                        Making visible the hidden changes that shape our cities.
+                        Transmediale, Haus der Kulturen der Welt, Berlin
+                        | <a target="_blank" rel="noopener noreferrer" href="https://www.hkw.de/en/programm/projekte/veranstaltung/p_112696.php">[website]</a>
+                    </div>
+                </div>
+
+                <div class="cv-entry">
+                    <span class="cv-date"><time datetime="2012-02">2012</time></span>
+                    <div class="cv-detail">
+                        <span class="cv-entry-name">Pensar Público</span><br />
+                        Exhibition on dynamic and real-time city mapping. Centro
+                        Carioca de Design, Studio-X, Rio de Janeiro
+                        | <a target="_blank" rel="noopener noreferrer" href="https://rafapolo.github.io/pensar-publico/">[website]</a>
+                    </div>
+                </div>
+
+                <div class="cv-entry">
+                    <span class="cv-date"><time datetime="2012-01">2012</time></span>
+                    <div class="cv-detail">
+                        <span class="cv-entry-name">Galeria TAC | Vênus-Terra</span><br />
+                        Presentation of the "Variation" artwork, Rio de Janeiro
+                        | <a target="_blank" rel="noopener noreferrer" href="https://web.archive.org/web/20240422072444/https://extrapolo.com/expo/venus-terra/">[website]</a>
+                    </div>
+                </div>
+
+                <div class="cv-entry">
+                    <span class="cv-date"><time datetime="2010-09">2010</time></span>
+                    <div class="cv-detail">
+                        <span class="cv-entry-name">Abotoados pela Manga</span><br />
+                        Three-week art-and-politics residency during the 29th São
+                        Paulo Biennial, São Paulo
+                        | <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/watch?v=yzWVTFSRsu4">[video]</a>
                     </div>
                 </div>
             </section>

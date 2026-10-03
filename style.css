@@ -88,6 +88,15 @@ h2 {
     margin: 0;
 }
 
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
 #header {
     position: sticky;
     top: 0;
@@ -157,10 +166,12 @@ h2 {
     margin-left: 4px;
 }
 
-.brand-tagline h1 {
+.brand-tagline h1,
+.brand-tagline .tagline {
     font-size: clamp(16.5px, 2vw, 23px);
     line-height: 1.1;
     white-space: nowrap;
+    font-weight: 700;
 }
 
 .header-actions {
