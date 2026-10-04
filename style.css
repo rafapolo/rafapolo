@@ -493,7 +493,6 @@ h2 {
     align-items: stretch;
     gap: 0;
     padding: 22px;
-    padding-bottom: 0;
     background: transparent;
     color: var(--accent);
     overflow: hidden;
@@ -508,18 +507,18 @@ h2 {
 }
 
 .bio-text {
-    margin: 20px;
+    margin: 0 20px 20px;
     font-size: clamp(14px, 1.4vw, 17px);
     line-height: 1.6;
-    padding-top: 10px;
-    text-align: justify;
+    text-align: center;
+    text-wrap: balance;
     color: white;
 }
 
 .bio-cv-link {
     display: inline-block;
-    align-self: flex-end;
-    margin: 0 0 15px;
+    align-self: center;
+    margin: 0;
     font-size: 13px;
     color: var(--accent);
     text-decoration: underline;
