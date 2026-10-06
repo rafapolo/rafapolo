@@ -73,10 +73,6 @@ var nPulso = graph.newNode({
   label: "Pulso da Imprensa",
   id: "pulso-da-imprensa",
 });
-var nShutafut = graph.newNode({
-  label: "Shutafut",
-  id: "shutafut",
-});
 var nTemplos = graph.newNode({
   label: "Templos",
   id: "templos-religiosos",
@@ -309,6 +305,4 @@ graph.newEdge(nAtlantica, catWork);
 graph.newEdge(nEleicoes, catData);
 graph.newEdge(nPulso, catData);
 graph.newEdge(nPulso, catTool);
-graph.newEdge(nShutafut, catData);
-graph.newEdge(nShutafut, catTool);
 graph.newEdge(nTemplos, catData);
