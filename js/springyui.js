@@ -63,17 +63,31 @@ function initSpringy(canvas, params) {
   }
   kickAdjust();
 
+  var pad = { x: 0, y: 20 };
+  function fitPadding() {
+    var size = currentBB.topright.subtract(currentBB.bottomleft);
+    var W = canvas.width;
+    var px = 6;
+    layout.eachNode(function (node, point) {
+      var t = (point.p.x - currentBB.bottomleft.x) / size.x;
+      var half = node.getWidth() / 2 + 2;
+      var edge = Math.min(t, 1 - t);
+      if (edge < 0.5) px = Math.max(px, (half - edge * W) / (1 - 2 * edge));
+    });
+    pad.x = Math.min(px, W * 0.3);
+  }
+
   var toScreen = function (p) {
     var size = currentBB.topright.subtract(currentBB.bottomleft);
-    var sx = p.subtract(currentBB.bottomleft).divide(size.x).x * canvas.width;
-    var sy = p.subtract(currentBB.bottomleft).divide(size.y).y * canvas.height;
+    var sx = pad.x + ((p.x - currentBB.bottomleft.x) / size.x) * (canvas.width - 2 * pad.x);
+    var sy = pad.y + ((p.y - currentBB.bottomleft.y) / size.y) * (canvas.height - 2 * pad.y);
     return new Vector(sx, sy);
   };
 
   var fromScreen = function (s) {
     var size = currentBB.topright.subtract(currentBB.bottomleft);
-    var px = (s.x / canvas.width) * size.x + currentBB.bottomleft.x;
-    var py = (s.y / canvas.height) * size.y + currentBB.bottomleft.y;
+    var px = ((s.x - pad.x) / (canvas.width - 2 * pad.x)) * size.x + currentBB.bottomleft.x;
+    var py = ((s.y - pad.y) / (canvas.height - 2 * pad.y)) * size.y + currentBB.bottomleft.y;
     return new Vector(px, py);
   };
 
@@ -112,7 +126,7 @@ function initSpringy(canvas, params) {
     renderer.start();
   });
 
-  canvas.addEventListener(
+  if (nodeSelected) canvas.addEventListener(
     "touchstart",
     function (e) {
       e.preventDefault();
@@ -133,7 +147,7 @@ function initSpringy(canvas, params) {
     { passive: false },
   );
 
-  canvas.addEventListener(
+  if (nodeSelected) canvas.addEventListener(
     "touchmove",
     function (e) {
       e.preventDefault();
@@ -168,6 +182,7 @@ function initSpringy(canvas, params) {
     layout,
     function clear() {
       kickAdjust();
+      fitPadding();
       ctx.clearRect(0, 0, canvas.width, canvas.height);
     },
     function drawEdge(edge, p1, p2) {
