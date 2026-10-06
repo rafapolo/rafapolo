@@ -87,9 +87,9 @@ var nReligioes = graph.newNode({
   label: "religioes",
   id: "religioes",
 });
-var nSwissBR = graph.newNode({
-  label: "Swiss-BR",
-  id: "swiss-br",
+var nBraSwiss = graph.newNode({
+  label: "BraSwiss",
+  id: "braswiss",
 });
 // ── 2019 ────────────────────────────────────────────────────────────────────
 var nSubZKU = graph.newNode({
@@ -283,7 +283,7 @@ graph.newEdge(n_fratura, catTool);
 graph.newEdge(n_damnatio, catDesign);
 graph.newEdge(nAtlasMko, catData);
 graph.newEdge(nAtlasMko, catDesign);
-graph.newEdge(nSwissBR, catData);
+graph.newEdge(nBraSwiss, catData);
 graph.newEdge(nEtaoin, catDesign);
 graph.newEdge(nEtaoin, catWork);
 graph.newEdge(nVictor, catDesign);

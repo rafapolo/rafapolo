@@ -106,7 +106,7 @@ These live visualizations are hosted on the xyz domain and should be added to th
 | **Friba** | 2025 | https://xn--2dk.xyz/dataviz/friba/pop_3d | dataviz, data | Nova Friburgo 3D population/economic analysis (already added) |
 | **pt-2026** | 2026 | https://xn--2dk.xyz/dataviz/pt-2026/ | work, dataviz | Portuguese electoral viz (already added) |
 | **Pegadas Tigrinho** | 2025 | https://tinyurl.com/pegadas-tigrim | data, dataviz | **ADD** — Corporate network investigation of Tigrinho gaming empire (owners, partners, companies) |
-| **Swiss-BR** | 2025 | https://tinyurl.com/swiss-brazilian-network | data, dataviz | **ADD** — Network of Swiss companies with registered headquarters in Brazil |
+| **BraSwiss** | 2025 | https://tinyurl.com/swiss-brazilian-network | data, dataviz | **ADD** — Network of Swiss companies with registered headquarters in Brazil |
 
 ---
 
