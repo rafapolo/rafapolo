@@ -11,9 +11,9 @@ var nBasel = graph.newNode({
   label: "baseldosdados",
   id: "rodado",
 });
-var nBraViz = graph.newNode({
-  label: "Brasilumen",
-  id: "braviz",
+var nBrasilume = graph.newNode({
+  label: "brasilume",
+  id: "brasilume",
 });
 var nDatat = graph.newNode({
   label: "datative",
@@ -190,8 +190,8 @@ var nConsul = graph.newNode({
 // ── Edges ───────────────────────────────────────────────────────────────────
 graph.newEdge(nBasel, catData);
 graph.newEdge(nBasel, catTool);
-graph.newEdge(nBraViz, catData);
-graph.newEdge(nBraViz, catData);
+graph.newEdge(nBrasilume, catData);
+graph.newEdge(nBrasilume, catData);
 graph.newEdge(nDatat, catData);
 graph.newEdge(nDatat, catData);
 graph.newEdge(nDatat, catTool);
