@@ -65,6 +65,22 @@ var nAtlasMko = graph.newNode({
   label: "Atlas MakingOff",
   id: "atlas-makingoff",
 });
+var nEleicoes = graph.newNode({
+  label: "Eleições 2026",
+  id: "eleicoes-2026",
+});
+var nPulso = graph.newNode({
+  label: "Pulso da Imprensa",
+  id: "pulso-da-imprensa",
+});
+var nShutafut = graph.newNode({
+  label: "Shutafut",
+  id: "shutafut",
+});
+var nTemplos = graph.newNode({
+  label: "Templos",
+  id: "templos-religiosos",
+});
 // ── 2025 ────────────────────────────────────────────────────────────────────
 var nViso = graph.newNode({
   label: "viso",
@@ -290,3 +306,9 @@ graph.newEdge(nVictor, catDesign);
 graph.newEdge(nVictor, catWork);
 graph.newEdge(nAtlantica, catDesign);
 graph.newEdge(nAtlantica, catWork);
+graph.newEdge(nEleicoes, catData);
+graph.newEdge(nPulso, catData);
+graph.newEdge(nPulso, catTool);
+graph.newEdge(nShutafut, catData);
+graph.newEdge(nShutafut, catTool);
+graph.newEdge(nTemplos, catData);
