@@ -186,6 +186,10 @@ var nConsul = graph.newNode({
   label: "Consulta Natural",
   id: "consulta-natural",
 });
+var nBaixo = graph.newNode({
+  label: "BaixoGávea",
+  id: "baixogavea",
+});
 
 // ── Edges ───────────────────────────────────────────────────────────────────
 graph.newEdge(nBasel, catData);
@@ -256,6 +260,8 @@ graph.newEdge(nRazao, catWork);
 
 graph.newEdge(nConsul, catData);
 graph.newEdge(nConsul, catTool);
+graph.newEdge(nBaixo, catTool);
+graph.newEdge(nBaixo, catDesign);
 
 // ── Added to match project list ─────────────────────────────────────────────
 var n_erthos = graph.newNode({

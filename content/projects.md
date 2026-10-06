@@ -43,6 +43,7 @@
 | Mostre!me Cultura | 2013 | Keep — Ministry of Culture project visualization |
 | Copyfight Acervo MakingOff | 2013 | Keep — rare film torrent curation dataset |
 | Consulta Natural | 2009 | Keep — early NLP / SPARQL / Google Talk agent; good historical arc |
+| BaixoGávea | 2009 | Added — community music-discography portal; card links to the 2011 Wayback snapshot |
 | Graphs | 2010 | Keep — Twitter + Wikipedia semantic network viz |
 
 ---
@@ -61,7 +62,6 @@
 |---|---|---|
 | WikiBot | 2012 | Low signal; link dead; superseded by more interesting work |
 | Processing Sketches | 2010 | Superseded by brasilume, swissviz, and GPU-rendered viz work |
-| BaixoGávea | 2009 | Torrent/image scraper; doesn't reflect current skills or narrative |
 | Mostre!me Links | 2009 | URL shortener; dated concept, weak signal |
 | Chat-RSA | 2008 | Superseded by Steganos (keep only if you want the historical 2008 bookmark) |
 | Rastros | 2012 | Charming motion-detection project; optional — archive rather than delete if it has sentimental value |
