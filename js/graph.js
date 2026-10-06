@@ -51,10 +51,6 @@ var nTseBens = graph.newNode({
   label: "TSE-bens",
   id: "tse-bens",
 });
-var nReligioes = graph.newNode({
-  label: "religioes",
-  id: "religioes",
-});
 var nVorcaros = graph.newNode({
   label: "vorcaros",
   id: "vorcaros",
@@ -65,6 +61,10 @@ var nUQT = graph.newNode({
   id: "tocador",
 });
 
+var nAtlasMko = graph.newNode({
+  label: "Atlas MakingOff",
+  id: "atlas-makingoff",
+});
 // ── 2025 ────────────────────────────────────────────────────────────────────
 var nViso = graph.newNode({
   label: "viso",
@@ -87,6 +87,14 @@ var nFriba = graph.newNode({
   id: "friba",
 });
 
+var nReligioes = graph.newNode({
+  label: "religioes",
+  id: "religioes",
+});
+var nSwissBR = graph.newNode({
+  label: "Swiss-BR",
+  id: "swiss-br",
+});
 // ── 2019 ────────────────────────────────────────────────────────────────────
 var nSubZKU = graph.newNode({
   label: "SubZKU",
@@ -141,18 +149,30 @@ var nPensar = graph.newNode({
   id: "pensar-publico",
 });
 
+var nEtaoin = graph.newNode({
+  label: "Etaoin Shrdlu",
+  id: "etaoin",
+});
 // ── 2011 ────────────────────────────────────────────────────────────────────
 var nGrafica = graph.newNode({
   label: "Gráfica Utópica",
   id: "grafica-utopica",
 });
 
+var nVictor = graph.newNode({
+  label: "Victor Haim",
+  id: "victorhaim",
+});
 // ── 2010 ────────────────────────────────────────────────────────────────────
 var nRazao = graph.newNode({
   label: "Razão e Ambiente",
   id: "razao-e-ambiente",
 });
 
+var nAtlantica = graph.newNode({
+  label: "Av. Atlântica 1101",
+  id: "atlantica",
+});
 // ── 2009 ────────────────────────────────────────────────────────────────────
 var nConsul = graph.newNode({
   label: "Consulta Natural",
@@ -266,3 +286,12 @@ graph.newEdge(n_rastros, catTool);
 graph.newEdge(n_processing, catTool);
 graph.newEdge(n_fratura, catTool);
 graph.newEdge(n_damnatio, catDesign);
+graph.newEdge(nAtlasMko, catData);
+graph.newEdge(nAtlasMko, catDesign);
+graph.newEdge(nSwissBR, catData);
+graph.newEdge(nEtaoin, catDesign);
+graph.newEdge(nEtaoin, catWork);
+graph.newEdge(nVictor, catDesign);
+graph.newEdge(nVictor, catWork);
+graph.newEdge(nAtlantica, catDesign);
+graph.newEdge(nAtlantica, catWork);
