@@ -74,10 +74,6 @@ var nFincr = graph.newNode({
   label: "fincrime",
   id: "fincrime",
 });
-var nSumar = graph.newNode({
-  label: "sumaria",
-  id: "sumaria",
-});
 var nRAIS = graph.newNode({
   label: "RAIS",
   id: "rais",
@@ -206,7 +202,6 @@ graph.newEdge(nViso, catData);
 graph.newEdge(nViso, catTool);
 graph.newEdge(nFincr, catData);
 graph.newEdge(nFincr, catData);
-graph.newEdge(nSumar, catTool);
 graph.newEdge(nRAIS, catData);
 graph.newEdge(nRAIS, catData);
 graph.newEdge(nFriba, catData);

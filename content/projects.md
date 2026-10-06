@@ -28,7 +28,6 @@
 | **swissviz** | 2024 | JS, Deck.gl, MapLibre, Mapbox Geocoding | `proj.swissviz` | Interactive map of Swiss companies from open data: CSV pipeline → Mapbox geocoding → gzip → GPU-rendered browser tiles with CartoDB basemap. |
 | **uqt** | 2026 | Node.js, Vanilla JS, S3 | `proj.uqt` | Digital archive of 100 years of Brazilian Popular Music: 2,303 albums, 28,742 tracks, 816 artists — virtual-scrolling grid, lazy-loaded covers, MP3 streaming via S3 proxy. |
 | **IBGE13** | 2023 | Python, Jupyter | `proj.ibge13` | Longitudinal analysis of 150 years of Brazilian census data (1872–2022) — housing, population, and social characteristics across 13 census periods. |
-| **sumaria** | 2023 | Python, Ollama, LLM | `proj.sumaria` | Fetches YouTube transcripts and runs them through a local LLM to generate structured summaries with key themes and action points — fully offline. |
 | **malafaia** | 2024 | Node.js, Deck.gl, Vite | `proj.malafaia` | Hexbin density map charting the geographic footprint of the Malafaia religious empire across Brazil — location data rendered in-browser with GPU acceleration. |
 | **religioes** | 2023 | Python, Kepler.gl, Jupyter | `proj.religioes` | IBGE census religion distribution mapped by municipality — interactive Kepler.gl visualization of faith demographics across Brazil. |
 
