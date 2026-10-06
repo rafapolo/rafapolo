@@ -63,31 +63,80 @@ function initSpringy(canvas, params) {
   }
   kickAdjust();
 
-  var pad = { x: 0, y: 20 };
+  var margin = 20;
+  var pad = { left: 0, right: 0, top: margin + 8, bottom: margin + 18 };
   function fitPadding() {
     var size = currentBB.topright.subtract(currentBB.bottomleft);
     var W = canvas.width;
-    var px = 6;
+    var nodes = [];
     layout.eachNode(function (node, point) {
-      var t = (point.p.x - currentBB.bottomleft.x) / size.x;
-      var half = node.getWidth() / 2 + 2;
-      var edge = Math.min(t, 1 - t);
-      if (edge < 0.5) px = Math.max(px, (half - edge * W) / (1 - 2 * edge));
+      nodes.push({
+        t: (point.p.x - currentBB.bottomleft.x) / size.x,
+        half: node.getWidth() / 2 + margin,
+      });
     });
-    pad.x = Math.min(px, W * 0.3);
+    var left = 0, right = 0;
+    for (var k = 0; k < 4; k++) {
+      var span = W - left - right;
+      var minX = Infinity, maxX = -Infinity;
+      nodes.forEach(function (n) {
+        var x = left + n.t * span;
+        minX = Math.min(minX, x - n.half);
+        maxX = Math.max(maxX, x + n.half);
+      });
+      left = Math.max(0, left - minX);
+      right = Math.max(0, right + maxX - W);
+    }
+    pad.left = Math.min(left, W * 0.3);
+    pad.right = Math.min(right, W * 0.3);
   }
+
+  var labelHeight = 28;
+  var labelGap = 6;
+  layout.collide = function () {
+    var bb = layout.getBoundingBox();
+    var size = bb.topright.subtract(bb.bottomleft);
+    var ux = size.x / Math.max(1, canvas.width - pad.left - pad.right);
+    var uy = size.y / Math.max(1, canvas.height - pad.top - pad.bottom);
+    var items = [];
+    layout.eachNode(function (node, point) {
+      items.push({ point: point, half: (node.getWidth() + labelGap) / 2 });
+    });
+    var overlapping = false;
+    for (var i = 0; i < items.length; i++) {
+      for (var j = i + 1; j < items.length; j++) {
+        var a = items[i].point, b = items[j].point;
+        var reach = items[i].half + items[j].half;
+        var dx = (b.p.x - a.p.x) / ux;
+        var dy = (b.p.y - a.p.y) / uy;
+        var ox = reach - Math.abs(dx);
+        var oy = labelHeight - Math.abs(dy);
+        if (ox <= 0 || oy <= 0) continue;
+        overlapping = true;
+        var nx = dx / reach || (Math.random() - 0.5) * 0.01;
+        var ny = dy / labelHeight;
+        var len = Math.sqrt(nx * nx + ny * ny);
+        var push = 0.5 * Math.min(ox, oy);
+        var mx = (nx / len) * push * ux;
+        var my = (ny / len) * push * uy;
+        a.p = new Vector(a.p.x - mx, a.p.y - my);
+        b.p = new Vector(b.p.x + mx, b.p.y + my);
+      }
+    }
+    return overlapping;
+  };
 
   var toScreen = function (p) {
     var size = currentBB.topright.subtract(currentBB.bottomleft);
-    var sx = pad.x + ((p.x - currentBB.bottomleft.x) / size.x) * (canvas.width - 2 * pad.x);
-    var sy = pad.y + ((p.y - currentBB.bottomleft.y) / size.y) * (canvas.height - 2 * pad.y);
+    var sx = pad.left + ((p.x - currentBB.bottomleft.x) / size.x) * (canvas.width - pad.left - pad.right);
+    var sy = pad.top + ((p.y - currentBB.bottomleft.y) / size.y) * (canvas.height - pad.top - pad.bottom);
     return new Vector(sx, sy);
   };
 
   var fromScreen = function (s) {
     var size = currentBB.topright.subtract(currentBB.bottomleft);
-    var px = ((s.x - pad.x) / (canvas.width - 2 * pad.x)) * size.x + currentBB.bottomleft.x;
-    var py = ((s.y - pad.y) / (canvas.height - 2 * pad.y)) * size.y + currentBB.bottomleft.y;
+    var px = ((s.x - pad.left) / (canvas.width - pad.left - pad.right)) * size.x + currentBB.bottomleft.x;
+    var py = ((s.y - pad.top) / (canvas.height - pad.top - pad.bottom)) * size.y + currentBB.bottomleft.y;
     return new Vector(px, py);
   };
 

@@ -422,26 +422,37 @@ Layout.requestAnimationFrame = __bind(window.requestAnimationFrame ||
 	}, window);
 
 
+Layout.ForceDirected.settleTime = 3000;
+
 // start simulation
 Layout.ForceDirected.prototype.start = function(render, done) {
 	var t = this;
 
 	if (this._started) return;
 	this._started = true;
+	if (this._settleBy === undefined) this._settleBy = Date.now() + Layout.ForceDirected.settleTime;
 
 	Layout.requestAnimationFrame(function step() {
-		t.applyCoulombsLaw();
-		t.applyHookesLaw();
-		t.attractToCentre();
-		t.updateVelocity(0.03);
-		t.updatePosition(0.03);
+		var left = (t._settleBy - Date.now()) / Layout.ForceDirected.settleTime;
+		if (left > 0) {
+			t.applyCoulombsLaw();
+			t.applyHookesLaw();
+			t.attractToCentre();
+			t.updateVelocity(0.03);
+			// cool down so motion fades out instead of freezing at the deadline
+			t.eachNode(function(node, point) { point.v = point.v.multiply(Math.min(1, left * 2)); });
+			t.updatePosition(0.03);
+		}
+		var overlapping = left > 0 && t.collide ? t.collide() : false;
+		t._calmSteps = t.totalEnergy() < 0.01 ? (t._calmSteps || 0) + 1 : 0;
 
 		if (render !== undefined) {
 			render();
                 }
 
-		// stop simulation when energy of the system goes below a threshold
-		if (t.totalEnergy() < 0.01) {
+		// stop when calm and overlap-free, or once the settle time runs out
+		if (left <= 0 || (t._calmSteps > 0 && (!overlapping || t._calmSteps > 120))) {
+			t._calmSteps = 0;
 			t._started = false;
 			if (done !== undefined) { done(); }
 		} else {
@@ -486,7 +497,7 @@ Layout.ForceDirected.prototype.getBoundingBox = function() {
 		}
 	});
 
-	var padding = topright.subtract(bottomleft).multiply(0.20); // 20% padding per side
+	var padding = topright.subtract(bottomleft).multiply(0.0); // label margins are handled by the renderer
 
 	return {bottomleft: bottomleft.subtract(padding), topright: topright.add(padding)};
 };
