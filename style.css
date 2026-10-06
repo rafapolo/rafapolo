@@ -387,6 +387,12 @@ h2 {
     filter: drop-shadow(var(--sx) var(--sy) 14px rgba(0, 0, 0, var(--so)));
 }
 
+#since.lit,
+#footer-email.lit {
+    filter: none;
+    text-shadow: var(--sx) var(--sy) 2px rgba(0, 0, 0, calc(var(--so) * 4.5));
+}
+
 #lantern.on {
     opacity: 1;
 }
@@ -487,12 +493,16 @@ h2 {
 }
 
 .card-bio .info {
+    position: relative;
     margin-right: 0;
     height: auto;
+    flex: 1;
+    min-height: 0;
     flex-direction: column;
     align-items: stretch;
+    justify-content: space-between;
     gap: 0;
-    padding: 22px;
+    padding: 20px;
     background: transparent;
     color: var(--accent);
     overflow: hidden;
@@ -507,17 +517,45 @@ h2 {
 }
 
 .bio-text {
-    margin: 0 20px 20px;
-    font-size: clamp(14px, 1.4vw, 17px);
+    --d: auto;
+    width: var(--d);
+    height: var(--d);
+    margin: auto;
+    font-size: 17px;
     line-height: 1.6;
     text-align: center;
-    text-wrap: balance;
+    overflow-wrap: normal;
     color: white;
 }
 
+.bio-shape {
+    width: 50%;
+    height: 100%;
+}
+
+.bio-shape-l {
+    float: left;
+    shape-outside: radial-gradient(
+        circle at 100% 50%,
+        transparent calc(var(--d) / 2),
+        #000 calc(var(--d) / 2)
+    );
+}
+
+.bio-shape-r {
+    float: right;
+    shape-outside: radial-gradient(
+        circle at 0 50%,
+        transparent calc(var(--d) / 2),
+        #000 calc(var(--d) / 2)
+    );
+}
+
 .bio-cv-link {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
     display: inline-block;
-    align-self: center;
     margin: 0;
     font-size: 13px;
     color: var(--accent);

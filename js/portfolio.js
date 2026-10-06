@@ -29,7 +29,7 @@
         var LIGHT_RADIUS = 320;
         var lit = Array.prototype.slice.call(
             document.querySelectorAll(
-                ".intro-panel, .card-bio, .card-graph, #portfolio .card, #footer-email",
+                ".intro-panel, .card-bio, .card-graph, #portfolio .card, #since, #footer-email",
             ),
         );
         var mx = 0;
@@ -261,9 +261,70 @@
         });
     }
 
+    var bio = document.querySelector(".card-bio .info");
+    var bioText = bio && bio.querySelector(".bio-text");
+    var bioLink = bio && bio.querySelector(".bio-cv-link");
+    var bioFixed = window.matchMedia("(min-width: 1021px)");
+
+    function bioFits(font, size) {
+        bioText.style.fontSize = font + "px";
+        bioText.style.setProperty("--d", size + "px");
+        return bioText.scrollHeight <= size + 1;
+    }
+
+    function fitBio() {
+        if (!bioText) return;
+        bioText.style.fontSize = "";
+        bioText.style.removeProperty("--d");
+        var style = getComputedStyle(bio);
+        var roomW =
+            bio.clientWidth -
+            parseFloat(style.paddingLeft) -
+            parseFloat(style.paddingRight);
+        var roomH = bioFixed.matches
+            ? bio.clientHeight -
+              parseFloat(style.paddingTop) -
+              parseFloat(style.paddingBottom)
+            : Infinity;
+        var room = Math.floor(Math.min(roomW, roomH));
+        var font = 20;
+        var size = room;
+        if (bioFits(font, room)) {
+            var lo = 0;
+            var hi = room;
+            while (hi - lo > 1) {
+                var mid = (lo + hi) / 2;
+                if (bioFits(font, mid)) hi = mid;
+                else lo = mid;
+            }
+            size = Math.ceil(hi);
+        } else {
+            var small = 10;
+            var big = 20;
+            while (big - small > 0.25) {
+                var f = (small + big) / 2;
+                if (bioFits(f, room)) small = f;
+                else big = f;
+            }
+            font = small;
+        }
+        bioFits(font, size);
+    }
+
+    var bioTimer;
+    window.addEventListener("resize", function () {
+        clearTimeout(bioTimer);
+        bioTimer = setTimeout(fitBio, 120);
+    });
+
     var fontReady =
         document.fonts && document.fonts.load
             ? document.fonts.load("13px Monda")
             : Promise.resolve();
     fontReady.then(initGraph, initGraph);
+    var bioFont =
+        document.fonts && document.fonts.load
+            ? document.fonts.load("16px Monda")
+            : Promise.resolve();
+    bioFont.then(fitBio, fitBio);
 })();
