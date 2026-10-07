@@ -6,7 +6,7 @@ mkdir -p dist/js dist/img/thumbs
 
 cp img/thumbs/*.webp dist/img/thumbs/
 cp img/og.png dist/img/
-for f in fonts favicon.ico polo.png rafael-polo-cv.pdf 0xCE8E94C8EDA640B6.pub.txt CNAME robots.txt sitemap.xml; do
+for f in fonts favicon.ico polo.png rafael-polo-cv.pdf 0xCE8E94C8EDA640B6.pub.txt CNAME robots.txt; do
     [ -e "$f" ] && cp -r "$f" dist/
 done
 
