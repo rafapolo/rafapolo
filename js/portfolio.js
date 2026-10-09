@@ -234,6 +234,7 @@
             repulsion: 119500,
             damping: 0.1,
             graph: graph,
+            fontSize: window.matchMedia("(max-width: 600px)").matches ? 10 : 13,
             nodeSelected: linkable && function (node) {
                 if (!node.data.id) return;
                 var match = document.querySelector(

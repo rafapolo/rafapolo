@@ -30,6 +30,9 @@ function initSpringy(canvas, params) {
   var repulsion = params.repulsion || 350.0;
   var damping = params.damping || 50;
   var nodeSelected = params.nodeSelected || null;
+  var fontSize = params.fontSize || 13;
+  var k = fontSize / 13;
+  var font = fontSize + "px 'Monda'";
 
   var ctx = canvas.getContext("2d");
   var accentColor = getComputedStyle(document.documentElement)
@@ -93,8 +96,8 @@ function initSpringy(canvas, params) {
     pad.right = Math.min(right, W * 0.3);
   }
 
-  var labelHeight = 28;
-  var labelGap = 6;
+  var labelHeight = 28 * k;
+  var labelGap = 6 * k;
   layout.collide = function () {
     var bb = layout.getBoundingBox();
     var size = bb.topright.subtract(bb.bottomleft);
@@ -219,14 +222,14 @@ function initSpringy(canvas, params) {
   Node.prototype.getWidth = function () {
     var text = this.data.label !== undefined ? this.data.label : this.id;
     ctx.save();
-    ctx.font = "13px 'Monda'";
-    var width = ctx.measureText(text).width + 8;
+    ctx.font = font;
+    var width = ctx.measureText(text).width + 8 * k;
     ctx.restore();
     return width;
   };
 
   Node.prototype.getHeight = function () {
-    return 16;
+    return 16 * k;
   };
 
   var renderer = new Renderer(
@@ -335,20 +338,20 @@ function initSpringy(canvas, params) {
 
       ctx.textAlign = "center";
       ctx.textBaseline = "top";
-      ctx.font = "13px 'Monda'";
+      ctx.font = font;
       var text = node.data.label !== undefined ? node.data.label : node.id;
       var isCategory = /^\[.*\]$/.test(text);
       var isCatHovered = isCategory && isNearest;
 
       if (inNetwork || isHovered || isCategory) {
         ctx.fillStyle = (inNetwork && isCategory) ? "#d7d4cb" : inNetwork ? "#FFD700" : isCategory ? accentColor : "#d7d4cb";
-        ctx.fillRect(s.x - boxWidth / 2, s.y + 2, boxWidth, 16);
+        ctx.fillRect(s.x - boxWidth / 2, s.y + 2 * k, boxWidth, 16 * k);
       }
 
       ctx.fillStyle = inNetwork ? "#111" : isHovered ? "#111" : isCategory ? "#111" : "white";
 
-      ctx.fillText(text, s.x, s.y + 4);
-      ctx.fillText("°", s.x - 3, s.y - 8);
+      ctx.fillText(text, s.x, s.y + 4 * k);
+      ctx.fillText("°", s.x - 3 * k, s.y - 8 * k);
 
       ctx.restore();
     },
