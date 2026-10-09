@@ -54,6 +54,8 @@ function initSpringy(canvas, params) {
       adjusting = false;
       return;
     }
+    // the layout stops on a deadline, before this easing catches up with the final bounding box
+    renderer.start();
     Layout.requestAnimationFrame(adjust);
   }
   function kickAdjust() {
