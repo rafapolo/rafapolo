@@ -209,8 +209,7 @@ h2 {
     flex: 1 1 auto;
     min-width: 0;
     flex-wrap: nowrap;
-    gap: 6px;
-    justify-content: safe flex-end;
+    gap: 4px;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
@@ -269,8 +268,16 @@ h2 {
 }
 
 .intro-head {
-    flex: 1 0 auto;
+    flex: 999 0 auto;
     max-width: 100%;
+}
+
+.intro-controls {
+    display: flex;
+    flex: 1 1 auto;
+    min-width: 0;
+    align-items: center;
+    gap: 16px;
 }
 
 .intro-head h2 {
