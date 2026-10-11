@@ -209,7 +209,7 @@ h2 {
     flex: 1;
     flex-wrap: nowrap;
     gap: 6px;
-    justify-content: flex-end;
+    justify-content: safe flex-end;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
@@ -825,6 +825,23 @@ h2 {
     }
 }
 
+@media (max-width: 820px) {
+    .intro-panel {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .intro-head {
+        flex: 1 1 100%;
+    }
+
+    .filter-bar {
+        flex: 1 1 0;
+        min-width: 0;
+        justify-content: flex-start;
+    }
+}
+
 @media (max-width: 600px) {
     body {
         font-size: 15px;
@@ -875,13 +892,7 @@ h2 {
 
     .intro-panel {
         padding: 14px 16px;
-        flex-wrap: wrap;
-        gap: 10px;
         border-radius: 18px;
-    }
-
-    .intro-head {
-        flex: 1 1 100%;
     }
 
     #portfolio.view-grid {
@@ -898,12 +909,6 @@ h2 {
 
     .intro-head h2 {
         font-size: 14px;
-    }
-
-    .filter-bar {
-        flex: 1 1 0;
-        min-width: 0;
-        justify-content: flex-start;
     }
 
     .filter-btn {
