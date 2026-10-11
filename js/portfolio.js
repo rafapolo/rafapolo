@@ -265,7 +265,7 @@
     var bio = document.querySelector(".card-bio .info");
     var bioText = bio && bio.querySelector(".bio-text");
     var bioLink = bio && bio.querySelector(".bio-cv-link");
-    var bioFixed = window.matchMedia("(min-width: 1021px)");
+    var bioFixed = window.matchMedia("(min-width: 821px)");
 
     function bioFits(font, size) {
         bioText.style.fontSize = font + "px";
