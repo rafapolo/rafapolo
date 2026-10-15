@@ -5,7 +5,7 @@ var projects = [
   ["brasilume", "brasilume"],
   ["datative", "datative"],
   ["helvetiscan", "helvetiscan"],
-  ["swissviz", "swissviz"],
+  ["cantography", "Cantography"],
   ["pegadas-tigrinho", "Pegadas Tigrinho"],
   ["malafaia", "malafaia"],
   ["brasiliano", "brasiliano"],
