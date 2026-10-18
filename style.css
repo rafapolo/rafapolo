@@ -221,6 +221,7 @@ h2 {
 
 .filter-btn {
     cursor: pointer;
+    touch-action: manipulation;
     flex: 0 0 auto;
     line-height: 1.4;
     font-size: 12px;
@@ -236,8 +237,8 @@ h2 {
         border-color 0.15s;
 }
 
-.filter-btn:hover,
-.filter-btn.active {
+.filter-btn.active,
+.filter-btn.pressed {
     background: var(--accent);
     color: #111;
     border-color: transparent;
@@ -653,13 +654,14 @@ h2 {
     background: transparent;
     color: var(--muted);
     cursor: pointer;
+    touch-action: manipulation;
     transition:
         background 0.15s,
         color 0.15s;
 }
 
-.view-btn:hover,
-.view-btn.active {
+.view-btn.active,
+.view-btn.pressed {
     background: var(--accent);
     color: #111;
 }
@@ -767,6 +769,20 @@ h2 {
 #portfolio.view-grid .card:focus-visible .desc {
     max-height: 4.2em;
     opacity: 1;
+}
+
+.filter-btn.pressed,
+.view-btn.pressed {
+    transition: none;
+}
+
+@media (hover: hover) {
+    .filter-btn:hover,
+    .view-btn:hover {
+        background: var(--accent);
+        color: #111;
+        border-color: transparent;
+    }
 }
 
 @media (hover: none) {

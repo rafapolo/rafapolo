@@ -129,6 +129,24 @@
             });
     });
 
+    filterBtns.concat(viewBtns).forEach(function (btn) {
+        function release() {
+            btn.classList.remove("pressed");
+        }
+        btn.addEventListener("pointerdown", function () {
+            btn.classList.add("pressed");
+        });
+        ["pointerup", "pointercancel", "pointerleave"].forEach(function (type) {
+            btn.addEventListener(type, release);
+        });
+    });
+
+    function afterPaint(fn) {
+        requestAnimationFrame(function () {
+            setTimeout(fn, 0);
+        });
+    }
+
     function setView(view) {
         portfolio.classList.toggle("view-grid", view === "grid");
         viewBtns.forEach(function (b) {
@@ -146,7 +164,12 @@
 
     viewBtns.forEach(function (btn) {
         btn.addEventListener("click", function () {
-            setView(btn.dataset.view);
+            viewBtns.forEach(function (b) {
+                b.classList.toggle("active", b === btn);
+            });
+            afterPaint(function () {
+                setView(btn.dataset.view);
+            });
             try {
                 localStorage.setItem(VIEW_KEY, btn.dataset.view);
             } catch (e) {}
@@ -163,54 +186,59 @@
                 b.classList.toggle("active", on);
                 b.setAttribute("aria-pressed", on ? "true" : "false");
             });
-
-            var toHide = [];
-            var toShow = [];
-            cards.forEach(function (card) {
-                var tags = (card.dataset.tags || "").split(" ");
-                var match = filter === "all" || tags.indexOf(filter) > -1;
-                var hidden = card.classList.contains("hidden");
-                if (!match && !hidden) toHide.push(card);
-                else if (match && hidden) toShow.push(card);
+            afterPaint(function () {
+                applyFilter(filter);
             });
-
-            function apply() {
-                toHide.forEach(function (card) {
-                    card.classList.add("hidden");
-                });
-                toShow.forEach(function (card) {
-                    card.classList.remove("hidden");
-                });
-                updateCount();
-            }
-
-            if (document.startViewTransition && !reducedMotion.matches) {
-                document.startViewTransition(apply);
-                return;
-            }
-
-            toHide.forEach(function (card) {
-                card.classList.add("fading");
-            });
-
-            setTimeout(function () {
-                toHide.forEach(function (card) {
-                    card.classList.remove("fading");
-                });
-                toShow.forEach(function (card) {
-                    card.classList.add("fading");
-                });
-                apply();
-                requestAnimationFrame(function () {
-                    requestAnimationFrame(function () {
-                        toShow.forEach(function (card) {
-                            card.classList.remove("fading");
-                        });
-                    });
-                });
-            }, 220);
         });
     });
+
+    function applyFilter(filter) {
+        var toHide = [];
+        var toShow = [];
+        cards.forEach(function (card) {
+            var tags = (card.dataset.tags || "").split(" ");
+            var match = filter === "all" || tags.indexOf(filter) > -1;
+            var hidden = card.classList.contains("hidden");
+            if (!match && !hidden) toHide.push(card);
+            else if (match && hidden) toShow.push(card);
+        });
+
+        function apply() {
+            toHide.forEach(function (card) {
+                card.classList.add("hidden");
+            });
+            toShow.forEach(function (card) {
+                card.classList.remove("hidden");
+            });
+            updateCount();
+        }
+
+        if (document.startViewTransition && !reducedMotion.matches) {
+            document.startViewTransition(apply);
+            return;
+        }
+
+        toHide.forEach(function (card) {
+            card.classList.add("fading");
+        });
+
+        setTimeout(function () {
+            toHide.forEach(function (card) {
+                card.classList.remove("fading");
+            });
+            toShow.forEach(function (card) {
+                card.classList.add("fading");
+            });
+            apply();
+            requestAnimationFrame(function () {
+                requestAnimationFrame(function () {
+                    toShow.forEach(function (card) {
+                        card.classList.remove("fading");
+                    });
+                });
+            });
+        }, 220);
+    }
 
     function flashCard(match) {
         var flashed = false;

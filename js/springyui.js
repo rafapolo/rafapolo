@@ -35,6 +35,7 @@ function initSpringy(canvas, params) {
   var font = fontSize + "px 'Monda'";
 
   var ctx = canvas.getContext("2d");
+  var view = { w: canvas.width, h: canvas.height };
   var accentColor = getComputedStyle(document.documentElement)
     .getPropertyValue("--accent")
     .trim();
@@ -72,7 +73,7 @@ function initSpringy(canvas, params) {
   var pad = { left: 0, right: 0, top: margin + 8, bottom: margin + 18 };
   function fitPadding() {
     var size = currentBB.topright.subtract(currentBB.bottomleft);
-    var W = canvas.width;
+    var W = view.w;
     var nodes = [];
     layout.eachNode(function (node, point) {
       nodes.push({
@@ -101,8 +102,8 @@ function initSpringy(canvas, params) {
   layout.collide = function () {
     var bb = layout.getBoundingBox();
     var size = bb.topright.subtract(bb.bottomleft);
-    var ux = size.x / Math.max(1, canvas.width - pad.left - pad.right);
-    var uy = size.y / Math.max(1, canvas.height - pad.top - pad.bottom);
+    var ux = size.x / Math.max(1, view.w - pad.left - pad.right);
+    var uy = size.y / Math.max(1, view.h - pad.top - pad.bottom);
     var items = [];
     layout.eachNode(function (node, point) {
       items.push({ point: point, half: (node.getWidth() + labelGap) / 2 });
@@ -133,15 +134,15 @@ function initSpringy(canvas, params) {
 
   var toScreen = function (p) {
     var size = currentBB.topright.subtract(currentBB.bottomleft);
-    var sx = pad.left + ((p.x - currentBB.bottomleft.x) / size.x) * (canvas.width - pad.left - pad.right);
-    var sy = pad.top + ((p.y - currentBB.bottomleft.y) / size.y) * (canvas.height - pad.top - pad.bottom);
+    var sx = pad.left + ((p.x - currentBB.bottomleft.x) / size.x) * (view.w - pad.left - pad.right);
+    var sy = pad.top + ((p.y - currentBB.bottomleft.y) / size.y) * (view.h - pad.top - pad.bottom);
     return new Vector(sx, sy);
   };
 
   var fromScreen = function (s) {
     var size = currentBB.topright.subtract(currentBB.bottomleft);
-    var px = ((s.x - pad.left) / (canvas.width - pad.left - pad.right)) * size.x + currentBB.bottomleft.x;
-    var py = ((s.y - pad.top) / (canvas.height - pad.top - pad.bottom)) * size.y + currentBB.bottomleft.y;
+    var px = ((s.x - pad.left) / (view.w - pad.left - pad.right)) * size.x + currentBB.bottomleft.x;
+    var py = ((s.y - pad.top) / (view.h - pad.top - pad.bottom)) * size.y + currentBB.bottomleft.y;
     return new Vector(px, py);
   };
 
@@ -151,8 +152,8 @@ function initSpringy(canvas, params) {
 
   canvas.addEventListener("mousedown", function (e) {
     var rect = canvas.getBoundingClientRect();
-    var scaleX = canvas.width / rect.width;
-    var scaleY = canvas.height / rect.height;
+    var scaleX = view.w / rect.width;
+    var scaleY = view.h / rect.height;
     var p = fromScreen({
       x: (e.clientX - rect.left) * scaleX,
       y: (e.clientY - rect.top) * scaleY,
@@ -168,8 +169,8 @@ function initSpringy(canvas, params) {
 
   canvas.addEventListener("mousemove", function (e) {
     var rect = canvas.getBoundingClientRect();
-    var scaleX = canvas.width / rect.width;
-    var scaleY = canvas.height / rect.height;
+    var scaleX = view.w / rect.width;
+    var scaleY = view.h / rect.height;
     var p = fromScreen({
       x: (e.clientX - rect.left) * scaleX,
       y: (e.clientY - rect.top) * scaleY,
@@ -186,8 +187,8 @@ function initSpringy(canvas, params) {
       e.preventDefault();
       var touch = e.touches[0];
       var rect = canvas.getBoundingClientRect();
-      var scaleX = canvas.width / rect.width;
-      var scaleY = canvas.height / rect.height;
+      var scaleX = view.w / rect.width;
+      var scaleY = view.h / rect.height;
       var p = fromScreen({
         x: (touch.clientX - rect.left) * scaleX,
         y: (touch.clientY - rect.top) * scaleY,
@@ -207,8 +208,8 @@ function initSpringy(canvas, params) {
       e.preventDefault();
       var touch = e.touches[0];
       var rect = canvas.getBoundingClientRect();
-      var scaleX = canvas.width / rect.width;
-      var scaleY = canvas.height / rect.height;
+      var scaleX = view.w / rect.width;
+      var scaleY = view.h / rect.height;
       var p = fromScreen({
         x: (touch.clientX - rect.left) * scaleX,
         y: (touch.clientY - rect.top) * scaleY,
@@ -237,7 +238,7 @@ function initSpringy(canvas, params) {
     function clear() {
       kickAdjust();
       fitPadding();
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.clearRect(0, 0, view.w, view.h);
     },
     function drawEdge(edge, p1, p2) {
       var x1 = toScreen(p1).x;
@@ -337,7 +338,8 @@ function initSpringy(canvas, params) {
       var isHovered = isNearest && nearest.node.data.id != null;
 
       ctx.textAlign = "center";
-      ctx.textBaseline = "top";
+      // "top" sits lower in WebKit than in Blink, pushing the label out of its box on iOS
+      ctx.textBaseline = "middle";
       ctx.font = font;
       var text = node.data.label !== undefined ? node.data.label : node.id;
       var isCategory = /^\[.*\]$/.test(text);
@@ -350,8 +352,13 @@ function initSpringy(canvas, params) {
 
       ctx.fillStyle = inNetwork ? "#111" : isHovered ? "#111" : isCategory ? "#111" : "white";
 
-      ctx.fillText(text, s.x, s.y + 4 * k);
-      ctx.fillText("°", s.x - 3 * k, s.y - 8 * k);
+      ctx.fillText(text, s.x, s.y + 10 * k);
+
+      ctx.strokeStyle = "white";
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.arc(s.x, s.y - 1 * k, 2 * k, 0, 2 * Math.PI);
+      ctx.stroke();
 
       ctx.restore();
     },
@@ -360,8 +367,12 @@ function initSpringy(canvas, params) {
   function fitCanvas() {
     var rect = canvas.getBoundingClientRect();
     if (!rect.width || !rect.height) return;
-    canvas.width = Math.round(rect.width);
-    canvas.height = Math.round(rect.height);
+    var dpr = window.devicePixelRatio || 1;
+    view.w = Math.round(rect.width);
+    view.h = Math.round(rect.height);
+    canvas.width = Math.round(view.w * dpr);
+    canvas.height = Math.round(view.h * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
   fitCanvas();
   var resizeTimer;
