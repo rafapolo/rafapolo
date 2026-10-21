@@ -37,35 +37,40 @@
         var active = false;
         var queued = false;
 
-        function castShadows() {
-            lit.forEach(function (el) {
-                var r = el.getBoundingClientRect();
-                var dx = Math.max(r.left - mx, 0, mx - r.right);
-                var dy = Math.max(r.top - my, 0, my - r.bottom);
-                var strength = active
-                    ? 1 - Math.sqrt(dx * dx + dy * dy) / LIGHT_RADIUS
-                    : 0;
-                if (strength <= 0 || r.width === 0) {
-                    if (el.classList.contains("lit")) el.classList.remove("lit");
-                    return;
-                }
-                var vx = r.left + r.width / 2 - mx;
-                var vy = r.top + r.height / 2 - my;
-                var len = Math.sqrt(vx * vx + vy * vy) || 1;
-                var reach = 3 + 7 * strength;
-                el.style.setProperty("--sx", ((vx / len) * reach).toFixed(1) + "px");
-                el.style.setProperty("--sy", ((vy / len) * reach).toFixed(1) + "px");
-                el.style.setProperty("--so", (0.2 * strength).toFixed(2));
-                el.classList.add("lit");
-            });
+        function setVar(el, name, value) {
+            var key = "_" + name;
+            if (el[key] === value) return;
+            el[key] = value;
+            el.style.setProperty(name, value);
         }
 
         function frame() {
             queued = false;
-            lantern.style.setProperty("--mx", mx + "px");
-            lantern.style.setProperty("--my", my + "px");
+            var rects = lit.map(function (el) {
+                return el.getBoundingClientRect();
+            });
+            setVar(lantern, "--mx", mx + "px");
+            setVar(lantern, "--my", my + "px");
             lantern.classList.toggle("on", active);
-            castShadows();
+            lit.forEach(function (el, i) {
+                var r = rects[i];
+                var dx = Math.max(r.left - mx, 0, mx - r.right);
+                var dy = Math.max(r.top - my, 0, my - r.bottom);
+                var dd = dx * dx + dy * dy;
+                if (!active || r.width === 0 || dd >= LIGHT_RADIUS * LIGHT_RADIUS) {
+                    if (el.classList.contains("lit")) el.classList.remove("lit");
+                    return;
+                }
+                var strength = 1 - Math.sqrt(dd) / LIGHT_RADIUS;
+                var vx = r.left + r.width / 2 - mx;
+                var vy = r.top + r.height / 2 - my;
+                var len = Math.sqrt(vx * vx + vy * vy) || 1;
+                var reach = 3 + 7 * strength;
+                setVar(el, "--sx", ((vx / len) * reach).toFixed(1) + "px");
+                setVar(el, "--sy", ((vy / len) * reach).toFixed(1) + "px");
+                setVar(el, "--so", (0.2 * strength).toFixed(2));
+                if (!el.classList.contains("lit")) el.classList.add("lit");
+            });
         }
 
         function schedule() {

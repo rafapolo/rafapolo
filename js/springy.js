@@ -346,27 +346,41 @@ Layout.ForceDirected.prototype.eachSpring = function(callback) {
 
 // Physics stuff
 Layout.ForceDirected.prototype.applyCoulombsLaw = function() {
-	this.eachNode(function(n1, point1) {
-		this.eachNode(function(n2, point2) {
-			if (point1 !== point2)
-			{
-				var d = point1.p.subtract(point2.p);
-				var distance = d.magnitude() + 0.1; // avoid massive forces at small distances (and divide by zero)
-				var direction = d.normalise();
+	var points = [];
+	this.eachNode(function(n, point) { points.push(point); });
+	var count = points.length, repulsion = this.repulsion;
+	var ax = new Array(count), ay = new Array(count);
+	for (var k = 0; k < count; k++) { ax[k] = points[k].a.x; ay[k] = points[k].a.y; }
 
-				// apply force to each end point
-				point1.applyForce(direction.multiply(this.repulsion).divide(distance * distance * 0.5));
-				point2.applyForce(direction.multiply(this.repulsion).divide(distance * distance * -0.5));
-			}
-		});
-	});
+	// scalar form of the Vector math, same operation order and `|| 0` guards so results stay bit-identical
+	for (var i = 0; i < count; i++) {
+		var p1 = points[i].p, m1 = points[i].m;
+		for (var j = 0; j < count; j++) {
+			if (i === j) continue;
+			var p2 = points[j].p;
+			var dx = p1.x - p2.x, dy = p1.y - p2.y;
+			var mag = Math.sqrt(dx*dx + dy*dy);
+			var distance = mag + 0.1; // avoid massive forces at small distances (and divide by zero)
+			var fx = ((dx / mag) || 0) * repulsion, fy = ((dy / mag) || 0) * repulsion;
+			var near = distance * distance * 0.5, far = distance * distance * -0.5;
+
+			// apply force to each end point
+			ax[i] += ((((fx / near) || 0) / m1) || 0);
+			ay[i] += ((((fy / near) || 0) / m1) || 0);
+			var m2 = points[j].m;
+			ax[j] += ((((fx / far) || 0) / m2) || 0);
+			ay[j] += ((((fy / far) || 0) / m2) || 0);
+		}
+	}
+	for (k = 0; k < count; k++) points[k].a = new Vector(ax[k], ay[k]);
 };
 
 Layout.ForceDirected.prototype.applyHookesLaw = function() {
 	this.eachSpring(function(spring){
 		var d = spring.point2.p.subtract(spring.point1.p); // the direction of the spring
-		var displacement = spring.length - d.magnitude();
-		var direction = d.normalise();
+		var mag = d.magnitude();
+		var displacement = spring.length - mag;
+		var direction = d.divide(mag);
 
 		// apply force to each end point
 		spring.point1.applyForce(direction.multiply(spring.k * displacement * -0.5));
@@ -463,18 +477,21 @@ Layout.ForceDirected.prototype.start = function(render, done) {
 
 // Find the nearest point to a particular position
 Layout.ForceDirected.prototype.nearest = function(pos) {
-	var min = {node: null, point: null, distance: null};
+	var best = null, bestPoint = null, bestSq = Infinity;
 	var t = this;
 	this.graph.nodes.forEach(function(n){
 		var point = t.point(n);
-		var distance = point.p.subtract(pos).magnitude();
+		var dx = point.p.x - pos.x, dy = point.p.y - pos.y;
+		var sq = dx*dx + dy*dy;
 
-		if (min.distance === null || distance < min.distance) {
-			min = {node: n, point: point, distance: distance};
+		if (best === null || sq < bestSq) {
+			best = n; bestPoint = point; bestSq = sq;
 		}
 	});
 
-	return min;
+	return best === null
+		? {node: null, point: null, distance: null}
+		: {node: best, point: bestPoint, distance: Math.sqrt(bestSq)};
 };
 
 // returns [bottomleft, topright]
