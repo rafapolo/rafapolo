@@ -21,7 +21,7 @@
     --surface-3: rgba(255, 255, 255, 0.06);
     --text: #f3f1eb;
     --muted: rgba(243, 241, 235, 0.74);
-    --soft: rgba(243, 241, 235, 0.48);
+    --soft: rgba(243, 241, 235, 0.56);
     --accent: #d4a574;
     --accent-strong: #ecc08d;
     --border: rgba(243, 241, 235, 0.12);
@@ -855,7 +855,13 @@ h2 {
     }
 
     .brand-tagline {
-        display: none;
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
     }
 
     .header-shell {
@@ -1062,6 +1068,9 @@ h2 {
 
 .cv-entry a {
     color: var(--accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
 }
 
 .cv-entry a:hover {
