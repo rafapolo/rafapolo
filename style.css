@@ -26,6 +26,7 @@
     --accent-strong: #ecc08d;
     --border: rgba(243, 241, 235, 0.12);
     --shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
+    --ink: #111;
 }
 
 *,
@@ -50,7 +51,7 @@ html.loading body > :not(#header) {
 }
 
 body {
-    margin: 0;
+    margin: 0 auto;
     background: var(--bg);
     color: var(--text);
     font-family: "Monda", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -59,13 +60,12 @@ body {
     letter-spacing: 0.1px;
     max-width: 1195px;
     overflow-wrap: anywhere;
-    margin-inline: auto;
     padding: 0 20px 28px;
 }
 
 ::selection {
     background: var(--accent);
-    color: #111;
+    color: var(--ink);
 }
 
 a,
@@ -80,7 +80,7 @@ a {
 }
 
 a:hover {
-    color: #111;
+    color: var(--ink);
 }
 
 a:focus-visible,
@@ -209,7 +209,7 @@ h2 {
 
 #menu a:hover {
     background: var(--accent);
-    color: #111;
+    color: var(--ink);
 }
 
 .filter-bar {
@@ -246,9 +246,11 @@ h2 {
 }
 
 .filter-btn.active,
-.filter-btn.pressed {
+.filter-btn.pressed,
+.view-btn.active,
+.view-btn.pressed {
     background: var(--accent);
-    color: #111;
+    color: var(--ink);
     border-color: transparent;
 }
 
@@ -299,7 +301,6 @@ h2 {
 
 #portfolio {
     display: grid;
-    margin-top: 0;
     grid-template-columns: 1fr;
     grid-auto-rows: auto;
     gap: 3px;
@@ -310,10 +311,6 @@ h2 {
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     grid-auto-rows: 215px;
     gap: clamp(8px, 1.5vw, 16px);
-}
-
-.grid-top {
-    margin-bottom: 0;
 }
 
 .grid.grid-top {
@@ -476,23 +473,23 @@ h2 {
     white-space: nowrap;
 }
 
-.card .name {
+.card .name,
+.card .desc {
     font-size: 14px;
-    font-weight: 700;
-    flex: 0 0 190px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.card .name {
+    font-weight: 700;
+    flex: 0 0 190px;
     text-transform: capitalize;
 }
 
 .card .desc {
     flex: 1;
-    font-size: 14px;
     color: var(--muted);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .card-tag {
@@ -515,7 +512,6 @@ h2 {
 
 .card-bio .info {
     position: relative;
-    margin-right: 0;
     height: auto;
     flex: 1;
     min-height: 0;
@@ -524,15 +520,12 @@ h2 {
     justify-content: space-between;
     gap: 0;
     padding: 20px;
-    background: transparent;
     color: var(--accent);
     overflow: hidden;
 }
 
 .card-graph .graph-header {
-    padding: 22px;
-    padding-bottom: 0;
-    background: transparent;
+    padding: 22px 22px 0;
     color: var(--accent);
     overflow: hidden;
 }
@@ -589,7 +582,7 @@ h2 {
 
 .bio-cv-link:hover {
     background: var(--accent);
-    color: #111;
+    color: var(--ink);
     text-decoration: none;
 }
 
@@ -615,21 +608,22 @@ h2 {
     touch-action: pan-y;
 }
 
-#since {
-    clear: both;
-    margin-top: 25px;
-    text-align: center;
-    font-size: 12px;
-    color: var(--soft);
-    padding: 0 0 2px;
-    text-transform: lowercase;
-}
-
+#since,
 #footer-email {
     text-align: center;
     font-size: 12px;
-    padding: 0 0 6px;
     text-transform: lowercase;
+}
+
+#since {
+    clear: both;
+    margin-top: 25px;
+    color: var(--soft);
+    padding: 0 0 2px;
+}
+
+#footer-email {
+    padding: 0 0 6px;
 }
 
 #footer-email a {
@@ -666,12 +660,6 @@ h2 {
     transition:
         background 0.15s,
         color 0.15s;
-}
-
-.view-btn.active,
-.view-btn.pressed {
-    background: var(--accent);
-    color: #111;
 }
 
 .card:focus-visible {
@@ -733,7 +721,6 @@ h2 {
     inset: auto 0 0 0;
     height: auto;
     padding: 34px 12px 10px;
-    display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 2px;
@@ -743,14 +730,12 @@ h2 {
 #portfolio.view-grid .card .name {
     flex: none;
     max-width: 100%;
-    font-size: 14px;
     color: #fff;
 }
 
 #portfolio.view-grid .card .year {
     order: 0;
     flex: none;
-    font-size: 11px;
 }
 
 #portfolio.view-grid .card .card-tag {
@@ -788,7 +773,7 @@ h2 {
     .filter-btn:hover,
     .view-btn:hover {
         background: var(--accent);
-        color: #111;
+        color: var(--ink);
         border-color: transparent;
     }
 }
@@ -906,11 +891,6 @@ h2 {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .card-bio,
-    .card-graph {
-        grid-column: 1 / -1;
-    }
-
     .intro-panel {
         padding: 14px 16px;
         border-radius: 18px;
@@ -966,22 +946,22 @@ h2 {
         gap: 4px 10px;
     }
 
-    #portfolio .card .name {
-        flex: 1 1 auto;
+    #portfolio .card .name,
+    #portfolio .card .desc {
         min-width: 0;
         white-space: normal;
         overflow: visible;
         text-overflow: clip;
     }
 
+    #portfolio .card .name {
+        flex: 1 1 auto;
+    }
+
     #portfolio .card .desc {
         flex: 1 1 100%;
         order: 2;
-        min-width: 0;
         font-size: 12px;
-        white-space: normal;
-        overflow: visible;
-        text-overflow: clip;
     }
 
     #portfolio .card .card-tag {
@@ -993,7 +973,6 @@ h2 {
 /* ── curriculum.html ── */
 #cv-body {
     max-width: 835px;
-    margin-left: 0px;
     margin-right: 25px;
 }
 
@@ -1009,10 +988,15 @@ h2 {
     margin-top: 0;
 }
 
-.cv-heading {
+.cv-heading,
+.cv-date,
+.cv-skills dt {
     color: var(--accent);
     font-size: 12px;
     font-weight: 700;
+}
+
+.cv-heading {
     letter-spacing: 0.14em;
     text-transform: uppercase;
     padding-bottom: 6px;
@@ -1039,9 +1023,6 @@ h2 {
 }
 
 .cv-date {
-    color: var(--accent);
-    font-size: 12px;
-    font-weight: 700;
     line-height: 1.5;
     font-variant-numeric: tabular-nums;
     padding-top: 1px;
@@ -1123,12 +1104,6 @@ h2 {
     align-items: baseline;
 }
 
-.cv-skills dt {
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--accent);
-}
-
 .cv-skills dd {
     margin: 0;
 }
@@ -1191,19 +1166,17 @@ h2 {
         margin: 0;
     }
 
-    .cv-heading {
+    .cv-heading,
+    .cv-entry-name,
+    .chip strong {
         color: #000;
+    }
+
+    .cv-heading {
         border-color: #999;
     }
 
-    .cv-date {
-        color: #555;
-    }
-
-    .cv-entry-name {
-        color: #000;
-    }
-
+    .cv-date,
     .cv-place {
         color: #555;
     }
@@ -1223,19 +1196,12 @@ h2 {
         color: #222;
     }
 
-    .chip strong {
-        color: #000;
-    }
-
     .cv-now {
         background: #000;
         color: #fff;
     }
 
-    .cv-section {
-        break-inside: avoid;
-    }
-
+    .cv-section,
     .cv-entry {
         break-inside: avoid;
     }
