@@ -41,6 +41,14 @@ html {
     text-size-adjust: 100%;
 }
 
+body > :not(#header) {
+    transition: opacity 0.9s ease;
+}
+
+html.loading body > :not(#header) {
+    opacity: 0;
+}
+
 body {
     margin: 0;
     background: var(--bg);

@@ -4,6 +4,10 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script>
+            document.documentElement.classList.add("loading");
+            setTimeout(function () {
+                document.documentElement.classList.remove("loading");
+            }, 3000);
             (function () {
                 var meta = document.querySelector('meta[name="viewport"]');
                 function fit() {
@@ -47,7 +51,7 @@
 
         <link rel="preload" href="fonts/monda-400.woff2" as="font" type="font/woff2" crossorigin />
         <link rel="preload" href="fonts/monda-700.woff2" as="font" type="font/woff2" crossorigin />
-        <link rel="stylesheet" href="style.css?v=69" />
+        <link rel="stylesheet" href="style.css?v=71" />
 
         <script type="application/ld+json">
             {
@@ -86,7 +90,7 @@
         <script defer src="js/springy.js?v=4"></script>
         <script defer src="js/graph.js?v=19"></script>
         <script defer src="js/springyui.js?v=10"></script>
-        <script defer src="js/portfolio.js?v=21"></script>
+        <script defer src="js/portfolio.js?v=23"></script>
         <script
             defer
             src="https://cloud.umami.is/script.js"
@@ -230,6 +234,23 @@
                     </div>
                 </a>
 
+                <a
+                    class="card"
+                    href="https://cantography.ch/"
+                    data-id="cantography"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-tags="dataviz website"
+                >
+                    <div class="thumb"><img src="img/thumbs/swissviz.webp" srcset="img/thumbs/swissviz-280.webp 280w, img/thumbs/swissviz.webp 560w" sizes="(max-width: 760px) 50vw, (max-width: 1020px) 33vw, 290px" width="560" height="350" alt="" loading="lazy" decoding="async"></div>
+                    <div class="info">
+                        <span class="name">Cantography</span
+                        ><span class="desc"
+                            >All 795k Swiss companies on their buildings, since 1883</span
+                        ><span class="year">2026</span>
+                    </div>
+                </a>
+
                 <a class="card" data-id="erthos" href="https://rafapolo.github.io/erthos?lang=en" target="_blank" rel="noopener noreferrer" data-tags="website design"><div class="thumb"><img src="img/thumbs/erthos.webp" srcset="img/thumbs/erthos-280.webp 280w, img/thumbs/erthos.webp 560w" sizes="(max-width: 760px) 50vw, (max-width: 1020px) 33vw, 290px" width="560" height="350" alt="" loading="lazy" decoding="async"></div><div class="info"><span class="name">Erthos</span><span class="desc">Decoded the cipher behind a 1974 Brazilian computer-poetry</span><span class="year">2026</span></div></a>
 
                 <a
@@ -299,23 +320,6 @@
                         ><span class="desc"
                             >Scanner of 2.5M+ Swiss .ch domains &
                             vulnerabilities</span
-                        ><span class="year">2026</span>
-                    </div>
-                </a>
-
-                <a
-                    class="card"
-                    href="https://cantography.ch/"
-                    data-id="cantography"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    data-tags="dataviz website"
-                >
-                    <div class="thumb"><img src="img/thumbs/swissviz.webp" srcset="img/thumbs/swissviz-280.webp 280w, img/thumbs/swissviz.webp 560w" sizes="(max-width: 760px) 50vw, (max-width: 1020px) 33vw, 290px" width="560" height="350" alt="" loading="lazy" decoding="async"></div>
-                    <div class="info">
-                        <span class="name">Cantography</span
-                        ><span class="desc"
-                            >All 795k Swiss companies on their buildings, since 1883</span
                         ><span class="year">2026</span>
                     </div>
                 </a>

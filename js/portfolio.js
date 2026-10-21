@@ -350,10 +350,11 @@
         document.fonts && document.fonts.load
             ? document.fonts.load("13px Monda")
             : Promise.resolve();
-    fontReady.then(initGraph, initGraph);
-    var bioFont =
-        document.fonts && document.fonts.load
-            ? document.fonts.load("16px Monda")
-            : Promise.resolve();
-    bioFont.then(fitBio, fitBio);
+    function reveal() {
+        fitBio();
+        var wasLoading = document.documentElement.classList.contains("loading");
+        document.documentElement.classList.remove("loading");
+        setTimeout(initGraph, wasLoading ? 900 : 0);
+    }
+    fontReady.then(reveal, reveal);
 })();
