@@ -106,12 +106,18 @@
         { passive: true },
     );
 
-    function updateCount() {
-        document.getElementById("card-count").textContent = cards.filter(
-            function (c) {
-                return !c.classList.contains("hidden");
-            },
-        ).length;
+    var filterStatus = document.getElementById("filter-status");
+
+    function updateCount(announce) {
+        var count = cards.filter(function (c) {
+            return !c.classList.contains("hidden");
+        }).length;
+        document.getElementById("card-count").textContent = count;
+        if (announce && filterStatus) {
+            filterStatus.textContent =
+                count + (count === 1 ? " project" : " projects") +
+                (activeFilter === "all" ? "" : " tagged " + activeFilter);
+        }
     }
     updateCount();
 
@@ -210,7 +216,7 @@
             toShow.forEach(function (card) {
                 card.classList.remove("hidden");
             });
-            updateCount();
+            updateCount(true);
         }
 
         if (document.startViewTransition && !reducedMotion.matches) {
