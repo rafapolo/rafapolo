@@ -132,12 +132,19 @@ function initSpringy(canvas, params) {
     return overlapping;
   };
 
-  var toScreen = function (p) {
-    var size = currentBB.topright.subtract(currentBB.bottomleft);
-    var sx = pad.left + ((p.x - currentBB.bottomleft.x) / size.x) * (view.w - pad.left - pad.right);
-    var sy = pad.top + ((p.y - currentBB.bottomleft.y) / size.y) * (view.h - pad.top - pad.bottom);
-    return new Vector(sx, sy);
-  };
+  var frameBL, frameSize, frameW, frameH;
+  function frameTransform() {
+    frameBL = currentBB.bottomleft;
+    frameSize = currentBB.topright.subtract(frameBL);
+    frameW = view.w - pad.left - pad.right;
+    frameH = view.h - pad.top - pad.bottom;
+  }
+  function screenX(p) {
+    return pad.left + ((p.x - frameBL.x) / frameSize.x) * frameW;
+  }
+  function screenY(p) {
+    return pad.top + ((p.y - frameBL.y) / frameSize.y) * frameH;
+  }
 
   var fromScreen = function (s) {
     var size = currentBB.topright.subtract(currentBB.bottomleft);
@@ -220,67 +227,73 @@ function initSpringy(canvas, params) {
     { passive: false },
   );
 
+  var fontEpoch = 0;
+  if (document.fonts && document.fonts.addEventListener) {
+    document.fonts.addEventListener("loadingdone", function () {
+      fontEpoch++;
+    });
+  }
+
+  function labelOf(node) {
+    return node.data.label !== undefined ? node.data.label : node.id;
+  }
+
   Node.prototype.getWidth = function () {
-    var text = this.data.label !== undefined ? this.data.label : this.id;
+    if (this._wFont === font && this._wEpoch === fontEpoch) return this._w;
     ctx.save();
     ctx.font = font;
-    var width = ctx.measureText(text).width + 8 * k;
+    this._w = ctx.measureText(labelOf(this)).width + 8 * k;
     ctx.restore();
-    return width;
+    this._wFont = font;
+    this._wEpoch = fontEpoch;
+    return this._w;
   };
 
   Node.prototype.getHeight = function () {
     return 16 * k;
   };
 
+  var edgeStroke, edgeWidth, nodesStarted;
   var renderer = new Renderer(
     layout,
     function clear() {
       kickAdjust();
       fitPadding();
+      frameTransform();
       ctx.clearRect(0, 0, view.w, view.h);
+      ctx.globalAlpha = 0.7;
+      edgeStroke = edgeWidth = null;
+      nodesStarted = false;
     },
     function drawEdge(edge, p1, p2) {
-      var x1 = toScreen(p1).x;
-      var y1 = toScreen(p1).y;
-      var x2 = toScreen(p2).x;
-      var y2 = toScreen(p2).y;
-
-      var direction = new Vector(x2 - x1, y2 - y1);
-      var normal = direction.normal().normalise();
+      var x1 = screenX(p1);
+      var y1 = screenY(p1);
+      var x2 = screenX(p2);
+      var y2 = screenY(p2);
 
       var from = graph.getEdges(edge.source, edge.target);
       var to = graph.getEdges(edge.target, edge.source);
 
       var total = from.length + to.length;
 
-      var n = 0;
-      for (var i = 0; i < from.length; i++) {
-        if (from[i].id === edge.id) {
-          n = i;
+      var s1x = x1, s1y = y1, s2x = x2, s2y = y2;
+      if (total > 1) {
+        var n = 0;
+        for (var i = 0; i < from.length; i++) {
+          if (from[i].id === edge.id) {
+            n = i;
+          }
         }
-      }
 
-      var spacing = 10.0;
-      var offset = normal.multiply(
-        -((total - 1) * spacing) / 2.0 + n * spacing,
-      );
-
-      var s1 = toScreen(p1).add(offset);
-      var s2 = toScreen(p2).add(offset);
-
-      var boxWidth = edge.target.getWidth();
-      var boxHeight = edge.target.getHeight();
-
-      var intersection = intersect_line_box(
-        s1,
-        s2,
-        { x: x2 - boxWidth / 2.0, y: y2 - boxHeight / 2.0 },
-        boxWidth,
-        16,
-      );
-      if (!intersection) {
-        intersection = s2;
+        var spacing = 10.0;
+        var offset = new Vector(x2 - x1, y2 - y1)
+          .normal()
+          .normalise()
+          .multiply(-((total - 1) * spacing) / 2.0 + n * spacing);
+        s1x += offset.x;
+        s1y += offset.y;
+        s2x += offset.x;
+        s2y += offset.y;
       }
 
       var stroke = edge.data.color !== undefined ? edge.data.color : "#FFD700";
@@ -293,28 +306,46 @@ function initSpringy(canvas, params) {
       }
 
       var weight = edge.data.weight !== undefined ? edge.data.weight : 0.3;
-      ctx.lineWidth = weight;
-      var arrowWidth = ctx.lineWidth;
-      var arrowLength = 8;
+      if (weight !== edgeWidth) {
+        ctx.lineWidth = edgeWidth = weight;
+      }
+      if (stroke !== edgeStroke) {
+        ctx.strokeStyle = edgeStroke = stroke;
+      }
 
       var directional = false;
 
-      var lineEnd = directional
-        ? intersection.subtract(
-            direction.normalise().multiply(arrowLength * 0.5),
-          )
-        : s2;
+      var lineEndX = s2x, lineEndY = s2y;
+      if (directional) {
+        var arrowWidth = weight;
+        var arrowLength = 8;
+        var boxWidth = edge.target.getWidth();
+        var boxHeight = edge.target.getHeight();
+        var s1 = new Vector(s1x, s1y);
+        var s2 = new Vector(s2x, s2y);
+        var intersection =
+          intersect_line_box(
+            s1,
+            s2,
+            { x: x2 - boxWidth / 2.0, y: y2 - boxHeight / 2.0 },
+            boxWidth,
+            16,
+          ) || s2;
+        var lineEnd = intersection.subtract(
+          new Vector(x2 - x1, y2 - y1).normalise().multiply(arrowLength * 0.5),
+        );
+        lineEndX = lineEnd.x;
+        lineEndY = lineEnd.y;
+      }
 
-      ctx.globalAlpha = 0.7;
-      ctx.strokeStyle = stroke;
       ctx.beginPath();
-      ctx.moveTo(s1.x, s1.y);
-      ctx.lineTo(lineEnd.x, lineEnd.y);
+      ctx.moveTo(s1x, s1y);
+      ctx.lineTo(lineEndX, lineEndY);
       ctx.stroke();
-      ctx.globalAlpha = 1;
 
       if (directional) {
         ctx.save();
+        ctx.globalAlpha = 1;
         ctx.fillStyle = stroke;
         ctx.translate(intersection.x, intersection.y);
         ctx.rotate(Math.atan2(y2 - y1, x2 - x1));
@@ -329,38 +360,43 @@ function initSpringy(canvas, params) {
       }
     },
     function drawNode(node, p) {
-      var s = toScreen(p);
-      ctx.save();
+      if (!nodesStarted) {
+        nodesStarted = true;
+        ctx.globalAlpha = 1;
+        ctx.textAlign = "center";
+        // "top" sits lower in WebKit than in Blink, pushing the label out of its box on iOS
+        ctx.textBaseline = "middle";
+        ctx.font = font;
+        ctx.strokeStyle = "white";
+        ctx.lineWidth = 1;
+      }
+      var sx = screenX(p);
+      var sy = screenY(p);
       var boxWidth = node.getWidth();
 
-      var inNetwork = highlightedNetwork.indexOf(node.id) !== -1;
+      var inNetwork = highlightedNetwork.length > 0 && highlightedNetwork.indexOf(node.id) !== -1;
       var isNearest = nearest !== null && nearest.node !== null && nearest.node.id === node.id;
       var isHovered = isNearest && nearest.node.data.id != null;
 
-      ctx.textAlign = "center";
-      // "top" sits lower in WebKit than in Blink, pushing the label out of its box on iOS
-      ctx.textBaseline = "middle";
-      ctx.font = font;
-      var text = node.data.label !== undefined ? node.data.label : node.id;
-      var isCategory = /^\[.*\]$/.test(text);
-      var isCatHovered = isCategory && isNearest;
+      var text = labelOf(node);
+      if (node._catText !== text) {
+        node._catText = text;
+        node._isCat = /^\[.*\]$/.test(text);
+      }
+      var isCategory = node._isCat;
 
       if (inNetwork || isHovered || isCategory) {
         ctx.fillStyle = (inNetwork && isCategory) ? "#d7d4cb" : inNetwork ? "#FFD700" : isCategory ? accentColor : "#d7d4cb";
-        ctx.fillRect(s.x - boxWidth / 2, s.y + 2 * k, boxWidth, 16 * k);
+        ctx.fillRect(sx - boxWidth / 2, sy + 2 * k, boxWidth, 16 * k);
       }
 
       ctx.fillStyle = inNetwork ? "#111" : isHovered ? "#111" : isCategory ? "#111" : "white";
 
-      ctx.fillText(text, s.x, s.y + 10 * k);
+      ctx.fillText(text, sx, sy + 10 * k);
 
-      ctx.strokeStyle = "white";
-      ctx.lineWidth = 1;
       ctx.beginPath();
-      ctx.arc(s.x, s.y - 1 * k, 2 * k, 0, 2 * Math.PI);
+      ctx.arc(sx, sy - 1 * k, 2 * k, 0, 2 * Math.PI);
       ctx.stroke();
-
-      ctx.restore();
     },
   );
 
