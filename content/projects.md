@@ -40,7 +40,7 @@
 | Ares | 2019 | Keep — strong investigative journalism story (WhatsApp scraping during elections) |
 | Tribuna | 2018 | Keep — TSE electoral data → queryable DB for journalists |
 | Renda | 2018 | Keep — Crystal crypto framework; shows language breadth |
-| Mostre!me Cultura | 2013 | Keep — Ministry of Culture project visualization |
+| Mostre!me Cultura | 2009 | Keep — Ministry of Culture project visualization |
 | Copyfight Acervo MakingOff | 2013 | Keep — rare film torrent curation dataset |
 | Consulta Natural | 2009 | Keep — early NLP / SPARQL / Google Talk agent; good historical arc |
 | BaixoGávea | 2009 | Added — community music-discography portal; card links to the 2011 Wayback snapshot |
