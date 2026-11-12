@@ -6,6 +6,7 @@
 <title>Ontografia</title>
 <meta name="description" content="Pessoas, projetos e instituições que atravessam o trabalho de Rafael Polo, num grafo navegável.">
 <meta name="robots" content="noindex">
+<script>if (new URLSearchParams(location.search).has('embed')) document.documentElement.classList.add('embed');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
@@ -131,6 +132,11 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
   #painel { left: 16px; right: 16px; width: auto; max-height: 48vh; }
   .grupo button { padding: 7px 12px; }
 }
+/* versão compacta para o card da home (?embed=1) */
+.embed header, .embed #legenda, .embed #painel, .embed #sobre { display: none !important; }
+.embed body { background: #0f0e0c; }
+.embed .tem-barra text { display: none; }
+.embed .lugar text { font-size: 9px; }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 </head>
@@ -191,6 +197,8 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
   const cor = t => getComputedStyle(document.documentElement).getPropertyValue(TIPOS[t].cor.slice(4, -1)).trim();
   const $ = id => document.getElementById(id);
   const reduz = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const EMBED = document.documentElement.classList.contains('embed');
+  const ROTULOS_EMBED = 20;
 
   // ── dados ──
   const nos = ONTO.nos.map(n => ({ ...n }));
@@ -246,21 +254,21 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
   nosSel.append('circle').attr('r', raio).attr('fill', d => cor(d.tipo)).attr('stroke', d => d.meio ? cor(d.tipo) : null);
   nosSel.filter(d => d.ini).each(function () { gB.node().appendChild(this); });
   nosSel.filter(d => d.ini).classed('tem-barra', true).append('rect').attr('class', 'barra')
-    .attr('fill', d => cor(d.tipo)).attr('rx', 4).attr('height', 9).attr('y', -4.5)
+    .attr('fill', d => cor(d.tipo)).attr('rx', EMBED ? 2 : 4).attr('height', EMBED ? 5 : 9).attr('y', EMBED ? -2.5 : -4.5)
     .append('title').text(d => d.periodo ? `${d.rotulo}: ${d.meuPapel || ''}` : `${d.rotulo}: ${d.ini}${d.fim !== d.ini ? '–' + d.fim : ''}`);
   nosSel.append('text').text(d => d.rotulo).attr('x', d => raio(d) + 4).attr('dy', '0.35em');
 
   const W = () => innerWidth, H = () => innerHeight;
   const anos = nos.map(n => n.ano).filter(Boolean);
   const escalaAno = d3.scaleLinear().domain([Math.min(1998, d3.min(anos)), d3.max(anos)]);
-  function ajustarEscala() { escalaAno.range([-Math.max(520, W() * 0.85), Math.max(520, W() * 0.85)]); }
+  function ajustarEscala() { const m = EMBED ? W() / 2 - 14 : Math.max(520, W() * 0.85); escalaAno.range([-m, m]); }
   ajustarEscala();
 
   const daBarra = l => l.source.ini || l.target.ini;
   const sim = d3.forceSimulation(nos)
     .force('link', d3.forceLink(ligacoes.filter(l => !daBarra(l))).distance(l => (l.source.tipo === 'eu' || l.target.tipo === 'eu') ? 190 : 52).strength(l => (l.source.ini || l.target.ini) ? 0.015 : 0.6))
-    .force('carga', d3.forceManyBody().strength(d => d.ini ? 0 : -170).distanceMax(280))
-    .force('colisao', d3.forceCollide(d => d.ini ? 0 : raio(d) + 9).iterations(2))
+    .force('carga', d3.forceManyBody().strength(d => d.ini ? 0 : EMBED ? -45 : -170).distanceMax(EMBED ? 120 : 280))
+    .force('colisao', d3.forceCollide(d => d.ini ? 0 : raio(d) + (EMBED ? 3 : 9)).iterations(2))
     .force('x', d3.forceX(0).strength(0.03))
     .force('y', d3.forceY(0).strength(0.04))
     .on('tick', () => { desenhar(); if (sim.alpha() > 0.05) rotulos(); })
@@ -271,11 +279,11 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
     nosSel.attr('transform', d => `translate(${d.x},${d.y})`);
   }
 
-  const TOPO_BARRAS = -420, ALTURA_FAIXA = 22, Y_LUGARES = TOPO_BARRAS - 30;
+  const TOPO_BARRAS = -420, ALTURA_FAIXA = document.documentElement.classList.contains('embed') ? 9 : 22, Y_LUGARES = TOPO_BARRAS - 30;
   let fundoBarras = TOPO_BARRAS;
   // em Tempo, quem não é barra fica abaixo da faixa de barras
   function abaixoDasBarras() {
-    const limite = fundoBarras + 50;
+    const limite = fundoBarras + (EMBED ? 22 : 50);
     for (const d of nos) if (!d.ini && d.y < limite) d.vy += (limite - d.y) * 0.5;
   }
   function aplicarModo() {
@@ -289,7 +297,7 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
       const fimFaixa = [];
       for (const d of barras) {
         const x0 = escalaAno(d.ini), x1 = Math.max(x0 + 6, escalaAno(d.periodo ? d.fim : d.fim + 1)), larg = x1 - x0;
-        const iniTexto = x0 - 8 - d.rotulo.length * 6.2;
+        const iniTexto = EMBED ? x0 - 2 : x0 - 8 - d.rotulo.length * 6.2;
         let faixa = fimFaixa.findIndex(f => f < iniTexto - 6);
         if (faixa < 0) faixa = fimFaixa.push(0) - 1;
         fimFaixa[faixa] = x1;
@@ -299,9 +307,9 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
         g.select('text').attr('x', -larg / 2 - 6).attr('text-anchor', 'end');
       }
       fundoBarras = TOPO_BARRAS + Math.max(0, fimFaixa.length - 1) * ALTURA_FAIXA;
-      sim.force('y', d3.forceY(fundoBarras + 300).strength(0.09));
+      sim.force('y', d3.forceY(fundoBarras + (EMBED ? 170 : 300)).strength(EMBED ? 0.18 : 0.09));
       const [a0, a1] = escalaAno.domain();
-      const ticks = d3.range(Math.ceil(a0 / 2) * 2, a1 + 1, 2);
+      const passo = EMBED ? 4 : 2, ticks = d3.range(Math.ceil(a0 / passo) * passo, a1 + 1, passo);
       eixo.selectAll('g').data(ticks, d => d).join(e => { const g = e.append('g'); g.append('line'); g.append('text'); return g; })
         .attr('transform', d => `translate(${escalaAno(d)},0)`)
         .call(g => g.select('line').attr('y1', Y_LUGARES - 8).attr('y2', 2200))
@@ -309,7 +317,7 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
       gLugares.selectAll('g').data(ONTO.lugares || []).join(e => { const g = e.append('g').attr('class', 'lugar'); g.append('rect'); g.append('text'); g.append('title'); return g; })
         .attr('transform', d => `translate(${escalaAno(d.ini)},${Y_LUGARES})`)
         .call(g => g.select('rect').attr('width', d => escalaAno(d.fim) - escalaAno(d.ini) - 2).attr('height', 16).attr('y', -8).attr('rx', 3))
-        .call(g => g.select('text').attr('x', d => (escalaAno(d.fim) - escalaAno(d.ini)) / 2).attr('dy', '0.35em').text(d => d.nome))
+        .call(g => g.select('text').attr('x', d => (escalaAno(d.fim) - escalaAno(d.ini)) / 2).attr('dy', '0.35em').text(d => d.nome).style('display', d => EMBED && (escalaAno(d.fim) - escalaAno(d.ini)) < d.nome.length * 6 ? 'none' : null))
         .call(g => g.select('title').text(d => `${d.nome}: ${Math.floor(d.ini)}–${Math.ceil(d.fim) - 1}${d.nota ? ' · ' + d.nota : ''}`));
       eixo.style('opacity', 1);
     } else {
@@ -319,7 +327,7 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
       eixo.style('opacity', 0);
     }
     sim.alpha(0.9).restart();
-    setTimeout(enquadrar, reduz ? 0 : 1300);
+    setTimeout(() => (centro ? irPara(centro) : enquadrar()), reduz ? 0 : 1300);
   }
 
   // ── zoom ──
@@ -333,20 +341,23 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
     const vis = nos.filter(visivel);
     if (!vis.length) return;
     let [x0, x1] = d3.extent(vis, d => d.x), [y0, y1] = d3.extent(vis, d => d.y);
-    if (modo === 'tempo') { const [r0, r1] = escalaAno.range(); x0 = Math.min(x0, r0 - 180); x1 = Math.max(x1 + 120, r1 + 160); }
-    const topo = 120, baixo = 30;
+    if (modo === 'tempo') { const [r0, r1] = escalaAno.range(); x0 = EMBED ? Math.min(x0 - 30, r0 - 8) : Math.min(x0, r0 - 180); x1 = EMBED ? Math.max(x1 + 70, r1 + 8) : Math.max(x1 + 120, r1 + 160); }
+    const topo = EMBED ? 4 : document.querySelector('header').getBoundingClientRect().bottom + 6, baixo = EMBED ? 8 : 30;
     const yTopo = Math.min(y0, Y_LUGARES - 40);
     const k = Math.min(2.2, 0.96 * Math.min(W() / (x1 - x0 + 40), (H() - topo - baixo) / (y1 - yTopo + 40)));
-    const t = d3.zoomIdentity.translate(W() / 2 - k * (x0 + x1) / 2, topo + 20 - k * yTopo).scale(k);
+    const t = d3.zoomIdentity.translate(W() / 2 - k * (x0 + x1) / 2, topo + (EMBED ? 6 : 20) - k * yTopo).scale(k);
     svg.transition().duration(reduz ? 0 : 700).call(zoom.transform, t);
   }
 
   function irPara(n) {
     const k = Math.min(Math.max(zoomK, 1.15), 1.6);
-    const painelAberto = !$('painel').hidden && innerWidth > 640;
-    const cx = painelAberto ? (W() - 400) / 2 : W() / 2, cy = innerWidth > 640 ? H() / 2 + 30 : H() * 0.3;
+    const painel = $('painel'), lateral = !painel.hidden && innerWidth > 640;
+    const topo = EMBED ? 0 : document.querySelector('header').getBoundingClientRect().bottom;
+    const fundo = !painel.hidden && !lateral ? painel.getBoundingClientRect().top : H();
+    const cx = lateral ? (W() - 400) / 2 : W() / 2, cy = (topo + fundo) / 2;
     svg.transition().duration(reduz ? 0 : 650).call(zoom.transform, d3.zoomIdentity.translate(cx - k * n.x, cy - k * n.y).scale(k));
   }
+
 
   // ── rótulos: os grandes sempre, o resto com zoom ──
   // Rótulos com tamanho fixo na tela; os que colidiriam ficam escondidos, os mais conectados primeiro.
@@ -356,16 +367,18 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
   }
   function arrumarRotulos() {
     const k = zoomK, perto = new Set(centro ? [centro, ...viz.get(centro).map(v => v.outro)] : []);
-    const rk = d => raio(d) / Math.max(k, 1);
+    const rk = d => raio(d) * (EMBED ? 0.5 : 1) / Math.max(k, 1);
     nosSel.filter(d => !d.ini).select("circle").attr("r", rk).attr("stroke-width", 1.5 / Math.max(k, 1));
     const textos = nosSel.filter(d => !d.ini).select('text').attr('font-size', 11 / k).attr('stroke-width', 3.5 / k);
     const candidatos = nos.filter(d => !d.ini && visivel(d) && (!centro || perto.has(d)))
       .sort((a, b) => (b === centro) - (a === centro) || b.grau - a.grau || (b.tipo === 'projeto') - (a.tipo === 'projeto'));
-    const pontos = nos.filter(o => !o.ini && visivel(o));
+    const pontos = nos.filter(o => !o.ini && visivel(o) && (!centro || perto.has(o)));
     const cobrePonto = (c, d) => pontos.some(o => o !== d && o.x + rk(o) > c[0] && o.x - rk(o) < c[2] && o.y + rk(o) > c[1] && o.y - rk(o) < c[3]);
     const caixas = [], lugar = new Map();
     const bate = c => caixas.some(o => c[0] < o[2] && c[2] > o[0] && c[1] < o[3] && c[3] > o[1]);
+    let restantes = EMBED && !centro ? ROTULOS_EMBED : Infinity;
     for (const d of candidatos) {
+      if (restantes <= 0) break;
       const r = rk(d), w = (d.rotulo.length * 6.2 + 2) / k, h = 6 / k, g = 3 / k;
       // direita, acima, esquerda, abaixo: a primeira que não bate em outro rótulo nem cobre um ponto
       const opcoes = [
@@ -376,7 +389,7 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
       ];
       const ok = opcoes.find(o => !bate(o.c) && (d === centro || !cobrePonto(o.c, d)));
       if (!ok) continue;
-      caixas.push(ok.c); lugar.set(d, ok);
+      caixas.push(ok.c); lugar.set(d, ok); restantes--;
     }
     textos.each(function (d) {
       const o = lugar.get(d) || { x: rk(d) + 4 / k, y: 0, ancora: 'start' };
@@ -464,7 +477,7 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
     painel.hidden = false; painel.scrollTop = 0;
   }
 
-  nosSel.on('click', (e, d) => { e.stopPropagation(); selecionar(centro === d ? null : d); })
+  nosSel.on('click', (e, d) => { e.stopPropagation(); if (EMBED) { window.open('./#' + d.id, '_top'); return; } selecionar(centro === d ? null : d); })
     .on('keydown', (e, d) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selecionar(d); } })
     .on('mouseenter', function () { d3.select(this).raise().select('text').style('opacity', 1); })
     .on('mouseleave', () => rotulos());

@@ -369,3 +369,52 @@
     }
     fontReady.then(reveal, reveal);
 })();
+
+(function () {
+    var tabs = [document.getElementById("tab-projects"), document.getElementById("tab-people")];
+    var canvas = document.getElementById("graph-canvas");
+    var panel = document.getElementById("onto-panel");
+    var open = document.getElementById("onto-open");
+    if (!tabs[0] || !tabs[1] || !canvas || !panel) return;
+    var toque = window.matchMedia("(hover: none), (pointer: coarse), (max-width: 600px)");
+
+    function mountOntografia() {
+        if (panel.firstChild) return;
+        var frame = document.createElement("iframe");
+        frame.src = "ontografia/?embed=1";
+        frame.title = "Ontografia: people, projects and institutions on a timeline";
+        frame.loading = "lazy";
+        panel.appendChild(frame);
+        if (toque.matches) {
+            panel.classList.add("estatico");
+            var go = document.createElement("a");
+            go.className = "onto-toque";
+            go.href = "ontografia/";
+            go.textContent = "Tap to explore ↗";
+            panel.appendChild(go);
+        }
+    }
+
+    function select(i, focus) {
+        tabs.forEach(function (t, j) {
+            t.setAttribute("aria-selected", String(i === j));
+            t.tabIndex = i === j ? 0 : -1;
+        });
+        var people = i === 1;
+        if (people) mountOntografia();
+        canvas.hidden = people;
+        panel.hidden = !people;
+        if (open) open.hidden = !people;
+        if (focus) tabs[i].focus();
+    }
+
+    tabs.forEach(function (t, i) {
+        t.addEventListener("click", function () { select(i); });
+        t.addEventListener("keydown", function (e) {
+            if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+                e.preventDefault();
+                select(1 - i, true);
+            }
+        });
+    });
+})();
