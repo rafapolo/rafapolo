@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ontografia</title>
+<meta name="description" content="Pessoas, projetos e instituições que atravessam o trabalho de Rafael Polo, num grafo navegável.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0f0e0c; --surface: #1a1814; --surface-light: #2a2620; --accent: #d4a574;
+  --text: #f5f1ed; --text-2: #b8b0a6; --text-3: #6e675f; --border: #3a3530;
+  --glass: rgba(26, 24, 20, 0.88);
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif;
+  --serif: 'Playfair Display', Baskerville, Georgia, serif;
+  --c-eu: #d4a574; --c-projeto: #e8763f; --c-pessoa: #4f8fe8; --c-formacao: #3fb37f; --c-trabalho: #a08cf2;
+  --c-coletivo: #e0559a; --c-governo: #d2b53c; --c-cultura: #2fb5c4; --c-fundacao: #948d85;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text); font: 14px/1.4 var(--font); overflow: hidden; }
+button { font: inherit; color: inherit; }
+a { color: inherit; }
+
+#palco { position: fixed; inset: 0; width: 100%; height: 100%; display: block; cursor: grab; touch-action: none; }
+#palco:active { cursor: grabbing; }
+
+header { position: fixed; top: 0; left: 0; right: 0; z-index: 5; padding: 14px 16px 0; pointer-events: none; }
+header > * { pointer-events: auto; }
+.linha1 { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.voltar { text-decoration: none; color: var(--text-2); font-size: 15px; white-space: nowrap; }
+.voltar:hover { color: var(--text); }
+h1 { margin: 0; font: 600 26px/1 var(--serif); color: var(--accent); letter-spacing: .2px; }
+.busca { position: relative; flex: 1 1 260px; max-width: 460px; }
+#busca { width: 100%; padding: 9px 16px; border-radius: 999px; border: 1px solid var(--border); background: var(--glass);
+  color: var(--text); font-size: 15px; outline: none; backdrop-filter: blur(8px); }
+#busca:focus { border-color: var(--accent); }
+#sugestoes { position: absolute; top: calc(100% + 6px); left: 0; right: 0; margin: 0; padding: 6px; list-style: none;
+  background: var(--glass); border: 1px solid var(--border); border-radius: 14px; backdrop-filter: blur(10px); max-height: 50vh; overflow: auto; }
+#sugestoes:empty { display: none; }
+#sugestoes li { display: flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 9px; cursor: pointer; }
+#sugestoes li[aria-selected="true"], #sugestoes li:hover { background: var(--surface-light); }
+#sugestoes small { margin-left: auto; color: var(--text-3); }
+#estado { color: var(--text-2); white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+nav { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+.grupo { display: flex; border: 1px solid var(--border); border-radius: 999px; background: var(--glass); overflow: hidden; backdrop-filter: blur(8px); }
+.grupo button { border: 0; background: none; padding: 8px 16px; cursor: pointer; display: flex; align-items: center; gap: 7px; color: var(--text-2); }
+.grupo button + button { border-left: 1px solid var(--border); }
+.grupo button[aria-pressed="true"] { background: var(--surface-light); color: var(--text); }
+.grupo button:hover { color: var(--text); }
+.ponto { width: 9px; height: 9px; border-radius: 50%; display: inline-block; flex: none; }
+
+#legenda { position: fixed; left: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 4; background: var(--glass);
+  border: 1px solid var(--border); border-radius: 16px; padding: 10px 12px; backdrop-filter: blur(10px); min-width: 190px; }
+#legenda summary { cursor: pointer; list-style: none; color: var(--text-2); font-weight: 600; }
+#legenda summary::-webkit-details-marker { display: none; }
+#legenda[open] summary::after { content: ' ▴'; } #legenda:not([open]) summary::after { content: ' ▾'; }
+#legenda ul { list-style: none; margin: 8px 0 0; padding: 0; }
+#legenda li button { width: 100%; display: flex; align-items: center; gap: 8px; border: 0; background: none; padding: 4px 4px; border-radius: 8px; cursor: pointer; text-align: left; }
+#legenda li button:hover { background: var(--surface-light); }
+#legenda li button[aria-pressed="false"] { opacity: .35; }
+#legenda li small { margin-left: auto; color: var(--text-3); font-variant-numeric: tabular-nums; }
+
+#painel { position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 6; width: min(380px, calc(100vw - 32px));
+  max-height: min(62vh, 560px); overflow: auto; background: var(--glass); border: 1px solid var(--border); border-radius: 18px;
+  padding: 16px 18px 14px; backdrop-filter: blur(12px); }
+#painel[hidden] { display: none; }
+#painel h2 { margin: 2px 28px 4px 0; font: 600 21px/1.2 var(--serif); }
+#painel .tipo { display: flex; align-items: center; gap: 6px; color: var(--text-2); font-size: 12.5px; text-transform: uppercase; letter-spacing: .6px; }
+#painel .nota { color: var(--text-2); margin: 6px 0 4px; }
+#painel .meta { color: var(--text-3); font-size: 13px; }
+#painel .meta a { color: var(--accent); }
+#painel h3 { font-size: 12px; text-transform: uppercase; letter-spacing: .6px; color: var(--text-3); margin: 14px 0 4px; font-weight: 600; }
+#painel ul { list-style: none; margin: 0; padding: 0; }
+#painel li button { width: 100%; display: grid; grid-template-columns: 10px 1fr; column-gap: 8px; align-items: baseline; border: 0;
+  background: none; padding: 5px 6px; border-radius: 8px; cursor: pointer; text-align: left; }
+#painel li button:hover { background: var(--surface-light); }
+#painel li .ponto { align-self: center; }
+#painel li em { grid-column: 2; font-style: normal; color: var(--text-3); font-size: 12.5px; }
+#fechar { position: absolute; top: 10px; right: 10px; border: 0; background: none; color: var(--text-2); font-size: 20px; cursor: pointer; width: 32px; height: 32px; border-radius: 50%; }
+#fechar:hover { background: var(--surface-light); color: var(--text); }
+
+#sobre { position: fixed; inset: 0; z-index: 9; display: grid; place-items: center; background: rgba(0,0,0,.55); padding: 16px; }
+#sobre[hidden] { display: none; }
+#sobre > div { max-width: 520px; background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 20px 22px; color: var(--text-2); }
+#sobre h2 { font: 600 22px var(--serif); color: var(--accent); margin: 0 0 8px; }
+#sobre p { margin: 8px 0; }
+#sobre kbd { background: var(--surface-light); border: 1px solid var(--border); border-radius: 5px; padding: 0 5px; font-size: 12px; }
+
+/* grafo */
+.aresta { vector-effect: non-scaling-stroke; stroke: var(--text-3); stroke-opacity: .32; stroke-width: 1; transition: stroke-opacity .25s, stroke .25s; }
+.no circle { stroke: var(--bg); stroke-width: 1.5; transition: opacity .25s; }
+.no.meio-so circle { fill-opacity: .25; stroke-width: 1.4; }
+.no text { fill: var(--text-2); font-size: 11px; paint-order: stroke; stroke: var(--bg); stroke-width: 3.5px; stroke-linejoin: round;
+  pointer-events: none; transition: opacity .25s; }
+.no.eu text { fill: var(--accent); font: 600 15px var(--serif); }
+.no.instituicao text { font-style: italic; }
+.no { cursor: pointer; }
+svg.foco .no:not(.perto) circle { opacity: .12; }
+svg.foco .no:not(.perto) text { opacity: 0 !important; }
+svg.foco .no.perto text { fill: var(--text); }
+svg.foco .no.centro text { fill: var(--accent); font-weight: 700; }
+svg.foco .aresta { stroke-opacity: .05; }
+svg.foco .aresta.perto { stroke: var(--accent); stroke-opacity: .85; stroke-width: 1.4; }
+.no.centro circle { stroke: var(--accent); stroke-width: 2.5; }
+.no.oculto, .aresta.oculta { display: none; }
+.eixo line { stroke: var(--border); stroke-dasharray: 2 4; }
+.eixo text { fill: var(--text-3); font-size: 11px; text-anchor: middle; }
+.eixo { transition: opacity .4s; }
+.lugar rect { fill: var(--surface-light); stroke: var(--border); }
+.lugar:nth-child(even) rect { fill: #33302a; }
+.lugar text { fill: var(--text); font-size: 11px; font-weight: 600; text-anchor: middle; letter-spacing: .3px; pointer-events: none; }
+svg.foco .lugares { opacity: .35; }
+.aresta.da-barra { display: none; }
+.barra { display: none; fill-opacity: .55; transition: opacity .25s; }
+svg.tempo .tem-barra circle { display: none; }
+svg.tempo .tem-barra .barra { display: block; }
+svg.tempo .tem-barra text { opacity: .8 !important; }
+svg.foco .no:not(.perto) .barra { opacity: .12; }
+svg.foco.tempo .tem-barra:not(.perto) text { opacity: 0 !important; }
+.no.centro .barra { stroke: var(--accent); stroke-width: 2; }
+svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
+
+@media (max-width: 640px) {
+  h1 { font-size: 22px; } .busca { order: 3; flex-basis: 100%; max-width: none; }
+  #legenda { display: none; }
+  #painel { left: 16px; right: 16px; width: auto; max-height: 48vh; }
+  .grupo button { padding: 7px 12px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<svg id="palco" aria-label="Grafo de pessoas, projetos e instituições"></svg>
+
+<header>
+  <div class="linha1">
+    <a class="voltar" href="../">← extrapolo</a>
+    <h1>Ontografia</h1>
+    <div class="busca">
+      <input id="busca" type="search" placeholder="Buscar pessoa, projeto ou instituição" autocomplete="off" aria-label="Buscar" aria-controls="sugestoes">
+      <ul id="sugestoes" role="listbox"></ul>
+    </div>
+    <span id="estado" role="status"></span>
+  </div>
+  <nav aria-label="Opções do grafo">
+    <div class="grupo" role="group" aria-label="Camadas" id="camadas"></div>
+    <div class="grupo"><button id="btn-sobre" aria-label="Sobre a Ontografia">?</button></div>
+  </nav>
+</header>
+
+<details id="legenda"><summary>Tipos</summary><ul id="tipos"></ul></details>
+
+<aside id="painel" hidden aria-live="polite">
+  <button id="fechar" aria-label="Fechar">×</button>
+  <div id="painel-corpo"></div>
+</aside>
+
+<div id="sobre" hidden>
+  <div role="dialog" aria-modal="true" aria-labelledby="sobre-t">
+    <h2 id="sobre-t">Ontografia</h2>
+    <p>Cada ponto é uma pessoa, um projeto ou uma instituição que passou pelo trabalho de Rafael Polo, de 1998 a 2026. As ligações saem de fichas técnicas, créditos, históricos de git, diplomas e CVs.</p>
+    <p>A primeira faixa mostra onde Rafael morou em cada época. Os projetos se alinham pelo ano, da esquerda para a direita, e cada pessoa fica na média dos anos a que está ligada. Instituições com início e fim conhecidos viram barras com a duração, embaixo, como uma linha do tempo do CV.</p>
+    <p>Clique num ponto para ver as ligações e o papel de cada um, e clique nas ligações para andar pelo grafo. <kbd>/</kbd> busca, <kbd>Esc</kbd> volta à visão geral.</p>
+    <p>Projetos vazados são do estúdio Meio, sem participação de Rafael.</p>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script src="dados.js"></script>
+<script>
+(() => {
+  'use strict';
+  const TIPOS = {
+    eu:       { nome: 'Rafael Polo', cor: 'var(--c-eu)' },
+    projeto:  { nome: 'Projetos', cor: 'var(--c-projeto)', camada: 'projetos' },
+    pessoa:   { nome: 'Pessoas', cor: 'var(--c-pessoa)', camada: 'pessoas' },
+    formacao: { nome: 'Formação', cor: 'var(--c-formacao)', camada: 'instituicoes' },
+    trabalho: { nome: 'Empresas e estúdios', cor: 'var(--c-trabalho)', camada: 'instituicoes' },
+    coletivo: { nome: 'ONGs, coletivos e jornalismo', cor: 'var(--c-coletivo)', camada: 'instituicoes' },
+    governo:  { nome: 'Governo', cor: 'var(--c-governo)', camada: 'instituicoes' },
+    cultura:  { nome: 'Museus, centros e eventos', cor: 'var(--c-cultura)', camada: 'instituicoes' },
+    fundacao: { nome: 'Fundações e patrocínio', cor: 'var(--c-fundacao)', camada: 'instituicoes' },
+  };
+  const CAMADAS = [['projetos', 'Projetos'], ['pessoas', 'Pessoas'], ['instituicoes', 'Instituições']];
+  const ehInstituicao = t => TIPOS[t].camada === 'instituicoes';
+  const cor = t => getComputedStyle(document.documentElement).getPropertyValue(TIPOS[t].cor.slice(4, -1)).trim();
+  const $ = id => document.getElementById(id);
+  const reduz = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ── dados ──
+  const nos = ONTO.nos.map(n => ({ ...n }));
+  const porId = new Map(nos.map(n => [n.id, n]));
+  const ligacoes = ONTO.ligacoes.map(l => ({ source: porId.get(l.a), target: porId.get(l.b), papel: l.papel }));
+  const viz = new Map(nos.map(n => [n, []]));
+  for (const l of ligacoes) { viz.get(l.source).push({ outro: l.target, l }); viz.get(l.target).push({ outro: l.source, l }); }
+    // ano de quem não tem: média dos anos ligados (duas passadas, para pessoas → projetos → instituições)
+  for (const n of nos) if (n.periodo) { n.ini = n.periodo[0]; n.fim = n.periodo[1]; n.anoPapel = (n.ini + n.fim) / 2; }
+  for (const l of ligacoes) {
+    const m = (l.papel || '').match(/(19|20)\d\d(?:[–-](\d{2,4}))?/);
+    if (!m) continue;
+    const ini = +m[0].slice(0, 4), fim = m[2] ? +(m[2].length === 2 ? m[0].slice(0, 2) + m[2] : m[2]) : ini;
+    for (const n of [l.source, l.target]) {
+      if (n.ano || n.periodo || n.tipo === 'eu' || n.tipo === 'projeto') continue;
+      n.anoPapel = (ini + fim) / 2;
+      if (ehInstituicao(n.tipo) && !n.ini) { n.ini = ini; n.fim = fim; }
+    }
+  }
+  for (const n of nos) if (n.anoPapel) n.anoEst = n.anoPapel;
+  for (const l of ligacoes) {
+    const outro = l.source.tipo === 'eu' ? l.target : l.target.tipo === 'eu' ? l.source : null;
+    if (outro && l.papel && l.papel !== 'autoria / desenvolvimento') outro.meuPapel = l.papel;
+  }
+  for (let i = ligacoes.length - 1; i >= 0; i--) if (ligacoes[i].source.tipo === 'eu' || ligacoes[i].target.tipo === 'eu') ligacoes.splice(i, 1);
+  nos.splice(nos.findIndex(n => n.tipo === 'eu'), 1);
+  porId.delete('polo');
+  for (const n of nos) viz.set(n, viz.get(n).filter(v => v.outro.tipo !== 'eu'));
+  for (let passo = 0; passo < 2; passo++) for (const n of nos) {
+    if (n.ano || n.anoPapel || n.tipo === 'eu') continue;
+    const anos = viz.get(n).map(v => v.outro.ano ?? v.outro.anoEst).filter(Boolean);
+    if (anos.length) n.anoEst = anos.reduce((a, b) => a + b, 0) / anos.length;
+  }
+  for (const n of nos) n.grau = viz.get(n).length;
+  const raio = n => n.tipo === 'eu' ? 15 : Math.min(13, 3.6 + Math.sqrt(n.grau) * 1.9);
+
+  // ── estado ──
+  const camadasOn = new Set(CAMADAS.map(c => c[0]));
+  const tiposOn = new Set(Object.keys(TIPOS));
+  let rotuloQuadro = 0;
+  let modo = 'tempo', centro = null, zoomK = 1;
+  const visivel = n => n.tipo === 'eu' || (tiposOn.has(n.tipo) && camadasOn.has(TIPOS[n.tipo].camada));
+
+  // ── svg ──
+  const svg = d3.select('#palco');
+  const mundo = svg.append('g');
+  const eixo = mundo.append('g').attr('class', 'eixo').style('opacity', 0);
+  const gLugares = mundo.append('g').attr('class', 'lugares'), gB = mundo.append('g').attr('class', 'camada-barras'), gA = mundo.append('g'), gN = mundo.append('g');
+  const arestas = gA.selectAll('line').data(ligacoes).join('line').attr('class', d => 'aresta' + (d.source.ini || d.target.ini ? ' da-barra' : ''));
+  const nosSel = gN.selectAll('g').data(nos, d => d.id).join('g')
+    .attr('class', d => `no ${ehInstituicao(d.tipo) ? 'instituicao' : d.tipo}${d.meio ? ' meio-so' : ''}`)
+    .attr('tabindex', 0).attr('role', 'button').attr('aria-label', d => d.rotulo);
+  nosSel.append('circle').attr('r', raio).attr('fill', d => cor(d.tipo)).attr('stroke', d => d.meio ? cor(d.tipo) : null);
+  nosSel.filter(d => d.ini).each(function () { gB.node().appendChild(this); });
+  nosSel.filter(d => d.ini).classed('tem-barra', true).append('rect').attr('class', 'barra')
+    .attr('fill', d => cor(d.tipo)).attr('rx', 4).attr('height', 9).attr('y', -4.5)
+    .append('title').text(d => d.periodo ? `${d.rotulo}: ${d.meuPapel || ''}` : `${d.rotulo}: ${d.ini}${d.fim !== d.ini ? '–' + d.fim : ''}`);
+  nosSel.append('text').text(d => d.rotulo).attr('x', d => raio(d) + 4).attr('dy', '0.35em');
+
+  const W = () => innerWidth, H = () => innerHeight;
+  const anos = nos.map(n => n.ano).filter(Boolean);
+  const escalaAno = d3.scaleLinear().domain([Math.min(1998, d3.min(anos)), d3.max(anos)]);
+  function ajustarEscala() { escalaAno.range([-Math.max(520, W() * 0.85), Math.max(520, W() * 0.85)]); }
+  ajustarEscala();
+
+  const daBarra = l => l.source.ini || l.target.ini;
+  const sim = d3.forceSimulation(nos)
+    .force('link', d3.forceLink(ligacoes.filter(l => !daBarra(l))).distance(l => (l.source.tipo === 'eu' || l.target.tipo === 'eu') ? 190 : 52).strength(l => (l.source.ini || l.target.ini) ? 0.015 : 0.6))
+    .force('carga', d3.forceManyBody().strength(d => d.ini ? 0 : -170).distanceMax(280))
+    .force('colisao', d3.forceCollide(d => d.ini ? 0 : raio(d) + 9).iterations(2))
+    .force('x', d3.forceX(0).strength(0.03))
+    .force('y', d3.forceY(0).strength(0.04))
+    .on('tick', () => { desenhar(); if (sim.alpha() > 0.05) rotulos(); })
+    .on('end', rotulos);
+
+  function desenhar() {
+    arestas.attr('x1', d => d.source.x).attr('y1', d => d.source.y).attr('x2', d => d.target.x).attr('y2', d => d.target.y);
+    nosSel.attr('transform', d => `translate(${d.x},${d.y})`);
+  }
+
+  const TOPO_BARRAS = -420, ALTURA_FAIXA = 22, Y_LUGARES = TOPO_BARRAS - 30;
+  let fundoBarras = TOPO_BARRAS;
+  // em Tempo, quem não é barra fica abaixo da faixa de barras
+  function abaixoDasBarras() {
+    const limite = fundoBarras + 50;
+    for (const d of nos) if (!d.ini && d.y < limite) d.vy += (limite - d.y) * 0.5;
+  }
+  function aplicarModo() {
+    const tempo = modo === 'tempo';
+    svg.classed('tempo', tempo);
+    if (tempo) {
+      ajustarEscala();
+      sim.force('x', d3.forceX(d => { const a = d.ano ?? d.anoEst; return a ? escalaAno(a) : 0; }).strength(d => (d.ano ? 0.9 : d.anoEst ? 0.35 : 0.02)));
+      sim.force('acima', abaixoDasBarras);
+      const barras = nos.filter(d => d.ini && visivel(d)).sort((a, b) => a.ini - b.ini || b.fim - a.fim);
+      const fimFaixa = [];
+      for (const d of barras) {
+        const x0 = escalaAno(d.ini), x1 = Math.max(x0 + 6, escalaAno(d.periodo ? d.fim : d.fim + 1)), larg = x1 - x0;
+        const iniTexto = x0 - 8 - d.rotulo.length * 6.2;
+        let faixa = fimFaixa.findIndex(f => f < iniTexto - 6);
+        if (faixa < 0) faixa = fimFaixa.push(0) - 1;
+        fimFaixa[faixa] = x1;
+        d.fx = (x0 + x1) / 2; d.fy = TOPO_BARRAS + faixa * ALTURA_FAIXA;
+        const g = nosSel.filter(n => n === d);
+        g.select('rect').attr('x', -larg / 2).attr('width', larg);
+        g.select('text').attr('x', -larg / 2 - 6).attr('text-anchor', 'end');
+      }
+      fundoBarras = TOPO_BARRAS + Math.max(0, fimFaixa.length - 1) * ALTURA_FAIXA;
+      sim.force('y', d3.forceY(fundoBarras + 300).strength(0.09));
+      const [a0, a1] = escalaAno.domain();
+      const ticks = d3.range(Math.ceil(a0 / 2) * 2, a1 + 1, 2);
+      eixo.selectAll('g').data(ticks, d => d).join(e => { const g = e.append('g'); g.append('line'); g.append('text'); return g; })
+        .attr('transform', d => `translate(${escalaAno(d)},0)`)
+        .call(g => g.select('line').attr('y1', Y_LUGARES - 8).attr('y2', 2200))
+        .call(g => g.select('text').attr('y', Y_LUGARES - 16).text(d => d));
+      gLugares.selectAll('g').data(ONTO.lugares || []).join(e => { const g = e.append('g').attr('class', 'lugar'); g.append('rect'); g.append('text'); g.append('title'); return g; })
+        .attr('transform', d => `translate(${escalaAno(d.ini)},${Y_LUGARES})`)
+        .call(g => g.select('rect').attr('width', d => escalaAno(d.fim) - escalaAno(d.ini) - 2).attr('height', 16).attr('y', -8).attr('rx', 3))
+        .call(g => g.select('text').attr('x', d => (escalaAno(d.fim) - escalaAno(d.ini)) / 2).attr('dy', '0.35em').text(d => d.nome))
+        .call(g => g.select('title').text(d => `${d.nome}: ${Math.floor(d.ini)}–${Math.ceil(d.fim) - 1}${d.nota ? ' · ' + d.nota : ''}`));
+      eixo.style('opacity', 1);
+    } else {
+      for (const d of nos) if (d.ini) { d.fx = null; d.fy = null; }
+      nosSel.filter(d => d.ini).select('text').attr('x', d => raio(d) + 4).attr('text-anchor', null);
+      sim.force('acima', null); sim.force('x', d3.forceX(0).strength(0.03)); sim.force('y', d3.forceY(0).strength(0.04));
+      eixo.style('opacity', 0);
+    }
+    sim.alpha(0.9).restart();
+    setTimeout(enquadrar, reduz ? 0 : 1300);
+  }
+
+  // ── zoom ──
+  const zoom = d3.zoom().scaleExtent([0.2, 6]).on('zoom', e => {
+    mundo.attr('transform', e.transform); zoomK = e.transform.k; rotulos();
+  });
+  svg.call(zoom).on('dblclick.zoom', null);
+  svg.call(zoom.transform, d3.zoomIdentity.translate(W() / 2, H() / 2).scale(0.8));
+
+  function enquadrar() {
+    const vis = nos.filter(visivel);
+    if (!vis.length) return;
+    let [x0, x1] = d3.extent(vis, d => d.x), [y0, y1] = d3.extent(vis, d => d.y);
+    if (modo === 'tempo') { const [r0, r1] = escalaAno.range(); x0 = Math.min(x0, r0 - 180); x1 = Math.max(x1 + 120, r1 + 160); }
+    const topo = 120, baixo = 30;
+    const yTopo = Math.min(y0, Y_LUGARES - 40);
+    const k = Math.min(2.2, 0.96 * Math.min(W() / (x1 - x0 + 40), (H() - topo - baixo) / (y1 - yTopo + 40)));
+    const t = d3.zoomIdentity.translate(W() / 2 - k * (x0 + x1) / 2, topo + 20 - k * yTopo).scale(k);
+    svg.transition().duration(reduz ? 0 : 700).call(zoom.transform, t);
+  }
+
+  function irPara(n) {
+    const k = Math.min(Math.max(zoomK, 1.15), 1.6);
+    const painelAberto = !$('painel').hidden && innerWidth > 640;
+    const cx = painelAberto ? (W() - 400) / 2 : W() / 2, cy = innerWidth > 640 ? H() / 2 + 30 : H() * 0.3;
+    svg.transition().duration(reduz ? 0 : 650).call(zoom.transform, d3.zoomIdentity.translate(cx - k * n.x, cy - k * n.y).scale(k));
+  }
+
+  // ── rótulos: os grandes sempre, o resto com zoom ──
+  // Rótulos com tamanho fixo na tela; os que colidiriam ficam escondidos, os mais conectados primeiro.
+  function rotulos() {
+    if (rotuloQuadro) return;
+    rotuloQuadro = requestAnimationFrame(() => { rotuloQuadro = 0; arrumarRotulos(); });
+  }
+  function arrumarRotulos() {
+    const k = zoomK, perto = new Set(centro ? [centro, ...viz.get(centro).map(v => v.outro)] : []);
+    const rk = d => raio(d) / Math.max(k, 1);
+    nosSel.filter(d => !d.ini).select("circle").attr("r", rk).attr("stroke-width", 1.5 / Math.max(k, 1));
+    const textos = nosSel.filter(d => !d.ini).select('text').attr('font-size', 11 / k).attr('stroke-width', 3.5 / k);
+    const candidatos = nos.filter(d => !d.ini && visivel(d) && (!centro || perto.has(d)))
+      .sort((a, b) => (b === centro) - (a === centro) || b.grau - a.grau || (b.tipo === 'projeto') - (a.tipo === 'projeto'));
+    const pontos = nos.filter(o => !o.ini && visivel(o));
+    const cobrePonto = (c, d) => pontos.some(o => o !== d && o.x + rk(o) > c[0] && o.x - rk(o) < c[2] && o.y + rk(o) > c[1] && o.y - rk(o) < c[3]);
+    const caixas = [], lugar = new Map();
+    const bate = c => caixas.some(o => c[0] < o[2] && c[2] > o[0] && c[1] < o[3] && c[3] > o[1]);
+    for (const d of candidatos) {
+      const r = rk(d), w = (d.rotulo.length * 6.2 + 2) / k, h = 6 / k, g = 3 / k;
+      // direita, acima, esquerda, abaixo: a primeira que não bate em outro rótulo nem cobre um ponto
+      const opcoes = [
+        { c: [d.x + r + g, d.y - h, d.x + r + g + w, d.y + h], x: r + g, y: 0, ancora: 'start' },
+        { c: [d.x - w / 2, d.y - r - g - 2 * h, d.x + w / 2, d.y - r - g], x: 0, y: -r - g - h, ancora: 'middle' },
+        { c: [d.x - r - g - w, d.y - h, d.x - r - g, d.y + h], x: -r - g, y: 0, ancora: 'end' },
+        { c: [d.x - w / 2, d.y + r + g, d.x + w / 2, d.y + r + g + 2 * h], x: 0, y: r + g + h, ancora: 'middle' },
+      ];
+      const ok = opcoes.find(o => !bate(o.c) && (d === centro || !cobrePonto(o.c, d)));
+      if (!ok) continue;
+      caixas.push(ok.c); lugar.set(d, ok);
+    }
+    textos.each(function (d) {
+      const o = lugar.get(d) || { x: rk(d) + 4 / k, y: 0, ancora: 'start' };
+      d3.select(this).attr('x', o.x).attr('y', o.y).attr('text-anchor', o.ancora).style('opacity', lugar.has(d) ? 1 : 0);
+    });
+  }
+
+  // ── filtros ──
+  function aplicarFiltros() {
+    nosSel.classed('oculto', d => !visivel(d));
+    arestas.classed('oculta', d => !visivel(d.source) || !visivel(d.target));
+    const nVis = nos.filter(visivel).length;
+    const lVis = ligacoes.filter(l => visivel(l.source) && visivel(l.target)).length;
+    $('estado').textContent = `${nVis} nós · ${lVis} ligações`;
+    if (centro && !visivel(centro)) selecionar(null);
+    for (const b of document.querySelectorAll('#tipos button')) b.setAttribute('aria-pressed', tiposOn.has(b.dataset.tipo) && camadasOn.has(TIPOS[b.dataset.tipo].camada));
+  }
+
+  for (const [id, nome] of CAMADAS) {
+    const b = document.createElement('button');
+    b.textContent = nome; b.setAttribute('aria-pressed', 'true');
+    b.onclick = () => { camadasOn.has(id) ? camadasOn.delete(id) : camadasOn.add(id); b.setAttribute('aria-pressed', camadasOn.has(id)); aplicarFiltros(); };
+    $('camadas').append(b);
+  }
+  for (const [t, def] of Object.entries(TIPOS)) {
+    if (t === 'eu') continue;
+    const li = document.createElement('li'), b = document.createElement('button');
+    b.dataset.tipo = t; b.setAttribute('aria-pressed', 'true');
+    const p = document.createElement('span'); p.className = 'ponto'; p.style.background = def.cor;
+    const s = document.createElement('span'); s.textContent = def.nome;
+    const c = document.createElement('small'); c.textContent = nos.filter(n => n.tipo === t).length;
+    b.append(p, s, c);
+    b.onclick = () => { tiposOn.has(t) ? tiposOn.delete(t) : tiposOn.add(t); if (!camadasOn.has(def.camada)) { camadasOn.add(def.camada); tiposOn.add(t); [...$('camadas').children][CAMADAS.findIndex(c => c[0] === def.camada)].setAttribute('aria-pressed', 'true'); } aplicarFiltros(); };
+    li.append(b); $('tipos').append(li);
+  }
+
+  // ── seleção e painel ──
+  function selecionar(n, { mover = true, hist = true } = {}) {
+    centro = n;
+    svg.classed('foco', !!n);
+    const perto = new Set(n ? [n, ...viz.get(n).map(v => v.outro)] : []);
+    nosSel.classed('perto', d => perto.has(d)).classed('centro', d => d === n);
+    arestas.classed('perto', d => !!n && (d.source === n || d.target === n));
+    if (n) nosSel.filter(d => d === n).raise();
+    rotulos();
+    if (hist) history.replaceState(null, '', n ? '#' + n.id : location.pathname + location.search);
+    montarPainel(n);
+    if (n && mover) irPara(n);
+  }
+
+  function el(tag, props = {}, ...filhos) { const e = Object.assign(document.createElement(tag), props); e.append(...filhos); return e; }
+  function ponto(t) { const p = el('span', { className: 'ponto' }); p.style.background = TIPOS[t].cor; return p; }
+
+  function montarPainel(n) {
+    const painel = $('painel'), corpo = $('painel-corpo');
+    if (!n) { painel.hidden = true; return; }
+    corpo.replaceChildren();
+    corpo.append(el('div', { className: 'tipo' }, ponto(n.tipo), ({ eu: 'Centro', projeto: 'Projeto', pessoa: 'Pessoa', formacao: 'Formação', trabalho: 'Empresa ou estúdio', coletivo: 'ONG, coletivo ou jornalismo', governo: 'Governo', cultura: 'Museu, centro ou evento', fundacao: 'Fundação ou patrocínio' })[n.tipo]));
+    corpo.append(el('h2', { textContent: n.rotulo }));
+    if (n.nota) corpo.append(el('p', { className: 'nota', textContent: n.nota }));
+    const meta = [n.ano, n.cidade].filter(Boolean).join(' · ');
+    const m = el('div', { className: 'meta' }, meta);
+    if (n.url) { if (meta) m.append(' · '); m.append(el('a', { href: n.url, target: '_blank', rel: 'noopener', textContent: 'abrir ↗' })); }
+    if (meta || n.url) corpo.append(m);
+    if (n.meuPapel) corpo.append(el('p', { className: 'meta', textContent: 'Seu papel: ' + n.meuPapel }));
+    const grupos = new Map();
+    for (const v of viz.get(n)) {
+      const k = v.outro.tipo === 'eu' ? 'eu' : TIPOS[v.outro.tipo].camada;
+      (grupos.get(k) || grupos.set(k, []).get(k)).push(v);
+    }
+    const ordem = [['projetos', 'Projetos'], ['pessoas', 'Pessoas'], ['instituicoes', 'Instituições']];
+    for (const [k, titulo] of ordem) {
+      const lista = grupos.get(k); if (!lista) continue;
+      lista.sort((a, b) => (b.outro.ano ?? 0) - (a.outro.ano ?? 0) || a.outro.rotulo.localeCompare(b.outro.rotulo, 'pt'));
+      corpo.append(el('h3', { textContent: `${titulo} · ${lista.length}` }));
+      const ul = el('ul');
+      for (const { outro, l } of lista) {
+        const b = el('button', {}, ponto(outro.tipo), el('span', { textContent: outro.rotulo + (outro.ano ? ` (${outro.ano})` : '') }));
+        if (l.papel) b.append(el('em', { textContent: l.papel }));
+        b.onclick = () => { if (!visivel(outro)) { tiposOn.add(outro.tipo); camadasOn.add(TIPOS[outro.tipo].camada); aplicarFiltros(); } selecionar(outro); };
+        ul.append(el('li', {}, b));
+      }
+      corpo.append(ul);
+    }
+    painel.hidden = false; painel.scrollTop = 0;
+  }
+
+  nosSel.on('click', (e, d) => { e.stopPropagation(); selecionar(centro === d ? null : d); })
+    .on('keydown', (e, d) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selecionar(d); } })
+    .on('mouseenter', function () { d3.select(this).raise().select('text').style('opacity', 1); })
+    .on('mouseleave', () => rotulos());
+  svg.on('click', () => selecionar(null));
+  $('fechar').onclick = () => selecionar(null);
+
+  nosSel.filter(d => !d.ini).call(d3.drag()
+    .on('start', (e, d) => { if (!e.active) sim.alphaTarget(0.25).restart(); d.fx = d.x; d.fy = d.y; })
+    .on('drag', (e, d) => { d.fx = e.x; d.fy = e.y; })
+    .on('end', (e, d) => { if (!e.active) sim.alphaTarget(0); d.fx = null; d.fy = null; }));
+
+  // ── busca ──
+  const busca = $('busca'), sug = $('sugestoes');
+  const semAcento = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+  let achados = [], ativo = 0;
+  function sugerir() {
+    const q = semAcento(busca.value.trim());
+    sug.replaceChildren();
+    if (!q) { achados = []; return; }
+    achados = nos.filter(n => semAcento(n.rotulo).includes(q) || semAcento(n.nota || '').includes(q))
+      .sort((a, b) => semAcento(b.rotulo).startsWith(q) - semAcento(a.rotulo).startsWith(q) || b.grau - a.grau).slice(0, 9);
+    ativo = 0;
+    achados.forEach((n, i) => {
+      const li = el('li', { role: 'option' }, ponto(n.tipo), el('span', { textContent: n.rotulo }), el('small', { textContent: n.tipo === 'eu' ? '' : TIPOS[n.tipo].nome }));
+      li.setAttribute('aria-selected', i === 0);
+      li.onmousedown = ev => { ev.preventDefault(); escolher(n); };
+      sug.append(li);
+    });
+  }
+  function escolher(n) {
+    busca.value = ''; sug.replaceChildren(); busca.blur();
+    if (!visivel(n)) { tiposOn.add(n.tipo); camadasOn.add(TIPOS[n.tipo].camada); aplicarFiltros(); }
+    selecionar(n);
+  }
+  busca.addEventListener('input', sugerir);
+  busca.addEventListener('keydown', e => {
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      e.preventDefault(); if (!achados.length) return;
+      ativo = (ativo + (e.key === 'ArrowDown' ? 1 : -1) + achados.length) % achados.length;
+      [...sug.children].forEach((li, i) => li.setAttribute('aria-selected', i === ativo));
+    } else if (e.key === 'Enter' && achados[ativo]) escolher(achados[ativo]);
+    else if (e.key === 'Escape') { busca.value = ''; sug.replaceChildren(); busca.blur(); }
+  });
+  busca.addEventListener('blur', () => setTimeout(() => sug.replaceChildren(), 120));
+
+  // ── teclas, modos, sobre ──
+  addEventListener('keydown', e => {
+    if (e.target === busca) return;
+    if (e.key === '/') { e.preventDefault(); busca.focus(); }
+    else if (e.key === 'Escape') { if (!$('sobre').hidden) $('sobre').hidden = true; else { selecionar(null); enquadrar(); } }
+  });
+  $('btn-sobre').onclick = () => { $('sobre').hidden = false; };
+  $('sobre').onclick = e => { if (e.target === $('sobre')) $('sobre').hidden = true; };
+  addEventListener('resize', () => { if (modo === 'tempo') aplicarModo(); });
+  addEventListener('hashchange', () => { const n = porId.get(location.hash.slice(1)); if (n !== centro) selecionar(n || null, { hist: false }); });
+
+  // ── início ──
+  aplicarFiltros(); rotulos();
+  aplicarModo(); sim.tick(300); desenhar();
+  enquadrar();
+  const inicial = porId.get(decodeURIComponent(location.hash.slice(1)));
+  if (inicial) setTimeout(() => selecionar(inicial, { hist: false }), reduz ? 0 : 750);
+})();
+</script>
+</body>
+</html>
