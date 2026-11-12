@@ -266,6 +266,7 @@
   L('thiago', 'ufmg', 'vínculo');
   L('codecreate', 'gfoss', 'programa');
 
+  L('consulta', 'unirio', 'projeto do mestrado');
   L('erthosalbino', 'erthos', 'autor do poema decifrado'); L('mostre', 'minc', 'dados públicos'); L('marina', 'mostre', 'equipe'); L('marise', 'mostre', 'equipe');
 
   // ── rodado.xyz: projetos recentes do índice ──
