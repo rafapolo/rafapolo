@@ -125,7 +125,8 @@ svg.foco .lugares { opacity: .35; }
 svg.tempo .tem-barra circle { display: none; }
 svg.tempo .tem-barra .barra { display: block; }
 svg.tempo .tem-barra text { opacity: .8 !important; }
-svg.vertical .tem-barra text { font-size: 9px; stroke-width: 1.5px; fill: var(--text); }
+svg.vertical .tem-barra text { font-size: 9px; stroke-width: 1.5px; fill: var(--text); font-style: normal; }
+svg.vertical .tem-barra text, svg.vertical .lugar text { writing-mode: vertical-rl; text-orientation: upright; letter-spacing: -0.5px; dominant-baseline: central; }
 svg.foco .no:not(.perto) .barra { opacity: .12; }
 svg.foco.tempo .tem-barra:not(.perto) text { opacity: 0 !important; }
 .no.centro .barra { stroke: var(--accent); stroke-width: 2; }
@@ -315,11 +316,11 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
       const g = nosSel.filter(n => n === d), r = g.select('rect'), t = g.select('text');
       if (vertical) {
         r.attr('x', -7).attr('width', 14).attr('y', -larg / 2).attr('height', larg);
-        t.attr('transform', 'rotate(90)').attr('x', -larg / 2 + 4).attr('y', 0).attr('dy', '0.35em').attr('text-anchor', 'start').text(cabe(d.rotulo, larg - 8, 5.2));
+        t.attr('transform', null).attr('x', 0).attr('y', -larg / 2 + 5).attr('dy', null).attr('text-anchor', 'start').text(cabe(d.rotulo, larg - 8, 8.6));
       } else {
         const h = EMBED ? 11 : 9;
         r.attr('x', -larg / 2).attr('width', larg).attr('y', -h / 2).attr('height', h);
-        t.attr('transform', null).attr('y', 0);
+        t.attr('transform', null).attr('y', 0).attr('dy', '0.35em');
         if (EMBED) t.attr('x', -larg / 2 + 3).attr('text-anchor', 'start').text(cabe(d.rotulo, larg - 6));
         else t.attr('x', -larg / 2 - 6).attr('text-anchor', 'end').text(d.rotulo);
       }
@@ -343,9 +344,9 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
         if (vertical) r.attr('x', -8).attr('width', 16).attr('y', -c - 1).attr('height', c);
         else r.attr('x', 0).attr('width', c).attr('y', -8).attr('height', 16);
       }))
-      .call(g => g.select('text').text(d => d.nome).attr('dy', '0.35em')
-        .attr('transform', d => (vertical ? `translate(0,${-comp(d) + 1}) rotate(90)` : null))
-        .attr('x', d => (vertical ? 8 : comp(d) / 2))
+      .call(g => g.select('text').text(d => (vertical ? cabe(d.nome, comp(d) - 12, 11) : d.nome)).attr('dy', vertical ? null : '0.35em')
+        .attr('transform', null)
+        .attr('x', d => (vertical ? 0 : comp(d) / 2)).attr('y', d => (vertical ? -comp(d) + 6 : null))
         .style('text-anchor', vertical ? 'start' : null)
         .style('display', d => EMBED && comp(d) < d.nome.length * 6 ? 'none' : null))
       .call(g => g.select('title').text(d => `${d.nome}: ${Math.floor(d.ini)}–${Math.ceil(d.fim) - 1}${d.nota ? ' · ' + d.nota : ''}`));
