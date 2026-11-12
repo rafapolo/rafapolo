@@ -45,6 +45,7 @@
   N('colmeia', 'Colmeia', 'projeto', { ano: 2026, nota: 'Organização local para as eleições de 2026: cada setor censitário é uma célula.' });
   N('codecreate', 'Code + Create', 'projeto', { ano: 2018, cidade: 'Atenas', nota: 'Aulas de HTML, CSS e jQuery para jovens gregos e refugiados.' });
   N('zeitbank', 'Zeitbank / ZeitLotto', 'projeto', { ano: 2014, cidade: 'Berlim', nota: 'Banco de tempo e loteria de habilidades no Gütermarkt do ZK/U: cada participante troca o que sabe fazer.' });
+  N('tcc', 'TCC: Desenvolvimento ágil para a Web 2.0 com Rails', 'projeto', { ano: 2009, cidade: 'Rio de Janeiro', nota: 'Monografia de conclusão do bacharelado em Ciência da Computação, defendida em novembro de 2009.' });
   // demais cards do index.html
   N("eleicoes2026", "Eleições 2026", 'projeto', { ano: 2026, nota: "Pesquisas por seção eleitoral geolocalizadas, nos dois turnos, Lula × Flávio, com identidade partidária.", url: "https://xn--2dk.xyz/dataviz/eleicoes/?eleicao=presidente-2026" });
   N("cantography", "Cantography", 'projeto', { ano: 2026, nota: "As 795 mil empresas suíças sobre seus prédios, desde 1883.", url: "https://cantography.ch/" });
@@ -125,6 +126,10 @@
   P('igor', 'Igor', 'Comunicação aplicada, UX.');
   P('erthosalbino', 'Erthos Albino de Souza', 'Poeta e engenheiro; autor do Soneto Alfanumérico (revista Código, 1974).');
   P('jolandatodt', 'Jolanda Todt', 'Designer gráfica em Berlim.');
+  P('sabrina', 'Sabrina Arêas', 'Coautora do TCC.');
+  P('savio', 'Sávio Figueiredo', 'Professor, orientador do TCC.');
+  P('carolina', 'Carolina Xavier', 'Professora, banca do TCC.');
+  P('vinicius', 'Vinicius da Fonseca Vieira', 'Professor, banca do TCC.');
   P('glerm', 'Glerm Soares', 'Artista e programador.');
   P('mariani', 'Daniel Mariani', 'Colmeia.');
   P('cinco', 'Cinco Euzebio', 'Colmeia.');
@@ -135,7 +140,7 @@
   const I = (id, nome, tipo, nota, extra = {}) => N(id, nome, tipo, { nota, ...extra });
   // formação
   I('index', 'Index Informática', 'formacao', 'Nova Friburgo.');
-  I('bennett', 'Centro Universitário Metodista Bennett', 'formacao', 'Rio de Janeiro.');
+  I('bennett', 'Centro Universitário Metodista Bennett', 'formacao', 'Rio de Janeiro. Bacharelado em Ciência da Computação: conclusão em 12/12/2009, diploma expedido em 01/10/2010. TCC defendido em novembro de 2009.');
   I('mcury', 'M.Cury Computação', 'formacao', 'Rio de Janeiro.');
   I('feso', 'Fundação Educacional Serra dos Órgãos', 'formacao', 'Teresópolis.');
   I('ufrj', 'UFRJ (NCE · ECO)', 'formacao', 'Universidade Federal do Rio de Janeiro.');
@@ -195,11 +200,11 @@
   // ── ligações: Rafael ──
   const minhas = ['pensar', 'razao', 'webdoc', 'traces', 'faq', 'parallel', 'zanini', 'etaoin', 'victorhaim', 'subzku', 'exst',
     'connectas', 'tribuna', 'datative', 'eti', 'holistic', 'myshadow', 'sic', 'littlespoon', 'stalker', 'deepgraphics',
-    'agua', 'grafica', 'comuna', 'damnatio', 'fratura', 'abotoados', 'variation', 'ccities', 'moedax', 'moedacasa', 'verafiko', 'zeitbank', 'yupana', 'colmeia', 'codecreate'];
+    'agua', 'grafica', 'comuna', 'damnatio', 'fratura', 'abotoados', 'variation', 'ccities', 'moedax', 'moedacasa', 'verafiko', 'zeitbank', 'tcc', 'yupana', 'colmeia', 'codecreate'];
   for (const p of minhas) L('polo', p, 'autoria / desenvolvimento');
   for (const p of ['eleicoes2026', 'cantography', 'erthos', 'rodado', 'brasilume', 'helvetiscan', 'malafaia', 'brasiliano', 'pet16704', 'rios', 'tsebens', 'vorcaros', 'tocador', 'atlasmakingoff', 'pulso', 'templos', 'tigrinho', 'viso', 'fincrime', 'rais', 'friba', 'religioes', 'braswiss', 'speculari', 'renda', 'steganos', 'processing', 'atlantica', 'mostre', 'consulta', 'baixogavea']) L('polo', p, 'autoria / desenvolvimento');
   L('polo', 'index', 'curso de Visual Basic, 1998');
-  L('polo', 'bennett', 'bacharelado em Ciência da Computação, 2003–2009');
+  L('polo', 'bennett', 'bacharelado em Ciência da Computação, 2003–2009 (início 2003 ou 2004, conforme o CV)');
   L('polo', 'mcury', 'Linux System Engineer, 2004');
   L('polo', 'feso', 'oficina de software livre, 2005');
   L('polo', 'ufrj', 'Java no NCE (2006–2010) · extensão em Cultura Digital na ECO em 2010');
@@ -270,6 +275,10 @@
     'rais', 'friba', 'religioes', 'braswiss']) L('rodadoxyz', p, 'projeto do portfólio');
 
   L('alexhead', 'zeitbank', 'coletivo'); L('jolandatodt', 'zeitbank', 'coletivo · tipografia'); L('zeitbank', 'zku', 'Gütermarkt');
+
+  // ── TCC na Bennett ──
+  L('tcc', 'bennett', 'monografia'); L('sabrina', 'tcc', 'coautoria'); L('savio', 'tcc', 'orientação');
+  L('carolina', 'tcc', 'banca'); L('vinicius', 'tcc', 'banca');
 
   // ── Kripto Solutions ──
   for (const p of ['moedacasa', 'moedax', 'speculari', 'renda']) L('kripto', p, 'projeto da equipe');
