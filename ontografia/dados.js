@@ -145,7 +145,6 @@
   I('capes', 'CAPES / MEC', 'governo', 'Ministério da Educação.');
   I('rietveld', 'Gerrit Rietveld Academie', 'formacao', 'Amsterdã.');
   I('novaims', 'NOVA IMS', 'formacao', 'Lisboa.');
-  I('telc', 'telc', 'formacao', 'Certificação de idiomas.');
   I('ufmg', 'UFMG', 'formacao', 'Universidade Federal de Minas Gerais.');
   // trabalho
   I('swisscom', 'Swisscom', 'trabalho', 'Zurique.');
@@ -208,7 +207,6 @@
   L('polo', 'unirio', 'mestrado em Sistemas de Informação, 2010–2012');
   L('polo', 'capes', 'bolsa de pós-graduação, 2010');
   L('polo', 'novaims', 'pós-graduação em Data Science for Finance, 2021');
-  L('polo', 'telc', 'alemão B1');
   L('polo', 'swisscom', 'DevOps Engineer, 2024–2025');
   L('polo', 'edge', 'Senior Technical Lead, 2023–2024');
   L('polo', 'td', 'desenvolvedor em Berlim, dez 2013 – jan 2014');
