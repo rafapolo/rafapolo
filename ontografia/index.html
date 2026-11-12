@@ -50,6 +50,9 @@ h1 { margin: 0; font: 600 26px/1 var(--serif); color: var(--accent); letter-spac
 nav { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
 .grupo { display: flex; border: 1px solid var(--border); border-radius: 999px; background: var(--glass); overflow: hidden; backdrop-filter: blur(8px); }
 .grupo button { border: 0; background: none; padding: 8px 16px; cursor: pointer; display: flex; align-items: center; gap: 7px; color: var(--text-2); }
+.girar { border: 1px solid var(--border); border-radius: 999px; background: var(--glass); color: var(--text-2); padding: 8px 14px; cursor: pointer; white-space: nowrap; backdrop-filter: blur(8px); }
+.girar:hover { color: var(--text); }
+.girar[aria-pressed="true"] { color: var(--accent); border-color: var(--accent); }
 .grupo button + button { border-left: 1px solid var(--border); }
 .grupo button[aria-pressed="true"] { background: var(--surface-light); color: var(--text); }
 .grupo button:hover { color: var(--text); }
@@ -121,6 +124,7 @@ svg.foco .lugares { opacity: .35; }
 svg.tempo .tem-barra circle { display: none; }
 svg.tempo .tem-barra .barra { display: block; }
 svg.tempo .tem-barra text { opacity: .8 !important; }
+svg.vertical .tem-barra text { font-size: 9px; stroke-width: 1.5px; fill: var(--text); }
 svg.foco .no:not(.perto) .barra { opacity: .12; }
 svg.foco.tempo .tem-barra:not(.perto) text { opacity: 0 !important; }
 .no.centro .barra { stroke: var(--accent); stroke-width: 2; }
@@ -153,6 +157,7 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
       <input id="busca" type="search" placeholder="Buscar pessoa, projeto ou instituição" autocomplete="off" aria-label="Buscar" aria-controls="sugestoes">
       <ul id="sugestoes" role="listbox"></ul>
     </div>
+    <button id="btn-girar" class="girar" type="button" aria-pressed="false" title="Linha do tempo vertical: o presente no alto, role para ver o passado">⇅ Vertical</button>
     <span id="estado" role="status"></span>
   </div>
   <nav aria-label="Opções do grafo">
@@ -172,6 +177,7 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
   <div role="dialog" aria-modal="true" aria-labelledby="sobre-t">
     <h2 id="sobre-t">Ontografia</h2>
     <p>Cada ponto é uma pessoa, um projeto ou uma instituição que passou pelo trabalho de Rafael Polo, de 1998 a 2026. As ligações saem de fichas técnicas, créditos, históricos de git, diplomas e CVs.</p>
+    <p><b>⇅ Vertical</b> gira a linha do tempo: o presente fica no alto, com anos e lugares à direita, e a rolagem desce para o passado.</p>
     <p>A primeira faixa mostra onde Rafael morou em cada época. Os projetos se alinham pelo ano, da esquerda para a direita, e cada pessoa fica na média dos anos a que está ligada. Instituições com início e fim conhecidos viram barras com a duração, embaixo, como uma linha do tempo do CV.</p>
     <p>Clique num ponto para ver as ligações e o papel de cada um, e clique nas ligações para andar pelo grafo. <kbd>/</kbd> busca, <kbd>Esc</kbd> volta à visão geral.</p>
     <p>Projetos vazados são do estúdio Meio, sem participação de Rafael.</p>
@@ -242,6 +248,9 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
   const tiposOn = new Set(Object.keys(TIPOS));
   let rotuloQuadro = 0;
   let modo = 'tempo', centro = null, zoomK = 1;
+  // vertical: o mesmo layout projetado com o tempo no eixo vertical (presente no alto) e a coluna de anos, lugares e barras à direita
+  let vertical = !EMBED && (new URLSearchParams(location.search).has('vertical') || (() => { try { return localStorage.getItem('onto-vertical') === '1'; } catch { return false; } })());
+  const px = d => (vertical ? -d.y : d.x), py = d => (vertical ? -d.x : d.y);
   const visivel = n => n.tipo === 'eu' || (tiposOn.has(n.tipo) && camadasOn.has(TIPOS[n.tipo].camada));
 
   // ── svg ──
@@ -277,8 +286,8 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
     .on('end', rotulos);
 
   function desenhar() {
-    arestas.attr('x1', d => d.source.x).attr('y1', d => d.source.y).attr('x2', d => d.target.x).attr('y2', d => d.target.y);
-    nosSel.attr('transform', d => `translate(${d.x},${d.y})`);
+    arestas.attr('x1', d => px(d.source)).attr('y1', d => py(d.source)).attr('x2', d => px(d.target)).attr('y2', d => py(d.target));
+    nosSel.attr('transform', d => `translate(${px(d)},${py(d)})`);
   }
 
   const TOPO_BARRAS = -420, ALTURA_FAIXA = EMBED ? 13 : 22, Y_LUGARES = TOPO_BARRAS - 30;
@@ -289,7 +298,55 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
     for (const d of nos) if (!d.ini && d.y < limite) d.vy += (limite - d.y) * 0.5;
   }
   // nome dentro da barra (iframe): corta com reticências o que não cabe, a ~4.6 unidades por letra em 8px
-  const cabe = (t, w) => { const n = Math.floor(w / 4.6); return t.length <= n ? t : n < 4 ? '' : t.slice(0, n - 1).trimEnd() + '…'; };
+  const cabe = (t, w, porLetra = 4.6) => { const n = Math.floor(w / porLetra); return t.length <= n ? t : n < 4 ? '' : t.slice(0, n - 1).trimEnd() + '…'; };
+  function posicionarBarras() {
+    const barras = nos.filter(d => d.ini && visivel(d)).sort((a, b) => a.ini - b.ini || b.fim - a.fim);
+    const fimFaixa = [], dentro = EMBED || vertical;
+    for (const d of barras) {
+      const x0 = escalaAno(d.ini), x1 = Math.max(x0 + 6, escalaAno(d.periodo ? d.fim : d.fim + 1)), larg = x1 - x0;
+      const iniTexto = dentro ? x0 - 2 : x0 - 8 - d.rotulo.length * 6.2;
+      let faixa = fimFaixa.findIndex(f => f < iniTexto - 6);
+      if (faixa < 0) faixa = fimFaixa.push(0) - 1;
+      fimFaixa[faixa] = x1;
+      d.fx = (x0 + x1) / 2; d.fy = TOPO_BARRAS + faixa * ALTURA_FAIXA;
+      d.x = d.fx; d.y = d.fy;
+      const g = nosSel.filter(n => n === d), r = g.select('rect'), t = g.select('text');
+      if (vertical) {
+        r.attr('x', -7).attr('width', 14).attr('y', -larg / 2).attr('height', larg);
+        t.attr('transform', 'rotate(-90)').attr('x', -larg / 2 + 4).attr('y', 0).attr('text-anchor', 'start').text(cabe(d.rotulo, larg - 8, 5.2));
+      } else {
+        const h = EMBED ? 11 : 9;
+        r.attr('x', -larg / 2).attr('width', larg).attr('y', -h / 2).attr('height', h);
+        t.attr('transform', null).attr('y', 0);
+        if (EMBED) t.attr('x', -larg / 2 + 3).attr('text-anchor', 'start').text(cabe(d.rotulo, larg - 6));
+        else t.attr('x', -larg / 2 - 6).attr('text-anchor', 'end').text(d.rotulo);
+      }
+    }
+    fundoBarras = TOPO_BARRAS + Math.max(0, fimFaixa.length - 1) * ALTURA_FAIXA;
+  }
+  function desenharEixo() {
+    const [a0, a1] = escalaAno.domain();
+    const passo = EMBED ? 4 : 2, ticks = d3.range(Math.ceil(a0 / passo) * passo, a1 + 1, passo);
+    eixo.selectAll('g').data(ticks, d => d).join(e => { const g = e.append('g'); g.append('line'); g.append('text'); return g; })
+      .attr('transform', d => (vertical ? `translate(0,${-escalaAno(d)})` : `translate(${escalaAno(d)},0)`))
+      .call(g => g.select('line').attr('x1', vertical ? -(Y_LUGARES - 8) : 0).attr('x2', vertical ? -2200 : 0)
+        .attr('y1', vertical ? 0 : Y_LUGARES - 8).attr('y2', vertical ? 0 : 2200))
+      .call(g => g.select('text').text(d => d).attr('x', vertical ? -(Y_LUGARES - 16) + 4 : 0).attr('y', vertical ? 0 : Y_LUGARES - 16)
+        .attr('dy', vertical ? '0.35em' : null).style('text-anchor', vertical ? 'start' : null));
+    const comp = d => escalaAno(d.fim) - escalaAno(d.ini);
+    gLugares.selectAll('g').data(ONTO.lugares || []).join(e => { const g = e.append('g').attr('class', 'lugar'); g.append('rect'); g.append('text'); g.append('title'); return g; })
+      .attr('transform', d => (vertical ? `translate(${-Y_LUGARES},${-escalaAno(d.ini)})` : `translate(${escalaAno(d.ini)},${Y_LUGARES})`))
+      .call(g => g.select('rect').attr('rx', 3).each(function (d) {
+        const r = d3.select(this), c = comp(d) - 2;
+        if (vertical) r.attr('x', -8).attr('width', 16).attr('y', -c - 1).attr('height', c);
+        else r.attr('x', 0).attr('width', c).attr('y', -8).attr('height', 16);
+      }))
+      .call(g => g.select('text').text(d => d.nome).attr('dy', '0.35em')
+        .attr('transform', d => (vertical ? `translate(0,${-comp(d) / 2}) rotate(-90)` : null))
+        .attr('x', d => (vertical ? 0 : comp(d) / 2))
+        .style('display', d => EMBED && comp(d) < d.nome.length * 6 ? 'none' : null))
+      .call(g => g.select('title').text(d => `${d.nome}: ${Math.floor(d.ini)}–${Math.ceil(d.fim) - 1}${d.nota ? ' · ' + d.nota : ''}`));
+  }
   function aplicarModo() {
     const tempo = modo === 'tempo';
     svg.classed('tempo', tempo);
@@ -297,33 +354,9 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
       ajustarEscala();
       sim.force('x', d3.forceX(d => { const a = d.ano ?? d.anoEst; return a ? escalaAno(a) : 0; }).strength(d => (d.ano ? 0.9 : d.anoEst ? 0.35 : 0.02)));
       sim.force('acima', abaixoDasBarras);
-      const barras = nos.filter(d => d.ini && visivel(d)).sort((a, b) => a.ini - b.ini || b.fim - a.fim);
-      const fimFaixa = [];
-      for (const d of barras) {
-        const x0 = escalaAno(d.ini), x1 = Math.max(x0 + 6, escalaAno(d.periodo ? d.fim : d.fim + 1)), larg = x1 - x0;
-        const iniTexto = EMBED ? x0 - 2 : x0 - 8 - d.rotulo.length * 6.2;
-        let faixa = fimFaixa.findIndex(f => f < iniTexto - 6);
-        if (faixa < 0) faixa = fimFaixa.push(0) - 1;
-        fimFaixa[faixa] = x1;
-        d.fx = (x0 + x1) / 2; d.fy = TOPO_BARRAS + faixa * ALTURA_FAIXA;
-        const g = nosSel.filter(n => n === d);
-        g.select('rect').attr('x', -larg / 2).attr('width', larg);
-        if (EMBED) g.select('text').attr('x', -larg / 2 + 3).attr('text-anchor', 'start').text(cabe(d.rotulo, larg - 6));
-        else g.select('text').attr('x', -larg / 2 - 6).attr('text-anchor', 'end');
-      }
-      fundoBarras = TOPO_BARRAS + Math.max(0, fimFaixa.length - 1) * ALTURA_FAIXA;
+      posicionarBarras();
       sim.force('y', d3.forceY(fundoBarras + (EMBED ? 170 : 300)).strength(EMBED ? 0.18 : 0.09));
-      const [a0, a1] = escalaAno.domain();
-      const passo = EMBED ? 4 : 2, ticks = d3.range(Math.ceil(a0 / passo) * passo, a1 + 1, passo);
-      eixo.selectAll('g').data(ticks, d => d).join(e => { const g = e.append('g'); g.append('line'); g.append('text'); return g; })
-        .attr('transform', d => `translate(${escalaAno(d)},0)`)
-        .call(g => g.select('line').attr('y1', Y_LUGARES - 8).attr('y2', 2200))
-        .call(g => g.select('text').attr('y', Y_LUGARES - 16).text(d => d));
-      gLugares.selectAll('g').data(ONTO.lugares || []).join(e => { const g = e.append('g').attr('class', 'lugar'); g.append('rect'); g.append('text'); g.append('title'); return g; })
-        .attr('transform', d => `translate(${escalaAno(d.ini)},${Y_LUGARES})`)
-        .call(g => g.select('rect').attr('width', d => escalaAno(d.fim) - escalaAno(d.ini) - 2).attr('height', 16).attr('y', -8).attr('rx', 3))
-        .call(g => g.select('text').attr('x', d => (escalaAno(d.fim) - escalaAno(d.ini)) / 2).attr('dy', '0.35em').text(d => d.nome).style('display', d => EMBED && (escalaAno(d.fim) - escalaAno(d.ini)) < d.nome.length * 6 ? 'none' : null))
-        .call(g => g.select('title').text(d => `${d.nome}: ${Math.floor(d.ini)}–${Math.ceil(d.fim) - 1}${d.nota ? ' · ' + d.nota : ''}`));
+      desenharEixo();
       eixo.style('opacity', 1);
     } else {
       for (const d of nos) if (d.ini) { d.fx = null; d.fy = null; }
@@ -339,15 +372,33 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
   const zoom = d3.zoom().scaleExtent([0.2, 6]).on('zoom', e => {
     mundo.attr('transform', e.transform); zoomK = e.transform.k; rotulos();
   });
+  zoom.filter(e => (e.type === 'wheel' ? !vertical || e.ctrlKey : !e.ctrlKey) && !e.button);
   svg.call(zoom).on('dblclick.zoom', null);
+  svg.node().addEventListener('wheel', e => {
+    if (!vertical || e.ctrlKey) return;
+    e.preventDefault();
+    zoom.translateBy(svg, -e.deltaX / zoomK, -e.deltaY / zoomK);
+  }, { passive: false });
   svg.call(zoom.transform, d3.zoomIdentity.translate(W() / 2, H() / 2).scale(0.8));
 
   function enquadrar() {
     const vis = nos.filter(visivel);
     if (!vis.length) return;
+    const topo = EMBED ? 4 : document.querySelector('header').getBoundingClientRect().bottom + 6, baixo = EMBED ? 8 : 30;
+    if (vertical) {
+      // largura inteira na tela, o presente logo abaixo do cabeçalho; o passado fica para baixo, rolando
+      const [X0, X1] = d3.extent(vis, px), Xd = -(Y_LUGARES - 16) + 44;
+      const x0 = X0 - 40, x1 = Math.max(X1, Xd);
+      const yTopo = Math.min(-escalaAno.range()[1] - 30, d3.min(vis, py) - 24);
+      const k = Math.max(0.45, Math.min(1.6, 0.96 * W() / (x1 - x0)));
+      zoom.translateExtent([[-1e5, yTopo - 40], [1e5, -escalaAno.range()[0] + 140]]);
+      const t = d3.zoomIdentity.translate(W() / 2 - k * (x0 + x1) / 2, topo + 14 - k * yTopo).scale(k);
+      svg.transition().duration(reduz ? 0 : 700).call(zoom.transform, t);
+      return;
+    }
+    zoom.translateExtent([[-Infinity, -Infinity], [Infinity, Infinity]]);
     let [x0, x1] = d3.extent(vis, d => d.x), [y0, y1] = d3.extent(vis, d => d.y);
     if (modo === 'tempo') { const [r0, r1] = escalaAno.range(); x0 = EMBED ? Math.min(x0 - 30, r0 - 8) : Math.min(x0, r0 - 180); x1 = EMBED ? Math.max(x1 + 70, r1 + 8) : Math.max(x1 + 120, r1 + 160); }
-    const topo = EMBED ? 4 : document.querySelector('header').getBoundingClientRect().bottom + 6, baixo = EMBED ? 8 : 30;
     const yTopo = Math.min(y0, Y_LUGARES - 40);
     const k = Math.min(2.2, 0.96 * Math.min(W() / (x1 - x0 + 40), (H() - topo - baixo) / (y1 - yTopo + 40)));
     const t = d3.zoomIdentity.translate(W() / 2 - k * (x0 + x1) / 2, topo + (EMBED ? 6 : 20) - k * yTopo).scale(k);
@@ -360,7 +411,7 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
     const topo = EMBED ? 0 : document.querySelector('header').getBoundingClientRect().bottom;
     const fundo = !painel.hidden && !lateral ? painel.getBoundingClientRect().top : H();
     const cx = lateral ? (W() - 400) / 2 : W() / 2, cy = (topo + fundo) / 2;
-    svg.transition().duration(reduz ? 0 : 650).call(zoom.transform, d3.zoomIdentity.translate(cx - k * n.x, cy - k * n.y).scale(k));
+    svg.transition().duration(reduz ? 0 : 650).call(zoom.transform, d3.zoomIdentity.translate(cx - k * px(n), cy - k * py(n)).scale(k));
   }
 
 
@@ -378,19 +429,19 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
     const candidatos = nos.filter(d => !d.ini && visivel(d) && (!centro || perto.has(d)))
       .sort((a, b) => (b === centro) - (a === centro) || b.grau - a.grau || (b.tipo === 'projeto') - (a.tipo === 'projeto'));
     const pontos = nos.filter(o => !o.ini && visivel(o) && (!centro || perto.has(o)));
-    const cobrePonto = (c, d) => pontos.some(o => o !== d && o.x + rk(o) > c[0] && o.x - rk(o) < c[2] && o.y + rk(o) > c[1] && o.y - rk(o) < c[3]);
+    const cobrePonto = (c, d) => pontos.some(o => o !== d && px(o) + rk(o) > c[0] && px(o) - rk(o) < c[2] && py(o) + rk(o) > c[1] && py(o) - rk(o) < c[3]);
     const caixas = [], lugar = new Map();
     const bate = c => caixas.some(o => c[0] < o[2] && c[2] > o[0] && c[1] < o[3] && c[3] > o[1]);
     let restantes = EMBED && !centro ? ROTULOS_EMBED : Infinity;
     for (const d of candidatos) {
       if (restantes <= 0) break;
-      const r = rk(d), w = (d.rotulo.length * 6.2 + 2) / k, h = 6 / k, g = 3 / k;
+      const r = rk(d), w = (d.rotulo.length * 6.2 + 2) / k, h = 6 / k, g = 3 / k, X = px(d), Y = py(d);
       // direita, acima, esquerda, abaixo: a primeira que não bate em outro rótulo nem cobre um ponto
       const opcoes = [
-        { c: [d.x + r + g, d.y - h, d.x + r + g + w, d.y + h], x: r + g, y: 0, ancora: 'start' },
-        { c: [d.x - w / 2, d.y - r - g - 2 * h, d.x + w / 2, d.y - r - g], x: 0, y: -r - g - h, ancora: 'middle' },
-        { c: [d.x - r - g - w, d.y - h, d.x - r - g, d.y + h], x: -r - g, y: 0, ancora: 'end' },
-        { c: [d.x - w / 2, d.y + r + g, d.x + w / 2, d.y + r + g + 2 * h], x: 0, y: r + g + h, ancora: 'middle' },
+        { c: [X + r + g, Y - h, X + r + g + w, Y + h], x: r + g, y: 0, ancora: 'start' },
+        { c: [X - w / 2, Y - r - g - 2 * h, X + w / 2, Y - r - g], x: 0, y: -r - g - h, ancora: 'middle' },
+        { c: [X - r - g - w, Y - h, X - r - g, Y + h], x: -r - g, y: 0, ancora: 'end' },
+        { c: [X - w / 2, Y + r + g, X + w / 2, Y + r + g + 2 * h], x: 0, y: r + g + h, ancora: 'middle' },
       ];
       const ok = opcoes.find(o => !bate(o.c) && (d === centro || !cobrePonto(o.c, d)));
       if (!ok) continue;
@@ -490,8 +541,9 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
   $('fechar').onclick = () => selecionar(null);
 
   nosSel.filter(d => !d.ini).call(d3.drag()
+    .subject((e, d) => ({ x: px(d), y: py(d) }))
     .on('start', (e, d) => { if (!e.active) sim.alphaTarget(0.25).restart(); d.fx = d.x; d.fy = d.y; })
-    .on('drag', (e, d) => { d.fx = e.x; d.fy = e.y; })
+    .on('drag', (e, d) => { d.fx = vertical ? -e.y : e.x; d.fy = vertical ? -e.x : e.y; })
     .on('end', (e, d) => { if (!e.active) sim.alphaTarget(0); d.fx = null; d.fy = null; }));
 
   // ── busca ──
@@ -537,6 +589,17 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
   $('btn-sobre').onclick = () => { $('sobre').hidden = false; };
   $('sobre').onclick = e => { if (e.target === $('sobre')) $('sobre').hidden = true; };
   addEventListener('resize', () => { if (modo === 'tempo') aplicarModo(); });
+  function girar(v) {
+    vertical = v;
+    svg.classed('vertical', v);
+    $('btn-girar').setAttribute('aria-pressed', String(v));
+    try { localStorage.setItem('onto-vertical', v ? '1' : '0'); } catch {}
+    posicionarBarras(); desenharEixo(); desenhar(); rotulos();
+    sim.force('y', d3.forceY(fundoBarras + (EMBED ? 170 : 300)).strength(EMBED ? 0.18 : 0.09)); sim.alpha(0.25).restart();
+    setTimeout(() => (centro ? irPara(centro) : enquadrar()), reduz ? 0 : 500);
+  }
+  $('btn-girar').onclick = () => girar(!vertical);
+  svg.classed('vertical', vertical); $('btn-girar').setAttribute('aria-pressed', String(vertical));
   addEventListener('hashchange', () => { const n = porId.get(location.hash.slice(1)); if (n !== centro) selecionar(n || null, { hist: false }); });
 
   // ── início ──
