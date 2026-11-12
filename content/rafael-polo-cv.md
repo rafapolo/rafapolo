@@ -100,7 +100,7 @@ Swiss Federal Act on Data Protection (nFADP) · Databricks for Data Engineering 
 
 ## About
 
-Based in Basel since 2023; I have lived and worked in five countries — Rio de Janeiro, Berlin, Athens, Lisbon, and Zürich — and adapt quickly to new teams and environments.
+Based in Basel since 2025; I have lived and worked in five countries — Rio de Janeiro, Berlin, Athens, Lisbon, and Zürich — and adapt quickly to new teams and environments.
 
 **Volunteer:** Three years teaching computer science to refugees in Athens (2017); helped build a computer lab.
 **Personal:** Passionate cyclist — once rode from Berlin to Athens.
