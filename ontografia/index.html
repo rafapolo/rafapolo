@@ -50,7 +50,7 @@ h1 { margin: 0; font: 600 26px/1 var(--serif); color: var(--accent); letter-spac
 nav { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
 .grupo { display: flex; border: 1px solid var(--border); border-radius: 999px; background: var(--glass); overflow: hidden; backdrop-filter: blur(8px); }
 .grupo button { border: 0; background: none; padding: 8px 16px; cursor: pointer; display: flex; align-items: center; gap: 7px; color: var(--text-2); }
-.girar { border: 1px solid var(--border); border-radius: 999px; background: var(--glass); color: var(--text-2); padding: 8px 14px; cursor: pointer; white-space: nowrap; backdrop-filter: blur(8px); }
+.girar { border: 1px solid var(--border); border-radius: 50%; width: 40px; height: 40px; display: grid; place-items: center; padding: 0; flex: none; background: var(--glass); color: var(--text-2); cursor: pointer; backdrop-filter: blur(8px); }
 .girar:hover { color: var(--text); }
 .girar[aria-pressed="true"] { color: var(--accent); border-color: var(--accent); }
 .grupo button + button { border-left: 1px solid var(--border); }
@@ -157,7 +157,7 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
       <input id="busca" type="search" placeholder="Buscar pessoa, projeto ou instituição" autocomplete="off" aria-label="Buscar" aria-controls="sugestoes">
       <ul id="sugestoes" role="listbox"></ul>
     </div>
-    <button id="btn-girar" class="girar" type="button" aria-pressed="false" title="Linha do tempo vertical: o presente no alto, role para ver o passado">⇅ Vertical</button>
+    <button id="btn-girar" class="girar" type="button" aria-pressed="false" aria-label="Linha do tempo vertical" title="Linha do tempo vertical: o presente no alto, role para ver o passado"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h11"/><path d="M12 4l3 3-3 3"/><path d="M17 10v10"/><path d="M14 17l3 3 3-3"/></svg></button>
     <span id="estado" role="status"></span>
   </div>
   <nav aria-label="Opções do grafo">
@@ -313,7 +313,7 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
       const g = nosSel.filter(n => n === d), r = g.select('rect'), t = g.select('text');
       if (vertical) {
         r.attr('x', -7).attr('width', 14).attr('y', -larg / 2).attr('height', larg);
-        t.attr('transform', 'rotate(-90)').attr('x', -larg / 2 + 4).attr('y', 0).attr('text-anchor', 'start').text(cabe(d.rotulo, larg - 8, 5.2));
+        t.attr('transform', 'rotate(90)').attr('x', -larg / 2 + 4).attr('y', 0).attr('dy', '0.35em').attr('text-anchor', 'start').text(cabe(d.rotulo, larg - 8, 5.2));
       } else {
         const h = EMBED ? 11 : 9;
         r.attr('x', -larg / 2).attr('width', larg).attr('y', -h / 2).attr('height', h);
@@ -342,8 +342,9 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
         else r.attr('x', 0).attr('width', c).attr('y', -8).attr('height', 16);
       }))
       .call(g => g.select('text').text(d => d.nome).attr('dy', '0.35em')
-        .attr('transform', d => (vertical ? `translate(0,${-comp(d) / 2}) rotate(-90)` : null))
-        .attr('x', d => (vertical ? 0 : comp(d) / 2))
+        .attr('transform', d => (vertical ? `translate(0,${-comp(d) + 1}) rotate(90)` : null))
+        .attr('x', d => (vertical ? 8 : comp(d) / 2))
+        .style('text-anchor', vertical ? 'start' : null)
         .style('display', d => EMBED && comp(d) < d.nome.length * 6 ? 'none' : null))
       .call(g => g.select('title').text(d => `${d.nome}: ${Math.floor(d.ini)}–${Math.ceil(d.fim) - 1}${d.nota ? ' · ' + d.nota : ''}`));
   }
