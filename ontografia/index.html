@@ -158,7 +158,7 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
       <input id="busca" type="search" placeholder="Buscar pessoa, projeto ou instituição" autocomplete="off" aria-label="Buscar" aria-controls="sugestoes">
       <ul id="sugestoes" role="listbox"></ul>
     </div>
-    <button id="btn-girar" class="girar" type="button" aria-pressed="false" aria-label="Linha do tempo vertical" title="Linha do tempo vertical: o presente no alto, role para ver o passado"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h11"/><path d="M12 4l3 3-3 3"/><path d="M17 10v10"/><path d="M14 17l3 3 3-3"/></svg></button>
+    <button id="btn-girar" class="girar" type="button" aria-pressed="false" aria-label="Linha do tempo horizontal" title="Ver a linha do tempo na horizontal"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h11"/><path d="M12 4l3 3-3 3"/><path d="M17 10v10"/><path d="M14 17l3 3 3-3"/></svg></button>
     <span id="estado" role="status"></span>
   </div>
   <nav aria-label="Opções do grafo">
@@ -178,7 +178,7 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
   <div role="dialog" aria-modal="true" aria-labelledby="sobre-t">
     <h2 id="sobre-t">Ontografia</h2>
     <p>Cada ponto é uma pessoa, um projeto ou uma instituição que passou pelo trabalho de Rafael Polo, de 1998 a 2026. As ligações saem de fichas técnicas, créditos, históricos de git, diplomas e CVs.</p>
-    <p><b>⇅ Vertical</b> gira a linha do tempo: o presente fica no alto, com anos e lugares à esquerda, e a rolagem desce para o passado.</p>
+    <p>A linha do tempo abre na vertical: o presente fica no alto, com anos e lugares à esquerda, e a rolagem desce para o passado. O botão ao lado da busca gira para a horizontal.</p>
     <p>A primeira faixa mostra onde Rafael morou em cada época. Os projetos se alinham pelo ano, da esquerda para a direita, e cada pessoa fica na média dos anos a que está ligada. Instituições com início e fim conhecidos viram barras com a duração, embaixo, como uma linha do tempo do CV.</p>
     <p>Clique num ponto para ver as ligações e o papel de cada um, e clique nas ligações para andar pelo grafo. <kbd>/</kbd> busca, <kbd>Esc</kbd> volta à visão geral.</p>
     <p>Projetos vazados são do estúdio Meio, sem participação de Rafael.</p>
@@ -250,7 +250,7 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
   let rotuloQuadro = 0;
   let modo = 'tempo', centro = null, zoomK = 1;
   // vertical: o mesmo layout projetado com o tempo no eixo vertical (presente no alto) e a coluna de anos, lugares e barras à esquerda
-  let vertical = !EMBED && (new URLSearchParams(location.search).has('vertical') || (() => { try { return localStorage.getItem('onto-vertical') === '1'; } catch { return false; } })());
+  let vertical = !EMBED && !new URLSearchParams(location.search).has('horizontal') && (() => { try { return localStorage.getItem('onto-vertical') !== '0'; } catch { return true; } })();
   const px = d => (vertical ? d.y : d.x), py = d => (vertical ? -d.x : d.y);
   const visivel = n => n.tipo === 'eu' || (tiposOn.has(n.tipo) && camadasOn.has(TIPOS[n.tipo].camada));
 
@@ -594,14 +594,14 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
   function girar(v) {
     vertical = v;
     svg.classed('vertical', v);
-    $('btn-girar').setAttribute('aria-pressed', String(v));
+    $('btn-girar').setAttribute('aria-pressed', String(!v));
     try { localStorage.setItem('onto-vertical', v ? '1' : '0'); } catch {}
     posicionarBarras(); desenharEixo(); desenhar(); rotulos();
     sim.force('y', d3.forceY(fundoBarras + (EMBED ? 170 : 300)).strength(EMBED ? 0.18 : 0.09)); sim.alpha(0.25).restart();
     setTimeout(() => (centro ? irPara(centro) : enquadrar()), reduz ? 0 : 500);
   }
   $('btn-girar').onclick = () => girar(!vertical);
-  svg.classed('vertical', vertical); $('btn-girar').setAttribute('aria-pressed', String(vertical));
+  svg.classed('vertical', vertical); $('btn-girar').setAttribute('aria-pressed', String(!vertical));
   addEventListener('hashchange', () => { const n = porId.get(location.hash.slice(1)); if (n !== centro) selecionar(n || null, { hist: false }); });
 
   // ── início ──
