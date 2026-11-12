@@ -102,12 +102,10 @@
   P('crepker', 'Felipe Crepker Vieira', 'Fotógrafo.');
   P('ovalles', 'Fabio Fontes Ovalles', 'Ilustrador.');
   P('nina', 'Nina Paim', 'Designer (ninapaim.com).');
-  P('puckey', 'Jonathan Puckey', 'Designer e professor.');
   P('zanine', 'Zanini de Zanine', 'Designer de produto (mobiliário).');
   P('pedromoraes', 'Pedro Moraes', 'Tipógrafo (ETAOIN SHRDLU) e sócio da Comuna.');
   P('haim', 'Victor Haim', 'Fotógrafo.');
   P('alexhead', 'Alex Head', 'Artista sonoro.');
-  P('lotta', 'Lotta Schäfer', 'Curadora.');
   P('manata', 'Franz Manata', 'Artista (SoundSystem).');
   P('laudares', 'Saulo Laudares', 'Artista (SoundSystem).');
   P('belisario', 'Adriano Belisario', 'Jornalista de dados.');
@@ -121,6 +119,7 @@
   P('crito', 'crito', 'Desenvolvedor (cryptodrunks.net).');
   P('lucasteixeira', 'Lucas Teixeira', 'Coding Rights.');
   P('marina', 'Marina Polo', 'Doutora em Ciências da Comunicação (Universidade do Minho); pesquisadora de cultura, ideologia e internet.');
+  P('marise', 'Marise', 'Colaboradora do Mostre!me Cultura.');
   P('anto', 'Anto', 'Mestre em Física de Partículas, dev full-stack.');
   P('andreina', 'Andreina', 'Mestre em Psicologia.');
   P('igor', 'Igor', 'Comunicação aplicada, UX.');
@@ -248,9 +247,9 @@
   L('ovalles', 'webdoc', 'ilustração'); L('minc', 'webdoc', 'prêmio Cartografias Colaborativas');
 
   // ── clientes e parceiros ──
-  L('nina', 'parallel', 'conceito'); L('puckey', 'parallel', 'orientação'); L('parallel', 'rietveld', 'projeto acadêmico');
+  L('nina', 'parallel', 'conceito'); L('parallel', 'rietveld', 'projeto acadêmico');
   L('zanine', 'zanini', 'cliente'); L('pedromoraes', 'etaoin', 'cliente'); L('pedromoraes', 'comunacow', 'sócio'); L('pedromoraes', 'comuna', 'cliente'); L('haim', 'victorhaim', 'cliente');
-  L('alexhead', 'subzku', 'artista'); L('lotta', 'subzku', 'curadoria'); L('subzku', 'zku', 'encomenda');
+  L('alexhead', 'subzku', 'artista'); L('subzku', 'zku', 'encomenda');
   L('manata', 'exst', 'artista'); L('laudares', 'exst', 'artista');
   L('connectas', 'connectasorg', 'parceria'); L('connectas', 'intercept', 'trabalho para o Intercept, com Adriano Belisario'); L('belisario', 'intercept', 'parceiro no trabalho'); L('belisario', 'connectas', 'código (otherbrecht)');
   L('belisario', 'tribuna', 'código'); L('belisario', 'datative', 'código'); L('belisario', 'colmeia', 'código');
@@ -267,7 +266,7 @@
   L('thiago', 'ufmg', 'vínculo');
   L('codecreate', 'gfoss', 'programa');
 
-  L('erthosalbino', 'erthos', 'autor do poema decifrado'); L('mostre', 'minc', 'dados públicos');
+  L('erthosalbino', 'erthos', 'autor do poema decifrado'); L('mostre', 'minc', 'dados públicos'); L('marina', 'mostre', 'equipe'); L('marise', 'mostre', 'equipe');
 
   // ── rodado.xyz: projetos recentes do índice ──
   for (const p of ['eleicoes2026', 'cantography', 'erthos', 'rodado', 'brasilume', 'datative', 'helvetiscan', 'malafaia', 'brasiliano',
@@ -282,7 +281,9 @@
 
   // ── Kripto Solutions ──
   for (const p of ['moedacasa', 'moedax', 'speculari', 'renda']) L('kripto', p, 'projeto da equipe');
-  for (const p of ['marina', 'anto', 'andreina', 'igor']) { L(p, 'kripto', 'equipe'); L(p, 'moedax', 'equipe (proposta de bolsa, 2021)'); }
+  for (const p of ['marina', 'anto', 'andreina', 'igor']) L(p, 'kripto', 'equipe');
+  for (const p of ['marina', 'andreina']) L(p, 'moedax', 'equipe (proposta de bolsa, 2021)');
+  L('igor', 'edge', 'equipe');
   L('marina', 'minho', 'doutorado'); L('moedacasa', 'zcash', 'bolsa ZOMG'); L('verafiko', 'celo', 'hackathon Celo/Huobi');
 
   // ── Tactical Tech ──

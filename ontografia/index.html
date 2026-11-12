@@ -128,14 +128,16 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
 
 @media (max-width: 640px) {
   h1 { font-size: 22px; } .busca { order: 3; flex-basis: 100%; max-width: none; }
-  #legenda { display: none; }
+  #legenda { min-width: 0; max-width: calc(100vw - 32px); padding: 8px 14px; border-radius: 999px; }
+  #legenda[open] { min-width: 190px; border-radius: 16px; }
+  #legenda ul { max-height: 50vh; overflow: auto; }
   #painel { left: 16px; right: 16px; width: auto; max-height: 48vh; }
   .grupo button { padding: 7px 12px; }
 }
 /* versão compacta para o card da home (?embed=1) */
 .embed header, .embed #legenda, .embed #painel, .embed #sobre { display: none !important; }
 .embed body { background: #0f0e0c; }
-.embed .tem-barra text { display: none; }
+.embed .tem-barra text { font-size: 8px; stroke-width: 1.5px; fill: var(--text); }
 .embed .lugar text { font-size: 9px; }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
@@ -254,7 +256,7 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
   nosSel.append('circle').attr('r', raio).attr('fill', d => cor(d.tipo)).attr('stroke', d => d.meio ? cor(d.tipo) : null);
   nosSel.filter(d => d.ini).each(function () { gB.node().appendChild(this); });
   nosSel.filter(d => d.ini).classed('tem-barra', true).append('rect').attr('class', 'barra')
-    .attr('fill', d => cor(d.tipo)).attr('rx', EMBED ? 2 : 4).attr('height', EMBED ? 5 : 9).attr('y', EMBED ? -2.5 : -4.5)
+    .attr('fill', d => cor(d.tipo)).attr('rx', EMBED ? 3 : 4).attr('height', EMBED ? 11 : 9).attr('y', EMBED ? -5.5 : -4.5)
     .append('title').text(d => d.periodo ? `${d.rotulo}: ${d.meuPapel || ''}` : `${d.rotulo}: ${d.ini}${d.fim !== d.ini ? '–' + d.fim : ''}`);
   nosSel.append('text').text(d => d.rotulo).attr('x', d => raio(d) + 4).attr('dy', '0.35em');
 
@@ -279,13 +281,15 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
     nosSel.attr('transform', d => `translate(${d.x},${d.y})`);
   }
 
-  const TOPO_BARRAS = -420, ALTURA_FAIXA = document.documentElement.classList.contains('embed') ? 9 : 22, Y_LUGARES = TOPO_BARRAS - 30;
+  const TOPO_BARRAS = -420, ALTURA_FAIXA = EMBED ? 13 : 22, Y_LUGARES = TOPO_BARRAS - 30;
   let fundoBarras = TOPO_BARRAS;
   // em Tempo, quem não é barra fica abaixo da faixa de barras
   function abaixoDasBarras() {
     const limite = fundoBarras + (EMBED ? 22 : 50);
     for (const d of nos) if (!d.ini && d.y < limite) d.vy += (limite - d.y) * 0.5;
   }
+  // nome dentro da barra (iframe): corta com reticências o que não cabe, a ~4.6 unidades por letra em 8px
+  const cabe = (t, w) => { const n = Math.floor(w / 4.6); return t.length <= n ? t : n < 4 ? '' : t.slice(0, n - 1).trimEnd() + '…'; };
   function aplicarModo() {
     const tempo = modo === 'tempo';
     svg.classed('tempo', tempo);
@@ -304,7 +308,8 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
         d.fx = (x0 + x1) / 2; d.fy = TOPO_BARRAS + faixa * ALTURA_FAIXA;
         const g = nosSel.filter(n => n === d);
         g.select('rect').attr('x', -larg / 2).attr('width', larg);
-        g.select('text').attr('x', -larg / 2 - 6).attr('text-anchor', 'end');
+        if (EMBED) g.select('text').attr('x', -larg / 2 + 3).attr('text-anchor', 'start').text(cabe(d.rotulo, larg - 6));
+        else g.select('text').attr('x', -larg / 2 - 6).attr('text-anchor', 'end');
       }
       fundoBarras = TOPO_BARRAS + Math.max(0, fimFaixa.length - 1) * ALTURA_FAIXA;
       sim.force('y', d3.forceY(fundoBarras + (EMBED ? 170 : 300)).strength(EMBED ? 0.18 : 0.09));
@@ -322,7 +327,7 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
       eixo.style('opacity', 1);
     } else {
       for (const d of nos) if (d.ini) { d.fx = null; d.fy = null; }
-      nosSel.filter(d => d.ini).select('text').attr('x', d => raio(d) + 4).attr('text-anchor', null);
+      nosSel.filter(d => d.ini).select('text').text(d => d.rotulo).attr('x', d => raio(d) + 4).attr('text-anchor', null);
       sim.force('acima', null); sim.force('x', d3.forceX(0).strength(0.03)); sim.force('y', d3.forceY(0).strength(0.04));
       eixo.style('opacity', 0);
     }
@@ -369,7 +374,7 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
     const k = zoomK, perto = new Set(centro ? [centro, ...viz.get(centro).map(v => v.outro)] : []);
     const rk = d => raio(d) * (EMBED ? 0.5 : 1) / Math.max(k, 1);
     nosSel.filter(d => !d.ini).select("circle").attr("r", rk).attr("stroke-width", 1.5 / Math.max(k, 1));
-    const textos = nosSel.filter(d => !d.ini).select('text').attr('font-size', 11 / k).attr('stroke-width', 3.5 / k);
+    const textos = nosSel.filter(d => !d.ini).select('text').style('font-size', d => (d.tipo === 'eu' ? 15 : 11) / k + 'px').style('stroke-width', 3.5 / k + 'px');
     const candidatos = nos.filter(d => !d.ini && visivel(d) && (!centro || perto.has(d)))
       .sort((a, b) => (b === centro) - (a === centro) || b.grau - a.grau || (b.tipo === 'projeto') - (a.tipo === 'projeto'));
     const pontos = nos.filter(o => !o.ini && visivel(o) && (!centro || perto.has(o)));
