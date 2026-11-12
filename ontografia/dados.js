@@ -120,7 +120,6 @@
   P('lucasteixeira', 'Lucas Teixeira', 'Coding Rights.');
   P('marina', 'Marina Polo', 'Doutora em Ciências da Comunicação (Universidade do Minho); pesquisadora de cultura, ideologia e internet.');
   P('marise', 'Marise', 'Colaboradora do Mostre!me Cultura.');
-  P('andreina', 'Andreina', 'Mestre em Psicologia.');
   P('igor', 'Igor', 'Comunicação aplicada, UX.');
   P('erthosalbino', 'Erthos Albino de Souza', 'Poeta e engenheiro; autor do Soneto Alfanumérico (revista Código, 1974).');
   P('jolandatodt', 'Jolanda Todt', 'Designer gráfica em Berlim.');
@@ -281,8 +280,8 @@
 
   // ── Kripto Solutions ──
   for (const p of ['moedacasa', 'moedax', 'speculari', 'renda']) L('kripto', p, 'projeto da equipe');
-  for (const p of ['marina', 'andreina', 'igor']) L(p, 'kripto', 'equipe');
-  for (const p of ['marina', 'andreina']) L(p, 'moedax', 'equipe (proposta de bolsa, 2021)');
+  for (const p of ['marina', 'igor']) L(p, 'kripto', 'equipe');
+  L('marina', 'moedax', 'equipe (proposta de bolsa, 2021)');
   L('igor', 'edge', 'equipe');
   L('igor', 'moedax', 'UX'); L('miguel', 'moedax', 'UX e produto');
   L('marina', 'minho', 'doutorado'); L('moedacasa', 'zcash', 'bolsa ZOMG'); L('verafiko', 'celo', 'hackathon Celo/Huobi');
