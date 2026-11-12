@@ -307,5 +307,13 @@
     { nome: 'Basel', ini: 2025.25, fim: 2027, nota: 'freelance desde abril de 2025' },
   ];
 
+  // nomes curtos para as barras da linha do tempo, quando o nome inteiro não cabe
+  const curtos = {
+    bennett: 'Bennett', feso: 'FESO', cortex: 'Cortex', td: 'T+D', capes: 'CAPES', unirio: 'UNIRIO', ufrj: 'UFRJ',
+    mcury: 'M.Cury', logical: 'Logical', meuservidor: 'MeuServidor', gfoss: 'GFOSS', kripto: 'Kripto', edge: 'EDGE',
+    novaims: 'NOVA', ttc: 'TTC', index: 'Index', inpp: 'INPP', intercept: 'Intercept', swisscom: 'Swisscom',
+  };
+  for (const n of nos) if (curtos[n.id]) n.curto = curtos[n.id];
+
   g.ONTO = { nos, ligacoes, lugares };
 })(window);

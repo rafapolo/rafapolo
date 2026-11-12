@@ -301,6 +301,14 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
     for (const d of nos) if (!d.ini && d.y < limite) d.vy += (limite - d.y) * 0.5;
   }
   // nome dentro da barra (iframe): corta com reticências o que não cabe, a ~4.6 unidades por letra em 8px
+  // escolhe o texto que cabe em `max` medindo de verdade: o nome, o curto, ou um deles cortado com reticências
+  function caber(t, nomes, max) {
+    const n = t.node();
+    for (const nome of nomes) { if (!nome) continue; t.text(nome); if (n.getComputedTextLength() <= max) return; }
+    const base = nomes.filter(Boolean).at(-1) || '';
+    for (let i = base.length - 1; i >= 2; i--) { t.text(base.slice(0, i).trimEnd() + '…'); if (n.getComputedTextLength() <= max) return; }
+    t.text('');
+  }
   const cabe = (t, w, porLetra = 4.6) => { const n = Math.floor(w / porLetra); return t.length <= n ? t : n < 4 ? '' : t.slice(0, n - 1).trimEnd() + '…'; };
   function posicionarBarras() {
     const barras = nos.filter(d => d.ini && visivel(d)).sort((a, b) => a.ini - b.ini || b.fim - a.fim);
@@ -316,7 +324,8 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
       const g = nosSel.filter(n => n === d), r = g.select('rect'), t = g.select('text');
       if (vertical) {
         r.attr('x', -7).attr('width', 14).attr('y', -larg / 2).attr('height', larg);
-        t.attr('transform', null).attr('x', 0).attr('y', -larg / 2 + 5).attr('dy', null).attr('text-anchor', 'start').text(cabe(d.rotulo, larg - 8, 8.6));
+        t.attr('transform', null).attr('x', 0).attr('y', -larg / 2 + 5).attr('dy', null).attr('text-anchor', 'start');
+        caber(t, [d.rotulo, d.curto], larg - 10);
       } else {
         const h = EMBED ? 11 : 9;
         r.attr('x', -larg / 2).attr('width', larg).attr('y', -h / 2).attr('height', h);
@@ -344,11 +353,12 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
         if (vertical) r.attr('x', -8).attr('width', 16).attr('y', -c - 1).attr('height', c);
         else r.attr('x', 0).attr('width', c).attr('y', -8).attr('height', 16);
       }))
-      .call(g => g.select('text').text(d => (vertical ? cabe(d.nome, comp(d) - 12, 11) : d.nome)).attr('dy', vertical ? null : '0.35em')
+      .call(g => g.select('text').text(d => d.nome).attr('dy', vertical ? null : '0.35em')
         .attr('transform', null)
         .attr('x', d => (vertical ? 0 : comp(d) / 2)).attr('y', d => (vertical ? -comp(d) + 6 : null))
         .style('text-anchor', vertical ? 'start' : null)
         .style('display', d => EMBED && comp(d) < d.nome.length * 6 ? 'none' : null))
+      .call(g => { if (vertical) g.select('text').each(function (d) { caber(d3.select(this), [d.nome], comp(d) - 12); }); })
       .call(g => g.select('title').text(d => `${d.nome}: ${Math.floor(d.ini)}–${Math.ceil(d.fim) - 1}${d.nota ? ' · ' + d.nota : ''}`));
   }
   function aplicarModo() {
