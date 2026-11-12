@@ -23,11 +23,11 @@
   N('connectas', 'Connectas / Grupo Bruto', 'projeto', { ano: 2018, nota: 'Plataforma de redes de propriedade entre empresas, doadores de campanha e deputados.', url: 'https://www.connectas.org/especiales/odebrecht/' });
   N('tribuna', 'Tribuna', 'projeto', { ano: 2018, nota: 'Todo o repositório eleitoral do TSE num banco relacional para jornalistas.', url: 'https://github.com/rafapolo/tribuna' });
   N('datative', 'datative', 'projeto', { ano: 2026, nota: 'Redes de CNPJ/CPF entre bases públicas federais.', url: 'https://rafapolo.github.io/datative/' });
-  N('eti', 'Exposing the Invisible', 'projeto', { ano: 2016, cidade: 'Berlim', nota: 'Recursos de investigação da Tactical Tech; Rafael fez 12 ferramentas e sites.', url: 'https://exposingtheinvisible.org/' });
+  N('eti', 'Exposing the Invisible', 'projeto', { ano: 2016, cidade: 'Berlim', nota: 'A equipe de Rafael na Tactical Tech: recursos e ferramentas de investigação; Rafael fez 12 ferramentas e sites, entre eles o Little Spoon.', url: 'https://exposingtheinvisible.org/' });
   N('holistic', 'Holistic Security', 'projeto', { ano: 2016, cidade: 'Berlim', nota: 'Manual de segurança digital da Tactical Tech.', url: 'https://holistic-security.tacticaltech.org/' });
   N('myshadow', 'Me and My Shadow', 'projeto', { ano: 2015, cidade: 'Berlim', nota: 'Plataforma da Tactical Tech sobre rastros digitais.' });
   N('sic', 'Security in Context', 'projeto', { ano: 2015, cidade: 'Berlim', nota: 'Plataforma Rails da Tactical Tech.' });
-  N('littlespoon', 'Little Spoon', 'projeto', { ano: 2015, cidade: 'Berlim', nota: 'Pipeline de dados da Tactical Tech.' });
+  N('littlespoon', 'Little Spoon', 'projeto', { ano: 2015, cidade: 'Berlim', nota: 'Pipeline de dados feito para a equipe Exposing the Invisible, na Tactical Tech.' });
   N('stalker', 'Stalker', 'projeto', { ano: 2015, cidade: 'Berlim', nota: 'Ferramenta interna da Tactical Tech.' });
   N('deepgraphics', 'Deep Graphics', 'projeto', { ano: 2015, cidade: 'Berlim', nota: 'Laboratório de dataviz da Tactical Tech.' });
   N('agua', 'Agenda Água na Escola', 'projeto', { ano: 2013, cidade: 'Rio de Janeiro', nota: 'Plataforma em que alunos da rede pública registram a qualidade da água dos rios.', url: 'https://rafapolo.github.io/aguanaescola/' });
@@ -220,7 +220,7 @@
   L('polo', 'inpp', 'desenvolvedor principal, 2004');
   L('polo', 'meio', 'cofundador, 2010–2012');
   L('polo', 'kripto', 'cofundador, 2020–2021');
-  L('polo', 'ttc', 'arquiteto full-stack, 2014–2016');
+  L('polo', 'ttc', 'arquiteto full-stack na equipe Exposing the Invisible, 2014–2016');
   L('polo', 'gfoss', 'professor, 2017–2018');
   L('polo', 'ccc', 'apresentação');
 
@@ -295,7 +295,7 @@
   for (const p of ['niko', 'allan', 'christo', 'crito']) L(p, 'littlespoon', 'commits');
   for (const p of ['niko', 'allan', 'christo', 'crito', 'kaustubh']) L(p, 'stalker', 'commits');
   L('lucasteixeira', 'deepgraphics', 'commits'); L('lucasteixeira', 'codingrights', 'vínculo');
-  L('eti', 'ccc', 'apresentado');
+  L('eti', 'ccc', 'apresentado'); L('littlespoon', 'eti', 'ferramenta da equipe');
 
   // onde Rafael morou: anos decimais, contíguos (fonte: CVs, proposta da Moedax)
   const lugares = [
