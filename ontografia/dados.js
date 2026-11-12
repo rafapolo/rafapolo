@@ -45,7 +45,7 @@
   N('colmeia', 'Colmeia', 'projeto', { ano: 2026, nota: 'Organização local para as eleições de 2026: cada setor censitário é uma célula.' });
   N('codecreate', 'Code + Create', 'projeto', { ano: 2018, cidade: 'Atenas', nota: 'Aulas de HTML, CSS e jQuery para jovens gregos e refugiados.' });
   N('zeitbank', 'Zeitbank / ZeitLotto', 'projeto', { ano: 2014, cidade: 'Berlim', nota: 'Banco de tempo e loteria de habilidades no Gütermarkt do ZK/U: cada participante troca o que sabe fazer.' });
-  N('tcc', 'TCC: Desenvolvimento ágil para a Web 2.0 com Rails', 'projeto', { ano: 2009, cidade: 'Rio de Janeiro', nota: 'Monografia de conclusão do bacharelado em Ciência da Computação, defendida em novembro de 2009.' });
+  N('tcc', 'TCC Rails', 'projeto', { ano: 2009, cidade: 'Rio de Janeiro', nota: '«Desenvolvimento ágil de sistemas para a Web 2.0 com Rails». Monografia de conclusão do bacharelado em Ciência da Computação, defendida em novembro de 2009.' });
   // demais cards do index.html
   N("eleicoes2026", "Eleições 2026", 'projeto', { ano: 2026, nota: "Pesquisas por seção eleitoral geolocalizadas, nos dois turnos, Lula × Flávio, com identidade partidária.", url: "https://xn--2dk.xyz/dataviz/eleicoes/?eleicao=presidente-2026" });
   N("cantography", "Cantography", 'projeto', { ano: 2026, nota: "As 795 mil empresas suíças sobre seus prédios, desde 1883.", url: "https://cantography.ch/" });
