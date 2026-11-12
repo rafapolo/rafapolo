@@ -178,7 +178,7 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
   <div role="dialog" aria-modal="true" aria-labelledby="sobre-t">
     <h2 id="sobre-t">Ontografia</h2>
     <p>Cada ponto é uma pessoa, um projeto ou uma instituição que passou pelo trabalho de Rafael Polo, de 1998 a 2026. As ligações saem de fichas técnicas, créditos, históricos de git, diplomas e CVs.</p>
-    <p><b>⇅ Vertical</b> gira a linha do tempo: o presente fica no alto, com anos e lugares à direita, e a rolagem desce para o passado.</p>
+    <p><b>⇅ Vertical</b> gira a linha do tempo: o presente fica no alto, com anos e lugares à esquerda, e a rolagem desce para o passado.</p>
     <p>A primeira faixa mostra onde Rafael morou em cada época. Os projetos se alinham pelo ano, da esquerda para a direita, e cada pessoa fica na média dos anos a que está ligada. Instituições com início e fim conhecidos viram barras com a duração, embaixo, como uma linha do tempo do CV.</p>
     <p>Clique num ponto para ver as ligações e o papel de cada um, e clique nas ligações para andar pelo grafo. <kbd>/</kbd> busca, <kbd>Esc</kbd> volta à visão geral.</p>
     <p>Projetos vazados são do estúdio Meio, sem participação de Rafael.</p>
@@ -249,9 +249,9 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
   const tiposOn = new Set(Object.keys(TIPOS));
   let rotuloQuadro = 0;
   let modo = 'tempo', centro = null, zoomK = 1;
-  // vertical: o mesmo layout projetado com o tempo no eixo vertical (presente no alto) e a coluna de anos, lugares e barras à direita
+  // vertical: o mesmo layout projetado com o tempo no eixo vertical (presente no alto) e a coluna de anos, lugares e barras à esquerda
   let vertical = !EMBED && (new URLSearchParams(location.search).has('vertical') || (() => { try { return localStorage.getItem('onto-vertical') === '1'; } catch { return false; } })());
-  const px = d => (vertical ? -d.y : d.x), py = d => (vertical ? -d.x : d.y);
+  const px = d => (vertical ? d.y : d.x), py = d => (vertical ? -d.x : d.y);
   const visivel = n => n.tipo === 'eu' || (tiposOn.has(n.tipo) && camadasOn.has(TIPOS[n.tipo].camada));
 
   // ── svg ──
@@ -330,13 +330,13 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
     const passo = EMBED ? 4 : 2, ticks = d3.range(Math.ceil(a0 / passo) * passo, a1 + 1, passo);
     eixo.selectAll('g').data(ticks, d => d).join(e => { const g = e.append('g'); g.append('line'); g.append('text'); return g; })
       .attr('transform', d => (vertical ? `translate(0,${-escalaAno(d)})` : `translate(${escalaAno(d)},0)`))
-      .call(g => g.select('line').attr('x1', vertical ? -(Y_LUGARES - 8) : 0).attr('x2', vertical ? -2200 : 0)
+      .call(g => g.select('line').attr('x1', vertical ? Y_LUGARES + 8 : 0).attr('x2', vertical ? 2200 : 0)
         .attr('y1', vertical ? 0 : Y_LUGARES - 8).attr('y2', vertical ? 0 : 2200))
-      .call(g => g.select('text').text(d => d).attr('x', vertical ? -(Y_LUGARES - 16) + 4 : 0).attr('y', vertical ? 0 : Y_LUGARES - 16)
-        .attr('dy', vertical ? '0.35em' : null).style('text-anchor', vertical ? 'start' : null));
+      .call(g => g.select('text').text(d => d).attr('x', vertical ? Y_LUGARES - 14 : 0).attr('y', vertical ? 0 : Y_LUGARES - 16)
+        .attr('dy', vertical ? '0.35em' : null).style('text-anchor', vertical ? 'end' : null));
     const comp = d => escalaAno(d.fim) - escalaAno(d.ini);
     gLugares.selectAll('g').data(ONTO.lugares || []).join(e => { const g = e.append('g').attr('class', 'lugar'); g.append('rect'); g.append('text'); g.append('title'); return g; })
-      .attr('transform', d => (vertical ? `translate(${-Y_LUGARES},${-escalaAno(d.ini)})` : `translate(${escalaAno(d.ini)},${Y_LUGARES})`))
+      .attr('transform', d => (vertical ? `translate(${Y_LUGARES},${-escalaAno(d.ini)})` : `translate(${escalaAno(d.ini)},${Y_LUGARES})`))
       .call(g => g.select('rect').attr('rx', 3).each(function (d) {
         const r = d3.select(this), c = comp(d) - 2;
         if (vertical) r.attr('x', -8).attr('width', 16).attr('y', -c - 1).attr('height', c);
@@ -389,8 +389,8 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
     const topo = EMBED ? 4 : document.querySelector('header').getBoundingClientRect().bottom + 6, baixo = EMBED ? 8 : 30;
     if (vertical) {
       // largura inteira na tela, o presente logo abaixo do cabeçalho; o passado fica para baixo, rolando
-      const [X0, X1] = d3.extent(vis, px), Xd = -(Y_LUGARES - 16) + 44;
-      const x0 = X0 - 40, x1 = Math.max(X1, Xd);
+      const [X0, X1] = d3.extent(vis, px), Xd = Y_LUGARES - 56;
+      const x0 = Math.min(X0 - 40, Xd), x1 = X1 + 140;
       const yTopo = Math.min(-escalaAno.range()[1] - 30, d3.min(vis, py) - 24);
       const k = Math.max(0.45, Math.min(1.6, 0.96 * W() / (x1 - x0)));
       zoom.translateExtent([[-1e5, yTopo - 40], [1e5, -escalaAno.range()[0] + 140]]);
@@ -545,7 +545,7 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
   nosSel.filter(d => !d.ini).call(d3.drag()
     .subject((e, d) => ({ x: px(d), y: py(d) }))
     .on('start', (e, d) => { if (!e.active) sim.alphaTarget(0.25).restart(); d.fx = d.x; d.fy = d.y; })
-    .on('drag', (e, d) => { d.fx = vertical ? -e.y : e.x; d.fy = vertical ? -e.x : e.y; })
+    .on('drag', (e, d) => { d.fx = vertical ? -e.y : e.x; d.fy = vertical ? e.x : e.y; })
     .on('end', (e, d) => { if (!e.active) sim.alphaTarget(0); d.fx = null; d.fy = null; }));
 
   // ── busca ──
