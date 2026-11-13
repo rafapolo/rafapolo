@@ -19,7 +19,7 @@
   N('etaoin', 'Etaoin Shrdlu', 'projeto', { ano: 2012, nota: 'CMS via FTP que gera o portfólio tipográfico de Pedro Moraes.', url: 'https://rafapolo.github.io/etaoin-shrdlu/' });
   N('victorhaim', 'Victor Haim', 'projeto', { ano: 2011, nota: 'Blog e portfólio do fotógrafo Victor Haim.', url: 'https://web.archive.org/web/20130501204517/http://victorhaim.com.br/' });
   N('subzku', 'SubZKU', 'projeto', { ano: 2019, cidade: 'Berlim', nota: 'Audioguia interativo: cinco anos de ZK/U em seis sets de som.', url: 'https://rafapolo.github.io/subzku/' });
-  N('exst', 'EXST / SoundSystem', 'projeto', { nota: 'Sites do projeto SoundSystem, de Franz Manata e Saulo Laudares.' });
+  N('exst', 'EXST / SoundSystem', 'projeto', { ano: 2011, cidade: 'Rio de Janeiro', nota: 'Sites do projeto SoundSystem, de Franz Manata e Saulo Laudares (primeiro commit em fevereiro de 2011).' });
   N('connectas', 'Connectas / Grupo Bruto', 'projeto', { ano: 2018, nota: 'Plataforma de redes de propriedade entre empresas, doadores de campanha e deputados.', url: 'https://www.connectas.org/especiales/odebrecht/' });
   N('tribuna', 'Tribuna', 'projeto', { ano: 2018, nota: 'Todo o repositório eleitoral do TSE num banco relacional para jornalistas.', url: 'https://github.com/rafapolo/tribuna' });
   N('datative', 'datative', 'projeto', { ano: 2026, nota: 'Redes de CNPJ/CPF entre bases públicas federais.', url: 'https://rafapolo.github.io/datative/' });
@@ -41,7 +41,6 @@
   N('moedax', 'Moedax', 'projeto', { ano: 2021, nota: 'Pagamentos Web3: contratos inteligentes e ponte Web2/Web3 com CBDC.' });
   N('moedacasa', 'Moeda.Casa', 'projeto', { ano: 2020, nota: 'Pagamentos PIX ↔ cripto por QR; deu origem à Kripto Solutions, com bolsa ZOMG (Zcash).' });
   N('verafiko', 'VERAΞFIKO', 'projeto', { ano: 2022, nota: 'Hackathon Celo/Huobi: ponte de stablecoin entre PIX e cripto (projeto solo).', url: 'https://github.com/rafapolo/celohuobihack' });
-  N('yupana', 'yupana', 'projeto', { nota: 'Kernel experimental de "subjetividade coletiva" em Ruby, Python e Pure Data.' });
   N('colmeia', 'Colmeia', 'projeto', { ano: 2026, nota: 'Organização local para as eleições de 2026: cada setor censitário é uma célula.' });
   N('codecreate', 'Code + Create', 'projeto', { ano: 2018, cidade: 'Atenas', nota: 'Aulas de HTML, CSS e jQuery para jovens gregos e refugiados.' });
   N('zeitbank', 'Zeitbank / ZeitLotto', 'projeto', { ano: 2014, cidade: 'Berlim', nota: 'Banco de tempo e loteria de habilidades no Gütermarkt do ZK/U: cada participante troca o que sabe fazer.' });
@@ -81,7 +80,6 @@
   // projetos do Meio sem Rafael
   N('noz', 'Revista Noz', 'projeto', { meio: true, nota: 'Projeto do Meio (sem Rafael).' });
   N('temporaria', 'Editora Temporária', 'projeto', { ano: 2013, meio: true, nota: 'Estrutura temporária de edição de livros sobre a cidade (sem Rafael).' });
-  N('mostras', 'Mostras de Cinema', 'projeto', { meio: true, nota: 'Projeto do Meio (sem Rafael).' });
   N('performance', 'Festival Performance Arte Brasil', 'projeto', { meio: true, nota: 'Identidade visual e catálogo (sem Rafael).' });
 
   // ── pessoas ──
@@ -127,7 +125,6 @@
   P('savio', 'Sávio Figueiredo', 'Professor, orientador do TCC.');
   P('carolina', 'Carolina Xavier', 'Professora, banca do TCC.');
   P('vinicius', 'Vinicius da Fonseca Vieira', 'Professor, banca do TCC.');
-  P('glerm', 'Glerm Soares', 'Artista e programador.');
   P('mariani', 'Daniel Mariani', 'Colmeia.');
   P('cinco', 'Cinco Euzebio', 'Colmeia.');
   P('thiago', 'Thiago Moreira', 'UFMG.');
@@ -196,7 +193,7 @@
   // ── ligações: Rafael ──
   const minhas = ['pensar', 'razao', 'webdoc', 'traces', 'faq', 'parallel', 'zanini', 'etaoin', 'victorhaim', 'subzku', 'exst',
     'connectas', 'tribuna', 'datative', 'eti', 'holistic', 'myshadow', 'sic', 'littlespoon', 'stalker', 'deepgraphics',
-    'agua', 'grafica', 'comuna', 'damnatio', 'fratura', 'abotoados', 'variation', 'ccities', 'moedax', 'moedacasa', 'verafiko', 'zeitbank', 'tcc', 'yupana', 'colmeia', 'codecreate'];
+    'agua', 'grafica', 'comuna', 'damnatio', 'fratura', 'abotoados', 'variation', 'ccities', 'moedax', 'moedacasa', 'verafiko', 'zeitbank', 'tcc', 'colmeia', 'codecreate'];
   for (const p of minhas) L('polo', p, 'autoria / desenvolvimento');
   for (const p of ['eleicoes2026', 'cantography', 'erthos', 'rodado', 'brasilume', 'helvetiscan', 'malafaia', 'brasiliano', 'pet16704', 'rios', 'tsebens', 'vorcaros', 'tocador', 'atlasmakingoff', 'pulso', 'templos', 'tigrinho', 'viso', 'fincrime', 'rais', 'friba', 'religioes', 'braswiss', 'speculari', 'renda', 'steganos', 'processing', 'atlantica', 'mostre', 'consulta', 'baixogavea']) L('polo', p, 'autoria / desenvolvimento');
   L('polo', 'index', 'curso de Visual Basic, 1998');
@@ -222,7 +219,7 @@
 
   // ── Meio ──
   for (const p of ['miguel', 'vitor', 'clara', 'felipe']) L(p, 'meio', 'sócio(a)');
-  for (const p of ['pensar', 'razao', 'traces', 'faq', 'noz', 'temporaria', 'mostras', 'performance']) L('meio', p, 'projeto do estúdio');
+  for (const p of ['pensar', 'razao', 'traces', 'faq', 'noz', 'temporaria', 'performance']) L('meio', p, 'projeto do estúdio');
   for (const p of ['miguel', 'vitor', 'clara']) L(p, 'pensar', 'equipe');
   L('alice', 'pensar', 'vídeo'); L('pensar', 'ccd', 'exposição'); L('pensar', 'studiox', 'exposição');
   L('traces', 'pensar', 'criado para a exposição');
@@ -233,7 +230,7 @@
   L('tetrapak', 'razao', 'patrocínio');
   L('miguel', 'traces', 'equipe'); L('vitor', 'traces', 'equipe');
   L('miguel', 'faq', 'design');
-  L('miguel', 'noz'); L('vitor', 'noz'); L('miguel', 'mostras'); L('miguel', 'temporaria'); L('clara', 'temporaria');
+  L('miguel', 'noz'); L('vitor', 'noz'); L('miguel', 'temporaria'); L('clara', 'temporaria');
   L('clara', 'performance'); L('irph', 'temporaria', 'edital Pró-Design');
 
   // ── WebDoc Graffiti ──
@@ -257,7 +254,6 @@
   L('abotoados', 'bienal', 'residência'); L('variation', 'tac', 'exposição');
   L('ccities', 'hkw', 'Prototyping Lab'); L('ccities', 'ccnet', 'rede');
   L('moedax', 'celo', 'bolsa'); L('moedax', 'zcash', 'bolsa');
-  L('glerm', 'yupana', 'código');
   for (const p of ['mariani', 'cinco', 'thiago', 'victorwu']) L(p, 'colmeia', 'código');
   L('thiago', 'ufmg', 'vínculo');
   L('codecreate', 'gfoss', 'programa');
