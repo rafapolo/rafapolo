@@ -5,8 +5,8 @@ rm -rf dist
 mkdir -p dist/js dist/img/thumbs
 
 cp img/thumbs/*.webp dist/img/thumbs/
-cp img/og.png dist/img/
-for f in fonts ontografia favicon.ico polo.png rafael-polo-cv.pdf 0xCE8E94C8EDA640B6.pub.txt CNAME robots.txt; do
+cp img/og.png img/og-timeline.png dist/img/
+for f in fonts favicon.ico polo.png rafael-polo-cv.pdf 0xCE8E94C8EDA640B6.pub.txt CNAME robots.txt; do
     [ -e "$f" ] && cp -r "$f" dist/
 done
 
@@ -17,7 +17,10 @@ app_v=$(hash8 dist/js/app.js)
 bunx esbuild@0.28.2 style.css --minify --outdir=dist --log-level=warning
 css_v=$(hash8 dist/style.css)
 
-for f in index.html curriculum.html; do
+mkdir -p dist/timeline dist/ontografia
+bunx esbuild@0.28.2 timeline/dados.js --minify --log-level=warning --outfile=dist/timeline/dados.js
+
+for f in index.html curriculum.html timeline/index.html ontografia/index.html; do
     bunx html-minifier-terser@7.2.0 \
         --collapse-whitespace \
         --conservative-collapse \
