@@ -38,7 +38,7 @@
   N('abotoados', 'Abotoados pela Manga', 'projeto', { ano: 2010, cidade: 'São Paulo', nota: 'Residência de arte e política de três semanas durante a 29ª Bienal.' });
   N('variation', 'Vênus-Terra / Variation', 'projeto', { ano: 2012, cidade: 'Rio de Janeiro', nota: 'Apresentação da obra "Variation".' });
   N('ccities', 'Connecting Cities Lab', 'projeto', { ano: 2015, cidade: 'Berlim', nota: 'Prototyping Lab sobre as mudanças invisíveis das cidades.' });
-  N('moedax', 'Moedax', 'projeto', { ano: 2021, nota: 'Pagamentos Web3: contratos inteligentes e ponte Web2/Web3 com CBDC.' });
+  N('moedax', 'Moedax', 'projeto', { ano: 2021, anoPos: 2021.5, cidade: 'Lisboa', nota: 'Pagamentos Web3: contratos inteligentes e ponte Web2/Web3 com CBDC.' });
   N('moedacasa', 'Moeda.Casa', 'projeto', { ano: 2020, nota: 'Pagamentos PIX ↔ cripto por QR; deu origem à Kripto Solutions, com bolsa ZOMG (Zcash).' });
   N('verafiko', 'VERAΞFIKO', 'projeto', { ano: 2022, nota: 'Hackathon Celo/Huobi: ponte de stablecoin entre PIX e cripto (projeto solo).', url: 'https://github.com/rafapolo/celohuobihack' });
   N('colmeia', 'Colmeia', 'projeto', { ano: 2026, nota: 'Organização local para as eleições de 2026: cada setor censitário é uma célula.' });
@@ -70,8 +70,8 @@
   N("religioes", "religioes", 'projeto', { ano: 2025, nota: "Mudança religiosa por município entre os Censos.", url: "https://xn--2dk.xyz/dataviz/religioes/" });
   N("braswiss", "BraSwiss", 'projeto', { ano: 2025, nota: "Rede de empresas suíças com sede no Brasil.", url: "https://tinyurl.com/swiss-brazilian-network" });
   N("speculari", "speculari", 'projeto', { ano: 2022, nota: "Análise visual de arbitragem cripto entre corretoras.", url: "https://github.com/rafapolo/speculari" });
-  N("renda", "Renda", 'projeto', { ano: 2018, nota: "Framework para experimentos cripto-econômicos, em Crystal.", url: "http://github.com/rafapolo/renda" });
-  N("steganos", "Steganos", 'projeto', { ano: 2013, nota: "Converte qualquer arquivo digital numa imagem (reescrito em Rust).", url: "https://github.com/rafapolo/steganos" });
+  N("renda", "Renda", 'projeto', { ano: 2018, cidade: 'Atenas', nota: "Framework para experimentos cripto-econômicos, em Crystal.", url: "http://github.com/rafapolo/renda" });
+  N("steganos", "Steganos", 'projeto', { ano: 2017, anoPos: 2017.5, cidade: 'Atenas', nota: "Converte qualquer arquivo digital numa imagem (reescrito em Rust).", url: "https://github.com/rafapolo/steganos" });
   N("processing", "processing", 'projeto', { ano: 2012, nota: "Esboços de código criativo e visão computacional.", url: "https://github.com/rafapolo/processing" });
   N("atlantica", "Av. Atlântica 1101", 'projeto', { ano: 2010, nota: "Vitrine dia e noite de um duplex em Copacabana.", url: "https://rafapolo.github.io/apt-avenida-atlantica/" });
   N("mostre", "Mostre!me Cultura", 'projeto', { ano: 2009, nota: "Todos os dados do Ministério da Cultura em visualizações.", url: "https://github.com/rafapolo/mostre" });

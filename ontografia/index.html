@@ -366,7 +366,7 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
     svg.classed('tempo', tempo);
     if (tempo) {
       ajustarEscala();
-      sim.force('x', d3.forceX(d => { const a = d.ano ?? d.anoEst; return a ? escalaAno(a) : 0; }).strength(d => (d.ano ? 0.9 : d.anoEst ? 0.35 : 0.02)));
+      sim.force('x', d3.forceX(d => { const a = d.anoPos ?? d.ano ?? d.anoEst; return a ? escalaAno(a) : 0; }).strength(d => (d.ano ? 0.9 : d.anoEst ? 0.35 : 0.02)));
       sim.force('acima', abaixoDasBarras);
       posicionarBarras();
       sim.force('y', d3.forceY(fundoBarras + (EMBED ? 170 : 300)).strength(EMBED ? 0.18 : 0.09));
