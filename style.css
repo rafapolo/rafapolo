@@ -819,7 +819,6 @@ h2 {
     .card-graph {
         grid-column: 1 / -1;
         grid-template-rows: auto clamp(360px, calc(100svh - 240px), 760px);
-        order: -1;
     }
 }
 
@@ -1323,25 +1322,9 @@ h2 {
     border: 0;
 }
 
-/* touch screens: a static preview, so the page keeps scrolling; the button opens the full view */
+/* touch screens: a static preview, so the page keeps scrolling; "Full view" opens the page */
 .onto-panel.estatico iframe {
     pointer-events: none;
-}
-
-.onto-toque {
-    position: absolute;
-    left: 50%;
-    bottom: 14px;
-    transform: translateX(-50%);
-    padding: 10px 18px;
-    border-radius: 999px;
-    background: var(--accent);
-    color: #1c1d1a;
-    font-size: 14px;
-    font-weight: 700;
-    text-decoration: none;
-    white-space: nowrap;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
 }
 
 @media (max-width: 600px) {

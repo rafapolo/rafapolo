@@ -385,14 +385,7 @@
         frame.title = "Timeline: people, projects and institutions on a timeline";
         frame.loading = "lazy";
         panel.appendChild(frame);
-        if (toque.matches) {
-            panel.classList.add("estatico");
-            var go = document.createElement("a");
-            go.className = "onto-toque";
-            go.href = "timeline/";
-            go.textContent = "Tap to explore ↗";
-            panel.appendChild(go);
-        }
+        if (toque.matches) panel.classList.add("estatico");
     }
 
     function select(i, focus) {
