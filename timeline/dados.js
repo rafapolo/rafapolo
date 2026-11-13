@@ -127,7 +127,7 @@
   P('vinicius', 'Vinicius da Fonseca Vieira', 'Professor, banca do TCC.');
   P('mariani', 'Daniel Mariani', 'Colmeia.');
   P('cinco', 'Cinco Euzebio', 'Colmeia.');
-  P('thiago', 'Thiago Moreira', 'UFMG.');
+  P('thiago', 'Thiago Moreira', 'Colmeia.');
   P('victorwu', 'Victor Wu', 'Colmeia.');
 
   // ── instituições ──
@@ -142,7 +142,6 @@
   I('capes', 'CAPES / MEC', 'governo', 'Ministério da Educação.');
   I('rietveld', 'Gerrit Rietveld Academie', 'formacao', 'Amsterdã.');
   I('novaims', 'NOVA IMS', 'formacao', 'Lisboa.');
-  I('ufmg', 'UFMG', 'formacao', 'Universidade Federal de Minas Gerais.');
   // trabalho
   I('swisscom', 'Swisscom', 'trabalho', 'Zurique.');
   I('edge', 'EDGE Empower', 'trabalho', 'Zug.');
@@ -255,7 +254,6 @@
   L('ccities', 'hkw', 'Prototyping Lab'); L('ccities', 'ccnet', 'rede');
   L('moedax', 'celo', 'bolsa'); L('moedax', 'zcash', 'bolsa');
   for (const p of ['mariani', 'cinco', 'thiago', 'victorwu']) L(p, 'colmeia', 'código');
-  L('thiago', 'ufmg', 'vínculo');
   L('codecreate', 'gfoss', 'programa');
 
   L('consulta', 'unirio', 'projeto do mestrado');
