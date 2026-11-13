@@ -407,10 +407,13 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
   const zoom = d3.zoom().scaleExtent([0.2, 6]).on('zoom', e => {
     mundo.attr('transform', e.transform); zoomK = e.transform.k; rotulos();
   });
-  zoom.filter(e => (e.type === 'wheel' ? !vertical || e.ctrlKey : !e.ctrlKey) && !e.button);
+  const comZoom = e => e.ctrlKey || e.metaKey;
+  zoom.filter(e => (e.type === 'wheel' ? !vertical || comZoom(e) : !e.ctrlKey) && !e.button);
+  // pinça do trackpad chega como ctrl+wheel com deltas pequenos; a roda do mouse com ctrl/⌘ vem em degraus grandes
+  zoom.wheelDelta(e => -e.deltaY * (e.deltaMode === 1 ? 0.05 : e.deltaMode ? 1 : 0.002) * (e.ctrlKey && Math.abs(e.deltaY) < 50 ? 10 : 1));
   svg.call(zoom).on('dblclick.zoom', null);
   svg.node().addEventListener('wheel', e => {
-    if (!vertical || e.ctrlKey) return;
+    if (!vertical || comZoom(e)) return;
     e.preventDefault();
     zoom.translateBy(svg, -e.deltaX / zoomK, -e.deltaY / zoomK);
   }, { passive: false });
