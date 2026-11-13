@@ -39,7 +39,7 @@
   N('variation', 'Vênus-Terra / Variation', 'projeto', { ano: 2012, cidade: 'Rio de Janeiro', nota: 'Apresentação da obra "Variation".' });
   N('ccities', 'Connecting Cities Lab', 'projeto', { ano: 2015, cidade: 'Berlim', nota: 'Prototyping Lab sobre as mudanças invisíveis das cidades.' });
   N('moedax', 'Moedax', 'projeto', { ano: 2021, anoPos: 2021.5, cidade: 'Lisboa', nota: 'Pagamentos Web3: contratos inteligentes e ponte Web2/Web3 com CBDC.' });
-  N('moedacasa', 'Moeda.Casa', 'projeto', { ano: 2020, nota: 'Pagamentos PIX ↔ cripto por QR; deu origem à Kripto Solutions, com bolsa ZOMG (Zcash).' });
+  N('moedacasa', 'Moeda.Casa', 'projeto', { ano: 2020, cidade: 'Lisboa', nota: 'Pagamentos PIX ↔ cripto por QR; deu origem à Kripto Solutions, com bolsa ZOMG (Zcash).' });
   N('verafiko', 'VERAΞFIKO', 'projeto', { ano: 2022, nota: 'Hackathon Celo/Huobi: ponte de stablecoin entre PIX e cripto (projeto solo).', url: 'https://github.com/rafapolo/celohuobihack' });
   N('colmeia', 'Colmeia', 'projeto', { ano: 2026, nota: 'Organização local para as eleições de 2026: cada setor censitário é uma célula.' });
   N('codecreate', 'Code + Create', 'projeto', { ano: 2018, cidade: 'Atenas', nota: 'Aulas de HTML, CSS e jQuery para jovens gregos e refugiados.' });
@@ -69,7 +69,7 @@
   N("friba", "Friba", 'projeto', { ano: 2025, nota: "População de Nova Friburgo em 3D.", url: "https://xn--2dk.xyz/dataviz/friba/pop_3d" });
   N("religioes", "religioes", 'projeto', { ano: 2025, nota: "Mudança religiosa por município entre os Censos.", url: "https://xn--2dk.xyz/dataviz/religioes/" });
   N("braswiss", "BraSwiss", 'projeto', { ano: 2025, nota: "Rede de empresas suíças com sede no Brasil.", url: "https://tinyurl.com/swiss-brazilian-network" });
-  N("speculari", "speculari", 'projeto', { ano: 2022, nota: "Análise visual de arbitragem cripto entre corretoras.", url: "https://github.com/rafapolo/speculari" });
+  N("speculari", "speculari", 'projeto', { ano: 2019, cidade: 'Atenas', nota: "Análise visual de arbitragem cripto entre corretoras.", url: "https://github.com/rafapolo/speculari" });
   N("renda", "Renda", 'projeto', { ano: 2018, cidade: 'Atenas', nota: "Framework para experimentos cripto-econômicos, em Crystal.", url: "http://github.com/rafapolo/renda" });
   N("steganos", "Steganos", 'projeto', { ano: 2017, anoPos: 2017.5, cidade: 'Atenas', nota: "Converte qualquer arquivo digital numa imagem (reescrito em Rust).", url: "https://github.com/rafapolo/steganos" });
   N("processing", "processing", 'projeto', { ano: 2012, nota: "Esboços de código criativo e visão computacional.", url: "https://github.com/rafapolo/processing" });
@@ -153,7 +153,7 @@
   I('tecnopop', 'Tecnopop', 'trabalho', 'Estúdio de design visual.');
   I('doctela', 'Doctela', 'trabalho', 'Produtora.');
   // ONGs, coletivos, jornalismo
-  I('kripto', 'Kripto Solutions', 'coletivo', 'Equipe de pesquisa e desenvolvimento cripto formada em torno do Moeda.Casa.');
+  I('kripto', 'Kripto Solutions', 'coletivo', 'Equipe de pesquisa e desenvolvimento cripto formada em Lisboa em torno do Moeda.Casa.');
   I('minho', 'Universidade do Minho', 'formacao', 'Braga, Portugal.');
   I('rodadoxyz', 'rodado.xyz', 'trabalho', 'Selo dos projetos de dados de 2025–2026 do portfólio.', { url: 'https://rodado.xyz/' });
   I('meio', 'Meio', 'coletivo', 'Estúdio de design na Praça Tiradentes, Rio.');
@@ -271,7 +271,8 @@
   L('carolina', 'tcc', 'banca'); L('vinicius', 'tcc', 'banca');
 
   // ── Kripto Solutions ──
-  for (const p of ['moedacasa', 'moedax', 'speculari', 'renda']) L('kripto', p, 'projeto da equipe');
+  for (const p of ['moedacasa', 'moedax']) L('kripto', p, 'projeto da equipe');
+  for (const p of ['speculari', 'renda']) L('kripto', p, 'antecedente, feito em Atenas');
   for (const p of ['marina', 'igor']) L(p, 'kripto', 'equipe');
   L('marina', 'moedax', 'equipe (proposta de bolsa, 2021)');
   L('igor', 'edge', 'equipe');
@@ -292,8 +293,8 @@
   const lugares = [
     { nome: 'Rio de Janeiro', ini: 1998, fim: 2013.9, nota: 'Nova Friburgo, Teresópolis e Rio' },
     { nome: 'Berlim', ini: 2013.9, fim: 2017, nota: 'Trommsdorff + Drüner, Tactical Tech, ZK/U' },
-    { nome: 'Atenas', ini: 2017, fim: 2021, nota: 'Code + Create, laboratórios para refugiados' },
-    { nome: 'Lisboa', ini: 2021, fim: 2023.1, nota: 'NOVA IMS' },
+    { nome: 'Atenas', ini: 2017, fim: 2020, nota: 'Code + Create, laboratórios para refugiados' },
+    { nome: 'Lisboa', ini: 2020, fim: 2023.1, nota: 'Kripto Solutions, Moedax, NOVA IMS' },
     { nome: 'Zurique', ini: 2023.1, fim: 2025.25, nota: 'EDGE (Zug), Swisscom (Zurique)' },
     { nome: 'Basel', ini: 2025.25, fim: 2027, nota: 'freelance desde abril de 2025' },
   ];
