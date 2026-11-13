@@ -143,8 +143,8 @@
   I('rietveld', 'Gerrit Rietveld Academie', 'formacao', 'Amsterdã.');
   I('novaims', 'NOVA IMS', 'formacao', 'Lisboa.');
   // trabalho
-  I('swisscom', 'Swisscom', 'trabalho', 'Zurique.');
-  I('edge', 'EDGE Empower', 'trabalho', 'Zug.');
+  I('swisscom', 'Swisscom', 'trabalho', 'Zurique.', { periodo: [2024.17, 2025.17] });
+  I('edge', 'EDGE Empower', 'trabalho', 'Zug.', { periodo: [2023.08, 2024.08] });
   I('td', 'Trommsdorff + Drüner', 'trabalho', 'Berlim.', { periodo: [2013.92, 2014.08] });
   I('cortex', 'Cortex Intelligence', 'trabalho', 'Rio de Janeiro.');
   I('logical', 'Logical Systems', 'trabalho', 'Rio de Janeiro.');
@@ -203,8 +203,8 @@
   L('polo', 'unirio', 'mestrado em Sistemas de Informação, 2010–2012');
   L('polo', 'capes', 'bolsa de pós-graduação, 2010');
   L('polo', 'novaims', 'pós-graduação em Data Science for Finance, 2021');
-  L('polo', 'swisscom', 'DevOps Engineer, 2024–2025');
-  L('polo', 'edge', 'Senior Technical Lead, 2023–2024');
+  L('polo', 'swisscom', 'DevOps Engineer, mar 2024 – mar 2025');
+  L('polo', 'edge', 'Senior Technical Lead, fev 2023 – fev 2024');
   L('polo', 'td', 'desenvolvedor em Berlim, dez 2013 – jan 2014');
   L('polo', 'cortex', 'desenvolvedor, 2007–2008');
   L('polo', 'logical', 'sysadmin e Java, 2007');
