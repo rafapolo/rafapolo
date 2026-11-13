@@ -3,9 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Ontografia</title>
-<meta name="description" content="Pessoas, projetos e instituições que atravessam o trabalho de Rafael Polo, num grafo navegável.">
+<title>Rafael Polo — Timeline</title>
+<meta name="description" content="People, projects and institutions across Rafael Polo’s work from 1998 to 2026, on an interactive timeline: where he lived, who he built with and which places shaped each project.">
+<meta name="author" content="Rafael Polo">
 <meta name="robots" content="noindex">
+<meta name="theme-color" content="#0f0e0c">
+<link rel="canonical" href="https://extrapolo.com/timeline/">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../polo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rafael Polo">
+<meta property="og:title" content="Rafael Polo — Timeline">
+<meta property="og:description" content="People, projects and institutions across Rafael Polo’s work from 1998 to 2026, on an interactive timeline: where he lived, who he built with and which places shaped each project.">
+<meta property="og:url" content="https://extrapolo.com/timeline/">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://extrapolo.com/img/og-timeline.png?v=1">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Rafael Polo — Timeline: people, projects and institutions from 1998 to 2026">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rafael Polo — Timeline">
+<meta name="twitter:description" content="People, projects and institutions across Rafael Polo’s work from 1998 to 2026, on an interactive timeline: where he lived, who he built with and which places shaped each project.">
+<meta name="twitter:image" content="https://extrapolo.com/img/og-timeline.png?v=1">
+<meta name="twitter:image:alt" content="Rafael Polo — Timeline: people, projects and institutions from 1998 to 2026">
 <script>if (new URLSearchParams(location.search).has('embed')) document.documentElement.classList.add('embed');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -155,7 +176,7 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
 <header>
   <div class="linha1">
     <a class="voltar" href="../">← extrapolo</a>
-    <h1>Ontografia</h1>
+    <h1>Timeline</h1>
     <div class="busca">
       <input id="busca" type="search" placeholder="Buscar pessoa, projeto ou instituição" autocomplete="off" aria-label="Buscar" aria-controls="sugestoes">
       <ul id="sugestoes" role="listbox"></ul>
@@ -164,7 +185,7 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
     <span id="estado" role="status"></span>
     <nav aria-label="Opções do grafo">
       <div class="grupo" role="group" aria-label="Camadas" id="camadas"></div>
-      <div class="grupo"><button id="btn-sobre" aria-label="Sobre a Ontografia">?</button></div>
+      <div class="grupo"><button id="btn-sobre" aria-label="Sobre a Timeline">?</button></div>
     </nav>
   </div>
 </header>
@@ -178,7 +199,7 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
 
 <div id="sobre" hidden>
   <div role="dialog" aria-modal="true" aria-labelledby="sobre-t">
-    <h2 id="sobre-t">Ontografia</h2>
+    <h2 id="sobre-t">Timeline</h2>
     <p>Cada ponto é uma pessoa, um projeto ou uma instituição que passou pelo trabalho de Rafael Polo, de 1998 a 2026. As ligações saem de fichas técnicas, créditos, históricos de git, diplomas e CVs.</p>
     <p>A linha do tempo abre na vertical: o presente fica no alto, com anos e lugares à esquerda, e a rolagem desce para o passado. O botão ao lado da busca gira para a horizontal.</p>
     <p>A primeira faixa mostra onde Rafael morou em cada época. Os projetos se alinham pelo ano, da esquerda para a direita, e cada pessoa fica na média dos anos a que está ligada. Instituições com início e fim conhecidos viram barras com a duração, embaixo, como uma linha do tempo do CV.</p>

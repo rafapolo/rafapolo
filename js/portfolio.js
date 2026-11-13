@@ -304,7 +304,7 @@
     var bio = document.querySelector(".card-bio .info");
     var bioText = bio && bio.querySelector(".bio-text");
     var bioLink = bio && bio.querySelector(".bio-cv-link");
-    var bioFixed = window.matchMedia("(min-width: 821px)");
+    var bioFixed = window.matchMedia("(min-width: 821px), (orientation: landscape)");
 
     function bioFits(font, size) {
         bioText.style.fontSize = font + "px";
@@ -378,18 +378,18 @@
     if (!tabs[0] || !tabs[1] || !canvas || !panel) return;
     var toque = window.matchMedia("(hover: none), (pointer: coarse), (max-width: 600px)");
 
-    function mountOntografia() {
+    function mountTimeline() {
         if (panel.firstChild) return;
         var frame = document.createElement("iframe");
-        frame.src = "ontografia/?embed=1";
-        frame.title = "Ontografia: people, projects and institutions on a timeline";
+        frame.src = "timeline/?embed=1";
+        frame.title = "Timeline: people, projects and institutions on a timeline";
         frame.loading = "lazy";
         panel.appendChild(frame);
         if (toque.matches) {
             panel.classList.add("estatico");
             var go = document.createElement("a");
             go.className = "onto-toque";
-            go.href = "ontografia/";
+            go.href = "timeline/";
             go.textContent = "Tap to explore ↗";
             panel.appendChild(go);
         }
@@ -401,7 +401,7 @@
             t.tabIndex = i === j ? 0 : -1;
         });
         var people = i === 1;
-        if (people) mountOntografia();
+        if (people) mountTimeline();
         canvas.hidden = people;
         panel.hidden = !people;
         if (open) open.hidden = !people;

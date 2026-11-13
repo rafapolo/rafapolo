@@ -1,4 +1,4 @@
-// Ontografia: pessoas, projetos e instituições ligados ao trabalho de Rafael Polo.
+// Timeline: pessoas, projetos e instituições ligados ao trabalho de Rafael Polo.
 // Fonte de cada fato em content/partners.md. Formato: N(id, rótulo, tipo, extra) e L(a, b, papel).
 // Tipos: eu · projeto · pessoa · formacao · trabalho · coletivo · governo · cultura · fundacao
 (function (g) {

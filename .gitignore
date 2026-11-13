@@ -28,6 +28,7 @@ cvs/
 img/*
 !img/thumbs/
 !img/og.png
+!img/og-timeline.png
 img/thumbs/*
 !img/thumbs/*.webp
 
