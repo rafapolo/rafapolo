@@ -50,8 +50,7 @@ a { color: inherit; }
 #palco { position: fixed; inset: 0; width: 100%; height: 100%; display: block; cursor: grab; touch-action: none; }
 #palco:active { cursor: grabbing; }
 
-header { position: fixed; top: 0; left: 0; right: 0; z-index: 5; padding: 14px 16px 0; pointer-events: none; }
-header > * { pointer-events: auto; }
+header { position: fixed; top: 0; left: 0; right: 0; z-index: 5; padding: 12px 16px; background: var(--bg); border-bottom: 1px solid var(--border); }
 .linha1 { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
 .voltar { text-decoration: none; color: var(--text-2); font-size: 15px; white-space: nowrap; }
 .voltar:hover { color: var(--text); }
@@ -273,7 +272,8 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
   let rotuloQuadro = 0;
   let modo = 'tempo', centro = null, zoomK = 1;
   // vertical: o mesmo layout projetado com o tempo no eixo vertical (presente no alto) e a coluna de anos, lugares e barras à esquerda
-  let vertical = !EMBED && !new URLSearchParams(location.search).has('horizontal') && (() => { try { return localStorage.getItem('onto-vertical') !== '0'; } catch { return true; } })();
+  const embedEmPe = () => innerHeight > innerWidth * 1.1;
+  let vertical = EMBED ? embedEmPe() : !new URLSearchParams(location.search).has('horizontal') && (() => { try { return localStorage.getItem('onto-vertical') !== '0'; } catch { return true; } })();
   const px = d => (vertical ? d.y : d.x), py = d => (vertical ? -d.x : d.y);
   const visivel = n => n.tipo === 'eu' || (tiposOn.has(n.tipo) && camadasOn.has(TIPOS[n.tipo].camada));
 
@@ -296,7 +296,7 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
   const W = () => innerWidth, H = () => innerHeight;
   const anos = nos.map(n => n.ano).filter(Boolean);
   const escalaAno = d3.scaleLinear().domain([Math.min(1998, d3.min(anos)), d3.max(anos)]);
-  function ajustarEscala() { const m = EMBED ? W() / 2 - 14 : Math.max(520, W() * 0.85); escalaAno.range([-m, m]); }
+  function ajustarEscala() { const m = EMBED ? (vertical ? H() / 2 - 24 : W() / 2 - 14) : Math.max(520, W() * 0.85); escalaAno.range([-m, m]); }
   ajustarEscala();
 
   const daBarra = l => l.source.ini || l.target.ini;
@@ -425,6 +425,13 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
       const [X0, X1] = d3.extent(vis, px), Xd = Y_LUGARES - 56;
       const x0 = Math.min(X0 - 40, Xd), x1 = X1 + 140;
       const yTopo = Math.min(-escalaAno.range()[1] - 30, d3.min(vis, py) - 24);
+      if (EMBED) {
+        const yFundo = Math.max(-escalaAno.range()[0] + 20, d3.max(vis, py) + 20);
+        const k = Math.min(2.2, 0.96 * Math.min(W() / (x1 - x0), (H() - topo - baixo) / (yFundo - yTopo)));
+        const t = d3.zoomIdentity.translate(W() / 2 - k * (x0 + x1) / 2, topo - k * yTopo).scale(k);
+        svg.transition().duration(reduz ? 0 : 700).call(zoom.transform, t);
+        return;
+      }
       const k = Math.max(0.45, Math.min(1.6, 0.96 * W() / (x1 - x0)));
       zoom.translateExtent([[-1e5, yTopo - 40], [1e5, -escalaAno.range()[0] + 140]]);
       const t = d3.zoomIdentity.translate(W() / 2 - k * (x0 + x1) / 2, topo + 14 - k * yTopo).scale(k);
@@ -458,8 +465,8 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
   }
   function arrumarRotulos() {
     const k = zoomK, perto = new Set(centro ? [centro, ...viz.get(centro).map(v => v.outro)] : []);
-    const rk = d => raio(d) * (EMBED ? 0.5 : 1) / Math.max(k, 1);
-    nosSel.filter(d => !d.ini).select("circle").attr("r", rk).attr("stroke-width", 1.5 / Math.max(k, 1));
+    const rk = d => (EMBED ? Math.max(raio(d) * 0.5, 1.5 / k) : raio(d) / Math.max(k, 1));
+    nosSel.filter(d => !d.ini).select("circle").attr("r", rk).style("stroke-width", 1.5 / k + "px");
     const textos = nosSel.filter(d => !d.ini).select('text').style('font-size', d => (d.tipo === 'eu' ? 15 : 11) / k + 'px').style('stroke-width', 3.5 / k + 'px');
     const candidatos = nos.filter(d => !d.ini && visivel(d) && (!centro || perto.has(d)))
       .sort((a, b) => (b === centro) - (a === centro) || b.grau - a.grau || (b.tipo === 'projeto') - (a.tipo === 'projeto'));
@@ -468,8 +475,10 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
     const caixas = [], lugar = new Map();
     const bate = c => caixas.some(o => c[0] < o[2] && c[2] > o[0] && c[1] < o[3] && c[3] > o[1]);
     let restantes = EMBED && !centro ? ROTULOS_EMBED : Infinity;
+    const t = d3.zoomTransform(svg.node()), naTela = d => { const x = t.x + k * px(d), y = t.y + k * py(d); return x > 0 && x < W() && y > 0 && y < H(); };
     for (const d of candidatos) {
       if (restantes <= 0) break;
+      if (EMBED && !naTela(d)) continue;
       const r = rk(d), w = (d.rotulo.length * 6.2 + 2) / k, h = 6 / k, g = 3 / k, X = px(d), Y = py(d);
       // direita, acima, esquerda, abaixo: a primeira que não bate em outro rótulo nem cobre um ponto
       const opcoes = [
@@ -623,7 +632,10 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
   });
   $('btn-sobre').onclick = () => { $('sobre').hidden = false; };
   $('sobre').onclick = e => { if (e.target === $('sobre')) $('sobre').hidden = true; };
-  addEventListener('resize', () => { if (modo === 'tempo') aplicarModo(); });
+  addEventListener('resize', () => {
+    if (EMBED && vertical !== embedEmPe()) { vertical = !vertical; svg.classed('vertical', vertical); }
+    if (modo === 'tempo') aplicarModo();
+  });
   function girar(v) {
     vertical = v;
     svg.classed('vertical', v);
