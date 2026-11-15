@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -170,40 +170,40 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
 </style>
 </head>
 <body>
-<svg id="palco" aria-label="Grafo de pessoas, projetos e instituições"></svg>
+<svg id="palco" aria-label="Graph of people, projects and institutions"></svg>
 
 <header>
   <div class="linha1">
     <a class="voltar" href="../">← extrapolo</a>
     <h1>Timeline</h1>
     <div class="busca">
-      <input id="busca" type="search" placeholder="Buscar pessoa, projeto ou instituição" autocomplete="off" aria-label="Buscar" aria-controls="sugestoes">
+      <input id="busca" type="search" placeholder="Search a person, project or institution" autocomplete="off" aria-label="Search" aria-controls="sugestoes">
       <ul id="sugestoes" role="listbox"></ul>
     </div>
-    <button id="btn-girar" class="girar" type="button" aria-pressed="false" aria-label="Linha do tempo horizontal" title="Ver a linha do tempo na horizontal"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h11"/><path d="M12 4l3 3-3 3"/><path d="M17 10v10"/><path d="M14 17l3 3 3-3"/></svg></button>
+    <button id="btn-girar" class="girar" type="button" aria-pressed="false" aria-label="Horizontal timeline" title="Show the timeline horizontally"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h11"/><path d="M12 4l3 3-3 3"/><path d="M17 10v10"/><path d="M14 17l3 3 3-3"/></svg></button>
     <span id="estado" role="status"></span>
-    <nav aria-label="Opções do grafo">
-      <div class="grupo" role="group" aria-label="Camadas" id="camadas"></div>
-      <div class="grupo"><button id="btn-sobre" aria-label="Sobre a Timeline">?</button></div>
+    <nav aria-label="Graph options">
+      <div class="grupo" role="group" aria-label="Layers" id="camadas"></div>
+      <div class="grupo"><button id="btn-sobre" aria-label="About the Timeline">?</button></div>
     </nav>
   </div>
 </header>
 
-<details id="legenda"><summary>Tipos</summary><ul id="tipos"></ul></details>
+<details id="legenda"><summary>Types</summary><ul id="tipos"></ul></details>
 
 <aside id="painel" hidden aria-live="polite">
-  <button id="fechar" aria-label="Fechar">×</button>
+  <button id="fechar" aria-label="Close">×</button>
   <div id="painel-corpo"></div>
 </aside>
 
 <div id="sobre" hidden>
   <div role="dialog" aria-modal="true" aria-labelledby="sobre-t">
     <h2 id="sobre-t">Timeline</h2>
-    <p>Cada ponto é uma pessoa, um projeto ou uma instituição que passou pelo trabalho de Rafael Polo, de 1998 a 2026. As ligações saem de fichas técnicas, créditos, históricos de git, diplomas e CVs.</p>
-    <p>A linha do tempo abre na vertical: o presente fica no alto, com anos e lugares à esquerda, e a rolagem desce para o passado. O botão ao lado da busca gira para a horizontal.</p>
-    <p>A primeira faixa mostra onde Rafael morou em cada época. Os projetos se alinham pelo ano, da esquerda para a direita, e cada pessoa fica na média dos anos a que está ligada. Instituições com início e fim conhecidos viram barras com a duração, embaixo, como uma linha do tempo do CV.</p>
-    <p>Clique num ponto para ver as ligações e o papel de cada um, e clique nas ligações para andar pelo grafo. <kbd>/</kbd> busca, <kbd>Esc</kbd> volta à visão geral.</p>
-    <p>Projetos vazados são do estúdio Meio, sem participação de Rafael.</p>
+    <p>Each dot is a person, a project or an institution that passed through Rafael Polo’s work, from 1998 to 2026. The links come from credits, colophons, git histories, diplomas and CVs.</p>
+    <p>The timeline follows the shape of the screen: vertical when it is taller than wide, with the present at the top and scrolling down into the past; horizontal when it is wider. It adapts on its own when you rotate or resize the window, and the button next to the search switches the orientation by hand.</p>
+    <p>The first strip shows where Rafael lived in each period. Projects line up by year, from left to right, and each person sits at the average of the years they are linked to. Institutions with a known start and end become bars showing their duration, below, like a CV timeline.</p>
+    <p>Click a dot to see its links and each one’s role, and click the links to walk through the graph. <kbd>/</kbd> searches, <kbd>Esc</kbd> returns to the overview.</p>
+    <p>Hollow projects belong to the Meio studio, without Rafael’s involvement.</p>
   </div>
 </div>
 
@@ -214,16 +214,16 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
   'use strict';
   const TIPOS = {
     eu:       { nome: 'Rafael Polo', cor: 'var(--c-eu)' },
-    projeto:  { nome: 'Projetos', cor: 'var(--c-projeto)', camada: 'projetos' },
-    pessoa:   { nome: 'Pessoas', cor: 'var(--c-pessoa)', camada: 'pessoas' },
-    formacao: { nome: 'Formação', cor: 'var(--c-formacao)', camada: 'instituicoes' },
-    trabalho: { nome: 'Empresas e estúdios', cor: 'var(--c-trabalho)', camada: 'instituicoes' },
-    coletivo: { nome: 'ONGs, coletivos e jornalismo', cor: 'var(--c-coletivo)', camada: 'instituicoes' },
-    governo:  { nome: 'Governo', cor: 'var(--c-governo)', camada: 'instituicoes' },
-    cultura:  { nome: 'Museus, centros e eventos', cor: 'var(--c-cultura)', camada: 'instituicoes' },
-    fundacao: { nome: 'Fundações e patrocínio', cor: 'var(--c-fundacao)', camada: 'instituicoes' },
+    projeto:  { nome: 'Projects', cor: 'var(--c-projeto)', camada: 'projetos' },
+    pessoa:   { nome: 'People', cor: 'var(--c-pessoa)', camada: 'pessoas' },
+    formacao: { nome: 'Education', cor: 'var(--c-formacao)', camada: 'instituicoes' },
+    trabalho: { nome: 'Companies and studios', cor: 'var(--c-trabalho)', camada: 'instituicoes' },
+    coletivo: { nome: 'NGOs, collectives and journalism', cor: 'var(--c-coletivo)', camada: 'instituicoes' },
+    governo:  { nome: 'Government', cor: 'var(--c-governo)', camada: 'instituicoes' },
+    cultura:  { nome: 'Museums, venues and events', cor: 'var(--c-cultura)', camada: 'instituicoes' },
+    fundacao: { nome: 'Foundations and sponsors', cor: 'var(--c-fundacao)', camada: 'instituicoes' },
   };
-  const CAMADAS = [['projetos', 'Projetos'], ['pessoas', 'Pessoas'], ['instituicoes', 'Instituições']];
+  const CAMADAS = [['projetos', 'Projects'], ['pessoas', 'People'], ['instituicoes', 'Institutions']];
   const ehInstituicao = t => TIPOS[t].camada === 'instituicoes';
   const cor = t => getComputedStyle(document.documentElement).getPropertyValue(TIPOS[t].cor.slice(4, -1)).trim();
   const $ = id => document.getElementById(id);
@@ -252,7 +252,7 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
   for (const n of nos) if (n.anoPapel) n.anoEst = n.anoPapel;
   for (const l of ligacoes) {
     const outro = l.source.tipo === 'eu' ? l.target : l.target.tipo === 'eu' ? l.source : null;
-    if (outro && l.papel && l.papel !== 'autoria / desenvolvimento') outro.meuPapel = l.papel;
+    if (outro && l.papel && l.papel !== 'author / developer') outro.meuPapel = l.papel;
   }
   for (let i = ligacoes.length - 1; i >= 0; i--) if (ligacoes[i].source.tipo === 'eu' || ligacoes[i].target.tipo === 'eu') ligacoes.splice(i, 1);
   nos.splice(nos.findIndex(n => n.tipo === 'eu'), 1);
@@ -272,8 +272,10 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
   let rotuloQuadro = 0;
   let modo = 'tempo', centro = null, zoomK = 1;
   // vertical: o mesmo layout projetado com o tempo no eixo vertical (presente no alto) e a coluna de anos, lugares e barras à esquerda
-  const embedEmPe = () => innerHeight > innerWidth * 1.1;
-  let vertical = EMBED ? embedEmPe() : !new URLSearchParams(location.search).has('horizontal') && (() => { try { return localStorage.getItem('onto-vertical') !== '0'; } catch { return true; } })();
+  const emPe = () => innerHeight > innerWidth * (EMBED ? 1.1 : 1);
+  const qs = new URLSearchParams(location.search);
+  let emPeAntes = emPe();
+  let vertical = qs.has('horizontal') ? false : qs.has('vertical') ? true : emPeAntes;
   const px = d => (vertical ? d.y : d.x), py = d => (vertical ? -d.x : d.y);
   const visivel = n => n.tipo === 'eu' || (tiposOn.has(n.tipo) && camadasOn.has(TIPOS[n.tipo].camada));
 
@@ -382,9 +384,21 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
       .call(g => { if (vertical) g.select('text').each(function (d) { caber(d3.select(this), [d.nome], comp(d) - 12); }); })
       .call(g => g.select('title').text(d => `${d.nome}: ${Math.floor(d.ini)}–${Math.ceil(d.fim) - 1}${d.nota ? ' · ' + d.nota : ''}`));
   }
+  // ligações a nós de outras épocas puxam o nó para longe do seu ano; a velocidade é cortada para ele não sair da janela
+  function presoAoAno() {
+    const k = 1 - sim.velocityDecay();
+    for (const d of nos) {
+      if (d.ini) continue;
+      const a = d.anoPos ?? d.ano, e = a ?? d.anoEst;
+      if (!e) continue;
+      const folga = a ? 0.4 : 1, lo = escalaAno(e - folga), hi = escalaAno(e + folga), nx = d.x + d.vx * k;
+      if (nx < lo) d.vx = (lo - d.x) / k; else if (nx > hi) d.vx = (hi - d.x) / k;
+    }
+  }
   function aplicarModo() {
     const tempo = modo === 'tempo';
     svg.classed('tempo', tempo);
+    sim.force('ano', tempo ? presoAoAno : null);
     if (tempo) {
       ajustarEscala();
       sim.force('x', d3.forceX(d => { const a = d.anoPos ?? d.ano ?? d.anoEst; return a ? escalaAno(a) : 0; }).strength(d => (d.ano ? 0.9 : d.anoEst ? 0.35 : 0.02)));
@@ -506,7 +520,7 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
     arestas.classed('oculta', d => !visivel(d.source) || !visivel(d.target));
     const nVis = nos.filter(visivel).length;
     const lVis = ligacoes.filter(l => visivel(l.source) && visivel(l.target)).length;
-    $('estado').textContent = `${nVis} nós · ${lVis} ligações`;
+    $('estado').textContent = `${nVis} nodes · ${lVis} links`;
     if (centro && !visivel(centro)) selecionar(null);
     for (const b of document.querySelectorAll('#tipos button')) b.setAttribute('aria-pressed', tiposOn.has(b.dataset.tipo) && camadasOn.has(TIPOS[b.dataset.tipo].camada));
   }
@@ -550,23 +564,23 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
     const painel = $('painel'), corpo = $('painel-corpo');
     if (!n) { painel.hidden = true; return; }
     corpo.replaceChildren();
-    corpo.append(el('div', { className: 'tipo' }, ponto(n.tipo), ({ eu: 'Centro', projeto: 'Projeto', pessoa: 'Pessoa', formacao: 'Formação', trabalho: 'Empresa ou estúdio', coletivo: 'ONG, coletivo ou jornalismo', governo: 'Governo', cultura: 'Museu, centro ou evento', fundacao: 'Fundação ou patrocínio' })[n.tipo]));
+    corpo.append(el('div', { className: 'tipo' }, ponto(n.tipo), ({ eu: 'Center', projeto: 'Project', pessoa: 'Person', formacao: 'Education', trabalho: 'Company or studio', coletivo: 'NGO, collective or journalism', governo: 'Government', cultura: 'Museum, venue or event', fundacao: 'Foundation or sponsor' })[n.tipo]));
     corpo.append(el('h2', { textContent: n.rotulo }));
     if (n.nota) corpo.append(el('p', { className: 'nota', textContent: n.nota }));
     const meta = [n.ano, n.cidade].filter(Boolean).join(' · ');
     const m = el('div', { className: 'meta' }, meta);
-    if (n.url) { if (meta) m.append(' · '); m.append(el('a', { href: n.url, target: '_blank', rel: 'noopener', textContent: 'abrir ↗' })); }
+    if (n.url) { if (meta) m.append(' · '); m.append(el('a', { href: n.url, target: '_blank', rel: 'noopener', textContent: 'open ↗' })); }
     if (meta || n.url) corpo.append(m);
-    if (n.meuPapel) corpo.append(el('p', { className: 'meta', textContent: 'Seu papel: ' + n.meuPapel }));
+    if (n.meuPapel) corpo.append(el('p', { className: 'meta', textContent: 'Role: ' + n.meuPapel }));
     const grupos = new Map();
     for (const v of viz.get(n)) {
       const k = v.outro.tipo === 'eu' ? 'eu' : TIPOS[v.outro.tipo].camada;
       (grupos.get(k) || grupos.set(k, []).get(k)).push(v);
     }
-    const ordem = [['projetos', 'Projetos'], ['pessoas', 'Pessoas'], ['instituicoes', 'Instituições']];
+    const ordem = CAMADAS;
     for (const [k, titulo] of ordem) {
       const lista = grupos.get(k); if (!lista) continue;
-      lista.sort((a, b) => (b.outro.ano ?? 0) - (a.outro.ano ?? 0) || a.outro.rotulo.localeCompare(b.outro.rotulo, 'pt'));
+      lista.sort((a, b) => (b.outro.ano ?? 0) - (a.outro.ano ?? 0) || a.outro.rotulo.localeCompare(b.outro.rotulo, 'en'));
       corpo.append(el('h3', { textContent: `${titulo} · ${lista.length}` }));
       const ul = el('ul');
       for (const { outro, l } of lista) {
@@ -636,14 +650,15 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
   $('btn-sobre').onclick = () => { $('sobre').hidden = false; };
   $('sobre').onclick = e => { if (e.target === $('sobre')) $('sobre').hidden = true; };
   addEventListener('resize', () => {
-    if (EMBED && vertical !== embedEmPe()) { vertical = !vertical; svg.classed('vertical', vertical); }
+    const e = emPe();
+    if (e !== emPeAntes) { emPeAntes = e; if (e !== vertical) return girar(e); }
     if (modo === 'tempo') aplicarModo();
   });
   function girar(v) {
     vertical = v;
     svg.classed('vertical', v);
     $('btn-girar').setAttribute('aria-pressed', String(!v));
-    try { localStorage.setItem('onto-vertical', v ? '1' : '0'); } catch {}
+    if (modo === 'tempo') aplicarModo(); else ajustarEscala();
     posicionarBarras(); desenharEixo(); desenhar(); rotulos();
     sim.force('y', d3.forceY(fundoBarras + (EMBED ? 170 : 300)).strength(EMBED ? 0.18 : 0.09)); sim.alpha(0.25).restart();
     setTimeout(() => (centro ? irPara(centro) : enquadrar()), reduz ? 0 : 500);
