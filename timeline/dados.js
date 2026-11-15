@@ -129,6 +129,8 @@
   P('marina', 'Marina Polo', 'PhD in Communication Sciences (University of Minho); researcher on culture, ideology and the internet.');
   P('marise', 'Marise', 'Contributor to Mostre!me Cultura.');
   P('igor', 'Igor', 'Applied communication, UX.');
+  P('helio', 'Helio', 'Colleague at EDGE Empower.');
+  P('abner', 'Abner', 'Colleague at EDGE Empower.');
   P('erthosalbino', 'Erthos Albino de Souza', 'Poet and engineer; author of the Soneto Alfanumérico (Código magazine, 1974).');
   P('jolandatodt', 'Jolanda Todt', 'Artist and graphic designer in Berlin (jolandatodt.de).');
   P('liabergaue', 'Lia Bergaue', 'Member of the Schuldkröten Syndikat in Berlin.');
@@ -292,7 +294,7 @@
   for (const p of ['speculari', 'renda']) L('kripto', p, 'predecessor, made in Athens');
   for (const p of ['marina', 'igor']) L(p, 'kripto', 'team');
   L('marina', 'moedax', 'team (grant proposal, 2021)');
-  L('igor', 'edge', 'team');
+  for (const p of ['igor', 'helio', 'abner']) L(p, 'edge', 'team');
   L('igor', 'moedax', 'UX'); L('miguel', 'moedax', 'UX and product');
   L('marina', 'minho', 'PhD'); L('moedacasa', 'zcash', 'ZOMG grant'); L('verafiko', 'celo', 'Celo/Huobi hackathon');
 
