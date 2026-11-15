@@ -140,8 +140,6 @@
   P('vinicius', 'Vinicius da Fonseca Vieira', 'Professor, thesis committee.');
   P('mariani', 'Daniel Mariani', 'Colmeia.');
   P('cinco', 'Cinco Euzebio', 'Colmeia.');
-  P('thiago', 'Thiago Moreira', 'Colmeia.');
-  P('victorwu', 'Victor Wu', 'Colmeia.');
 
   // ── instituições ──
   const I = (id, nome, tipo, nota, extra = {}) => N(id, nome, tipo, { nota, ...extra });
@@ -264,7 +262,7 @@
   L('abotoados', 'bienal', 'residency'); L('variation', 'tac', 'exhibition');
   L('ccities', 'hkw', 'Prototyping Lab'); L('ccities', 'ccnet', 'network');
   L('moedax', 'celo', 'grant'); L('moedax', 'zcash', 'grant');
-  for (const p of ['mariani', 'cinco', 'thiago', 'victorwu']) L(p, 'colmeia', 'code');
+  for (const p of ['mariani', 'cinco']) L(p, 'colmeia', 'code');
   L('codecreate', 'gfoss', 'program');
 
   L('consulta', 'unirio', 'master’s project');
