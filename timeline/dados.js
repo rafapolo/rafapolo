@@ -144,7 +144,6 @@
   // ── instituições ──
   const I = (id, nome, tipo, nota, extra = {}) => N(id, nome, tipo, { nota, ...extra });
   // formação
-  I('index', 'Index Informática', 'formacao', 'Nova Friburgo.');
   I('bennett', 'Centro Universitário Metodista Bennett', 'formacao', 'Rio de Janeiro. Bachelor’s in Computer Science: completed 12/12/2009, diploma issued 01/10/2010. Thesis defended in November 2009.');
   I('mcury', 'M.Cury Computação', 'formacao', 'Rio de Janeiro.');
   I('feso', 'Fundação Educacional Serra dos Órgãos', 'formacao', 'Teresópolis.');
@@ -207,7 +206,6 @@
     'agua', 'grafica', 'comuna', 'damnatio', 'fratura', 'abotoados', 'variation', 'ccities', 'moedax', 'moedacasa', 'verafiko', 'zeitbank', 'tcc', 'colmeia', 'codecreate'];
   for (const p of minhas) L('polo', p, 'author / developer');
   for (const p of ['eleicoes2026', 'cantography', 'erthos', 'rodado', 'brasilume', 'helvetiscan', 'malafaia', 'brasiliano', 'pet16704', 'rios', 'tsebens', 'vorcaros', 'tocador', 'atlasmakingoff', 'pulso', 'templos', 'tigrinho', 'viso', 'fincrime', 'rais', 'friba', 'religioes', 'braswiss', 'speculari', 'renda', 'steganos', 'processing', 'atlantica', 'mostre', 'consulta', 'baixogavea', 'chao', 'geoglifos', 'ibge13', 'areyousyrious', 'makenochoice', 'zeitmarkt', 'makingoff', 'pologp', 'grafos2010', 'chatrsa']) L('polo', p, 'author / developer');
-  L('polo', 'index', 'Visual Basic course, 1998');
   L('polo', 'bennett', 'bachelor’s in Computer Science, 2006–2009');
   L('polo', 'mcury', 'Linux System Engineer, 2004');
   L('polo', 'feso', 'free software workshop, 2003–2005');
@@ -310,7 +308,7 @@
 
   // onde Rafael morou: anos decimais, contíguos (fonte: CVs, proposta da Moedax)
   const lugares = [
-    { nome: 'Rio de Janeiro', ini: 1998, fim: 2013.9, nota: 'Nova Friburgo, Teresópolis and Rio' },
+    { nome: 'Rio de Janeiro', ini: 2002, fim: 2013.9, nota: 'Nova Friburgo, Teresópolis and Rio' },
     { nome: 'Berlin', ini: 2013.9, fim: 2017, nota: 'Trommsdorff + Drüner, Tactical Tech, ZK/U' },
     { nome: 'Athens', ini: 2017, fim: 2020, nota: 'Code + Create, labs for refugees' },
     { nome: 'Lisbon', ini: 2020, fim: 2023.1, nota: 'Kripto Solutions, Moedax, NOVA IMS' },
@@ -322,7 +320,7 @@
   const curtos = {
     bennett: 'Bennett', feso: 'FESO', cortex: 'Cortex', td: 'T+D', capes: 'CAPES', unirio: 'UNIRIO', ufrj: 'NCE', ufrjeco: 'ECO',
     mcury: 'M.Cury', meuservidor: 'MeuServidor', gfoss: 'GFOSS + Khora', kripto: 'Kripto', edge: 'EDGE',
-    novaims: 'NOVA', ttc: 'TTC', index: 'Index', inpp: 'INPP', intercept: 'Intercept', swisscom: 'Swisscom',
+    novaims: 'NOVA', ttc: 'TTC', inpp: 'INPP', intercept: 'Intercept', swisscom: 'Swisscom',
   };
   for (const n of nos) if (curtos[n.id]) n.curto = curtos[n.id];
 

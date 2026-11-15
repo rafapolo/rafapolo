@@ -297,7 +297,7 @@ svg.foco .aresta.da-barra.perto { display: inline; stroke-dasharray: 3 3; }
 
   const W = () => innerWidth, H = () => innerHeight;
   const anos = nos.map(n => n.ano).filter(Boolean);
-  const escalaAno = d3.scaleLinear().domain([Math.min(1998, d3.min(anos)), d3.max(anos)]);
+  const escalaAno = d3.scaleLinear().domain([2002, d3.max(anos)]);
   function ajustarEscala() { const m = EMBED ? (vertical ? H() / 2 - 24 : W() / 2 - 14) : Math.max(520, W() * 0.85); escalaAno.range([-m, m]); }
   ajustarEscala();
 
