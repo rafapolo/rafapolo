@@ -268,7 +268,6 @@
   L('consulta', 'unirio', 'master’s project');
   L('pologp', 'unirio', 'academic project · Planning Systems course');
   L('makingoff', 'atlasmakingoff', '12 years later'); L('chatrsa', 'steganos', 'earlier encryption project'); L('chatrsa', 'bennett', 'academic project');
-  L('areyousyrious', 'codecreate', 'same refugee crisis');
   for (const p of ['viso', 'fincrime', 'vorcaros']) L('grafos2010', p, 'origin of the network graphs');
   L('erthosalbino', 'erthos', 'author of the decoded poem'); L('mostre', 'minc', 'public data'); L('marina', 'mostre', 'team'); L('marise', 'mostre', 'team');
 
