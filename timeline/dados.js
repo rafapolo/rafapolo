@@ -275,8 +275,8 @@
   L('erthosalbino', 'erthos', 'author of the decoded poem'); L('mostre', 'minc', 'public data'); L('marina', 'mostre', 'team'); L('marise', 'mostre', 'team');
 
   // ── rodado.xyz: projetos recentes do índice ──
-  for (const p of ['eleicoes2026', 'cantography', 'erthos', 'rodado', 'brasilume', 'datative', 'helvetiscan', 'malafaia', 'brasiliano',
-    'pet16704', 'rios', 'tsebens', 'vorcaros', 'tocador', 'atlasmakingoff', 'pulso', 'templos', 'tigrinho', 'viso', 'fincrime',
+  for (const p of ['eleicoes2026', 'erthos', 'rodado', 'brasilume', 'datative', 'malafaia',
+    'pet16704', 'rios', 'tsebens', 'vorcaros', 'pulso', 'templos', 'tigrinho', 'viso', 'fincrime',
     'rais', 'friba', 'religioes', 'braswiss', 'chao', 'geoglifos']) L('rodadoxyz', p, 'portfolio project');
 
   L('alexhead', 'zeitbank', 'collective'); L('jolandatodt', 'zeitbank', 'collective · typography'); L('zeitbank', 'zku', 'Gütermarkt');
