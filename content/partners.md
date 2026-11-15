@@ -62,8 +62,8 @@ Fontes: extrapolo.com/curriculum.html (CV antigo), rafapolo/curriculum.html, con
 | Index Informática (Nova Friburgo) | curso de Visual Basic | 1998 | CV antigo |
 | Centro Universitário Metodista Bennett (Rio) | bacharelado em Ciência da Computação | 2003/04–2009 | CV + diploma |
 | M.Cury Computação (Rio) | Linux System Engineer | 2004 | CV |
-| Fundação Educacional Serra dos Órgãos – FESO (Teresópolis) | oficina de software livre | 2005 | CV antigo |
-| NCE/UFRJ – Núcleo de Computação Eletrônica | desenvolvimento Java | 2006–2007 | CV |
+| Fundação Educacional Serra dos Órgãos – FESO (Teresópolis) | oficina de software livre | 2003–2005 | CV antigo |
+| NCE/UFRJ – Núcleo de Computação Eletrônica | curso de Java | 1º semestre de 2006 | CV |
 | ECO/UFRJ – Escola de Comunicação | extensão em Cultura Digital | 2010 | CV |
 | PPGI/UNIRIO | mestrado em Sistemas de Informação | 2010–2012 | CV + diploma |
 | CAPES / Ministério da Educação | bolsa de pós-graduação | 2010 | CV |
@@ -110,7 +110,7 @@ Fontes: extrapolo.com/curriculum.html (CV antigo), rafapolo/curriculum.html, con
 | Brasiliana Fotográfica (IMS + Fundação Biblioteca Nacional) | acervo arquivado (projeto próprio, sem parceria) | brasiliano/ |
 
 ## Empresas e fundações (emprego e bolsas)
-- Swisscom (Zurique), EDGE Empower / EDGE Strategy (Zug), Trommsdorff + Drüner (Berlim), Cortex Intelligence, Logical Systems, MeuServidor (Rio)
+- Swisscom (Zurique), EDGE Empower / EDGE Strategy (Zug), Trommsdorff + Drüner (Berlim), Cortex Intelligence, MeuServidor (Rio)
 - Celo Foundation e Zcash Foundation: bolsas para o Moedax, 2021
 
 ## Kripto Solutions / Moeda.Casa / Moedax (2020–2021)

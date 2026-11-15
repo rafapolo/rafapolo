@@ -148,7 +148,8 @@
   I('bennett', 'Centro Universitário Metodista Bennett', 'formacao', 'Rio de Janeiro. Bachelor’s in Computer Science: completed 12/12/2009, diploma issued 01/10/2010. Thesis defended in November 2009.');
   I('mcury', 'M.Cury Computação', 'formacao', 'Rio de Janeiro.');
   I('feso', 'Fundação Educacional Serra dos Órgãos', 'formacao', 'Teresópolis.');
-  I('ufrj', 'UFRJ (NCE · ECO)', 'formacao', 'Federal University of Rio de Janeiro.');
+  I('ufrj', 'UFRJ · NCE', 'formacao', 'Federal University of Rio de Janeiro, Núcleo de Computação Eletrônica.', { periodo: [2006, 2006.5] });
+  I('ufrjeco', 'UFRJ · ECO', 'formacao', 'Federal University of Rio de Janeiro, Escola de Comunicação.');
   I('unirio', 'PPGI / UNIRIO', 'formacao', 'Federal University of the State of Rio de Janeiro.');
   I('capes', 'CAPES / MEC', 'governo', 'Ministry of Education.');
   I('rietveld', 'Gerrit Rietveld Academie', 'formacao', 'Amsterdam.');
@@ -158,7 +159,6 @@
   I('edge', 'EDGE Empower', 'trabalho', 'Zug.', { periodo: [2023.08, 2024.08] });
   I('td', 'Trommsdorff + Drüner', 'trabalho', 'Berlin.', { periodo: [2013.92, 2014.08] });
   I('cortex', 'Cortex Intelligence', 'trabalho', 'Rio de Janeiro.');
-  I('logical', 'Logical Systems', 'trabalho', 'Rio de Janeiro.');
   I('meuservidor', 'MeuServidor', 'trabalho', 'Linux/PHP hosting, co-founded.');
   I('inpp', 'INPP', 'trabalho', 'National Institute of Public Research, Teresópolis.');
   I('tecnopop', 'Tecnopop', 'trabalho', 'Visual design studio.');
@@ -210,8 +210,8 @@
   L('polo', 'index', 'Visual Basic course, 1998');
   L('polo', 'bennett', 'bachelor’s in Computer Science, 2003–2009 (started 2003 or 2004, depending on the CV)');
   L('polo', 'mcury', 'Linux System Engineer, 2004');
-  L('polo', 'feso', 'free software workshop, 2005');
-  L('polo', 'ufrj', 'Java at NCE (2006–2010) · Digital Culture extension course at ECO in 2010');
+  L('polo', 'feso', 'free software workshop, 2003–2005');
+  L('polo', 'ufrj', 'Java course at NCE, first half of 2006'); L('polo', 'ufrjeco', 'Digital Culture extension course, 2010');
   L('polo', 'unirio', 'master’s in Information Systems, 2010–2012');
   L('polo', 'capes', 'graduate scholarship, 2010');
   L('polo', 'novaims', 'postgraduate degree in Data Science for Finance, 2021');
@@ -219,7 +219,6 @@
   L('polo', 'edge', 'Senior Technical Lead, Feb 2023 – Feb 2024');
   L('polo', 'td', 'developer in Berlin, Dec 2013 – Jan 2014');
   L('polo', 'cortex', 'developer, 2007–2008');
-  L('polo', 'logical', 'sysadmin and Java, 2007');
   L('polo', 'meuservidor', 'co-founder, 2002–2003');
   L('polo', 'inpp', 'lead developer, 2004');
   L('polo', 'meio', 'co-founder, 2010–2012');
@@ -321,8 +320,8 @@
 
   // nomes curtos para as barras da linha do tempo, quando o nome inteiro não cabe
   const curtos = {
-    bennett: 'Bennett', feso: 'FESO', cortex: 'Cortex', td: 'T+D', capes: 'CAPES', unirio: 'UNIRIO', ufrj: 'UFRJ',
-    mcury: 'M.Cury', logical: 'Logical', meuservidor: 'MeuServidor', gfoss: 'GFOSS', kripto: 'Kripto', edge: 'EDGE',
+    bennett: 'Bennett', feso: 'FESO', cortex: 'Cortex', td: 'T+D', capes: 'CAPES', unirio: 'UNIRIO', ufrj: 'NCE', ufrjeco: 'ECO',
+    mcury: 'M.Cury', meuservidor: 'MeuServidor', gfoss: 'GFOSS', kripto: 'Kripto', edge: 'EDGE',
     novaims: 'NOVA', ttc: 'TTC', index: 'Index', inpp: 'INPP', intercept: 'Intercept', swisscom: 'Swisscom',
   };
   for (const n of nos) if (curtos[n.id]) n.curto = curtos[n.id];
