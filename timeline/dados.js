@@ -41,7 +41,7 @@
   N('moedax', 'Moedax', 'projeto', { ano: 2021, anoPos: 2021.5, cidade: 'Lisbon', nota: 'Web3 payments: smart contracts and a Web2/Web3 bridge with CBDC.' });
   N('moedacasa', 'Moeda.Casa', 'projeto', { ano: 2020, cidade: 'Lisbon', nota: 'PIX ↔ crypto payments by QR code; it gave rise to Kripto Solutions, with a ZOMG grant (Zcash).' });
   N('verafiko', 'VERAΞFIKO', 'projeto', { ano: 2022, nota: 'Celo/Huobi hackathon: stablecoin bridge between PIX and crypto (solo project).', url: 'https://github.com/rafapolo/celohuobihack' });
-  N('colmeia', 'Colmeia', 'projeto', { ano: 2026, nota: 'Local organizing for the 2026 elections: each census tract is a cell.' });
+  N('colmeia', 'Colmeia', 'projeto', { ano: 2026, nota: 'Local organizing for the 2026 elections: each census tract is a cell. We built AI bots to help people.' });
   N('codecreate', 'Code + Create', 'projeto', { ano: 2018, cidade: 'Athens', nota: 'HTML, CSS and jQuery classes for young Greeks and refugees.' });
   N('zeitbank', 'Zeitbank / ZeitLotto', 'projeto', { ano: 2014, cidade: 'Berlin', nota: 'Time bank and skills lottery at the ZK/U Gütermarkt: each participant trades what they know how to do. Shown at Gütermarkt #2, 28 September 2014.', url: 'https://www.zku-berlin.org/de/timeline/guetermarkt-2/' });
   N('tcc', 'TCC Rails', 'projeto', { ano: 2009, cidade: 'Rio de Janeiro', nota: '«Agile development of Web 2.0 systems with Rails». Bachelor’s thesis in Computer Science, defended in November 2009.' });
