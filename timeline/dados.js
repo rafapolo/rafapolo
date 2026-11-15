@@ -195,7 +195,7 @@
   I('ccnet', 'Connecting Cities Network', 'cultura', '');
   I('ccc', 'Chaos Computer Camp', 'cultura', '2015.');
   I('zku', 'ZK/U', 'cultura', 'Zentrum für Kunst und Urbanistik, Berlin.');
-  I('schuldkroeten', 'Schuldkröten Syndikat', 'coletivo', 'Working group of artists, activists, designers and urban researchers on debt in contemporary society, born at the ZK/U Gütermarkt; it ran the Zeitbank research. Jolanda Todt’s CV lists her Wunschkabinett alongside it at ZK/U.', { url: 'https://web.archive.org/web/20161016160155/http://alexhead.com/selected-works/zeitbank-zku/' });
+  I('schuldkroeten', 'Schuldkröten Syndikat', 'coletivo', 'Working group of artists, activists, designers and urban researchers on debt in contemporary society, born at the ZK/U Gütermarkt; it ran the Zeitbank research. Jolanda Todt’s CV lists her Wunschkabinett alongside it at ZK/U.', { url: 'https://web.archive.org/web/20161016160155/http://alexhead.com/selected-works/zeitbank-zku/', periodo: [2014.5, 2015] });
   // fundações
   I('tetrapak', 'Tetra Pak', 'fundacao', 'Sponsorship via the Rouanet Law.');
   I('celo', 'Celo Foundation', 'fundacao', '');
@@ -282,7 +282,7 @@
 
   L('alexhead', 'zeitbank', 'collective'); L('jolandatodt', 'zeitbank', 'collective · typography'); L('zeitbank', 'zku', 'Gütermarkt');
   L('zeitmarkt', 'zeitbank', 'platform code'); L('alexhead', 'zeitmarkt', 'collective'); L('jolandatodt', 'zeitmarkt', 'collective'); L('zeitmarkt', 'zku', 'Gütermarkt');
-  L('polo', 'schuldkroeten', 'member, 2014–2015');
+  L('polo', 'schuldkroeten', 'member, second half of 2014');
   for (const p of ['jolandatodt', 'alexhead', 'liabergaue']) L(p, 'schuldkroeten', 'member'); L('schuldkroeten', 'zku', 'born at the Gütermarkt');
   L('schuldkroeten', 'zeitbank', 'research project'); L('liabergaue', 'zeitbank', 'collective');
 
