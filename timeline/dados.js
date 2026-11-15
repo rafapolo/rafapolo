@@ -208,7 +208,7 @@
   for (const p of ['eleicoes2026', 'cantography', 'erthos', 'rodado', 'brasilume', 'helvetiscan', 'malafaia', 'brasiliano', 'pet16704', 'rios', 'tsebens', 'vorcaros', 'tocador', 'atlasmakingoff', 'pulso', 'templos', 'tigrinho', 'viso', 'fincrime', 'rais', 'friba', 'religioes', 'braswiss', 'speculari', 'renda', 'steganos', 'processing', 'atlantica', 'mostre', 'consulta', 'baixogavea', 'chao', 'geoglifos', 'ibge13', 'areyousyrious', 'makenochoice', 'zeitmarkt', 'makingoff', 'pologp', 'grafos2010', 'chatrsa']) L('polo', p, 'author / developer');
   L('polo', 'bennett', 'bachelor’s in Computer Science, 2006–2009');
   L('polo', 'mcury', 'Linux System Engineer, 2004');
-  L('polo', 'feso', 'free software workshop, 2003–2005');
+  L('polo', 'feso', 'started a BSc in Computer Science, 2003–2005 · free software workshop');
   L('polo', 'ufrj', 'Java course at NCE, first half of 2006'); L('polo', 'ufrjeco', 'Digital Culture extension course, 2010');
   L('polo', 'unirio', 'master’s in Information Systems, 2010–2012');
   L('polo', 'capes', 'graduate scholarship, 2010');

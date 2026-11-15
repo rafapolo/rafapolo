@@ -62,7 +62,7 @@ Fontes: extrapolo.com/curriculum.html (CV antigo), rafapolo/curriculum.html, con
 | Index Informática (Nova Friburgo) | curso de Visual Basic | 1998 | CV antigo |
 | Centro Universitário Metodista Bennett (Rio) | bacharelado em Ciência da Computação | 2006–2009 | CV + diploma |
 | M.Cury Computação (Rio) | Linux System Engineer | 2004 | CV |
-| Fundação Educacional Serra dos Órgãos – FESO (Teresópolis) | oficina de software livre | 2003–2005 | CV antigo |
+| Fundação Educacional Serra dos Órgãos – FESO (Teresópolis) | início do bacharelado em Ciência da Computação (continuado na Bennett); oficina de software livre | 2003–2005 | CV antigo |
 | NCE/UFRJ – Núcleo de Computação Eletrônica | curso de Java | 1º semestre de 2006 | CV |
 | ECO/UFRJ – Escola de Comunicação | extensão em Cultura Digital | 2010 | CV |
 | PPGI/UNIRIO | mestrado em Sistemas de Informação | 2010–2012 | CV + diploma |
