@@ -176,7 +176,7 @@
   I('graficacol', 'Gráfica Utópica collective', 'coletivo', 'Rio multimedia art collective.');
   I('fraturacol', 'Fratura collective', 'coletivo', '');
   I('comunacow', 'Comuna', 'coletivo', 'Coworking and multi-use space, Rio.');
-  I('gfoss', 'GFOSS.eu', 'coletivo', 'Open Technologies Alliance, Athens.');
+  I('gfoss', 'GFOSS.eu + Khora', 'coletivo', 'Open Technologies Alliance, Athens.');
   // governo
   I('minc', 'Ministry of Culture', 'governo', '');
   I('inea', 'INEA', 'governo', 'Rio de Janeiro State Environmental Institute.');
@@ -321,7 +321,7 @@
   // nomes curtos para as barras da linha do tempo, quando o nome inteiro não cabe
   const curtos = {
     bennett: 'Bennett', feso: 'FESO', cortex: 'Cortex', td: 'T+D', capes: 'CAPES', unirio: 'UNIRIO', ufrj: 'NCE', ufrjeco: 'ECO',
-    mcury: 'M.Cury', meuservidor: 'MeuServidor', gfoss: 'GFOSS', kripto: 'Kripto', edge: 'EDGE',
+    mcury: 'M.Cury', meuservidor: 'MeuServidor', gfoss: 'GFOSS + Khora', kripto: 'Kripto', edge: 'EDGE',
     novaims: 'NOVA', ttc: 'TTC', index: 'Index', inpp: 'INPP', intercept: 'Intercept', swisscom: 'Swisscom',
   };
   for (const n of nos) if (curtos[n.id]) n.curto = curtos[n.id];
