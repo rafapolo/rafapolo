@@ -1285,15 +1285,20 @@ h2 {
 
 .graph-open {
     margin-left: auto;
-    font-size: 12px;
-    letter-spacing: 0.06em;
+    font-size: 13px;
     color: var(--accent);
-    text-decoration: none;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    padding: 5px 15px;
+    border-radius: 999px;
     white-space: nowrap;
+    transition: background 0.15s, color 0.15s;
 }
 
 .graph-open:hover {
-    color: var(--accent-strong);
+    background: var(--accent);
+    color: var(--ink);
+    text-decoration: none;
 }
 
 #graph-canvas,
